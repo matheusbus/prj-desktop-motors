@@ -73,6 +73,11 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         });
 
         btnAdicionaVendedor.setText("Cadastrar Vendedor");
+        btnAdicionaVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionaVendedorActionPerformed(evt);
+            }
+        });
 
         tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,6 +158,11 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     private void btnAdicionaGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaGerenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdicionaGerenteActionPerformed
+
+    private void btnAdicionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVendedorActionPerformed
+       CadastroVendedor cadastroVendedor = new CadastroVendedor(this); 
+       cadastroVendedor.setVisible(true);
+    }//GEN-LAST:event_btnAdicionaVendedorActionPerformed
 
     /**
      * @param args the command line arguments
