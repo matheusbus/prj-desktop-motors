@@ -15,6 +15,7 @@ public class Gerente extends Funcionario implements Autenticavel{
 
     public Gerente(double Salario, String nome, String cpf, String telefone, String departamento) {
         super(Salario, nome, cpf, telefone);
+        this.departamento = departamento;
     }
 
     @Override
