@@ -27,7 +27,7 @@ public abstract class Veiculo {
         this.ano = ano;
         this.preco = preco;
         this.tipoCombustivel = tipoCombustivel;
-
+        
     }
 
     public String getPlaca() {
