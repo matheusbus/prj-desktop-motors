@@ -7,6 +7,7 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
+import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +30,7 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         this.venda = venda;
         pessoas = new PessoaDAO();
         popularTabela();
+        carregarFuncionais();
     }
 
     ConsultaFuncionariosView() {
@@ -36,6 +38,12 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         popularTabela();  
+        carregarFuncionais();
+    }
+    
+    public void carregarFuncionais(){
+       Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "987654321");
+       Pessoa func2 = new Vendedor(10.0, 3000, "Marcos", "123213123", "98242");
     }
     
     public void popularTabela(){
@@ -192,7 +200,8 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
         String sCPF;    
         sCPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1); 
-        venda.vendedor = pessoas.buscarPessoaPorCPF(sCPF);      
+        venda.vendedor = pessoas.buscarPessoaPorCPF(sCPF);
+        venda.VendedorSelecionado = true;
         setVisible(false);
     }//GEN-LAST:event_btnSelecionarActionPerformed
 

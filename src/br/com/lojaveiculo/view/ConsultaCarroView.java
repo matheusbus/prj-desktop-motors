@@ -255,7 +255,8 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
        String sPlaca;    
         sPlaca = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
-        venda.veiculo = veiculos.buscarVeiculo(sPlaca);      
+        venda.veiculo = veiculos.buscarVeiculo(sPlaca); 
+        venda.VeiculoSelecionado = true;
         setVisible(false);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
