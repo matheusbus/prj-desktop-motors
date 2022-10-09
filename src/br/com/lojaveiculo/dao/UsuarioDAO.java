@@ -28,8 +28,9 @@ public class UsuarioDAO implements UsuarioRepositorio{
     }
 
     @Override
-    public void adicionarUsuario(Usuario usu) {
+    public boolean adicionarUsuario(Usuario usu) {
         usuarios.add(usu);
+        return true;
     }
 
     @Override

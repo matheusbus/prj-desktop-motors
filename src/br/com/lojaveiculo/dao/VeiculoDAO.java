@@ -6,6 +6,7 @@ package br.com.lojaveiculo.dao;
 
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,7 +19,7 @@ public class VeiculoDAO implements VeiculoRepositorio{
 
     public VeiculoDAO(Map<String, Veiculo> veiculos) {
         if(veiculos == null){
-        this.veiculos = veiculos;
+        this.veiculos = new HashMap<>();
     }
     }
     
@@ -83,5 +84,11 @@ public class VeiculoDAO implements VeiculoRepositorio{
            }
        }
        return true;
+    }
+
+    @Override
+    public Map<String, Veiculo> ordenaPreço() {
+       Map<String, Veiculo> veiculosOrdenados = new HashMap<>();
+       return veiculosOrdenados;
     }
           }

@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 /**
@@ -27,11 +26,6 @@ public class PrincipalView extends javax.swing.JFrame {
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
         
-        // Instancia do estoque
-        /*
-        Deve iniciar o estoque ao logar no sistema, ao abrir a tela principal do sistema.
-        */
-        this.veiculo = new VeiculoDAO();
     }
     
     
@@ -52,7 +46,6 @@ public class PrincipalView extends javax.swing.JFrame {
         miCadClientes = new javax.swing.JRadioButtonMenuItem();
         miCadVeiculos = new javax.swing.JRadioButtonMenuItem();
         miCadVendas = new javax.swing.JRadioButtonMenuItem();
-        muOpcoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -98,9 +91,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         mbMenuPrincipal.add(muCadFuncionarios);
 
-        muOpcoes.setText("Opções");
-        mbMenuPrincipal.add(muOpcoes);
-
         setJMenuBar(mbMenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,11 +120,9 @@ public class PrincipalView extends javax.swing.JFrame {
             FlatArcDarkIJTheme.setup();
         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalView().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+            new PrincipalView().setVisible(true);
+            });
     }
     
 
@@ -146,9 +134,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem miCadVeiculos;
     private javax.swing.JRadioButtonMenuItem miCadVendas;
     private javax.swing.JMenu muCadFuncionarios;
-    private javax.swing.JMenu muOpcoes;
     // End of variables declaration//GEN-END:variables
 
+<<<<<<< HEAD
     private static class VeiculoDAO extends Veiculo {
 
         //public VeiculoDAO() {
@@ -156,3 +144,6 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }
 //}
+=======
+}
+>>>>>>> 2f7c3f5e44ecf430e6fef44fd8e926b6618253b1

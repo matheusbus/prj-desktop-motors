@@ -4,7 +4,11 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.model.Marca;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,9 +24,19 @@ public class ConsultaCarroView extends javax.swing.JFrame {
         
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
+        carregarDadosTabela();
         
     }
 
+    public void carregarDadosTabela(){
+        tblCarros.getModel();
+        
+        Carro carroTeste = new Carro("ABC0001", "VW Jetta 2.0 TSI", new Marca("Wolksvagen"), 2018, 180000, "Gasolina", 4);
+        
+        DefaultTableModel grid = (DefaultTableModel) tblCarros.getModel();
+        grid.addRow(carroTeste.obterDados());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,28 +48,42 @@ public class ConsultaCarroView extends javax.swing.JFrame {
 
         dkpFundo = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tblCarros = new javax.swing.JTable();
+        btnAdicionaVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCarros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Portas"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        jButton1.setText("jButton1");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCarros.setToolTipText("");
+        tblCarros.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        jScrollPane1.setViewportView(tblCarros);
+
+        btnAdicionaVeiculo.setText("Cadastrar");
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnAdicionaVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
         dkpFundo.setLayout(dkpFundoLayout);
@@ -63,20 +91,20 @@ public class ConsultaCarroView extends javax.swing.JFrame {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dkpFundoLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(dkpFundoLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -113,9 +141,9 @@ public class ConsultaCarroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionaVeiculo;
     private javax.swing.JDesktopPane dkpFundo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCarros;
     // End of variables declaration//GEN-END:variables
 }
