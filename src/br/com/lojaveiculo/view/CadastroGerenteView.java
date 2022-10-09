@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroGerente extends javax.swing.JFrame {
+public class CadastroGerenteView extends javax.swing.JFrame {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
     /**
      * Creates new form CadastroGerente
      */
-    public CadastroGerente() {
+    public CadastroGerenteView() {
         initComponents();
     }
 
@@ -173,7 +173,7 @@ public class CadastroGerente extends javax.swing.JFrame {
         Double dSalario = Double.parseDouble(sSalario);
         
 
-        //if (cbDepartamento.getSelectedIndex() == 0) {
+        //cbDepartamento.getSelectedIndex() == 0) {
             Pessoa pessoa2 = new Gerente(0, sNome, sCpf, sTelefone, sSalario);
             if(pessoas.adicionarPessoa(pessoa2)){
                 JOptionPane.showMessageDialog(rootPane, pessoa2.toString());
@@ -219,20 +219,21 @@ public class CadastroGerente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerenteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerenteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerenteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerenteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroGerente().setVisible(true);
+                new CadastroGerenteView().setVisible(true);
             }
         });
     }
