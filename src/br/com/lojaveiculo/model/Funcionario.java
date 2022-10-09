@@ -12,21 +12,21 @@ import java.util.Date;
  */
 public abstract class Funcionario extends Pessoa {
     
-    private double Salario;
+    private double salario;
     private Date dataAdmissao;
 
-    public Funcionario(double Salario, String nome, String cpf, String telefone) {
+    public Funcionario(double salario, String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
-        this.Salario = Salario;
+        this.salario = salario;
         this.dataAdmissao = new Date();
     }
 
     public double getSalario() {
-        return Salario;
+        return salario;
     }
 
     public void setSalario(double Salario) {
-        this.Salario = Salario;
+        this.salario = Salario;
     }
 
     public Date getDataAdmissao() {
@@ -35,6 +35,11 @@ public abstract class Funcionario extends Pessoa {
 
     public void setDataAdmissao(Date dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
+    }
+
+    @Override
+    public Object[] obterDados() {
+         return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao};
     }
  
     
