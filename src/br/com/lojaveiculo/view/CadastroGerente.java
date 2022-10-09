@@ -170,8 +170,8 @@ public class CadastroGerente extends javax.swing.JFrame {
         String sNome = txtNome.getText();
         String sTelefone = txtTelefone.getText();
         String sSalario = txtSalario.getText();
-        
         Double dSalario = Double.parseDouble(sSalario);
+        
 
         //if (cbDepartamento.getSelectedIndex() == 0) {
             Pessoa pessoa2 = new Gerente(0, sNome, sCpf, sTelefone, sSalario);
