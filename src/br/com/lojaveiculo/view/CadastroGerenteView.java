@@ -174,7 +174,7 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         String sSalario = txtSalario.getText();
         Double dSalario = Double.parseDouble(sSalario);
         String sDepartamento = txtDepartamento.getText();
-        
+       
             Pessoa pessoa2 = new Gerente(dSalario, sNome, sCpf, sTelefone, sDepartamento);
             if(pessoas.adicionarPessoa(pessoa2)){
                 consulta.limparTabela();
