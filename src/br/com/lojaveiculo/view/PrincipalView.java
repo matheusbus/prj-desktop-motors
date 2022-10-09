@@ -151,8 +151,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private static class VeiculoDAO extends Veiculo {
 
-        public VeiculoDAO() {
+        //public VeiculoDAO() {
             //super();
         }
     }
-}
+//}
