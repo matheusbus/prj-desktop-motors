@@ -46,12 +46,9 @@ public class PrincipalView extends javax.swing.JFrame {
 
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
-        muCadastros = new javax.swing.JMenu();
-        miCadVeiculo = new javax.swing.JMenuItem();
-        miCadMarca = new javax.swing.JMenuItem();
-        muFuncionarios = new javax.swing.JMenu();
-        muClientes = new javax.swing.JMenu();
-        muVendas = new javax.swing.JMenu();
+        muCadFuncionarios = new javax.swing.JMenu();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         muOpcoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,29 +70,22 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGap(0, 597, Short.MAX_VALUE)
         );
 
-        muCadastros.setText("Cadastros");
+        muCadFuncionarios.setText("Cadastros");
 
-        miCadVeiculo.setText("Veículos");
-        miCadVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("Funcionários");
+        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadVeiculoActionPerformed(evt);
+                jRadioButtonMenuItem2ActionPerformed(evt);
             }
         });
-        muCadastros.add(miCadVeiculo);
+        muCadFuncionarios.add(jRadioButtonMenuItem2);
 
-        miCadMarca.setText("Marcas");
-        muCadastros.add(miCadMarca);
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+        muCadFuncionarios.add(jRadioButtonMenuItem1);
 
-        mbMenuPrincipal.add(muCadastros);
-
-        muFuncionarios.setText("Funcionários");
-        mbMenuPrincipal.add(muFuncionarios);
-
-        muClientes.setText("Clientes");
-        mbMenuPrincipal.add(muClientes);
-
-        muVendas.setText("Vendas");
-        mbMenuPrincipal.add(muVendas);
+        mbMenuPrincipal.add(muCadFuncionarios);
 
         muOpcoes.setText("Opções");
         mbMenuPrincipal.add(muOpcoes);
@@ -106,24 +96,23 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miCadVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadVeiculoActionPerformed
-        
-    }//GEN-LAST:event_miCadVeiculoActionPerformed
+    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
     
         public static void main(String args[]) {
             
@@ -140,13 +129,10 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JMenuBar mbMenuPrincipal;
-    private javax.swing.JMenuItem miCadMarca;
-    private javax.swing.JMenuItem miCadVeiculo;
-    private javax.swing.JMenu muCadastros;
-    private javax.swing.JMenu muClientes;
-    private javax.swing.JMenu muFuncionarios;
+    private javax.swing.JMenu muCadFuncionarios;
     private javax.swing.JMenu muOpcoes;
-    private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
 }
