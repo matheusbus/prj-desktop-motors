@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.model;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Matheus
@@ -17,6 +19,7 @@ public abstract class Veiculo {
     protected double preco;
     protected String tipoCombustivel;
 
+
     public Veiculo(String placa, String modelo, Marca marca, int ano, double preco, String tipoCombustivel) {
         this.placa = placa;
         this.modelo = modelo;
@@ -24,6 +27,7 @@ public abstract class Veiculo {
         this.ano = ano;
         this.preco = preco;
         this.tipoCombustivel = tipoCombustivel;
+
     }
 
     public String getPlaca() {
