@@ -4,18 +4,24 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
+import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import java.util.Vector;
+import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Matheus
  */
-public class ConsultaCarroView extends javax.swing.JFrame {
+public final class ConsultaCarroView extends javax.swing.JFrame {
 
+    private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
+    private DefaultTableModel grid;
+    
     /**
      * Creates new form ConsultaVeiculo
      */
@@ -24,17 +30,34 @@ public class ConsultaCarroView extends javax.swing.JFrame {
         
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
-        carregarDadosTabela();
+        criaVeiculos();
+        popularTabela();
         
     }
 
-    public void carregarDadosTabela(){
+    public void popularTabela(){
         tblCarros.getModel();
+        grid = (DefaultTableModel) tblCarros.getModel();
+        Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
         
-        Carro carroTeste = new Carro("ABC0001", "VW Jetta 2.0 TSI", new Marca("Wolksvagen"), 2018, 180000, "Gasolina", 4);
+        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
+            if(entry.getValue() instanceof Carro){
+                Carro carro = (Carro) entry.getValue();
+                grid.addRow(carro.obterDados());
+            }
+        }
         
-        DefaultTableModel grid = (DefaultTableModel) tblCarros.getModel();
-        grid.addRow(carroTeste.obterDados());
+    }
+    
+    public void limparTabela(){
+        
+    }
+    
+    public void criaVeiculos(){
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0001", "Gol 1.0", new Marca("Wolksvagen"), 2002, 25000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0002", "Palio 2.5 Turbo", new Marca("Fiat"), 2002, 80000, "Diesel", 5));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0003", "Onix nutella", new Marca("Chevrolet"), 2002, 50000, "Gasolina", 3));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0004", "Arizzo 5", new Marca("Chery"), 2002, 40000, "Diesel", 7));
     }
     
     /**
@@ -81,6 +104,11 @@ public class ConsultaCarroView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblCarros);
 
         btnAdicionaVeiculo.setText("Cadastrar");
+        btnAdicionaVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionaVeiculoActionPerformed(evt);
+            }
+        });
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dkpFundo.setLayer(btnAdicionaVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -125,6 +153,11 @@ public class ConsultaCarroView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAdicionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVeiculoActionPerformed
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0004", "Arizzo 5", new Marca("Chery"), 2002, 40000, "Diesel", 7));
+        
+    }//GEN-LAST:event_btnAdicionaVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
