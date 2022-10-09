@@ -35,7 +35,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.btnSelecionarVeiculo.setEnabled(true);
+        this.btnSelecionarVeiculo.setEnabled(false);
         grid = (DefaultTableModel) tblCarros.getModel();
         criaVeiculos();
         popularTabela();

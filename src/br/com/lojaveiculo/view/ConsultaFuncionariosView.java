@@ -29,21 +29,23 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         this.setContentPane(dkpFundo);
         this.venda = venda;
         pessoas = new PessoaDAO();
+        carregarFuncionarios();
         popularTabela();
-        carregarFuncionais();
     }
 
     ConsultaFuncionariosView() {
       initComponents();
         // Adicionar painel ao fundo
-        this.setContentPane(dkpFundo);
-        popularTabela();  
-        carregarFuncionais();
+        this.setContentPane(dkpFundo); 
+        carregarFuncionarios();
+        popularTabela(); 
     }
     
-    public void carregarFuncionais(){
+    public void carregarFuncionarios(){
        Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "987654321");
        Pessoa func2 = new Vendedor(10.0, 3000, "Marcos", "123213123", "98242");
+       pessoas.adicionarPessoa(func1);
+       pessoas.adicionarPessoa(func2);
     }
     
     public void popularTabela(){
@@ -179,9 +181,9 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
                 .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
