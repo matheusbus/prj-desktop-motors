@@ -8,6 +8,7 @@ import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class PessoaDAO implements PessoaRepositorio{
 
-    private static List<Pessoa> pessoas;
+    private static Set<Pessoa> pessoas;
     
     public PessoaDAO(){
         if(PessoaDAO.pessoas == null){
