@@ -104,7 +104,9 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
 
     private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
-        // TODO add your handling code here:
+        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView();
+        setVisible(true);
+ 
     }//GEN-LAST:event_btnSelecionaVendedorActionPerformed
 
     /**
