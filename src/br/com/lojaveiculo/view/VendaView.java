@@ -5,9 +5,13 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Pessoa;
+import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 
 /**
  *
@@ -16,15 +20,19 @@ import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 public class VendaView extends javax.swing.JFrame {
 
     protected Pessoa vendedor;
+    protected Veiculo veiculo;
     protected boolean selecionado;
     private PessoaRepositorio pessoas;
+    private VeiculoRepositorio veiculos;
     protected String sCpf;
   
     
     public VendaView() {
         initComponents();
         vendedor = new Vendedor(0.0, 0.0, "", "", "");
+        veiculo = new Carro("", "", null, 0, 0, "", 0);
         pessoas = new PessoaDAO();
+        veiculos = new VeiculoDAO();
     }
 
     /**
@@ -125,6 +133,7 @@ public class VendaView extends javax.swing.JFrame {
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
        txtVendedorSelecionado.setText(vendedor.getNome());
+       txtaVeiculoSelecionado.setText(veiculo.toString());
     }//GEN-LAST:event_formMouseMoved
 
 

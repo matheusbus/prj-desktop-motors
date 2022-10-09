@@ -26,40 +26,43 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="txtMarca" alignment="0" pref="172" max="32767" attributes="0"/>
-                  <Component id="lblModelo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblMarca" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtModelo" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblPortas" min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="txtPortas" min="-2" pref="44" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtPreco" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                          <Component id="lblPreco" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblPlaca" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                  <Component id="txtPlaca" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblCombustivel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblAno" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
-                      <Component id="txtAno" alignment="0" pref="95" max="32767" attributes="0"/>
-                      <Component id="cbCombustivel" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btnCadCarro" min="-2" pref="309" max="-2" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtMarca" alignment="0" pref="172" max="32767" attributes="0"/>
+                          <Component id="lblModelo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblMarca" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtModelo" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblPortas" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="txtPortas" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtPreco" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="lblPreco" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPlaca" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="txtPlaca" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="lblCombustivel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblAno" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="txtAno" alignment="0" pref="95" max="32767" attributes="0"/>
+                              <Component id="cbCombustivel" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-              <Component id="btnCadCarro" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,9 +109,9 @@
                       <Component id="txtPreco" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
-              <Component id="btnCadCarro" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="btnCadCarro" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

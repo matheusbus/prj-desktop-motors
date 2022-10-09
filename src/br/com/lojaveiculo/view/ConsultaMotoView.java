@@ -11,7 +11,6 @@ import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.util.Map;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaCarroView extends javax.swing.JFrame {
+public final class ConsultaMotoView extends javax.swing.JFrame {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
@@ -27,7 +26,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     /**
      * Creates new form ConsultaVeiculo
      */
-    public ConsultaCarroView() {
+    public ConsultaMotoView() {
         initComponents();
         
         // Adicionar painel ao fundo
@@ -52,10 +51,6 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
                 grid.addRow(carro.obterDados());
             }
         }
-    }
-    
-    public JButton getBotaoSeleciona(){
-        return this.btnSelecionarVeiculo;
     }
     
     public void limparTabela(){
@@ -96,7 +91,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Portas"
+                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Cilindradas"
             }
         ) {
             Class[] types = new Class [] {
@@ -215,8 +210,8 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVeiculoActionPerformed
-        CadastroCarroView cadCarro = new CadastroCarroView(this);
-        cadCarro.setVisible(true);
+        /*CadastroMotoView cadMoto = new CadastroMotoView(this);
+        cadCarro.setVisible(true);*/
     }//GEN-LAST:event_btnAdicionaVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
@@ -248,7 +243,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaCarroView().setVisible(true);
+                new ConsultaMotoView().setVisible(true);
             }
         });
     }
