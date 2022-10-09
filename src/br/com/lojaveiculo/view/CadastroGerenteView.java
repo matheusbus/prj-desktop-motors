@@ -38,13 +38,13 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         txtCpf = new javax.swing.JTextField();
         lblDepartamento = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
-        cbDepartamento = new javax.swing.JComboBox<>();
         lblNome = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
         lblSalario = new javax.swing.JLabel();
+        txtDepartamento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,13 +64,6 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         lblDepartamento.setText("Departamento");
 
         lblCpf.setText("CPF");
-
-        cbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiscal", "Financeiro" }));
-        cbDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbDepartamentoActionPerformed(evt);
-            }
-        });
 
         lblNome.setText("Nome");
 
@@ -95,6 +88,12 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         });
 
         lblSalario.setText("Salário");
+
+        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepartamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,7 +120,7 @@ public class CadastroGerenteView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
@@ -149,7 +148,7 @@ public class CadastroGerenteView extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(lblDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,9 +170,8 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         String sTelefone = txtTelefone.getText();
         String sSalario = txtSalario.getText();
         Double dSalario = Double.parseDouble(sSalario);
+        String sDepartamento = txtDepartamento.getText();
         
-
-        //cbDepartamento.getSelectedIndex() == 0) {
             Pessoa pessoa2 = new Gerente(0, sNome, sCpf, sTelefone, sSalario);
             if(pessoas.adicionarPessoa(pessoa2)){
                 JOptionPane.showMessageDialog(rootPane, pessoa2.toString());
@@ -186,10 +184,6 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
 
-    private void cbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDepartamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbDepartamentoActionPerformed
-
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
@@ -201,6 +195,10 @@ public class CadastroGerenteView extends javax.swing.JFrame {
     private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalarioActionPerformed
+
+    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepartamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,7 +238,6 @@ public class CadastroGerenteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadGerente;
-    private javax.swing.JComboBox<String> cbDepartamento;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblNome;
@@ -248,6 +245,7 @@ public class CadastroGerenteView extends javax.swing.JFrame {
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblTelefone1;
     private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtDepartamento;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtTelefone;
