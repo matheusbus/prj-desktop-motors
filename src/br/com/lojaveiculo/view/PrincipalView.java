@@ -4,7 +4,8 @@
  */
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.model.Estoque;
+import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 /**
  *
@@ -12,7 +13,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme
  */
 public class PrincipalView extends javax.swing.JFrame {
 
-    private Estoque estoque;
+    private Veiculo veiculo;
     /**
      * Creates new form InicialView
      */
@@ -30,7 +31,7 @@ public class PrincipalView extends javax.swing.JFrame {
         /*
         Deve iniciar o estoque ao logar no sistema, ao abrir a tela principal do sistema.
         */
-        this.estoque = new Estoque();
+        this.veiculo = new VeiculoDAO();
     }
     
     
@@ -47,8 +48,10 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
         muCadFuncionarios = new javax.swing.JMenu();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        miCadFuncionarios = new javax.swing.JRadioButtonMenuItem();
+        miCadClientes = new javax.swing.JRadioButtonMenuItem();
+        miCadVeiculos = new javax.swing.JRadioButtonMenuItem();
+        miCadVendas = new javax.swing.JRadioButtonMenuItem();
         muOpcoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,18 +75,26 @@ public class PrincipalView extends javax.swing.JFrame {
 
         muCadFuncionarios.setText("Cadastros");
 
-        jRadioButtonMenuItem2.setSelected(true);
-        jRadioButtonMenuItem2.setText("Funcionários");
-        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        miCadFuncionarios.setSelected(true);
+        miCadFuncionarios.setText("Funcionários");
+        miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem2ActionPerformed(evt);
+                miCadFuncionariosActionPerformed(evt);
             }
         });
-        muCadFuncionarios.add(jRadioButtonMenuItem2);
+        muCadFuncionarios.add(miCadFuncionarios);
 
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-        muCadFuncionarios.add(jRadioButtonMenuItem1);
+        miCadClientes.setSelected(true);
+        miCadClientes.setText("Clientes");
+        muCadFuncionarios.add(miCadClientes);
+
+        miCadVeiculos.setSelected(true);
+        miCadVeiculos.setText("Veículos");
+        muCadFuncionarios.add(miCadVeiculos);
+
+        miCadVendas.setSelected(true);
+        miCadVendas.setText("Vendas");
+        muCadFuncionarios.add(miCadVendas);
 
         mbMenuPrincipal.add(muCadFuncionarios);
 
@@ -110,9 +121,9 @@ public class PrincipalView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+    private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
+    }//GEN-LAST:event_miCadFuncionariosActionPerformed
     
         public static void main(String args[]) {
             
@@ -129,10 +140,19 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JMenuBar mbMenuPrincipal;
+    private javax.swing.JRadioButtonMenuItem miCadClientes;
+    private javax.swing.JRadioButtonMenuItem miCadFuncionarios;
+    private javax.swing.JRadioButtonMenuItem miCadVeiculos;
+    private javax.swing.JRadioButtonMenuItem miCadVendas;
     private javax.swing.JMenu muCadFuncionarios;
     private javax.swing.JMenu muOpcoes;
     // End of variables declaration//GEN-END:variables
+
+    private static class VeiculoDAO extends Veiculo {
+
+        public VeiculoDAO() {
+            super();
+        }
+    }
 }
