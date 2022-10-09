@@ -25,7 +25,6 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
-        criaFuncionario();
         popularTabela();
     }
     
@@ -43,10 +42,11 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         
     }
     
-    public void criaFuncionario(){
-        repositorioDePessoas.adicionarPessoa(new Vendedor(0.15, 324324, "Rafael", "cpf", "telefone"));
-       
+    public void limparTabela(){
+       grid.setRowCount(0);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,12 +116,13 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAdicionaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdicionaVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAdicionaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdicionaVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE))
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

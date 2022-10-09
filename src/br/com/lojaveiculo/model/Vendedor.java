@@ -26,6 +26,9 @@ public class Vendedor extends Funcionario{
         this.comissão = comissão;
     }
     
-    
-    
+    @Override
+    public Object[] obterDados() {
+         return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName()};
+        
+}
 }

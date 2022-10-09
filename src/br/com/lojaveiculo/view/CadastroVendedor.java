@@ -197,6 +197,7 @@ public class CadastroVendedor extends javax.swing.JFrame {
 
         Pessoa pessoa1 = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
         if (pessoas.adicionarPessoa(pessoa1)) {
+            consulta.limparTabela();
             consulta.popularTabela();
             JOptionPane.showMessageDialog(rootPane, pessoa1.toString());
         }

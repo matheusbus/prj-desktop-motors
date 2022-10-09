@@ -30,6 +30,10 @@ public class Gerente extends Funcionario implements Autenticavel{
         this.departamento = departamento;
     }
     
-    
-    
+ @Override
+    public Object[] obterDados() {
+         return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName()};
+        
 }
+}
+
