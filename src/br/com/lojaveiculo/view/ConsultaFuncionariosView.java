@@ -161,7 +161,7 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionaGerenteActionPerformed
 
     private void btnAdicionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVendedorActionPerformed
-       CadastroVendedor cadastroVendedor = new CadastroVendedor(this); 
+       CadastroVendedorView cadastroVendedor = new CadastroVendedorView(this); 
        cadastroVendedor.setVisible(true);
     }//GEN-LAST:event_btnAdicionaVendedorActionPerformed
 
