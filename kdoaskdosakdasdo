@@ -1,0 +1,275 @@
+[33mcommit f285d39d4f698200f7189242c45cadb8da47eac8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 15:19:58 2022 -0300
+
+    ok
+
+[33mcommit a14debbf6ea79e9fa13742aaf286372833214f0f[m
+Merge: cb33d4f f475ce1
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 15:19:54 2022 -0300
+
+    teste11
+
+[33mcommit f475ce1b288abd765aceaf7d901b25bec8be2ef9[m
+Merge: 27850c8 7f5172f
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 15:18:38 2022 -0300
+
+    ok
+
+[33mcommit 27850c809a4c18aaf49b1ee7265eb7e3285fb595[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 15:17:28 2022 -0300
+
+    Alteracao na tela de carros
+
+[33mcommit cb33d4f3763b07ba20970f3743bc266fd522437e[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 15:16:31 2022 -0300
+
+    teste9
+
+[33mcommit 84880952937ff13cbea51d952192cb82e1dce921[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 15:12:56 2022 -0300
+
+    teste8
+
+[33mcommit 304639bdadec19701138410d7b027c65cc32bb56[m
+Merge: 964e8df 7f5172f
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 15:10:47 2022 -0300
+
+    teste7
+
+[33mcommit 964e8df545649035c2ebd3e1ef3588459bd9bfd3[m
+Merge: 461a578 e1e993b
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 14:59:20 2022 -0300
+
+    teste6
+
+[33mcommit 7f5172fa9e6ad756862fa49896482b941c425f27[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 14:58:27 2022 -0300
+
+    Ok:
+
+[33mcommit 461a5781bd4ecd0a47c3b86c41c2a5a0614726b1[m
+Merge: b157510 2f7c3f5
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 14:57:58 2022 -0300
+
+    teste5
+
+[33mcommit e1e993b3b2269d7458ae02b5e8ea2d7d239ad179[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 14:56:43 2022 -0300
+
+    Ok:
+
+[33mcommit b15751005ba81134b61c65e79625145110a8cb81[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 14:54:51 2022 -0300
+
+    teste5
+
+[33mcommit 2f7c3f5e44ecf430e6fef44fd8e926b6618253b1[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 14:37:45 2022 -0300
+
+    Alteracoes na classe Veiculo, Carro e Moto
+
+[33mcommit 95aab0c2ee6d8176c91ec6bfdc10b042e6bcfa3c[m
+Merge: 9c276c5 7034136
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 14:27:56 2022 -0300
+
+    Ok:
+
+[33mcommit 703413621c17b43e83829d0ca0d380815655a577[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 14:26:55 2022 -0300
+
+    Criacao da tabela de consulta de carros
+
+[33mcommit 9c276c50dfc4088ebe7af693ac1df8438e2f3ad1[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 14:26:33 2022 -0300
+
+    ok:
+
+[33mcommit d04ea237e67389b29cca95d3605dbacb9469e2ba[m
+Merge: cf504e7 67fa9c4
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 13:42:06 2022 -0300
+
+    Consertado principalview
+
+[33mcommit a468657a2984e6eb8ee0d54229eaf9d3bf1acbc7[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 13:38:48 2022 -0300
+
+    Ok:
+
+[33mcommit cf504e7f0478f2bdf5e984ebaffcacbfbb5779db[m
+Merge: 6d61d70 00c3628
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 13:37:57 2022 -0300
+
+    ok
+
+[33mcommit 67fa9c4211f39f7c0b54f9d745171e29da5cf24c[m
+Merge: 065ab9e 00c3628
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 13:37:18 2022 -0300
+
+    teste5
+
+[33mcommit 065ab9e8e02420cfdd431c0d5b7c8bf1eb95bb76[m
+Merge: e5f1acc a1ccccd
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 13:36:05 2022 -0300
+
+    teste4
+
+[33mcommit 6d61d7053c4f5d07216d023bab55b3de67d4db0c[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 13:35:08 2022 -0300
+
+    ok
+
+[33mcommit 00c36284d2d79d581a918041c33bc44201e7cfb1[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 13:33:27 2022 -0300
+
+    ok
+
+[33mcommit 218ad2968734b91b1200052c9c739ee1d37ce4f9[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 13:33:10 2022 -0300
+
+    OK
+
+[33mcommit e5f1acc3841a0245a88e0c36d4ac7192b724dd06[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 13:03:00 2022 -0300
+
+    teste4
+
+[33mcommit 5e60a5a03cf5110b99bc13f3b5da22fa181b48b3[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:59:28 2022 -0300
+
+    SemEstoque
+
+[33mcommit a1ccccd194f242a40164dfb9b5b833676fed15e5[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:58:21 2022 -0300
+
+    SemEstoque
+
+[33mcommit 03c6d6614296fcd7d33e5eb76019d20977ac9342[m
+Merge: a2c85e7 dc5ff31
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:55:39 2022 -0300
+
+    ok
+
+[33mcommit a2c85e7fab9aa4953449a6cd07aad8e6e84b0faf[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:54:01 2022 -0300
+
+    SemEstoque
+
+[33mcommit f1bf69f6e02d13ee2f15f2f0a1c9a55ad2a1c106[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:53:38 2022 -0300
+
+    SemEstoque
+
+[33mcommit dc5ff31c4811335a26fc46cd8310faa59ea3d09b[m
+Merge: 57d401f 918494c
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 12:47:06 2022 -0300
+
+    Alteracoes
+
+[33mcommit 918494c14f1c0ae08039b89d9f6f76701f94774f[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 12:46:04 2022 -0300
+
+    teste3
+
+[33mcommit 57d401f6e5c5b95f713b8ef1d0fda85b10ebcc2a[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 12:44:48 2022 -0300
+
+    Alterações Matheus 09/10/22 - 12:44
+
+[33mcommit 71d682b6c967212ca72ac2a4dacde5030f9aeadd[m
+Author: rdalmarco <rdalmarco@yahoo.com.br>
+Date:   Sun Oct 9 12:32:45 2022 -0300
+
+    Iniciando
+
+[33mcommit 023da27537f648a6f35acdd0528aff276260be6e[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 11:43:46 2022 -0300
+
+    teste2
+
+[33mcommit 4e44ec2c085de63b4d96fa39a3ea4c68fdb5ee48[m
+Author: EduardoSangaletti <eduardosangaletti@gmail.com>
+Date:   Sun Oct 9 11:32:44 2022 -0300
+
+    teste
+
+[33mcommit df63357062c6c1968ce18d7a12515529ae4f43dd[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 11:28:01 2022 -0300
+
+    Exlcuido as classes teste
+
+[33mcommit e7348552e36ff5163a9d1f72e8df6bf26cdf6464[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 11:15:33 2022 -0300
+
+    Classe teste 2
+
+[33mcommit 0cd3a963ce89917a5c83121c2133a6f7277a0708[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 11:11:21 2022 -0300
+
+    Commit teste Rafa
+
+[33mcommit 3dbac5cfeb1824086a2ffddf632155beea7a03fd[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sun Oct 9 10:16:05 2022 -0300
+
+    Adicionado os repostitorios
+
+[33mcommit c336cf2c917faa85d63c10851d2d7b45e16c0921[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sat Oct 8 23:02:52 2022 -0300
+
+    Testando commit
+
+[33mcommit 03e2fb1b616cbebbaf98a44d0d80597073ca3f66[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sat Oct 8 22:49:52 2022 -0300
+
+    Teste de commit
+
+[33mcommit 2096544dd7cc9acbc8be8563aa67305bfd331779[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sat Oct 8 19:53:40 2022 -0300
+
+    Commitar todos os arquivos
+
+[33mcommit 44dffbc20a3632e5c012c0f2681c94cb385d096f[m
+Author: Matheus Buschermoehle <matheusbuschermoehle@gmail.com>
+Date:   Sat Oct 8 19:47:49 2022 -0300
+
+    Primeiro commit do projeto

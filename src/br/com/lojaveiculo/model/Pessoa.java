@@ -10,9 +10,9 @@ package br.com.lojaveiculo.model;
  */
 public abstract class Pessoa {
     
-    private String nome;
-    private String cpf;
-    private String telefone;
+    protected String nome;
+    protected String cpf;
+    protected String telefone;
 
     public Pessoa(String nome, String cpf, String telefone) {
         this.nome = nome;
@@ -48,6 +48,11 @@ public abstract class Pessoa {
     public String toString() {
         return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + '}';
     }
+    
+     public Object[] obterDados(){
+        return new Object[] {this.nome, this.cpf, this.telefone};
+    } 
+    
     
     
     
