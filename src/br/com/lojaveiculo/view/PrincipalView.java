@@ -42,10 +42,10 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
         muCadFuncionarios = new javax.swing.JMenu();
-        miCadFuncionarios = new javax.swing.JRadioButtonMenuItem();
-        miCadClientes = new javax.swing.JRadioButtonMenuItem();
-        miCadVeiculos = new javax.swing.JRadioButtonMenuItem();
-        miCadVendas = new javax.swing.JRadioButtonMenuItem();
+        miCadFuncionarios = new javax.swing.JMenuItem();
+        miCadClientes = new javax.swing.JMenuItem();
+        miCadVeiculos = new javax.swing.JMenuItem();
+        miCadVendas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -68,13 +68,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         muCadFuncionarios.setText("Cadastros");
 
-        miCadFuncionarios.setSelected(true);
         miCadFuncionarios.setText("Funcionários");
-        miCadFuncionarios.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                miCadFuncionariosItemStateChanged(evt);
-            }
-        });
         miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadFuncionariosActionPerformed(evt);
@@ -82,15 +76,12 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         muCadFuncionarios.add(miCadFuncionarios);
 
-        miCadClientes.setSelected(true);
         miCadClientes.setText("Clientes");
         muCadFuncionarios.add(miCadClientes);
 
-        miCadVeiculos.setSelected(true);
         miCadVeiculos.setText("Veículos");
         muCadFuncionarios.add(miCadVeiculos);
 
-        miCadVendas.setSelected(true);
         miCadVendas.setText("Vendas");
         muCadFuncionarios.add(miCadVendas);
 
@@ -119,12 +110,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
-
-    }//GEN-LAST:event_miCadFuncionariosActionPerformed
-
-    private void miCadFuncionariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_miCadFuncionariosItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_miCadFuncionariosItemStateChanged
+    }//GEN-LAST:event_miCadFuncionariosActionPerformed
     
         public static void main(String args[]) {
             
@@ -140,10 +127,10 @@ public class PrincipalView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
     private javax.swing.JMenuBar mbMenuPrincipal;
-    private javax.swing.JRadioButtonMenuItem miCadClientes;
-    private javax.swing.JRadioButtonMenuItem miCadFuncionarios;
-    private javax.swing.JRadioButtonMenuItem miCadVeiculos;
-    private javax.swing.JRadioButtonMenuItem miCadVendas;
+    private javax.swing.JMenuItem miCadClientes;
+    private javax.swing.JMenuItem miCadFuncionarios;
+    private javax.swing.JMenuItem miCadVeiculos;
+    private javax.swing.JMenuItem miCadVendas;
     private javax.swing.JMenu muCadFuncionarios;
     // End of variables declaration//GEN-END:variables
 
