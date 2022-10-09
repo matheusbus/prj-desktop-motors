@@ -19,12 +19,23 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
 
      private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
      private DefaultTableModel grid;
+     private VendaView venda;
+     private PessoaRepositorio pessoas;
      
-    public ConsultaFuncionariosView() {
+    public ConsultaFuncionariosView(VendaView venda) {
         initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
+        this.venda = venda;
+        pessoas = new PessoaDAO();
         popularTabela();
+    }
+
+    ConsultaFuncionariosView() {
+      initComponents();
+        // Adicionar painel ao fundo
+        this.setContentPane(dkpFundo);
+        popularTabela();  
     }
     
     public void popularTabela(){
@@ -63,7 +74,7 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         tblFuncionarios = new javax.swing.JTable();
         btnSelecionar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnAdicionaGerente.setText("Cadastrar Gerente");
         btnAdicionaGerente.addActionListener(new java.awt.event.ActionListener() {
@@ -179,43 +190,15 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionaVendedorActionPerformed
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-             grid.getValueAt(tblFuncionarios.getSelectedRow(), tblFuncionarios.getSelectedColumn());
+        String sCPF;    
+        sCPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1); 
+        venda.vendedor = pessoas.buscarPessoaPorCPF(sCPF);      
+        setVisible(false);
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFuncionariosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFuncionariosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFuncionariosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaFuncionariosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaFuncionariosView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionaGerente;

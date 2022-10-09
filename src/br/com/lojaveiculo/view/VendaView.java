@@ -4,17 +4,27 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Pessoa;
+import br.com.lojaveiculo.model.Vendedor;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+
 /**
  *
  * @author eduar
  */
 public class VendaView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VendaView
-     */
+    protected Pessoa vendedor;
+    protected boolean selecionado;
+    private PessoaRepositorio pessoas;
+    protected String sCpf;
+  
+    
     public VendaView() {
         initComponents();
+        vendedor = new Vendedor(0.0, 0.0, "", "", "");
+        pessoas = new PessoaDAO();
     }
 
     /**
@@ -34,6 +44,11 @@ public class VendaView extends javax.swing.JFrame {
         btnSelecionaVendedor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         btnSelecionaVeiculo.setText("Selecionar Veículo");
         btnSelecionaVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +119,14 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
 
     private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
-        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView();
-        setVisible(true);
+        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView(this);
+        consultaVendedor.setVisible(true);
  
     }//GEN-LAST:event_btnSelecionaVendedorActionPerformed
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+       txtVendedorSelecionado.setText(vendedor.getNome());
+    }//GEN-LAST:event_formMouseMoved
 
     /**
      * @param args the command line arguments
