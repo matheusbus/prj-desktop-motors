@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface PessoaRepositorio {
     
-    public List<Pessoa> getPessoas();
-    public void adicionarPessoa(Pessoa p);
-    public Pessoa buscarPessoaPorNome(String nome);
-    public Pessoa buscarPessoaPorCPF(String cpf);
+    //public List<Pessoa> getPessoas();
+    //public void adicionarPessoa(Pessoa p);
+    //public Pessoa buscarPessoaPorNome(String nome);
+    //public Pessoa buscarPessoaPorCPF(String cpf);
     
 }

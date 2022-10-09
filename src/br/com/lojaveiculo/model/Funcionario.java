@@ -4,10 +4,15 @@
  */
 package br.com.lojaveiculo.model;
 
+import java.util.Date;
+
 /**
  *
  * @author Rafael
  */
-public class Funcionario extends Pessoa{
+public class Funcionario extends Pessoa {
+    
+    private double Salario;
+    private Date dataAdmissao;
     
 }
