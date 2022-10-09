@@ -59,17 +59,22 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo.setLayout(dkpnlFundoLayout);
         dkpnlFundoLayout.setHorizontalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGap(0, 921, Short.MAX_VALUE)
         );
         dkpnlFundoLayout.setVerticalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+            .addGap(0, 578, Short.MAX_VALUE)
         );
 
         muCadFuncionarios.setText("Cadastros");
 
         miCadFuncionarios.setSelected(true);
         miCadFuncionarios.setText("Funcionários");
+        miCadFuncionarios.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                miCadFuncionariosItemStateChanged(evt);
+            }
+        });
         miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadFuncionariosActionPerformed(evt);
@@ -98,22 +103,28 @@ public class PrincipalView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_miCadFuncionariosActionPerformed
+
+    private void miCadFuncionariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_miCadFuncionariosItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miCadFuncionariosItemStateChanged
     
         public static void main(String args[]) {
             

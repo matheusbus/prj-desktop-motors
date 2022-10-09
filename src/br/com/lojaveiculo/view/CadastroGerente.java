@@ -5,8 +5,8 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import javax.swing.JOptionPane;
 
@@ -14,15 +14,13 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroFuncionario extends javax.swing.JFrame {
+public class CadastroGerente extends javax.swing.JFrame {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
-  
-    
     /**
-     * Creates new form CadastroFuncionario
+     * Creates new form CadastroGerente
      */
-    public CadastroFuncionario() {
+    public CadastroGerente() {
         initComponents();
     }
 
@@ -35,25 +33,25 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadFuncionario = new javax.swing.JButton();
+        btnCadGerente = new javax.swing.JButton();
+        lblTelefone1 = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
+        lblDepartamento = new javax.swing.JLabel();
         lblCpf = new javax.swing.JLabel();
+        cbDepartamento = new javax.swing.JComboBox<>();
         lblNome = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
         lblSalario = new javax.swing.JLabel();
-        lblTelefone1 = new javax.swing.JLabel();
-        lblCargo = new javax.swing.JLabel();
-        cbCargos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCadFuncionario.setText("Cadastrar");
-        btnCadFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        btnCadGerente.setText("Cadastrar");
+        btnCadGerente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadFuncionarioActionPerformed(evt);
+                btnCadGerenteActionPerformed(evt);
             }
         });
 
@@ -63,7 +61,16 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        lblDepartamento.setText("Departamento");
+
         lblCpf.setText("CPF");
+
+        cbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiscal", "Financeiro" }));
+        cbDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDepartamentoActionPerformed(evt);
+            }
+        });
 
         lblNome.setText("Nome");
 
@@ -89,15 +96,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         lblSalario.setText("Salário");
 
-        lblCargo.setText("Cargo");
-
-        cbCargos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Gerente", " " }));
-        cbCargos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,14 +119,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbCargos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(152, 152, 152)
-                .addComponent(btnCadFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -149,26 +147,48 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCadFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCadGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadGerenteActionPerformed
+
+        String sCpf = txtCpf.getText();
+        String sNome = txtNome.getText();
+        String sTelefone = txtTelefone.getText();
+        String sSalario = txtSalario.getText();
+        
+        Double dSalario = Double.parseDouble(sSalario);
+
+        //if (cbDepartamento.getSelectedIndex() == 0) {
+            Pessoa pessoa2 = new Gerente(0, sNome, sCpf, sTelefone, sSalario);
+            if(pessoas.adicionarPessoa(pessoa2)){
+                JOptionPane.showMessageDialog(rootPane, pessoa2.toString());
+            }
+        //}
+
+    }//GEN-LAST:event_btnCadGerenteActionPerformed
+
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+
+    private void cbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbDepartamentoActionPerformed
 
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
@@ -181,29 +201,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalarioActionPerformed
-
-    private void btnCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncionarioActionPerformed
-
-        String sCpf = txtCpf.getText();
-        String sNome = txtNome.getText();
-        String sTelefone = txtTelefone.getText();
-        String sSalario = txtSalario.getText();
-
-        Double dSalario = Double.parseDouble(sSalario);
-
-        if (cbCargos.getSelectedIndex() == 0) {
-            Pessoa pessoa1 = new Vendedor(0, 0, sNome, sCpf, sTelefone);
-            if(pessoas.adicionarPessoa(pessoa1)){
-                JOptionPane.showMessageDialog(rootPane, pessoa1.toString());
-            }
-        }
-
-
-    }//GEN-LAST:event_btnCadFuncionarioActionPerformed
-
-    private void cbCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbCargosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,29 +219,29 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionario().setVisible(true);
+                new CadastroGerente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadFuncionario;
-    private javax.swing.JComboBox<String> cbCargos;
-    private javax.swing.JLabel lblCargo;
+    private javax.swing.JButton btnCadGerente;
+    private javax.swing.JComboBox<String> cbDepartamento;
     private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTelefone;
