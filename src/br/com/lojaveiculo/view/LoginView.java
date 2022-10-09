@@ -192,7 +192,7 @@ public final class LoginView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    /*public static void main(String args[]) {
+    public static void main(String args[]) {
         
         FlatArcDarkIJTheme.setup();
         
@@ -202,7 +202,7 @@ public final class LoginView extends javax.swing.JFrame {
                 new LoginView().setVisible(true);
             }
         });
-    }*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogar;
