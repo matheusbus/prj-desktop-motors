@@ -5,8 +5,8 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
+import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
@@ -46,9 +46,9 @@ public final class ConsultaMotoView extends javax.swing.JFrame {
         Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
         
         for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-            if(entry.getValue() instanceof Carro){
-                Carro carro = (Carro) entry.getValue();
-                grid.addRow(carro.obterDados());
+            if(entry.getValue() instanceof Moto){
+                Moto moto = (Moto) entry.getValue();
+                grid.addRow(moto.obterDados());
             }
         }
     }
@@ -58,10 +58,10 @@ public final class ConsultaMotoView extends javax.swing.JFrame {
     }
     
     public void criaVeiculos(){
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0001", "Gol 1.0", new Marca("Wolksvagen"), 2002, 25000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0002", "Palio 2.5 Turbo", new Marca("Fiat"), 2002, 80000, "Diesel", 5));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0003", "Onix nutella", new Marca("Chevrolet"), 2002, 50000, "Gasolina", 3));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0004", "Arizzo 5", new Marca("Chery"), 2002, 40000, "Diesel", 7));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0001", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0002", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0003", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0004", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
     }
     
     /**
@@ -84,7 +84,7 @@ public final class ConsultaMotoView extends javax.swing.JFrame {
         btnSelecionarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Carros");
+        setTitle("Consulta de Motos");
 
         tblCarros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,8 +210,8 @@ public final class ConsultaMotoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVeiculoActionPerformed
-        /*CadastroMotoView cadMoto = new CadastroMotoView(this);
-        cadCarro.setVisible(true);*/
+        CadastroMotoView cadMoto = new CadastroMotoView(this);
+        cadMoto.setVisible(true);
     }//GEN-LAST:event_btnAdicionaVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
