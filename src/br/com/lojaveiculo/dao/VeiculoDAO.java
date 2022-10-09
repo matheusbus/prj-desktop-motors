@@ -15,9 +15,9 @@ import java.util.Map;
  */
 public class VeiculoDAO implements VeiculoRepositorio{
 
-     private static Map<String, Veiculo> veiculos; 
+    private static Map<String, Veiculo> veiculos; 
 
-    public VeiculoDAO(Map<String, Veiculo> veiculos) {
+    public VeiculoDAO() {
         if(veiculos == null){
         this.veiculos = new HashMap<>();
     }
