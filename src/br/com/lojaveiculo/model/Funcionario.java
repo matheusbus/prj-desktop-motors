@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public abstract class Funcionario extends Pessoa {
     
-    private double salario;
-    private Date dataAdmissao;
+    protected double salario;
+    protected Date dataAdmissao;
 
     public Funcionario(double salario, String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
@@ -40,10 +40,9 @@ public abstract class Funcionario extends Pessoa {
     @Override
     public Object[] obterDados() {
          return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao};
-    }
  
     
-    
+    }
     
 }
 

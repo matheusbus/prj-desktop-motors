@@ -17,12 +17,19 @@ import javax.swing.JOptionPane;
 public class CadastroVendedorView extends javax.swing.JFrame {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
+    private ConsultaFuncionariosView consulta;
 
     /**
      * Creates new form CadastroFuncionario
+     * @param consultaFuncView
      */
+<<<<<<< HEAD:src/br/com/lojaveiculo/view/CadastroVendedorView.java
     public CadastroVendedorView() {
+=======
+    public CadastroVendedor(ConsultaFuncionariosView consultaFuncView) {
+>>>>>>> 5b1a6cf7ee0327b4da4fbea0bf72ce0e342554c3:src/br/com/lojaveiculo/view/CadastroVendedor.java
         initComponents();
+        consulta = consultaFuncView;
     }
 
     /**
@@ -192,8 +199,10 @@ public class CadastroVendedorView extends javax.swing.JFrame {
         Double dSalario = Double.parseDouble(sSalario);
         Double dComissao = Double.parseDouble(sComissao);
 
-        Pessoa pessoa1 = new Vendedor(0, 0, sNome, sCpf, sTelefone);
+        Pessoa pessoa1 = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
         if (pessoas.adicionarPessoa(pessoa1)) {
+            consulta.limparTabela();
+            consulta.popularTabela();
             JOptionPane.showMessageDialog(rootPane, pessoa1.toString());
         }
 
@@ -204,6 +213,7 @@ public class CadastroVendedorView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComissaoActionPerformed
 
+<<<<<<< HEAD:src/br/com/lojaveiculo/view/CadastroVendedorView.java
     /**
      * @param args the command line arguments
      */
@@ -241,6 +251,8 @@ public class CadastroVendedorView extends javax.swing.JFrame {
             }
         });
     }
+=======
+>>>>>>> 5b1a6cf7ee0327b4da4fbea0bf72ce0e342554c3:src/br/com/lojaveiculo/view/CadastroVendedor.java
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
