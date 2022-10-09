@@ -23,7 +23,8 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
-    
+    private VendaView venda;
+     private VeiculoRepositorio veiculos;
     /**
      * Creates new form ConsultaVeiculo
      */
@@ -34,7 +35,23 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.btnSelecionarVeiculo.setEnabled(false);
+        this.btnSelecionarVeiculo.setEnabled(true);
+        grid = (DefaultTableModel) tblCarros.getModel();
+        criaVeiculos();
+        popularTabela();
+    }
+    
+      public ConsultaCarroView(VendaView venda) {
+        initComponents();
+        
+        // Adicionar painel ao fundo
+        this.setContentPane(dkpFundo);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.btnSelecionarVeiculo.setEnabled(true);
+        this.venda = venda;
+        this.veiculos = new VeiculoDAO();
+  
         
         grid = (DefaultTableModel) tblCarros.getModel();
         criaVeiculos();
@@ -236,7 +253,11 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
 
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-        // TODO add your handling code here:
+       String sPlaca;    
+        sPlaca = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
+        venda.veiculo = veiculos.buscarVeiculo(sPlaca); 
+        venda.VeiculoSelecionado = true;
+        setVisible(false);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
     /**

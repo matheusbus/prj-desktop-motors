@@ -25,6 +25,8 @@ public class VendaView extends javax.swing.JFrame {
     private PessoaRepositorio pessoas;
     private VeiculoRepositorio veiculos;
     protected String sCpf;
+    protected boolean VeiculoSelecionado;
+    protected boolean VendedorSelecionado;
   
     
     public VendaView() {
@@ -33,6 +35,8 @@ public class VendaView extends javax.swing.JFrame {
         veiculo = new Carro("", "", null, 0, 0, "", 0);
         pessoas = new PessoaDAO();
         veiculos = new VeiculoDAO();
+        VendedorSelecionado = false;
+        VeiculoSelecionado = false;
     }
 
     /**
@@ -83,57 +87,55 @@ public class VendaView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEfetuarVenda)
-                        .addGap(17, 17, 17))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtVendedorSelecionado)))
-                        .addGap(0, 95, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEfetuarVenda)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSelecionaVendedor)
+                                .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 149, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(50, 50, 50)
                 .addComponent(btnSelecionaVeiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnSelecionaVendedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelecionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVeiculoActionPerformed
-        ConsultaCarroView consultaCarro = new ConsultaCarroView();
+        ConsultaCarroView consultaCarro = new ConsultaCarroView(this);
         consultaCarro.setVisible(true);
-
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
 
     private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
         ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView(this);
         consultaVendedor.setVisible(true);
- 
     }//GEN-LAST:event_btnSelecionaVendedorActionPerformed
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-       txtVendedorSelecionado.setText(vendedor.getNome());
+     if(VendedorSelecionado){
+        txtVendedorSelecionado.setText(vendedor.getNome());
+     }
+     if(VeiculoSelecionado){
        txtaVeiculoSelecionado.setText(veiculo.toString());
+     }
     }//GEN-LAST:event_formMouseMoved
 
 
