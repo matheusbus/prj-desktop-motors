@@ -185,8 +185,7 @@ public final class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogarActionPerformed
 
     public void logar(){
-        telaPrincipal = new PrincipalView();
-        telaPrincipal.setVisible(true);
+        criaTelaPrincipal();
     }
     
     /**
