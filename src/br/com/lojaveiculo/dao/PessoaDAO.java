@@ -62,5 +62,6 @@ public class PessoaDAO implements PessoaRepositorio{
                       return true;
             }
         }
+        return false;
     }
 }
