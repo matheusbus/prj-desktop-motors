@@ -26,9 +26,12 @@ public class CadastroVendedorView extends javax.swing.JFrame {
   
 
     public CadastroVendedorView(ConsultaFuncionariosView consultaFuncView) {
-
         initComponents();
         consulta = consultaFuncView;
+    }
+
+    CadastroVendedorView() {
+        initComponents();
     }
 
     /**

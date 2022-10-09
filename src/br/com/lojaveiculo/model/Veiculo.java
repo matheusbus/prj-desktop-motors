@@ -69,5 +69,9 @@ public abstract class Veiculo {
     public Object[] obterDados(){
         return new Object[] {this.placa, this.modelo, this.marca.getNome(), this.ano, this.preco, this.tipoCombustivel};
     } 
-    
+
+    @Override
+    public String toString() {
+        return "Veiculo{" + "placa=" + placa + ", modelo=" + modelo + ", marca=" + marca + ", ano=" + ano + ", preco=" + preco + ", tipoCombustivel=" + tipoCombustivel + '}';
+    }
 }
