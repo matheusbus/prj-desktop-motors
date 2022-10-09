@@ -4,7 +4,8 @@
  */
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.model.Estoque;
+import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 /**
  *
@@ -12,7 +13,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme
  */
 public class PrincipalView extends javax.swing.JFrame {
 
-    private Estoque estoque;
+    private Veiculo veiculo;
     /**
      * Creates new form InicialView
      */
@@ -26,11 +27,6 @@ public class PrincipalView extends javax.swing.JFrame {
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
         
-        // Instancia do estoque
-        /*
-        Deve iniciar o estoque ao logar no sistema, ao abrir a tela principal do sistema.
-        */
-        this.estoque = new Estoque();
     }
     
     
@@ -46,13 +42,11 @@ public class PrincipalView extends javax.swing.JFrame {
 
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
-        muCadastros = new javax.swing.JMenu();
-        miCadVeiculo = new javax.swing.JMenuItem();
-        miCadMarca = new javax.swing.JMenuItem();
-        muFuncionarios = new javax.swing.JMenu();
-        muClientes = new javax.swing.JMenu();
-        muVendas = new javax.swing.JMenu();
-        muOpcoes = new javax.swing.JMenu();
+        muCadFuncionarios = new javax.swing.JMenu();
+        miCadFuncionarios = new javax.swing.JRadioButtonMenuItem();
+        miCadClientes = new javax.swing.JRadioButtonMenuItem();
+        miCadVeiculos = new javax.swing.JRadioButtonMenuItem();
+        miCadVendas = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -73,32 +67,30 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGap(0, 597, Short.MAX_VALUE)
         );
 
-        muCadastros.setText("Cadastros");
+        muCadFuncionarios.setText("Cadastros");
 
-        miCadVeiculo.setText("Veículos");
-        miCadVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        miCadFuncionarios.setSelected(true);
+        miCadFuncionarios.setText("Funcionários");
+        miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadVeiculoActionPerformed(evt);
+                miCadFuncionariosActionPerformed(evt);
             }
         });
-        muCadastros.add(miCadVeiculo);
+        muCadFuncionarios.add(miCadFuncionarios);
 
-        miCadMarca.setText("Marcas");
-        muCadastros.add(miCadMarca);
+        miCadClientes.setSelected(true);
+        miCadClientes.setText("Clientes");
+        muCadFuncionarios.add(miCadClientes);
 
-        mbMenuPrincipal.add(muCadastros);
+        miCadVeiculos.setSelected(true);
+        miCadVeiculos.setText("Veículos");
+        muCadFuncionarios.add(miCadVeiculos);
 
-        muFuncionarios.setText("Funcionários");
-        mbMenuPrincipal.add(muFuncionarios);
+        miCadVendas.setSelected(true);
+        miCadVendas.setText("Vendas");
+        muCadFuncionarios.add(miCadVendas);
 
-        muClientes.setText("Clientes");
-        mbMenuPrincipal.add(muClientes);
-
-        muVendas.setText("Vendas");
-        mbMenuPrincipal.add(muVendas);
-
-        muOpcoes.setText("Opções");
-        mbMenuPrincipal.add(muOpcoes);
+        mbMenuPrincipal.add(muCadFuncionarios);
 
         setJMenuBar(mbMenuPrincipal);
 
@@ -106,24 +98,23 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miCadVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadVeiculoActionPerformed
-        
-    }//GEN-LAST:event_miCadVeiculoActionPerformed
+    private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miCadFuncionariosActionPerformed
     
         public static void main(String args[]) {
             
@@ -141,12 +132,11 @@ public class PrincipalView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
     private javax.swing.JMenuBar mbMenuPrincipal;
-    private javax.swing.JMenuItem miCadMarca;
-    private javax.swing.JMenuItem miCadVeiculo;
-    private javax.swing.JMenu muCadastros;
-    private javax.swing.JMenu muClientes;
-    private javax.swing.JMenu muFuncionarios;
-    private javax.swing.JMenu muOpcoes;
-    private javax.swing.JMenu muVendas;
+    private javax.swing.JRadioButtonMenuItem miCadClientes;
+    private javax.swing.JRadioButtonMenuItem miCadFuncionarios;
+    private javax.swing.JRadioButtonMenuItem miCadVeiculos;
+    private javax.swing.JRadioButtonMenuItem miCadVendas;
+    private javax.swing.JMenu muCadFuncionarios;
     // End of variables declaration//GEN-END:variables
+
 }
