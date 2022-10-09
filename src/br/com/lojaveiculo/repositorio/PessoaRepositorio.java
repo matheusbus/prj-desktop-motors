@@ -19,5 +19,4 @@ public interface PessoaRepositorio {
     public Pessoa buscarPessoaPorNome(String nome);
     public Pessoa buscarPessoaPorCPF(String cpf);
 
-    public void add(Pessoa pessoa1);
 }
