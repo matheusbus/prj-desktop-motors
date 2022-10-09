@@ -14,7 +14,7 @@ import java.util.List;
 public interface UsuarioRepositorio {
     
     public List<Usuario> getUsuarios();
-    public void adicionarUsuario(Usuario p);
+    public boolean adicionarUsuario(Usuario p);
     public Usuario buscaUsuario(String login);
     
 }

@@ -5,7 +5,7 @@
 package br.com.lojaveiculo.repositorio;
 
 import br.com.lojaveiculo.model.Pessoa;
-import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface PessoaRepositorio {
     
-    //public List<Pessoa> getPessoas();
-    //public void adicionarPessoa(Pessoa p);
-    //public Pessoa buscarPessoaPorNome(String nome);
-    //public Pessoa buscarPessoaPorCPF(String cpf);
-    
+    public Set<Pessoa> getPessoas();
+    public boolean adicionarPessoa(Pessoa p);
+    public boolean removerPessoa(String cpf);
+    public Pessoa buscarPessoaPorNome(String nome);
+    public Pessoa buscarPessoaPorCPF(String cpf);
 }

@@ -21,6 +21,7 @@ public interface VeiculoRepositorio {
  public String listarPorPreco(double preco);
  public String listarPorModelo(String modelo);
  public boolean verificaPlacaExistente(String placa);
+ public Map<String, Veiculo> ordenaPreço();
  
     
 }

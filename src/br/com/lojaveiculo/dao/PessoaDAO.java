@@ -6,8 +6,7 @@ package br.com.lojaveiculo.dao;
 
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -20,18 +19,19 @@ public class PessoaDAO implements PessoaRepositorio{
     
     public PessoaDAO(){
         if(PessoaDAO.pessoas == null){
-            pessoas = new ArrayList<>();
+            pessoas = new HashSet<>();
         }
     }
     
     @Override
-    public List<Pessoa> getPessoas() {
+    public Set<Pessoa> getPessoas() {
         return PessoaDAO.pessoas;
     }
 
     @Override
-    public void adicionarPessoa(Pessoa p) {
+    public boolean adicionarPessoa(Pessoa p) {
         PessoaDAO.pessoas.add(p);
+        return true;
     }
 
     @Override
@@ -53,6 +53,15 @@ public class PessoaDAO implements PessoaRepositorio{
         }
         return null;
     }
-    
-    
+
+    @Override
+    public boolean removerPessoa(String cpf) {
+        for(Pessoa p : pessoas) {
+            if (p.getCpf().equals(cpf)) {
+              pessoas.remove(p);
+                      return true;
+            }
+        }
+                return false;
+    } 
 }
