@@ -120,9 +120,8 @@ public class VendaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelecionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVeiculoActionPerformed
-        ConsultaCarroView consultaCarro = new ConsultaCarroView();
+        ConsultaCarroView consultaCarro = new ConsultaCarroView(this);
         consultaCarro.setVisible(true);
-
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
 
     private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
