@@ -6,8 +6,6 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.model.Estoque;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import javax.swing.JInternalFrame;
-
 /**
  *
  * @author Matheus
@@ -15,7 +13,6 @@ import javax.swing.JInternalFrame;
 public class PrincipalView extends javax.swing.JFrame {
 
     private Estoque estoque;
-    private JInternalFrame cadVeiculo;
     /**
      * Creates new form InicialView
      */
@@ -29,6 +26,10 @@ public class PrincipalView extends javax.swing.JFrame {
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
         
+        // Instancia do estoque
+        /*
+        Deve iniciar o estoque ao logar no sistema, ao abrir a tela principal do sistema.
+        */
         this.estoque = new Estoque();
     }
     
