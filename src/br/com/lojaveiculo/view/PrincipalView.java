@@ -52,6 +52,8 @@ public class PrincipalView extends javax.swing.JFrame {
         muConsultaFuncionarios = new javax.swing.JMenuItem();
         Venda = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -129,6 +131,12 @@ public class PrincipalView extends javax.swing.JFrame {
 
         mbMenuPrincipal.add(Venda);
 
+        jMenu2.setText("Relatórios");
+        mbMenuPrincipal.add(jMenu2);
+
+        jMenu3.setText("Opções");
+        mbMenuPrincipal.add(jMenu3);
+
         setJMenuBar(mbMenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,6 +194,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu Venda;
     private javax.swing.JDesktopPane dkpnlFundo;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar mbMenuPrincipal;
     private javax.swing.JMenu menuFuncionarios;
     private javax.swing.JMenuItem miCadClientes;
