@@ -31,6 +31,8 @@ public class Carro extends Veiculo {
         return super.toString() + "\nCarro{" + "portas=" + portas + '}';
     }
     
-    
+    public Object[] obterDados(){
+        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.ano, super.preco, super.tipoCombustivel, this.portas};
+    }
     
 }
