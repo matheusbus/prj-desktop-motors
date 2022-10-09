@@ -91,4 +91,9 @@ public class VeiculoDAO implements VeiculoRepositorio{
        Map<String, Veiculo> veiculosOrdenados = new HashMap<>();
        return veiculosOrdenados;
     }
-          }
+
+    @Override
+    public Veiculo buscarVeiculo(String placa) {
+        return veiculos.get(placa);
+    }
+}

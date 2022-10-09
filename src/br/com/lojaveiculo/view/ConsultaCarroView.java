@@ -11,6 +11,7 @@ import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +31,9 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.btnSelecionarVeiculo.setEnabled(false);
         
         grid = (DefaultTableModel) tblCarros.getModel();
         criaVeiculos();
@@ -47,7 +51,6 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
                 grid.addRow(carro.obterDados());
             }
         }
-        
     }
     
     public void limparTabela(){
@@ -74,9 +77,14 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCarros = new javax.swing.JTable();
         btnAdicionaVeiculo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRemoverVeiculo = new javax.swing.JButton();
+        txtPlacaBuscada = new javax.swing.JTextField();
+        lblPlaca = new javax.swing.JLabel();
+        btnBuscarVeiculo = new javax.swing.JButton();
+        btnSelecionarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta de Carros");
 
         tblCarros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,16 +120,37 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoverVeiculo.setText("Remover");
+        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRemoverVeiculoActionPerformed(evt);
+            }
+        });
+
+        lblPlaca.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lblPlaca.setText("Placa");
+
+        btnBuscarVeiculo.setText("Buscar");
+        btnBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarVeiculoActionPerformed(evt);
+            }
+        });
+
+        btnSelecionarVeiculo.setText("Selecionar");
+        btnSelecionarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarVeiculoActionPerformed(evt);
             }
         });
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dkpFundo.setLayer(btnAdicionaVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnRemoverVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(txtPlacaBuscada, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(lblPlaca, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnBuscarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnSelecionarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
         dkpFundo.setLayout(dkpFundoLayout);
@@ -129,40 +158,52 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(dkpFundoLayout.createSequentialGroup()
+                        .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(lblPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(dkpFundoLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+            .addGroup(dkpFundoLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(56, 56, 56)
+                    .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
+                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(dkpFundoLayout.createSequentialGroup()
+                                .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(txtPlacaBuscada))
+                            .addComponent(btnBuscarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(dkpFundo)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(dkpFundo, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -173,9 +214,25 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         cadCarro.setVisible(true);
     }//GEN-LAST:event_btnAdicionaVeiculoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        limparTabela();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
+        if (!(tblCarros.getSelectedRow() == -1)){
+            String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+            repositorioDeVeiculos.removeVeiculo(placa);
+            limparTabela();
+            popularTabela();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum veículo foi selecionado.", "Erro de exclusão", HEIGHT);
+        }
+
+    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
+
+    private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
+        String placa = txtPlacaBuscada.getText();
+    }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
+
+    private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,9 +250,13 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionaVeiculo;
+    private javax.swing.JButton btnBuscarVeiculo;
+    private javax.swing.JButton btnRemoverVeiculo;
+    private javax.swing.JButton btnSelecionarVeiculo;
     private javax.swing.JDesktopPane dkpFundo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPlaca;
     private javax.swing.JTable tblCarros;
+    private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
 }
