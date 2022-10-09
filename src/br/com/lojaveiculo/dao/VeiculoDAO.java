@@ -51,7 +51,7 @@ public class VeiculoDAO implements VeiculoRepositorio{
     public String  listarTodos(){
         String texto = "";
         for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-          texto += entry.getValue().toString() + "\n";
+          texto += entry.getValue().toString()+ "\n";
     }
         return texto;
     }

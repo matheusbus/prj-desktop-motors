@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.model;
 
-import java.util.Date;
 
 /**
  *
@@ -14,8 +13,8 @@ public class Vendedor extends Funcionario{
   
     private double comissão;
 
-    public Vendedor(double comissão, double Salario, Date dataAdmissao, String nome, String cpf, String telefone) {
-        super(Salario, dataAdmissao, nome, cpf, telefone);
+    public Vendedor(double comissão, double Salario , String nome, String cpf, String telefone) {
+        super(Salario, nome, cpf, telefone);
         this.comissão = comissão;
     }
 
