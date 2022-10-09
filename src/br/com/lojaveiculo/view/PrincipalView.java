@@ -46,10 +46,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
-        muCadastro = new javax.swing.JMenu();
+        muCadastros = new javax.swing.JMenu();
         miCadVeiculo = new javax.swing.JMenuItem();
         miCadMarca = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        muFuncionarios = new javax.swing.JMenu();
+        muClientes = new javax.swing.JMenu();
+        muVendas = new javax.swing.JMenu();
+        muOpcoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -63,14 +66,14 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo.setLayout(dkpnlFundoLayout);
         dkpnlFundoLayout.setHorizontalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 941, Short.MAX_VALUE)
+            .addGap(0, 929, Short.MAX_VALUE)
         );
         dkpnlFundoLayout.setVerticalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 597, Short.MAX_VALUE)
         );
 
-        muCadastro.setText("Cadastros");
+        muCadastros.setText("Cadastros");
 
         miCadVeiculo.setText("Veículos");
         miCadVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -78,15 +81,24 @@ public class PrincipalView extends javax.swing.JFrame {
                 miCadVeiculoActionPerformed(evt);
             }
         });
-        muCadastro.add(miCadVeiculo);
+        muCadastros.add(miCadVeiculo);
 
         miCadMarca.setText("Marcas");
-        muCadastro.add(miCadMarca);
+        muCadastros.add(miCadMarca);
 
-        mbMenuPrincipal.add(muCadastro);
+        mbMenuPrincipal.add(muCadastros);
 
-        jMenu2.setText("Edit");
-        mbMenuPrincipal.add(jMenu2);
+        muFuncionarios.setText("Funcionários");
+        mbMenuPrincipal.add(muFuncionarios);
+
+        muClientes.setText("Clientes");
+        mbMenuPrincipal.add(muClientes);
+
+        muVendas.setText("Vendas");
+        mbMenuPrincipal.add(muVendas);
+
+        muOpcoes.setText("Opções");
+        mbMenuPrincipal.add(muOpcoes);
 
         setJMenuBar(mbMenuPrincipal);
 
@@ -94,11 +106,16 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -123,10 +140,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar mbMenuPrincipal;
     private javax.swing.JMenuItem miCadMarca;
     private javax.swing.JMenuItem miCadVeiculo;
-    private javax.swing.JMenu muCadastro;
+    private javax.swing.JMenu muCadastros;
+    private javax.swing.JMenu muClientes;
+    private javax.swing.JMenu muFuncionarios;
+    private javax.swing.JMenu muOpcoes;
+    private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
 }
