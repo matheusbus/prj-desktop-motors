@@ -30,6 +30,8 @@ public class Moto extends Veiculo{
         return super.toString() + "\nMoto{" + "cilindrada=" + cilindrada + '}';
     }
     
-    
-    
+    @Override
+    public Object[] obterDados(){
+        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
+    }
 }

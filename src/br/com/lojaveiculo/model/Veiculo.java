@@ -66,6 +66,8 @@ public abstract class Veiculo {
         this.tipoCombustivel = tipoCombustivel;
     }
     
-    
+    public Object[] obterDados(){
+        return new Object[] {this.placa, this.modelo, this.marca.getNome(), this.ano, this.preco, this.tipoCombustivel};
+    } 
     
 }
