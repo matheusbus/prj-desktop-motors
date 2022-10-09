@@ -5,7 +5,8 @@
 package br.com.lojaveiculo.repositorio;
 
 import br.com.lojaveiculo.model.Veiculo;
-import java.util.List;
+import java.util.Map;
+
 
 /**
  *
@@ -13,8 +14,13 @@ import java.util.List;
  */
 public interface VeiculoRepositorio {
     
-    public List<Veiculo> getVeiculos();
-    public Veiculo buscarVeiculo(String placa);
-    public boolean adicionarVeiculo(Veiculo veic);
+ public boolean addVeiculo(Veiculo vei);
+ public boolean removeVeiculo(String placa);
+ public Map<String, Veiculo> getVeiculos();
+ public String  listarTodos();
+ public String listarPorPreco(double preco);
+ public String listarPorModelo(String modelo);
+ public boolean verificaPlacaExistente(String placa);
+ 
     
 }
