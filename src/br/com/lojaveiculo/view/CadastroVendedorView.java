@@ -53,7 +53,7 @@ public class CadastroVendedorView extends javax.swing.JFrame {
         lblCargo = new javax.swing.JLabel();
         txtComissao = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnCadFuncionario.setText("Cadastrar");
         btnCadFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +157,6 @@ public class CadastroVendedorView extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)))
-                .addGap(18, 18, 18)
                 .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
