@@ -7,7 +7,6 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
@@ -157,7 +156,8 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionaGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaGerenteActionPerformed
-        // TODO add your handling code here:
+        CadastroGerenteView cadastroGerente = new CadastroGerenteView(this);
+        cadastroGerente.setVisible(true);
     }//GEN-LAST:event_btnAdicionaGerenteActionPerformed
 
     private void btnAdicionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVendedorActionPerformed

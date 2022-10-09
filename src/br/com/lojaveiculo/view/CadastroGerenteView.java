@@ -17,11 +17,14 @@ import javax.swing.JOptionPane;
 public class CadastroGerenteView extends javax.swing.JFrame {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
+    private ConsultaFuncionariosView consulta;
     /**
      * Creates new form CadastroGerente
+     * @param consultaFuncView
      */
-    public CadastroGerenteView() {
+    public CadastroGerenteView(ConsultaFuncionariosView consultaFuncView) {
         initComponents();
+         consulta = consultaFuncView;
     }
 
     /**
@@ -46,7 +49,7 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         lblSalario = new javax.swing.JLabel();
         txtDepartamento = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnCadGerente.setText("Cadastrar");
         btnCadGerente.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +177,8 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         
             Pessoa pessoa2 = new Gerente(0, sNome, sCpf, sTelefone, sSalario);
             if(pessoas.adicionarPessoa(pessoa2)){
+                consulta.limparTabela();
+                consulta.popularTabela();
                 JOptionPane.showMessageDialog(rootPane, pessoa2.toString());
             }
         //}
