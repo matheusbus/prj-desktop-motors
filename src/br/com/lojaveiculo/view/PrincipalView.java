@@ -136,14 +136,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu muCadFuncionarios;
     // End of variables declaration//GEN-END:variables
 
-<<<<<<< HEAD
-    private static class VeiculoDAO extends Veiculo {
-
-        //public VeiculoDAO() {
-            //super();
-        }
-    }
-//}
-=======
+    
 }
->>>>>>> 2f7c3f5e44ecf430e6fef44fd8e926b6618253b1
+
+
