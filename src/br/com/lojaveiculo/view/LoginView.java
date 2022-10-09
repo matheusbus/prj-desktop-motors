@@ -36,6 +36,7 @@ public final class LoginView extends javax.swing.JFrame {
         usuariosSistema.adicionarUsuario(new Usuario("Rafael", "rafa123"));
         usuariosSistema.adicionarUsuario(new Usuario("Eduardo", "edu123"));
         usuariosSistema.adicionarUsuario(new Usuario("Matheus", "math123"));
+        usuariosSistema.adicionarUsuario(new Usuario("admin", "admin"));
     }
     
     public void organizaLayout(){
@@ -184,7 +185,8 @@ public final class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogarActionPerformed
 
     public void logar(){
-        // instanciar a tela do sistema.
+        telaPrincipal = new PrincipalView();
+        telaPrincipal.setVisible(true);
     }
     
     /**
