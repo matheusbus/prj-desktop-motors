@@ -41,21 +41,22 @@ public class PrincipalView extends javax.swing.JFrame {
 
         dkpnlFundo = new javax.swing.JDesktopPane();
         mbMenuPrincipal = new javax.swing.JMenuBar();
-        muCadFuncionarios = new javax.swing.JMenu();
+        muCadastros = new javax.swing.JMenu();
         miCadClientes = new javax.swing.JMenuItem();
         miCadVeiculos = new javax.swing.JMenuItem();
         miCadVendas = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         miCadVendedor = new javax.swing.JMenuItem();
         miCadGerente = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        muConsultas = new javax.swing.JMenu();
         muConsultaFuncionarios = new javax.swing.JMenuItem();
         menuVeiculos = new javax.swing.JMenu();
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
-        Venda = new javax.swing.JMenu();
+        muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        muRelatorios = new javax.swing.JMenu();
+        miRelatorios = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,16 +78,16 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGap(0, 578, Short.MAX_VALUE)
         );
 
-        muCadFuncionarios.setText("Cadastros");
+        muCadastros.setText("Cadastros");
 
         miCadClientes.setText("Clientes");
-        muCadFuncionarios.add(miCadClientes);
+        muCadastros.add(miCadClientes);
 
         miCadVeiculos.setText("Veículos");
-        muCadFuncionarios.add(miCadVeiculos);
+        muCadastros.add(miCadVeiculos);
 
         miCadVendas.setText("Vendas");
-        muCadFuncionarios.add(miCadVendas);
+        muCadastros.add(miCadVendas);
 
         menuFuncionarios.setText("Funcionarios");
 
@@ -106,11 +107,11 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         menuFuncionarios.add(miCadGerente);
 
-        muCadFuncionarios.add(menuFuncionarios);
+        muCadastros.add(menuFuncionarios);
 
-        mbMenuPrincipal.add(muCadFuncionarios);
+        mbMenuPrincipal.add(muCadastros);
 
-        jMenu1.setText("Consultas");
+        muConsultas.setText("Consultas");
 
         muConsultaFuncionarios.setText("Funcionários");
         muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +119,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 muConsultaFuncionariosActionPerformed(evt);
             }
         });
-        jMenu1.add(muConsultaFuncionarios);
+        muConsultas.add(muConsultaFuncionarios);
 
         menuVeiculos.setText("Veículos");
 
@@ -138,11 +139,11 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         menuVeiculos.add(miConsMoto);
 
-        jMenu1.add(menuVeiculos);
+        muConsultas.add(menuVeiculos);
 
-        mbMenuPrincipal.add(jMenu1);
+        mbMenuPrincipal.add(muConsultas);
 
-        Venda.setText("Venda");
+        muVendas.setText("Venda");
 
         muTelaVenda.setText("Tela Venda");
         muTelaVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -150,12 +151,21 @@ public class PrincipalView extends javax.swing.JFrame {
                 muTelaVendaActionPerformed(evt);
             }
         });
-        Venda.add(muTelaVenda);
+        muVendas.add(muTelaVenda);
 
-        mbMenuPrincipal.add(Venda);
+        mbMenuPrincipal.add(muVendas);
 
-        jMenu2.setText("Relatórios");
-        mbMenuPrincipal.add(jMenu2);
+        muRelatorios.setText("Relatórios");
+
+        miRelatorios.setText("Relatório");
+        miRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRelatoriosActionPerformed(evt);
+            }
+        });
+        muRelatorios.add(miRelatorios);
+
+        mbMenuPrincipal.add(muRelatorios);
 
         jMenu3.setText("Opções");
         mbMenuPrincipal.add(jMenu3);
@@ -208,9 +218,14 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-        //ConsultaMotoView consultaMoto = new ConsultaMotoView();
+       //ConsultaMotoView consultaMoto = new ConsultaMotoView();
        //consultaMoto.setVisible(true);
     }//GEN-LAST:event_miConsMotoActionPerformed
+
+    private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
+        RelatorioView relatorio = new RelatorioView();
+        relatorio.setVisible(true);
+    }//GEN-LAST:event_miRelatoriosActionPerformed
     
         public static void main(String args[]) {
             
@@ -224,10 +239,7 @@ public class PrincipalView extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Venda;
     private javax.swing.JDesktopPane dkpnlFundo;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar mbMenuPrincipal;
     private javax.swing.JMenu menuFuncionarios;
@@ -239,9 +251,13 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem miCadVendedor;
     private javax.swing.JMenuItem miConsCarro;
     private javax.swing.JMenuItem miConsMoto;
-    private javax.swing.JMenu muCadFuncionarios;
+    private javax.swing.JMenuItem miRelatorios;
+    private javax.swing.JMenu muCadastros;
     private javax.swing.JMenuItem muConsultaFuncionarios;
+    private javax.swing.JMenu muConsultas;
+    private javax.swing.JMenu muRelatorios;
     private javax.swing.JMenuItem muTelaVenda;
+    private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
 
     
