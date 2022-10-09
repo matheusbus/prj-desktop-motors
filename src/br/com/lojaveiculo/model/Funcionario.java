@@ -15,7 +15,7 @@ public abstract class Funcionario extends Pessoa {
     private double Salario;
     private Date dataAdmissao;
 
-    public Funcionario(double Salario, Date dataAdmissao, String nome, String cpf, String telefone) {
+    public Funcionario(double Salario, String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
         this.Salario = Salario;
         this.dataAdmissao = new Date();
