@@ -4,8 +4,11 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +16,9 @@ import br.com.lojaveiculo.model.Vendedor;
  */
 public class CadastroFuncionario extends javax.swing.JFrame {
 
+    private final PessoaRepositorio pessoas = new PessoaDAO();
+  
+    
     /**
      * Creates new form CadastroFuncionario
      */
@@ -40,7 +46,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblSalario = new javax.swing.JLabel();
         lblTelefone1 = new javax.swing.JLabel();
         lblCargo = new javax.swing.JLabel();
-        cbCargo = new javax.swing.JComboBox<>();
+        cbCargos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +91,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         lblCargo.setText("Cargo");
 
-        cbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Gerente", " " }));
-        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+        cbCargos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Gerente", " " }));
+        cbCargos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCargoActionPerformed(evt);
+                cbCargosActionPerformed(evt);
             }
         });
 
@@ -117,7 +123,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbCargos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
@@ -145,7 +151,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -186,16 +192,18 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         Double dSalario = Double.parseDouble(sSalario);
 
         if (cbCargos.getSelectedIndex() == 0) {
-            Pessoa pessoa1 = new Vendedor(sNome, sTelefone, sCpf, dSalario);
-            pessoas.add(pessoa1);
+            Pessoa pessoa1 = new Vendedor(0, 0, sNome, sCpf, sTelefone);
+            if(pessoas.adicionarPessoa(pessoa1)){
+                JOptionPane.showMessageDialog(rootPane, pessoa1.toString());
+            }
         }
 
 
     }//GEN-LAST:event_btnCadFuncionarioActionPerformed
 
-    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+    private void cbCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbCargoActionPerformed
+    }//GEN-LAST:event_cbCargosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,7 +242,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
-    private javax.swing.JComboBox<String> cbCargo;
+    private javax.swing.JComboBox<String> cbCargos;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblNome;
