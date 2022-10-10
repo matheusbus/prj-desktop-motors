@@ -263,7 +263,7 @@ public final class ConsultaMotoView extends javax.swing.JFrame implements Tabela
             if(incidencia != -1){
             tblMotos.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Não foi encontrado nenhum veículo com a placa filtrada.", "Placa inválida", HEIGHT);
+                JOptionPane.showMessageDialog(rootPane, "Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado", HEIGHT);
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Digite uma placa válida!", "Placa inválida", HEIGHT);

@@ -5,6 +5,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroCarroView extends javax.swing.JFrame {
+public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private final ConsultaCarroView consultaCarro;
@@ -173,28 +174,55 @@ public class CadastroCarroView extends javax.swing.JFrame {
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
         cadastrarCarro();
-        this.dispose();
     }//GEN-LAST:event_btnCadCarroActionPerformed
 
     public void cadastrarCarro(){
-       String placa = txtPlaca.getText();
-       String modelo = txtModelo.getText();
-       Marca marca = new Marca(txtMarca.getText());
-       int ano = Integer.parseInt(txtAno.getText());
-       Double preco = Double.valueOf(txtPreco.getText());
-       String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-       int portas = Integer.parseInt(txtPortas.getText());
-       
-        Carro novoCarro = new Carro(placa, modelo, marca, ano, preco, tipoCombustivel, portas);
-        veiculos.addVeiculo(novoCarro);
-        consultaCarro.limparTabela();
-        consultaCarro.popularTabela();
+        if(verificaPlaca(txtPlaca.getText())){
+            if(verificaCamposNulos()){
+                String placa = txtPlaca.getText().toUpperCase();
+                String modelo = txtModelo.getText();
+                Marca marca = new Marca(txtMarca.getText());
+                int ano = Integer.parseInt(txtAno.getText());
+                Double preco = Double.valueOf(txtPreco.getText());
+                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                int portas = Integer.parseInt(txtPortas.getText());
+
+                Carro novoCarro = new Carro(placa, modelo, marca, ano, preco, tipoCombustivel, portas);
+                veiculos.addVeiculo(novoCarro);
+                consultaCarro.limparTabela();
+                consultaCarro.popularTabela();
+
+                JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!", "Erro no cadastro", HEIGHT);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "A placa digitada é invalida!", "Erro no cadastro", HEIGHT);
+        }
         
-        JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
+       
         
     }
     
+    @Override
+    public boolean verificaCamposNulos() {
+        if(!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals("")) || (txtAno.getText().trim().equals("")) || (txtPreco.getText().trim().equals("")) || (txtPortas.getText().trim().equals("")))){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    @Override
+    public boolean verificaPlaca(String placa) {
+        if(placa.length() == 7){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;
     private javax.swing.JComboBox<String> cbCombustivel;
@@ -213,4 +241,6 @@ public class CadastroCarroView extends javax.swing.JFrame {
     private javax.swing.JTextField txtPortas;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
+
+
 }
