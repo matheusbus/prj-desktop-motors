@@ -44,7 +44,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="btnAdicionaVeiculo" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="btnCadastrarVeiculo" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnRemoverVeiculo" min="-2" pref="180" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnRemoverVeiculo" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnAdicionaVeiculo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnCadastrarVeiculo" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnSelecionarVeiculo" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -160,12 +160,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnAdicionaVeiculo">
+        <Component class="javax.swing.JButton" name="btnCadastrarVeiculo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionaVeiculoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVeiculoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRemoverVeiculo">

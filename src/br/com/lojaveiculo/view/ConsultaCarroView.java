@@ -5,13 +5,13 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.interfaces.TabelaConsultaVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.util.Map;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,64 +19,37 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaCarroView extends javax.swing.JFrame {
+public final class ConsultaCarroView extends javax.swing.JFrame implements TabelaConsultaVeiculo{
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
     private VendaView venda;
-     private VeiculoRepositorio veiculos;
+    private VeiculoRepositorio veiculos;
     /**
      * Creates new form ConsultaVeiculo
      */
     public ConsultaCarroView() {
-        initComponents();
-        
-        // Adicionar painel ao fundo
-        this.setContentPane(dkpFundo);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
-        grid = (DefaultTableModel) tblCarros.getModel();
-        criaVeiculos();
-        popularTabela();
     }
     
       public ConsultaCarroView(VendaView venda) {
+        organizaLayout();
+        this.btnSelecionarVeiculo.setEnabled(true);
+        this.venda = venda;
+        this.veiculos = new VeiculoDAO();
+    }
+      
+    public void organizaLayout(){
         initComponents();
         
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.btnSelecionarVeiculo.setEnabled(true);
-        this.venda = venda;
-        this.veiculos = new VeiculoDAO();
-  
-        
         grid = (DefaultTableModel) tblCarros.getModel();
         criaVeiculos();
         popularTabela();
-    }
-
-    public void popularTabela(){
-        limparTabela();
-        tblCarros.getModel();
-        Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-            if(entry.getValue() instanceof Carro){
-                Carro carro = (Carro) entry.getValue();
-                grid.addRow(carro.obterDados());
-            }
-        }
-    }
-    
-    public JButton getBotaoSeleciona(){
-        return this.btnSelecionarVeiculo;
-    }
-    
-    public void limparTabela(){
-        grid.setRowCount(0);
     }
     
     public void criaVeiculos(){
@@ -98,7 +71,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         dkpFundo = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCarros = new javax.swing.JTable();
-        btnAdicionaVeiculo = new javax.swing.JButton();
+        btnCadastrarVeiculo = new javax.swing.JButton();
         btnRemoverVeiculo = new javax.swing.JButton();
         txtPlacaBuscada = new javax.swing.JTextField();
         lblPlaca = new javax.swing.JLabel();
@@ -135,10 +108,10 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         tblCarros.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(tblCarros);
 
-        btnAdicionaVeiculo.setText("Cadastrar");
-        btnAdicionaVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarVeiculo.setText("Cadastrar");
+        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionaVeiculoActionPerformed(evt);
+                btnCadastrarVeiculoActionPerformed(evt);
             }
         });
 
@@ -167,7 +140,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         });
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnAdicionaVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnCadastrarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dkpFundo.setLayer(btnRemoverVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dkpFundo.setLayer(txtPlacaBuscada, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dkpFundo.setLayer(lblPlaca, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -183,7 +156,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(dkpFundoLayout.createSequentialGroup()
-                        .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -202,7 +175,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdicionaVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
                         .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -231,42 +204,23 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAdicionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVeiculoActionPerformed
+    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
         CadastroCarroView cadCarro = new CadastroCarroView(this);
         cadCarro.setVisible(true);
-    }//GEN-LAST:event_btnAdicionaVeiculoActionPerformed
+    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        if (!(tblCarros.getSelectedRow() == -1)){
-            String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
-            repositorioDeVeiculos.removeVeiculo(placa);
-            limparTabela();
-            popularTabela();
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Nenhum veículo foi selecionado.", "Erro de exclusão", HEIGHT);
-        }
-
+        removerDaTabela();
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
 
+    
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
-        String placa = txtPlacaBuscada.getText();
-        int indice = buscaNaTabela(placa);
-        if(!(indice == -1)){
-            tblCarros.setRowSelectionInterval(indice, indice);
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Não foi possível encontrar nenhum veículo com o filtro atual", "Erro de busca", HEIGHT);
-        }
-        
+        limpaSelecao();
+        String placa = txtPlacaBuscada.getText().toUpperCase();
+        buscaNaTabela(placa);
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
 
-    public int buscaNaTabela(String placa){
-        for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
-            if(grid.getValueAt(i, 0).equals(placa)){
-                return i;
-            }
-        }
-        return -1;
-    }
+
     
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
        String sPlaca;    
@@ -276,6 +230,63 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
+    @Override
+    public void limparTabela(){
+        grid.setRowCount(0);
+    }
+    
+    @Override
+    public void removerDaTabela() {
+        if (!(tblCarros.getSelectedRow() == -1)){
+            String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+            repositorioDeVeiculos.removeVeiculo(placa);
+            limparTabela();
+            popularTabela();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum veículo foi selecionado.", "Erro de exclusão", HEIGHT);
+        }
+    }
+    
+    @Override
+    public void limpaSelecao(){
+        // Limpar seleção da linha atual na tabela
+        tblCarros.clearSelection();
+    }
+     
+    @Override
+    public void buscaNaTabela(String placa){
+        int incidencia = -1;
+        if(placa.length() == 7){
+            for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
+                if(grid.getValueAt(i, 0).equals(placa)){
+                    incidencia = i;
+                }
+            }
+            if(incidencia != -1){
+            tblCarros.setRowSelectionInterval(incidencia, incidencia);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Não foi encontrado nenhum veículo com a placa filtrada.", "Placa inválida", HEIGHT);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Digite uma placa válida!", "Placa inválida", HEIGHT);
+        }
+
+    }
+    
+    @Override
+    public void popularTabela(){
+        limparTabela();
+        tblCarros.getModel();
+        Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
+        
+        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
+            if(entry.getValue() instanceof Carro){
+                Carro carro = (Carro) entry.getValue();
+                grid.addRow(carro.obterDados());
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -291,8 +302,8 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionaVeiculo;
     private javax.swing.JButton btnBuscarVeiculo;
+    private javax.swing.JButton btnCadastrarVeiculo;
     private javax.swing.JButton btnRemoverVeiculo;
     private javax.swing.JButton btnSelecionarVeiculo;
     private javax.swing.JDesktopPane dkpFundo;
@@ -301,4 +312,5 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
     private javax.swing.JTable tblCarros;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
+
 }
