@@ -250,8 +250,24 @@ public final class ConsultaCarroView extends javax.swing.JFrame {
 
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         String placa = txtPlacaBuscada.getText();
+        int indice = buscaNaTabela(placa);
+        if(!(indice == -1)){
+            tblCarros.setRowSelectionInterval(indice, indice);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Não foi possível encontrar nenhum veículo com o filtro atual", "Erro de busca", HEIGHT);
+        }
+        
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
 
+    public int buscaNaTabela(String placa){
+        for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
+            if(grid.getValueAt(i, 0).equals(placa)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
        String sPlaca;    
         sPlaca = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 

@@ -6,6 +6,7 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import javax.swing.JFrame;
 /**
  *
  * @author Matheus
@@ -21,7 +22,10 @@ public class PrincipalView extends javax.swing.JFrame {
         
         // Adicionar o painel ao centro do frame
         this.setContentPane(dkpnlFundo);
-        this.setSize(500, 400);
+        
+        // Para iniciar em tela cheia
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setSize(800, 600);
         
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
