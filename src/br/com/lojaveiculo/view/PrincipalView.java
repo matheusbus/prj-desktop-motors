@@ -8,7 +8,6 @@ import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 /**
  *
  * @author Matheus
@@ -24,7 +23,7 @@ public class PrincipalView extends javax.swing.JFrame {
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         this.add(painelFundo);
         this.setContentPane(painelFundo);
-        painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundo_ajustado.png"));
+        painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
         
         
         // Adicionar o painel ao centro do frame
@@ -32,7 +31,7 @@ public class PrincipalView extends javax.swing.JFrame {
         
         // Para iniciar em tela cheia
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setSize(1200, 800);
+        this.setSize(900, 600);
         
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
