@@ -25,7 +25,7 @@ public class PrincipalView extends javax.swing.JFrame {
         
         // Para iniciar em tela cheia
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setSize(800, 600);
+        this.setSize(1200, 800);
         
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
@@ -77,11 +77,11 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo.setLayout(dkpnlFundoLayout);
         dkpnlFundoLayout.setHorizontalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGap(0, 941, Short.MAX_VALUE)
         );
         dkpnlFundoLayout.setVerticalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 578, Short.MAX_VALUE)
+            .addGap(0, 603, Short.MAX_VALUE)
         );
 
         muCadastros.setText("Cadastros");
@@ -199,17 +199,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(dkpnlFundo, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(dkpnlFundo)
         );
 
         pack();
