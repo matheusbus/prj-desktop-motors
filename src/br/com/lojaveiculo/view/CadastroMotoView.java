@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
-    private final ConsultaMotoView consultaMoto;
+    private ConsultaMotoView consultaMoto = null;
   
     
     /**
@@ -26,13 +26,21 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
      * @param consultaMoto
      */
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
-        initComponents();
+        organizaLayout();
         this.consultaMoto = consultaMoto;
+    }
+    
+    public CadastroMotoView(){
+        organizaLayout();
+    }
+
+    public void organizaLayout(){
+        initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(400, 400);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +50,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadmOTO = new javax.swing.JButton();
+        btnCadMoto = new javax.swing.JButton();
         txtModelo = new javax.swing.JTextField();
         lblModelo = new javax.swing.JLabel();
         lblMarca = new javax.swing.JLabel();
@@ -63,13 +71,13 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
         setTitle("Cadastro de Carro");
         setPreferredSize(new java.awt.Dimension(400, 328));
 
-        btnCadmOTO.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadmOTO.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadmOTO.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadmOTO.setText("Cadastrar");
-        btnCadmOTO.addActionListener(new java.awt.event.ActionListener() {
+        btnCadMoto.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadMoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadMoto.setText("Cadastrar");
+        btnCadMoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadmOTOActionPerformed(evt);
+                btnCadMotoActionPerformed(evt);
             }
         });
 
@@ -121,7 +129,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadmOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -152,8 +160,8 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,16 +194,16 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
                         .addGap(22, 22, 22)
                         .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(btnCadmOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadmOTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadmOTOActionPerformed
+    private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
         cadastrarMoto();
-    }//GEN-LAST:event_btnCadmOTOActionPerformed
+    }//GEN-LAST:event_btnCadMotoActionPerformed
 
     public void cadastrarMoto(){
         if(verificaPlaca(txtPlaca.getText())){
@@ -210,10 +218,11 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
 
                 Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
                 veiculos.addVeiculo(novoCarro);
-                consultaMoto.limparTabela();
-                consultaMoto.popularTabela();
-
-                JOptionPane.showMessageDialog(rootPane, "Motoca cadastrada com sucesso.", "Cadastro realizado", HEIGHT);
+                if(consultaMoto != null){
+                    consultaMoto.limparTabela();
+                    consultaMoto.popularTabela();
+                }
+                JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!", "Erro no cadastro", HEIGHT);
@@ -242,7 +251,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadmOTO;
+    private javax.swing.JButton btnCadMoto;
     private javax.swing.JComboBox<String> cbCombustivel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAno;

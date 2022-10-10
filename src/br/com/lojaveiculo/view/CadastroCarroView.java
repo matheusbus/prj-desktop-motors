@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
-    private final ConsultaCarroView consultaCarro;
+    private ConsultaCarroView consultaCarro = null;
   
     
     /**
@@ -26,13 +26,21 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
      * @param consultaCarro
      */
     public CadastroCarroView(ConsultaCarroView consultaCarro) {
-        initComponents();
+        organizaLayout();
         this.consultaCarro = consultaCarro;
+    }
+    
+    public CadastroCarroView(){
+        organizaLayout();
+    }
+
+    public void organizaLayout(){
+        initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(400, 400);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -210,9 +218,10 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
 
                 Carro novoCarro = new Carro(placa, modelo, marca, ano, preco, tipoCombustivel, portas);
                 veiculos.addVeiculo(novoCarro);
-                consultaCarro.limparTabela();
-                consultaCarro.popularTabela();
-
+                if(consultaCarro != null){
+                    consultaCarro.limparTabela();
+                    consultaCarro.popularTabela();
+                }
                 JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
                 this.dispose();
             } else {
