@@ -6,7 +6,6 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import javax.swing.JFrame;
 /**
  *
  * @author Matheus
@@ -31,8 +30,6 @@ public class PrincipalView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
