@@ -30,6 +30,7 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
         this.consultaCarro = consultaCarro;
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setSize(400, 400);
     }
 
     /**
@@ -61,6 +62,9 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carro");
 
+        btnCadCarro.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadCarro.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadCarro.setForeground(new java.awt.Color(255, 255, 255));
         btnCadCarro.setText("Cadastrar");
         btnCadCarro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,23 +72,40 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
             }
         });
 
+        lblModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblModelo.setForeground(new java.awt.Color(255, 255, 255));
         lblModelo.setText("Modelo");
 
+        lblMarca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblMarca.setForeground(new java.awt.Color(255, 255, 255));
         lblMarca.setText("Marca");
 
+        lblPortas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPortas.setForeground(new java.awt.Color(255, 255, 255));
         lblPortas.setText("Portas");
 
+        lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
         lblPlaca.setText("Placa");
 
+        lblCombustivel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblCombustivel.setForeground(new java.awt.Color(255, 255, 255));
         lblCombustivel.setText("Combustível");
 
+        cbCombustivel.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        cbCombustivel.setForeground(new java.awt.Color(255, 255, 255));
         cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Álcool", "Flex", "Diesel", " " }));
 
+        lblAno.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblAno.setForeground(new java.awt.Color(255, 255, 255));
         lblAno.setText("Ano");
 
+        lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Valor");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastrar Carro");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,7 +150,7 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -162,9 +183,9 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
                         .addComponent(lblAno, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37)
-                .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18)
+                .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         getAccessibleContext().setAccessibleDescription("");
