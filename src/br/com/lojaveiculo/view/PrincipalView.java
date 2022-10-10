@@ -6,6 +6,7 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import javax.swing.JFrame;
 /**
  *
  * @author Matheus
@@ -21,7 +22,10 @@ public class PrincipalView extends javax.swing.JFrame {
         
         // Adicionar o painel ao centro do frame
         this.setContentPane(dkpnlFundo);
-        this.setSize(500, 400);
+        
+        // Para iniciar em tela cheia
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setSize(1200, 800);
         
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
@@ -43,7 +47,9 @@ public class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal = new javax.swing.JMenuBar();
         muCadastros = new javax.swing.JMenu();
         miCadClientes = new javax.swing.JMenuItem();
-        miCadVeiculos = new javax.swing.JMenuItem();
+        muCadVeiculo = new javax.swing.JMenu();
+        miCadCarro = new javax.swing.JMenuItem();
+        miCadMoto = new javax.swing.JMenuItem();
         miCadVendas = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         miCadVendedor = new javax.swing.JMenuItem();
@@ -71,11 +77,11 @@ public class PrincipalView extends javax.swing.JFrame {
         dkpnlFundo.setLayout(dkpnlFundoLayout);
         dkpnlFundoLayout.setHorizontalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGap(0, 941, Short.MAX_VALUE)
         );
         dkpnlFundoLayout.setVerticalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 578, Short.MAX_VALUE)
+            .addGap(0, 603, Short.MAX_VALUE)
         );
 
         muCadastros.setText("Cadastros");
@@ -83,8 +89,25 @@ public class PrincipalView extends javax.swing.JFrame {
         miCadClientes.setText("Clientes");
         muCadastros.add(miCadClientes);
 
-        miCadVeiculos.setText("Veículos");
-        muCadastros.add(miCadVeiculos);
+        muCadVeiculo.setText("Veículos");
+
+        miCadCarro.setText("Carro");
+        miCadCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadCarroActionPerformed(evt);
+            }
+        });
+        muCadVeiculo.add(miCadCarro);
+
+        miCadMoto.setText("Moto");
+        miCadMoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadMotoActionPerformed(evt);
+            }
+        });
+        muCadVeiculo.add(miCadMoto);
+
+        muCadastros.add(muCadVeiculo);
 
         miCadVendas.setText("Vendas");
         muCadastros.add(miCadVendas);
@@ -176,17 +199,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(dkpnlFundo, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dkpnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(dkpnlFundo)
         );
 
         pack();
@@ -226,6 +243,16 @@ public class PrincipalView extends javax.swing.JFrame {
         RelatorioView relatorio = new RelatorioView();
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
+
+    private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
+        CadastroCarroView cadCarro = new CadastroCarroView();
+        cadCarro.setVisible(true);
+    }//GEN-LAST:event_miCadCarroActionPerformed
+
+    private void miCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadMotoActionPerformed
+        CadastroMotoView cadMoto = new CadastroMotoView();
+        cadMoto.setVisible(true);
+    }//GEN-LAST:event_miCadMotoActionPerformed
     
         public static void main(String args[]) {
             
@@ -244,14 +271,16 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuBar mbMenuPrincipal;
     private javax.swing.JMenu menuFuncionarios;
     private javax.swing.JMenu menuVeiculos;
+    private javax.swing.JMenuItem miCadCarro;
     private javax.swing.JMenuItem miCadClientes;
     private javax.swing.JMenuItem miCadGerente;
-    private javax.swing.JMenuItem miCadVeiculos;
+    private javax.swing.JMenuItem miCadMoto;
     private javax.swing.JMenuItem miCadVendas;
     private javax.swing.JMenuItem miCadVendedor;
     private javax.swing.JMenuItem miConsCarro;
     private javax.swing.JMenuItem miConsMoto;
     private javax.swing.JMenuItem miRelatorios;
+    private javax.swing.JMenu muCadVeiculo;
     private javax.swing.JMenu muCadastros;
     private javax.swing.JMenuItem muConsultaFuncionarios;
     private javax.swing.JMenu muConsultas;

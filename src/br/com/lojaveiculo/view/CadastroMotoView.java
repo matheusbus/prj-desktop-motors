@@ -5,7 +5,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroMotoView extends javax.swing.JFrame {
+public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
-    private final ConsultaMotoView consultaMoto;
+    private ConsultaMotoView consultaMoto = null;
   
     
     /**
@@ -26,12 +26,21 @@ public class CadastroMotoView extends javax.swing.JFrame {
      * @param consultaMoto
      */
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
-        initComponents();
+        organizaLayout();
         this.consultaMoto = consultaMoto;
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+    }
+    
+    public CadastroMotoView(){
+        organizaLayout();
     }
 
+    public void organizaLayout(){
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(400, 400);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +50,7 @@ public class CadastroMotoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadCarro = new javax.swing.JButton();
+        btnCadMoto = new javax.swing.JButton();
         txtModelo = new javax.swing.JTextField();
         lblModelo = new javax.swing.JLabel();
         lblMarca = new javax.swing.JLabel();
@@ -56,73 +65,103 @@ public class CadastroMotoView extends javax.swing.JFrame {
         txtAno = new javax.swing.JTextField();
         lblPreco = new javax.swing.JLabel();
         txtPreco = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carro");
+        setPreferredSize(new java.awt.Dimension(400, 328));
 
-        btnCadCarro.setText("Cadastrar");
-        btnCadCarro.addActionListener(new java.awt.event.ActionListener() {
+        btnCadMoto.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadMoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadMoto.setText("Cadastrar");
+        btnCadMoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadCarroActionPerformed(evt);
+                btnCadMotoActionPerformed(evt);
             }
         });
 
+        lblModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblModelo.setForeground(new java.awt.Color(255, 255, 255));
         lblModelo.setText("Modelo");
 
+        lblMarca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblMarca.setForeground(new java.awt.Color(255, 255, 255));
         lblMarca.setText("Marca");
 
+        lblCilindradas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblCilindradas.setForeground(new java.awt.Color(255, 255, 255));
         lblCilindradas.setText("Cilindradas");
 
+        lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
         lblPlaca.setText("Placa");
 
+        lblCombustivel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblCombustivel.setForeground(new java.awt.Color(255, 255, 255));
         lblCombustivel.setText("Combustível");
 
+        cbCombustivel.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        cbCombustivel.setForeground(new java.awt.Color(255, 255, 255));
         cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Álcool", "Flex", "Diesel", " " }));
 
+        lblAno.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblAno.setForeground(new java.awt.Color(255, 255, 255));
         lblAno.setText("Ano");
 
+        lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Valor");
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cadastrar Moto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                                .addComponent(lblModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblMarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblCilindradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtCilindradas))
-                                .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblCombustivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addComponent(cbCombustivel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblMarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblCilindradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtCilindradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblCombustivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblAno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtAno, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cbCombustivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,7 +179,7 @@ public class CadastroMotoView extends javax.swing.JFrame {
                         .addComponent(lblCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -154,36 +193,67 @@ public class CadastroMotoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37)
-                .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-       String placa = txtPlaca.getText();
-       String modelo = txtModelo.getText();
-       Marca marca = new Marca(txtMarca.getText());
-       int ano = Integer.parseInt(txtAno.getText());
-       Double preco = Double.valueOf(txtPreco.getText());
-       String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-       int cilindradas = Integer.parseInt(txtCilindradas.getText());
-       
-        Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
-        veiculos.addVeiculo(novoCarro);
-        consultaMoto.limparTabela();
-        consultaMoto.popularTabela();
-        
-        JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
-        this.dispose();
-    }//GEN-LAST:event_btnCadCarroActionPerformed
+    private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
+        cadastrarMoto();
+    }//GEN-LAST:event_btnCadMotoActionPerformed
 
+    public void cadastrarMoto(){
+        if(verificaPlaca(txtPlaca.getText())){
+            if(verificaCamposNulos()){
+                String placa = txtPlaca.getText().toUpperCase();
+                String modelo = txtModelo.getText();
+                Marca marca = new Marca(txtMarca.getText());
+                int ano = Integer.parseInt(txtAno.getText());
+                Double preco = Double.valueOf(txtPreco.getText());
+                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                int cilindradas = Integer.parseInt(txtCilindradas.getText());
+
+                Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
+                veiculos.addVeiculo(novoCarro);
+                if(consultaMoto != null){
+                    consultaMoto.limparTabela();
+                    consultaMoto.popularTabela();
+                }
+                JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!", "Erro no cadastro", HEIGHT);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "A placa digitada é invalida!", "Erro no cadastro", HEIGHT);
+        }
+    }
+    
+    @Override
+    public boolean verificaCamposNulos() {
+        if(!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals("")) || (txtAno.getText().trim().equals("")) || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")))){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean verificaPlaca(String placa) {
+        if(placa.length() == 7){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadCarro;
+    private javax.swing.JButton btnCadMoto;
     private javax.swing.JComboBox<String> cbCombustivel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblCilindradas;
     private javax.swing.JLabel lblCombustivel;
@@ -198,4 +268,5 @@ public class CadastroMotoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
+
 }
