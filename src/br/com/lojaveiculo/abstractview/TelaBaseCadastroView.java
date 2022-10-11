@@ -6,26 +6,17 @@ package br.com.lojaveiculo.abstractview;
 
 /**
  *
- * @author Matheus
+ * @author Rafael
  */
-public abstract class TelaBaseConsultaView extends TelaBaseView {
+public abstract class TelaBaseCadastroView extends TelaBaseView {
 
-    public TelaBaseConsultaView() {
+    public TelaBaseCadastroView() {
         initComponents();
     }
     
+    //Método para limpar campos
+    public abstract void limparCampos();
 
-    
-    // Método que é sobrescrito para abrir as telas de cadastro em qualquer tela de consulta
-    public abstract void abrirTelaCadastro();
-    
-    // Métodos comuns para manipulação da tabela na tela de consultas
-    public abstract void limpaSelecao();
-    public abstract void popularTabela();
-    public abstract void removerDaTabela();
-    public abstract void limparTabela();
-    public abstract void buscaNaTabela(String parametro);
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,6 +36,8 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

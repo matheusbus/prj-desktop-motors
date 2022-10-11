@@ -72,6 +72,12 @@ public abstract class Veiculo {
 
     @Override
     public String toString() {
-        return "Veiculo{" + "placa=" + placa + ", modelo=" + modelo + ", marca=" + marca + ", ano=" + ano + ", preco=" + preco + ", tipoCombustivel=" + tipoCombustivel + '}';
+        return "Veiculo: " + "\n" + 
+              "Placa: " + this.placa + "\n" +
+              "Modelo: " +  this.modelo + "\n" +
+              "Marca: " + marca.getNome() + "\n" +
+              "Ano: " + this.ano + "\n" + 
+              "Preço: " + this.preco + "\n" + 
+              "Tipo de Combustível: " + this.tipoCombustivel + "\n";
     }
 }

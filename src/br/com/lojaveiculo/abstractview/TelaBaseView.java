@@ -16,8 +16,12 @@ public abstract class TelaBaseView extends javax.swing.JFrame {
     public TelaBaseView() {
         initComponents();
     }
-
+        
+    //Método apra apresentar mensagens na tela.
     public abstract void apresentaMensagem(String mensagem, String titulo);
+    
+     // Método que faz a organização do layout e é chamado no construtor.
+    public abstract void organizaLayout();
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
