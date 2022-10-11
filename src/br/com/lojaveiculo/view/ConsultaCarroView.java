@@ -215,28 +215,26 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         removerDaTabela();
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
 
-    
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         limpaSelecao();
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
     
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-       String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
-       selecionaItem(placa);
+        selecionaItem((String) grid.getValueAt(tblCarros.getSelectedRow(), 0));
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo){
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-    
     @Override
     public void abrirTelaCadastro(){
         CadastroCarroView cadCarro = new CadastroCarroView(this);
         cadCarro.setVisible(true);        
-    }    
+    }
     
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo){
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
     @Override
     public void limparTabela(){
         grid.setRowCount(0);
@@ -275,6 +273,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
      
     }
     
+    @Override
     public void buscaNaTabela(String placa){
         int incidencia = -1;
         if(placa.length() == 7){
@@ -291,8 +290,8 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         } else {
             apresentaMensagem("Digite uma placa válida!", "Placa inválida");
         }
-
     }
+    
     
     public void selecionaItem(String placa){
        venda.veiculo = veiculos.buscarVeiculo(placa); 

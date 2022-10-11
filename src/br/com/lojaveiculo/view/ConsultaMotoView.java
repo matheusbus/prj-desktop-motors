@@ -42,7 +42,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
       
     @Override
     public void organizaLayout(){
-        initComponents();     
+        initComponents();  
+        
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -52,13 +53,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         popularTabela();
     }
     
-    public void criaVeiculos(){
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0001", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0002", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0003", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0004", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,16 +60,19 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         dkpFundo = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMotos = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnBuscarVeiculo = new javax.swing.JButton();
+        lblPlaca = new javax.swing.JLabel();
+        txtPlacaBuscada = new javax.swing.JTextField();
         btnCadastrarVeiculo = new javax.swing.JButton();
         btnRemoverVeiculo = new javax.swing.JButton();
-        txtPlacaBuscada = new javax.swing.JTextField();
-        lblPlaca = new javax.swing.JLabel();
-        btnBuscarVeiculo = new javax.swing.JButton();
         btnSelecionarVeiculo = new javax.swing.JButton();
+        btnSelecionarVeiculo1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Carros");
 
+        tblMotos.setForeground(new java.awt.Color(255, 255, 255));
         tblMotos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null}
@@ -100,8 +97,24 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             }
         });
         tblMotos.setToolTipText("");
-        tblMotos.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        tblMotos.setSelectionBackground(new java.awt.Color(153, 204, 255));
         jScrollPane1.setViewportView(tblMotos);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
+
+        btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
+        btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnBuscarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarVeiculo.setText("Buscar");
+        btnBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarVeiculoActionPerformed(evt);
+            }
+        });
+
+        lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
+        lblPlaca.setText("Placa:");
 
         btnCadastrarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -123,20 +136,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             }
         });
 
-        lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
-        lblPlaca.setText("Placa:");
-
-        btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnBuscarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarVeiculo.setText("Buscar");
-        btnBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarVeiculoActionPerformed(evt);
-            }
-        });
-
         btnSelecionarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnSelecionarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnSelecionarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,13 +146,58 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             }
         });
 
+        btnSelecionarVeiculo1.setBackground(new java.awt.Color(82, 148, 226));
+        btnSelecionarVeiculo1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnSelecionarVeiculo1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelecionarVeiculo1.setText("Alterar");
+        btnSelecionarVeiculo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarVeiculo1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelecionarVeiculo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPlacaBuscada)
+                            .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarVeiculo))
+                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSelecionarVeiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnCadastrarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnRemoverVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(txtPlacaBuscada, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(lblPlaca, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnBuscarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnSelecionarVeiculo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
         dkpFundo.setLayout(dkpFundoLayout);
@@ -162,40 +206,17 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(dkpFundoLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dkpFundoLayout.createSequentialGroup()
-                                .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnBuscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                        .addGap(200, 200, 200)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(dkpFundoLayout.createSequentialGroup()
-                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(lblPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarVeiculo))
-                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -220,20 +241,19 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
         removerDaTabela();
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
-
-    
+ 
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         limpaSelecao();
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
 
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-       String sPlaca;    
-        sPlaca = (String) grid.getValueAt(tblMotos.getSelectedRow(), 0); 
-        venda.veiculo = veiculos.buscarVeiculo(sPlaca); 
-        venda.VeiculoSelecionado = true;
-        setVisible(false);
+        selecionaItem((String) grid.getValueAt(tblMotos.getSelectedRow(), 0));
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
+
+    private void btnSelecionarVeiculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSelecionarVeiculo1ActionPerformed
 
     @Override
     public void abrirTelaCadastro() {
@@ -243,7 +263,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
     
     @Override
@@ -259,7 +279,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             limparTabela();
             popularTabela();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Nenhum veículo foi selecionado.", "Erro de exclusão", HEIGHT);
+            apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
         }
     }
     
@@ -267,26 +287,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     public void limpaSelecao(){
         // Limpar seleção da linha atual na tabela
         tblMotos.clearSelection();
-    }
-     
-    @Override
-    public void buscaNaTabela(String placa){
-        int incidencia = -1;
-        if(placa.length() == 7){
-            for(int i = 0; i <= tblMotos.getRowCount()-1; i++){
-                if(grid.getValueAt(i, 0).equals(placa)){
-                    incidencia = i;
-                }
-            }
-            if(incidencia != -1){
-            tblMotos.setRowSelectionInterval(incidencia, incidencia);
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado", HEIGHT);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Digite uma placa válida!", "Placa inválida", HEIGHT);
-        }
-
     }
     
     @Override
@@ -301,6 +301,31 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
                 grid.addRow(moto.obterDados());
             }
         }
+    }
+     
+    @Override
+    public void buscaNaTabela(String placa){
+        int incidencia = -1;
+        if(placa.length() == 7){
+            for(int i = 0; i <= tblMotos.getRowCount()-1; i++){
+                if(grid.getValueAt(i, 0).equals(placa)){
+                    incidencia = i;
+                }
+            }
+            if(incidencia != -1){
+            tblMotos.setRowSelectionInterval(incidencia, incidencia);
+            } else {
+                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
+            }
+        } else {
+            apresentaMensagem("Digite uma placa válida!", "Placa inválida");
+        }
+    }
+    
+    public void selecionaItem(String placa){
+       venda.veiculo = veiculos.buscarVeiculo(placa); 
+       venda.VeiculoSelecionado = true;
+       setVisible(false);
     }
     
     /**
@@ -322,11 +347,20 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     private javax.swing.JButton btnCadastrarVeiculo;
     private javax.swing.JButton btnRemoverVeiculo;
     private javax.swing.JButton btnSelecionarVeiculo;
+    private javax.swing.JButton btnSelecionarVeiculo1;
     private javax.swing.JDesktopPane dkpFundo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlaca;
     private javax.swing.JTable tblMotos;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
 
+    public void criaVeiculos(){
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0001", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0002", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0003", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("ABC0004", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
+    }
+    
 }
