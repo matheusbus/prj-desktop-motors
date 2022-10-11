@@ -4,8 +4,8 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.interfaces.TabelaConsultaVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Veiculo;
@@ -19,27 +19,28 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaCarroView extends javax.swing.JFrame implements TabelaConsultaVeiculo{
+public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
     private VendaView venda;
     private VeiculoRepositorio veiculos;
-    /**
-     * Creates new form ConsultaVeiculo
-     */
+    
+    // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
     
-      public ConsultaCarroView(VendaView venda) {
+    // Construtor chamado na tela de venda
+    public ConsultaCarroView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(true);
         this.venda = venda;
         this.veiculos = new VeiculoDAO();
     }
       
+    @Override
     public void organizaLayout(){
         initComponents();
         
@@ -50,13 +51,6 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
         grid = (DefaultTableModel) tblCarros.getModel();
         criaVeiculos();
         popularTabela();
-    }
-    
-    public void criaVeiculos(){
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0001", "Gol 1.0", new Marca("Wolksvagen"), 2002, 25000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0002", "Palio 2.5 Turbo", new Marca("Fiat"), 2002, 80000, "Diesel", 5));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0003", "Onix nutella", new Marca("Chevrolet"), 2002, 50000, "Gasolina", 3));
-        repositorioDeVeiculos.addVeiculo(new Carro("ABC0004", "Arizzo 5", new Marca("Chery"), 2002, 40000, "Diesel", 7));
     }
     
     /**
@@ -231,17 +225,23 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
         limpaSelecao();
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
-
-    private void abrirTelaCadastro(){
-        CadastroCarroView cadCarro = new CadastroCarroView(this);
-        cadCarro.setVisible(true);        
-    }
     
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
        String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
        selecionaItem(placa);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo){
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+    
+    @Override
+    public void abrirTelaCadastro(){
+        CadastroCarroView cadCarro = new CadastroCarroView(this);
+        cadCarro.setVisible(true);        
+    }    
+    
     @Override
     public void limparTabela(){
         grid.setRowCount(0);
@@ -255,7 +255,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
             limparTabela();
             popularTabela();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Nenhum veículo foi selecionado.", "Erro de exclusão", HEIGHT);
+            apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
         }
     }
     
@@ -263,26 +263,6 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
     public void limpaSelecao(){
         // Limpar seleção da linha atual na tabela
         tblCarros.clearSelection();
-    }
-     
-    @Override
-    public void buscaNaTabela(String placa){
-        int incidencia = -1;
-        if(placa.length() == 7){
-            for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
-                if(grid.getValueAt(i, 0).equals(placa)){
-                    incidencia = i;
-                }
-            }
-            if(incidencia != -1){
-            tblCarros.setRowSelectionInterval(incidencia, incidencia);
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado", HEIGHT);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Digite uma placa válida!", "Placa inválida", HEIGHT);
-        }
-
     }
     
     @Override
@@ -297,6 +277,25 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
                 grid.addRow(carro.obterDados());
             }
         }
+    }
+    
+    public void buscaNaTabela(String placa){
+        int incidencia = -1;
+        if(placa.length() == 7){
+            for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
+                if(grid.getValueAt(i, 0).equals(placa)){
+                    incidencia = i;
+                }
+            }
+            if(incidencia != -1){
+            tblCarros.setRowSelectionInterval(incidencia, incidencia);
+            } else {
+                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
+            }
+        } else {
+            apresentaMensagem("Digite uma placa válida!", "Placa inválida");
+        }
+
     }
     
     public void selecionaItem(String placa){
@@ -331,4 +330,12 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
 
+    // Método de teste, não vai ficar na versão final.
+    public void criaVeiculos(){
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0001", "Gol 1.0", new Marca("Wolksvagen"), 2002, 25000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0002", "Palio 2.5 Turbo", new Marca("Fiat"), 2002, 80000, "Diesel", 5));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0003", "Onix nutella", new Marca("Chevrolet"), 2002, 50000, "Gasolina", 3));
+        repositorioDeVeiculos.addVeiculo(new Carro("ABC0004", "Arizzo 5", new Marca("Chery"), 2002, 40000, "Diesel", 7));
+    }
+    
 }
