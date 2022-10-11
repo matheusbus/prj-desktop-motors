@@ -4,9 +4,10 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.model.Veiculo;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Matheus
@@ -19,20 +20,23 @@ public class PrincipalView extends javax.swing.JFrame {
      */
     public PrincipalView() {
         initComponents();
+        PainelImagemFundo painelFundo = new PainelImagemFundo();
+        this.add(painelFundo);
+        this.setContentPane(painelFundo);
+        painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
+        
         
         // Adicionar o painel ao centro do frame
-        this.setContentPane(dkpnlFundo);
+        //this.setContentPane(dkpnlFundo);
         
         // Para iniciar em tela cheia
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setSize(1200, 800);
+        this.setSize(900, 600);
         
         // Setar posicao do frame na tela (null = centro)
         this.setLocationRelativeTo(null);
         
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +54,6 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadVeiculo = new javax.swing.JMenu();
         miCadCarro = new javax.swing.JMenuItem();
         miCadMoto = new javax.swing.JMenuItem();
-        miCadVendas = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         miCadVendedor = new javax.swing.JMenuItem();
         miCadGerente = new javax.swing.JMenuItem();
@@ -87,6 +90,11 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadastros.setText("Cadastros");
 
         miCadClientes.setText("Clientes");
+        miCadClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadClientesActionPerformed(evt);
+            }
+        });
         muCadastros.add(miCadClientes);
 
         muCadVeiculo.setText("Veículos");
@@ -108,9 +116,6 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadVeiculo.add(miCadMoto);
 
         muCadastros.add(muCadVeiculo);
-
-        miCadVendas.setText("Vendas");
-        muCadastros.add(miCadVendas);
 
         menuFuncionarios.setText("Funcionarios");
 
@@ -244,6 +249,7 @@ public class PrincipalView extends javax.swing.JFrame {
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
+
     private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
         CadastroCarroView cadCarro = new CadastroCarroView();
         cadCarro.setVisible(true);
@@ -253,6 +259,11 @@ public class PrincipalView extends javax.swing.JFrame {
         CadastroMotoView cadMoto = new CadastroMotoView();
         cadMoto.setVisible(true);
     }//GEN-LAST:event_miCadMotoActionPerformed
+
+    private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
+        
+    }//GEN-LAST:event_miCadClientesActionPerformed
+
     
         public static void main(String args[]) {
             
@@ -275,7 +286,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem miCadClientes;
     private javax.swing.JMenuItem miCadGerente;
     private javax.swing.JMenuItem miCadMoto;
-    private javax.swing.JMenuItem miCadVendas;
     private javax.swing.JMenuItem miCadVendedor;
     private javax.swing.JMenuItem miConsCarro;
     private javax.swing.JMenuItem miConsMoto;

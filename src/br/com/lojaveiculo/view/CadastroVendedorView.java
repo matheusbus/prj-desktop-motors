@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
@@ -14,24 +15,23 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroVendedorView extends javax.swing.JFrame {
+public final class CadastroVendedorView extends TelaBaseCadastroView {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
     private ConsultaFuncionariosView consulta;
 
     /**
      * Creates new form CadastroFuncionario
+     *
      * @param consultaFuncView
      */
-  
-
     public CadastroVendedorView(ConsultaFuncionariosView consultaFuncView) {
-        initComponents();
+        organizaLayout();
         consulta = consultaFuncView;
     }
 
     CadastroVendedorView() {
-        initComponents();
+        organizaLayout();
     }
 
     /**
@@ -65,45 +65,15 @@ public class CadastroVendedorView extends javax.swing.JFrame {
             }
         });
 
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
-            }
-        });
-
         lblCpf.setText("CPF");
 
         lblNome.setText("Nome");
 
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
-
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-
         lblTelefone.setText("Telefone");
-
-        txtSalario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalarioActionPerformed(evt);
-            }
-        });
 
         lblSalario.setText("Salário");
 
         lblCargo.setText("Comissão em %");
-
-        txtComissao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtComissaoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,47 +143,54 @@ public class CadastroVendedorView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfActionPerformed
-
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalarioActionPerformed
 
     private void btnCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncionarioActionPerformed
-
-        String sCpf = txtCpf.getText();
-        String sNome = txtNome.getText();
-        String sTelefone = txtTelefone.getText();
-        String sSalario = txtSalario.getText();
-        String sComissao = txtComissao.getText();
-
-        Double dSalario = Double.parseDouble(sSalario);
-        Double dComissao = Double.parseDouble(sComissao);
-
-        Pessoa pessoa1 = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
-        if (pessoas.adicionarPessoa(pessoa1)) {
-            consulta.limparTabela();
-            consulta.popularTabela();
-            JOptionPane.showMessageDialog(rootPane, pessoa1.toString());
-        }
-
-
+        cadastrarVendedor();
     }//GEN-LAST:event_btnCadFuncionarioActionPerformed
 
-    private void txtComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComissaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtComissaoActionPerformed
+    public void cadastrarVendedor() {
+        if (verificaCPF(txtCpf.getText())) {
+            if (verificaCamposNulos()) {
+                String sCpf = txtCpf.getText();
+                String sNome = txtNome.getText();
+                String sTelefone = txtTelefone.getText();
+                String sSalario = txtSalario.getText();
+                String sComissao = txtComissao.getText();
 
+                Double dSalario = Double.parseDouble(sSalario);
+                Double dComissao = Double.parseDouble(sComissao);
+
+                Pessoa p = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
+                pessoas.adicionarPessoa(p);
+                if (consulta != null) {
+                    consulta.limparTabela();
+                    consulta.popularTabela();
+                }
+                apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
+                this.dispose();
+            } else {
+                apresentaMensagem("Preencha todos os campos", "Erro");
+            }
+        } else {
+            apresentaMensagem("CPF inválido, digite novamente", "Erro");
+        }
+    }
+
+    public boolean verificaCamposNulos() {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean verificaCPF(String cpf) {
+        if (cpf.length() == 11) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -232,4 +209,28 @@ public class CadastroVendedorView extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
+    @Override
+    public void limparCampos() {
+        txtCpf.setText("");
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtSalario.setText("");
+        txtComissao.setText("");
+
+    }
+
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(400, 400);
+    }
+
 }

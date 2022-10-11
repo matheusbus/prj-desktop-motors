@@ -28,7 +28,7 @@ public class Carro extends Veiculo {
 
     @Override
     public String toString() {
-        return super.toString() + "\nCarro{" + "portas=" + portas + '}';
+        return super.toString() + "Portas: " + portas;
     }
     
     /**

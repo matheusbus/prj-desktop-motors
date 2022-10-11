@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.model;
 
+
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -13,13 +15,14 @@ import java.util.Date;
 public abstract class Funcionario extends Pessoa {
     
     protected double salario;
-    protected Date dataAdmissao;
+    protected LocalDate dataAdmissao;
 
     public Funcionario(double salario, String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
         this.salario = salario;
-        this.dataAdmissao = new Date();
+        this.dataAdmissao = LocalDate.now();             
     }
+    
 
     public double getSalario() {
         return salario;
@@ -29,11 +32,11 @@ public abstract class Funcionario extends Pessoa {
         this.salario = Salario;
     }
 
-    public Date getDataAdmissao() {
+    public LocalDate getDataAdmissao() {
         return dataAdmissao;
     }
 
-    public void setDataAdmissao(Date dataAdmissao) {
+    public void setDataAdmissao(LocalDate dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
 
