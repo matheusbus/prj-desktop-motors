@@ -4,69 +4,54 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Funcionario;
+import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.Set;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Rafael
  */
-public class ConsultaFuncionariosView extends javax.swing.JFrame {
+public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
-     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
-     private DefaultTableModel grid;
-     private VendaView venda;
-     private PessoaRepositorio pessoas;
-     
+    private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
+    private DefaultTableModel grid;
+    private VendaView venda;
+    private PessoaRepositorio pessoas;
+
     public ConsultaFuncionariosView(VendaView venda) {
-        initComponents();
-        // Adicionar painel ao fundo
-        this.setContentPane(dkpFundo);
+        organizaLayout();
+        this.btnSelecionarFuncionario.setEnabled(true);
         this.venda = venda;
         pessoas = new PessoaDAO();
-        carregarFuncionarios();
-        popularTabela();
     }
 
-    ConsultaFuncionariosView() {
-      initComponents();
+    public ConsultaFuncionariosView() {
+        organizaLayout();
+        this.btnSelecionarFuncionario.setEnabled(false);
+    }
+    
+       @Override
+    public void organizaLayout() {
+        initComponents();
+        
         // Adicionar painel ao fundo
-        this.setContentPane(dkpFundo); 
-        carregarFuncionarios();
-        popularTabela(); 
-    }
-    
-    public void carregarFuncionarios(){
-       Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "987654321");
-       Pessoa func2 = new Vendedor(10.0, 3000, "Marcos", "123213123", "98242");
-       pessoas.adicionarPessoa(func1);
-       pessoas.adicionarPessoa(func2);
-    }
-    
-    public void popularTabela(){
-        tblFuncionarios.getModel();
+        this.setContentPane(dkpFundo);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
-        Set<Pessoa> pessoas = repositorioDePessoas.getPessoas();
-        
-        for(Pessoa p : pessoas){
-           if(p instanceof Funcionario){
-                Funcionario func = (Funcionario) p;
-                grid.addRow(func.obterDados());
-            }
-        }
-        
+        criaFuncionarios();
+        popularTabela();
     }
-    
-    public void limparTabela(){
-       grid.setRowCount(0);
-    }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,25 +63,73 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
     private void initComponents() {
 
         dkpFundo = new javax.swing.JDesktopPane();
-        btnAdicionaGerente = new javax.swing.JButton();
-        btnAdicionaVendedor = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        btnCadastrarVendedor = new javax.swing.JButton();
+        btnBuscarFuncionario = new javax.swing.JButton();
+        txtCPFBuscado = new javax.swing.JTextField();
+        lblCPF = new javax.swing.JLabel();
+        btnCadastrarGerente = new javax.swing.JButton();
+        btnRemoverFuncionario = new javax.swing.JButton();
+        btnSelecionarFuncionario = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tblFuncionarios = new javax.swing.JTable();
-        btnSelecionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(940, 464));
+        setResizable(false);
 
-        btnAdicionaGerente.setText("Cadastrar Gerente");
-        btnAdicionaGerente.addActionListener(new java.awt.event.ActionListener() {
+        dkpFundo.setPreferredSize(new java.awt.Dimension(940, 464));
+
+        btnCadastrarVendedor.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarVendedor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarVendedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarVendedor.setText("Cadastrar Vendedor");
+        btnCadastrarVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionaGerenteActionPerformed(evt);
+                btnCadastrarVendedorActionPerformed(evt);
             }
         });
 
-        btnAdicionaVendedor.setText("Cadastrar Vendedor");
-        btnAdicionaVendedor.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnBuscarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnBuscarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarFuncionario.setText("Buscar");
+        btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionaVendedorActionPerformed(evt);
+                btnBuscarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        lblCPF.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblCPF.setForeground(new java.awt.Color(255, 255, 255));
+        lblCPF.setText("CPF:");
+
+        btnCadastrarGerente.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarGerente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarGerente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarGerente.setText("Cadastrar Gerente");
+        btnCadastrarGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarGerenteActionPerformed(evt);
+            }
+        });
+
+        btnRemoverFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnRemoverFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRemoverFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemoverFuncionario.setText("Remover");
+        btnRemoverFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverFuncionarioActionPerformed(evt);
+            }
+        });
+
+        btnSelecionarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnSelecionarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnSelecionarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelecionarFuncionario.setText("Selecionar");
+        btnSelecionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -105,7 +138,7 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Telefone", "Salario", "Data Admissão", "Cargo"
+                "Nome", "CPF", "Telefone", "Salário", "Data Admissão", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
@@ -125,98 +158,209 @@ public class ConsultaFuncionariosView extends javax.swing.JFrame {
         });
         tblFuncionarios.setToolTipText("");
         tblFuncionarios.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jScrollPane1.setViewportView(tblFuncionarios);
+        jScrollPane2.setViewportView(tblFuncionarios);
 
-        btnSelecionar.setText("Selecionar");
-        btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarActionPerformed(evt);
-            }
-        });
-
-        dkpFundo.setLayer(btnAdicionaGerente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnAdicionaVendedor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnSelecionar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnCadastrarVendedor, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnBuscarFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(txtCPFBuscado, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(lblCPF, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnCadastrarGerente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnRemoverFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(btnSelecionarFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
         dkpFundo.setLayout(dkpFundoLayout);
         dkpFundoLayout.setHorizontalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAdicionaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdicionaVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(212, 212, 212)
-                .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dkpFundoLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(dkpFundoLayout.createSequentialGroup()
+                        .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCPFBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dkpFundoLayout.createSequentialGroup()
+                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCPFBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarFuncionario))
+                    .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionaGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(btnAdicionaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAdicionaGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaGerenteActionPerformed
+    private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
+        limpaSelecao();
+        buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
+    }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
+
+    private void btnCadastrarGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarGerenteActionPerformed
         CadastroGerenteView cadastroGerente = new CadastroGerenteView(this);
-        cadastroGerente.setVisible(true);
-    }//GEN-LAST:event_btnAdicionaGerenteActionPerformed
+        cadastroGerente.setVisible(true);;
+    }//GEN-LAST:event_btnCadastrarGerenteActionPerformed
 
-    private void btnAdicionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaVendedorActionPerformed
-       CadastroVendedorView cadastroVendedor = new CadastroVendedorView(this); 
-       cadastroVendedor.setVisible(true);
-    }//GEN-LAST:event_btnAdicionaVendedorActionPerformed
+    private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
+        String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
+        selecionaItem(cpf);
+    }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
-    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        String sCPF;    
-        sCPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1); 
-        venda.vendedor = pessoas.buscarPessoaPorCPF(sCPF);
-        venda.VendedorSelecionado = true;
-        setVisible(false);
-    }//GEN-LAST:event_btnSelecionarActionPerformed
+    private void btnRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionarioActionPerformed
+        removerDaTabela();
+    }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
+
+    private void btnCadastrarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendedorActionPerformed
+        CadastroVendedorView cadastroVendedor = new CadastroVendedorView(this);
+        cadastroVendedor.setVisible(true);
+    }//GEN-LAST:event_btnCadastrarVendedorActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionaGerente;
-    private javax.swing.JButton btnAdicionaVendedor;
-    private javax.swing.JButton btnSelecionar;
+    private javax.swing.JButton btnBuscarFuncionario;
+    private javax.swing.JButton btnCadastrarGerente;
+    private javax.swing.JButton btnCadastrarVendedor;
+    private javax.swing.JButton btnRemoverFuncionario;
+    private javax.swing.JButton btnSelecionarFuncionario;
     private javax.swing.JDesktopPane dkpFundo;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCPF;
     private javax.swing.JTable tblFuncionarios;
+    private javax.swing.JTextField txtCPFBuscado;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void abrirTelaCadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void limpaSelecao() {
+        // Limpar seleção da linha atual na tabela
+        tblFuncionarios.clearSelection();
+    }
+
+    @Override
+    public void removerDaTabela() {
+        if (!(tblFuncionarios.getSelectedRow() == -1)) {
+            String CPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
+            repositorioDePessoas.removerPessoa(CPF);
+            limparTabela();
+            popularTabela();
+        } else {
+            apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
+        }
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
+ 
+
+    @Override
+    public void popularTabela() {
+        limparTabela();
+        tblFuncionarios.getModel();
+        Set<Pessoa> pessoas = repositorioDePessoas.getPessoas();
+
+        for (Pessoa p : pessoas) {
+            if (p instanceof Funcionario) {
+                Funcionario func = (Funcionario) p;
+                grid.addRow(func.obterDados());
+
+            }
+        }
+
+    }
+
+    @Override
+    public void limparTabela() {
+        grid.setRowCount(0);
+    }
+
+    @Override
+    public void buscaNaTabela(String cpf) {
+        int incidencia = -1;
+        if (cpf.length() == 11) {
+            for (int i = 0; i <= tblFuncionarios.getRowCount() - 1; i++) {
+                if (grid.getValueAt(i, 1).equals(cpf)) {
+                    incidencia = i;
+                }
+            }
+            if (incidencia != -1) {
+                tblFuncionarios.setRowSelectionInterval(incidencia, incidencia);
+            } else {
+                apresentaMensagem("Não foi encontrado nenhum funcionário com o '" + cpf + "'.", "Funcionário não encontrado");
+            }
+        } else {
+            apresentaMensagem("Digite um CPF válido!", "CPF inválido");
+        }
+
+    }
+    
+      public void selecionaItem(String cpf){
+       venda.vendedor = pessoas.buscarPessoaPorCPF(cpf); 
+       venda.VendedorSelecionado = true;
+       setVisible(false);
+    }
+
+    //Teste
+    public void criaFuncionarios() {
+        Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "47987654321");
+        Pessoa func2 = new Gerente(8000.00, "Matheus", "18376412983", "4799876213", "Financeiro");
+        Pessoa func3 = new Vendedor(12.0, 4000, "Eduardo", "18723465409", "47965427123");
+        repositorioDePessoas.adicionarPessoa(func1);
+        repositorioDePessoas.adicionarPessoa(func2);
+        repositorioDePessoas.adicionarPessoa(func3);
+    }
+
 }

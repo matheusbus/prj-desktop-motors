@@ -4,25 +4,18 @@
  */
 package br.com.lojaveiculo.model;
 
-import br.com.lojaveiculo.interfaces.Autenticavel;
-
 
 /**
  *
  * @author Rafael
  */
-public class Gerente extends Funcionario implements Autenticavel{
+public class Gerente extends Funcionario{
     
         private String departamento;
 
     public Gerente(double Salario, String nome, String cpf, String telefone, String departamento) {
         super(Salario, nome, cpf, telefone);
         this.departamento = departamento;
-    }
-
-    @Override
-    public boolean AutenticaVenda() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getDepartamento() {

@@ -176,7 +176,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                         .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
@@ -190,7 +190,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                             .addComponent(txtPlacaBuscada))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarVeiculo))
-                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -267,16 +267,17 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     
     @Override
     public void popularTabela(){
-        limparTabela();
+       limparTabela();
         tblCarros.getModel();
         Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
         
-        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
+       for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
             if(entry.getValue() instanceof Carro){
                 Carro carro = (Carro) entry.getValue();
                 grid.addRow(carro.obterDados());
             }
         }
+     
     }
     
     public void buscaNaTabela(String placa){

@@ -59,7 +59,7 @@
                           <Component id="btnRemoverVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSelecionarVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
-                          <EmptySpace pref="192" max="32767" attributes="0"/>
+                          <EmptySpace pref="196" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -79,7 +79,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnBuscarVeiculo" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnCadastrarVeiculo" alignment="1" pref="54" max="32767" attributes="0"/>
+                      <Component id="btnCadastrarVeiculo" alignment="1" pref="70" max="32767" attributes="0"/>
                       <Component id="btnRemoverVeiculo" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnSelecionarVeiculo" alignment="0" max="32767" attributes="0"/>
                   </Group>

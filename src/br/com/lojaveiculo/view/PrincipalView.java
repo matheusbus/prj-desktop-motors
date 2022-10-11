@@ -54,7 +54,6 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadVeiculo = new javax.swing.JMenu();
         miCadCarro = new javax.swing.JMenuItem();
         miCadMoto = new javax.swing.JMenuItem();
-        miCadVendas = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         miCadVendedor = new javax.swing.JMenuItem();
         miCadGerente = new javax.swing.JMenuItem();
@@ -91,6 +90,11 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadastros.setText("Cadastros");
 
         miCadClientes.setText("Clientes");
+        miCadClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadClientesActionPerformed(evt);
+            }
+        });
         muCadastros.add(miCadClientes);
 
         muCadVeiculo.setText("Veículos");
@@ -112,14 +116,6 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadVeiculo.add(miCadMoto);
 
         muCadastros.add(muCadVeiculo);
-
-        miCadVendas.setText("Vendas");
-        miCadVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadVendasActionPerformed(evt);
-            }
-        });
-        muCadastros.add(miCadVendas);
 
         menuFuncionarios.setText("Funcionarios");
 
@@ -253,11 +249,7 @@ public class PrincipalView extends javax.swing.JFrame {
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
-<<<<<<< HEAD
-    private void miCadVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadVendasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miCadVendasActionPerformed
-=======
+
     private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
         CadastroCarroView cadCarro = new CadastroCarroView();
         cadCarro.setVisible(true);
@@ -267,7 +259,11 @@ public class PrincipalView extends javax.swing.JFrame {
         CadastroMotoView cadMoto = new CadastroMotoView();
         cadMoto.setVisible(true);
     }//GEN-LAST:event_miCadMotoActionPerformed
->>>>>>> a8366b05185c44fb8fb8bc24ddd477b46abb9f95
+
+    private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
+        
+    }//GEN-LAST:event_miCadClientesActionPerformed
+
     
         public static void main(String args[]) {
             
@@ -290,7 +286,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem miCadClientes;
     private javax.swing.JMenuItem miCadGerente;
     private javax.swing.JMenuItem miCadMoto;
-    private javax.swing.JMenuItem miCadVendas;
     private javax.swing.JMenuItem miCadVendedor;
     private javax.swing.JMenuItem miConsCarro;
     private javax.swing.JMenuItem miConsMoto;

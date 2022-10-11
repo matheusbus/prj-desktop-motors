@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
@@ -17,7 +18,7 @@ import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
  *
  * @author eduar
  */
-public class VendaView extends javax.swing.JFrame {
+public final class VendaView extends TelaBaseView {
 
     protected Pessoa vendedor;
     protected Veiculo veiculo;
@@ -30,7 +31,7 @@ public class VendaView extends javax.swing.JFrame {
   
     
     public VendaView() {
-        initComponents();
+        organizaLayout();
         vendedor = new Vendedor(0.0, 0.0, "", "", "");
         veiculo = new Carro("", "", null, 0, 0, "", 0);
         pessoas = new PessoaDAO();
@@ -55,7 +56,7 @@ public class VendaView extends javax.swing.JFrame {
         txtVendedorSelecionado = new javax.swing.JTextField();
         btnSelecionaVendedor = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
@@ -88,32 +89,29 @@ public class VendaView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEfetuarVenda)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSelecionaVendedor)
-                                .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 149, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEfetuarVenda)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSelecionaVendedor)
+                        .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(22, 22, 22)
                 .addComponent(btnSelecionaVeiculo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSelecionaVendedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -148,4 +146,17 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JTextField txtVendedorSelecionado;
     private javax.swing.JTextArea txtaVeiculoSelecionado;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(400, 400);
+    }
 }

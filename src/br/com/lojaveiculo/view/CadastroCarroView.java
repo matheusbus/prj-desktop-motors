@@ -229,10 +229,7 @@ public class CadastroCarroView extends javax.swing.JFrame implements ValidaCadas
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "A placa digitada é invalida!", "Erro no cadastro", HEIGHT);
-        }
-        
-       
-        
+        }         
     }
     
     @Override

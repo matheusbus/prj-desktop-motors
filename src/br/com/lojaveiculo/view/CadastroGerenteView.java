@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
@@ -14,21 +15,23 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroGerenteView extends javax.swing.JFrame {
+public final class CadastroGerenteView extends TelaBaseCadastroView {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
     private ConsultaFuncionariosView consulta;
+
     /**
      * Creates new form CadastroGerente
+     *
      * @param consultaFuncView
      */
     public CadastroGerenteView(ConsultaFuncionariosView consultaFuncView) {
-        initComponents();
-         consulta = consultaFuncView;
+        organizaLayout();
+        consulta = consultaFuncView;
     }
 
-    CadastroGerenteView() {
-        initComponents();
+    public CadastroGerenteView() {
+        organizaLayout();
     }
 
     /**
@@ -62,45 +65,15 @@ public class CadastroGerenteView extends javax.swing.JFrame {
             }
         });
 
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
-            }
-        });
-
         lblDepartamento.setText("Departamento");
 
         lblCpf.setText("CPF");
 
         lblNome.setText("Nome");
 
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
-
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-
         lblTelefone.setText("Telefone");
 
-        txtSalario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalarioActionPerformed(evt);
-            }
-        });
-
         lblSalario.setText("Salário");
-
-        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDepartamentoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,44 +143,54 @@ public class CadastroGerenteView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnCadGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadGerenteActionPerformed
-
-        String sCpf = txtCpf.getText();
-        String sNome = txtNome.getText();
-        String sTelefone = txtTelefone.getText();
-        String sSalario = txtSalario.getText();
-        Double dSalario = Double.parseDouble(sSalario);
-        String sDepartamento = txtDepartamento.getText();
-       
-            Pessoa pessoa2 = new Gerente(dSalario, sNome, sCpf, sTelefone, sDepartamento);
-            if(pessoas.adicionarPessoa(pessoa2)){
-                consulta.limparTabela();
-                consulta.popularTabela();
-                JOptionPane.showMessageDialog(rootPane, pessoa2.toString());
-            }
-        //}
-
+        cadastrarGerente();
     }//GEN-LAST:event_btnCadGerenteActionPerformed
 
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfActionPerformed
+    public void cadastrarGerente() {
+        if (verificaCPF(txtCpf.getText())) {
+            if (verificaCamposNulos()) {
+                String sCpf = txtCpf.getText();
+                String sNome = txtNome.getText();
+                String sTelefone = txtTelefone.getText();
+                String sSalario = txtSalario.getText();
+                Double dSalario = Double.parseDouble(sSalario);
+                String sDepartamento = txtDepartamento.getText();
 
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
+                Pessoa p = new Gerente(dSalario, sNome, sCpf, sTelefone, sDepartamento);
+                pessoas.adicionarPessoa(p);
+                if (consulta != null) {
+                    consulta.limparTabela();
+                    consulta.popularTabela();
+                }
+                apresentaMensagem("Gerente cadastrado com sucesso", "Sucesso");
+                this.dispose();
+            }
+            else
+                apresentaMensagem("Preencha todos os campos", "Erro");
+        }
+        else 
+            apresentaMensagem("CPF inválido, digite novamente", "Erro");
+    }
+    
+     
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    public boolean verificaCamposNulos() {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtDepartamento.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalarioActionPerformed
-
-    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDepartamentoActionPerformed
+    public boolean verificaCPF(String cpf) {
+        if (cpf.length() == 11) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -227,4 +210,27 @@ public class CadastroGerenteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
+    @Override
+    public void limparCampos() {
+        txtCpf.setText("");
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtSalario.setText("");
+        txtDepartamento.setText("");
+    }
+
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(400, 400);
+    }
+
 }

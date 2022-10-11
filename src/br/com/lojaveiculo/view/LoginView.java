@@ -27,7 +27,7 @@ public final class LoginView extends javax.swing.JFrame {
         this.setContentPane(pnlPrincipal);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        organizaLayout();
+        //organizaLayout();
         criaUsuarios();
     }
     
