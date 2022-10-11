@@ -8,7 +8,7 @@ package br.com.lojaveiculo.model;
 /**
  *
  * @author Rafael
- */
+ **/
 public class Vendedor extends Funcionario{
   
     private double comissão;

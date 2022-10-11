@@ -8,7 +8,7 @@ import br.com.lojaveiculo.model.Pessoa;
 import java.util.Set;
 
 /**
- *
+ **
  * @author Matheus
  */
 public interface PessoaRepositorio {

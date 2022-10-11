@@ -8,8 +8,9 @@ package br.com.lojaveiculo.interfaces;
  *
  * @author Rafael
  */
+
 public interface Autenticavel {
     
-    public boolean AutenticaVenda();
+    public boolean AutenticaVenda(String senha);
     
 }

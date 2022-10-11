@@ -42,8 +42,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
       
     @Override
     public void organizaLayout(){
-        initComponents();
-        
+        initComponents();     
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
