@@ -219,8 +219,7 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
-        CadastroCarroView cadCarro = new CadastroCarroView(this);
-        cadCarro.setVisible(true);
+        abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
@@ -230,18 +229,17 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
     
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         limpaSelecao();
-        String placa = txtPlacaBuscada.getText().toUpperCase();
-        buscaNaTabela(placa);
+        buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
 
-
+    private void abrirTelaCadastro(){
+        CadastroCarroView cadCarro = new CadastroCarroView(this);
+        cadCarro.setVisible(true);        
+    }
     
     private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-       String sPlaca;    
-        sPlaca = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
-        venda.veiculo = veiculos.buscarVeiculo(sPlaca); 
-        venda.VeiculoSelecionado = true;
-        setVisible(false);
+       String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0); 
+       selecionaItem(placa);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
     @Override
@@ -299,6 +297,12 @@ public final class ConsultaCarroView extends javax.swing.JFrame implements Tabel
                 grid.addRow(carro.obterDados());
             }
         }
+    }
+    
+    public void selecionaItem(String placa){
+       venda.veiculo = veiculos.buscarVeiculo(placa); 
+       venda.VeiculoSelecionado = true;
+       setVisible(false);
     }
     
     /**
