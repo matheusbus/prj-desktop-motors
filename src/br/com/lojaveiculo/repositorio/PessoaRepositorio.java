@@ -18,5 +18,7 @@ public interface PessoaRepositorio {
     public boolean removerPessoa(String cpf);
     public Pessoa buscarPessoaPorNome(String nome);
     public Pessoa buscarPessoaPorCPF(String cpf);
+    public Set<Pessoa> getClientes();
+    public Set<Pessoa> getFuncionarios();
 
 }
