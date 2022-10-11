@@ -4,8 +4,8 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.interfaces.TabelaConsultaVeiculo;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Veiculo;
@@ -19,30 +19,30 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaMotoView extends javax.swing.JFrame implements TabelaConsultaVeiculo{
+public final class ConsultaMotoView extends TelaBaseConsultaView{
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
     private VendaView venda;
     private VeiculoRepositorio veiculos;
-    /**
-     * Creates new form ConsultaVeiculo
-     */
+
+    // Construtor chamado na tela inicial
     public ConsultaMotoView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
     
-      public ConsultaMotoView(VendaView venda) {
+    // Construtor chamado na tela de venda
+    public ConsultaMotoView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(true);
         this.venda = venda;
         this.veiculos = new VeiculoDAO();
     }
       
+    @Override
     public void organizaLayout(){
-        initComponents();
-        
+        initComponents();     
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -217,7 +217,7 @@ public final class ConsultaMotoView extends javax.swing.JFrame implements Tabela
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
         CadastroMotoView cadMoto = new CadastroMotoView(this);
         cadMoto.setVisible(true);
@@ -242,6 +242,16 @@ public final class ConsultaMotoView extends javax.swing.JFrame implements Tabela
         setVisible(false);
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
+    @Override
+    public void abrirTelaCadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     @Override
     public void limparTabela(){
         grid.setRowCount(0);

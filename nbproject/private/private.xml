@@ -3,6 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseConsultaView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/interfaces/TabelaConsultaVeiculo.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
+=======
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Usuario.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Carro.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaFuncionariosView.java</file>
@@ -18,6 +25,7 @@
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Gerente.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroCarroView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Vendedor.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/LoginView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Moto.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Pessoa.java</file>
@@ -33,6 +41,9 @@
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/interfaces/ValidaCadastroVeiculo.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseView.java</file>
+=======
+>>>>>>> a782f7adc6bce5a9785c6025277e4020bb6c6dbd
+>>>>>>> c42eb73cc523fb9b0473d8844665f45907cbe7fe
         </group>
     </open-files>
 </project-private>
