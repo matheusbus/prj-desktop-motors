@@ -101,6 +101,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         jScrollPane1.setViewportView(tblMotos);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(82, 148, 226));
 
         btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
