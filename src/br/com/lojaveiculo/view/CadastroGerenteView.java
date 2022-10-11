@@ -178,6 +178,7 @@ public final class CadastroGerenteView extends TelaBaseCadastroView {
     
      
 
+    @Override
     public boolean verificaCamposNulos() {
         if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtDepartamento.getText().trim().equals("")))) {
             return true;
