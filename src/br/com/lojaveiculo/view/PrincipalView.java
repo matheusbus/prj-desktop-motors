@@ -261,7 +261,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadMotoActionPerformed
 
     private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
-        
+        CadastroClienteView cadCliente = new CadastroClienteView();
+        cadCliente.setVisible(true);
     }//GEN-LAST:event_miCadClientesActionPerformed
 
     

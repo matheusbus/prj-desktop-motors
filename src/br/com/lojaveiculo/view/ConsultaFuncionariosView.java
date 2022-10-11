@@ -246,8 +246,12 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarGerenteActionPerformed
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
+        if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 5).equals("Vendedor")) {
         String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
         selecionaItem(cpf);
+        }
+        else
+            apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
     private void btnRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionarioActionPerformed
@@ -310,17 +314,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     public void popularTabela() {
         limparTabela();
         tblFuncionarios.getModel();
-        Set<Pessoa> pessoas = repositorioDePessoas.getPessoas();
+        Set<Pessoa> funcionarios = repositorioDePessoas.getFuncionarios();
 
-        for (Pessoa p : pessoas) {
-            if (p instanceof Funcionario) {
-                Funcionario func = (Funcionario) p;
+        for (Pessoa func :funcionarios) {
                 grid.addRow(func.obterDados());
 
             }
         }
 
-    }
 
     @Override
     public void limparTabela() {

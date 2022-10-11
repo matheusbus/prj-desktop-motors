@@ -4,13 +4,12 @@
  */
 package br.com.lojaveiculo.model;
 
-import br.com.lojaveiculo.interfaces.Autenticavel;
 
 /**
  *
  * @author Rafael
  */
-public class Gerente extends Funcionario implements Autenticavel {
+public class Gerente extends Funcionario {
 
     private String departamento;
 
@@ -32,10 +31,4 @@ public class Gerente extends Funcionario implements Autenticavel {
         return new Object[]{super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName()};
 
     }
-
-    @Override
-    public boolean AutenticaVenda(String senha) {
-           return true;
-    }
-
 }
