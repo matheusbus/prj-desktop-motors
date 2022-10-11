@@ -4,11 +4,13 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
+
 /**
  *
  * @author Rafael
  */
-public class CadastroClienteView extends javax.swing.JFrame {
+public class CadastroClienteView extends TelaBaseCadastroView {
 
     /**
      * Creates new form CadastroClienteView
@@ -125,4 +127,24 @@ public class CadastroClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void limparCampos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void organizaLayout() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean verificaCamposNulos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

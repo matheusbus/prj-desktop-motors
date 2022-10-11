@@ -187,7 +187,8 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         }
     }
 
-    public boolean verificaCamposNulos() {
+    @Override
+      public boolean verificaCamposNulos() {
         if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")))) {
             return true;
         } else {
