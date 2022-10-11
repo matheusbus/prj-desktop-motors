@@ -87,6 +87,11 @@ public class PrincipalView extends javax.swing.JFrame {
         muCadastros.add(miCadVeiculos);
 
         miCadVendas.setText("Vendas");
+        miCadVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadVendasActionPerformed(evt);
+            }
+        });
         muCadastros.add(miCadVendas);
 
         menuFuncionarios.setText("Funcionarios");
@@ -226,6 +231,10 @@ public class PrincipalView extends javax.swing.JFrame {
         RelatorioView relatorio = new RelatorioView();
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
+
+    private void miCadVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadVendasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miCadVendasActionPerformed
     
         public static void main(String args[]) {
             
