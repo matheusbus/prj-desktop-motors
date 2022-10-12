@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
 
-    private static List<Venda> vendas;
+    private static List<Venda> vendas = new ArrayList<>();
 
     public VendaDAO() {
         if (vendas == null) {
@@ -60,21 +60,15 @@ public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
         }
         return null;
     }
-
-    Collections.sort(veiculos,(v1, v2) -> {
-        return v1.getVeiculo().getMarca().getNome().compareTo
-                (v2.getVeiculo().getMarca().getNome()});
-                
-    Collections.sort(veiculos, new Comparator<Veiculo>() {        
+    
+    //Collections.sort(veiculos, new Comparator<Veiculo>() {
         @Override
         public int compare(Venda v1, Venda v2) {
+            return v1.getVeiculo().getMarca().getNome().compareTo(v2.getVeiculo().getMarca().getNome());
+        //}
+        }//);
 
-        return v1.getVeiculo().getMarca().getNome().compareTo
-                (v2.getVeiculo().getMarca().getNome()});
-    }
-                
-    
-    
-    
-    
+
 }
+
+
