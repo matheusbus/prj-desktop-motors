@@ -59,75 +59,22 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     private void initComponents() {
 
         dkpFundo = new javax.swing.JDesktopPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblFuncionarios = new javax.swing.JTable();
+        pnlBotoes = new javax.swing.JPanel();
+        btnSelecionarFuncionario = new javax.swing.JButton();
+        btnRemoverFuncionario = new javax.swing.JButton();
         btnCadastrarVendedor = new javax.swing.JButton();
+        btnCadastrarGerente = new javax.swing.JButton();
         btnBuscarFuncionario = new javax.swing.JButton();
         txtCPFBuscado = new javax.swing.JTextField();
         lblCPF = new javax.swing.JLabel();
-        btnCadastrarGerente = new javax.swing.JButton();
-        btnRemoverFuncionario = new javax.swing.JButton();
-        btnSelecionarFuncionario = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblFuncionarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(940, 464));
         setResizable(false);
 
         dkpFundo.setPreferredSize(new java.awt.Dimension(940, 464));
-
-        btnCadastrarVendedor.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadastrarVendedor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadastrarVendedor.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarVendedor.setText("Cadastrar Vendedor");
-        btnCadastrarVendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVendedorActionPerformed(evt);
-            }
-        });
-
-        btnBuscarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
-        btnBuscarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnBuscarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarFuncionario.setText("Buscar");
-        btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        lblCPF.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        lblCPF.setForeground(new java.awt.Color(255, 255, 255));
-        lblCPF.setText("CPF:");
-
-        btnCadastrarGerente.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadastrarGerente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadastrarGerente.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarGerente.setText("Cadastrar Gerente");
-        btnCadastrarGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarGerenteActionPerformed(evt);
-            }
-        });
-
-        btnRemoverFuncionario.setBackground(new java.awt.Color(82, 148, 226));
-        btnRemoverFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnRemoverFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemoverFuncionario.setText("Remover");
-        btnRemoverFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverFuncionarioActionPerformed(evt);
-            }
-        });
-
-        btnSelecionarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
-        btnSelecionarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnSelecionarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        btnSelecionarFuncionario.setText("Selecionar");
-        btnSelecionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarFuncionarioActionPerformed(evt);
-            }
-        });
 
         tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,24 +103,71 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         tblFuncionarios.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane2.setViewportView(tblFuncionarios);
 
-        dkpFundo.setLayer(btnCadastrarVendedor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnBuscarFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(txtCPFBuscado, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(lblCPF, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnCadastrarGerente, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnRemoverFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(btnSelecionarFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Funcionários"));
 
-        javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
-        dkpFundo.setLayout(dkpFundoLayout);
-        dkpFundoLayout.setHorizontalGroup(
-            dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dkpFundoLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btnSelecionarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnSelecionarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnSelecionarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelecionarFuncionario.setText("Selecionar");
+        btnSelecionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        btnRemoverFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnRemoverFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRemoverFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemoverFuncionario.setText("Remover");
+        btnRemoverFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverFuncionarioActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarVendedor.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarVendedor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarVendedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarVendedor.setText("Cadastrar Vendedor");
+        btnCadastrarVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarVendedorActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarGerente.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarGerente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarGerente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarGerente.setText("Cadastrar Gerente");
+        btnCadastrarGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarGerenteActionPerformed(evt);
+            }
+        });
+
+        btnBuscarFuncionario.setBackground(new java.awt.Color(82, 148, 226));
+        btnBuscarFuncionario.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnBuscarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarFuncionario.setText("Buscar");
+        btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        lblCPF.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        lblCPF.setForeground(new java.awt.Color(255, 255, 255));
+        lblCPF.setText("CPF:");
+
+        javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
+        pnlBotoes.setLayout(pnlBotoesLayout);
+        pnlBotoesLayout.setHorizontalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dkpFundoLayout.createSequentialGroup()
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCPFBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -185,47 +179,61 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                 .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
+        );
+        pnlBotoesLayout.setVerticalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
+                        .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCPFBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarFuncionario))
+                    .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18))
+        );
+
+        dkpFundo.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(pnlBotoes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
+        dkpFundo.setLayout(dkpFundoLayout);
+        dkpFundoLayout.setHorizontalGroup(
+            dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dkpFundoLayout.createSequentialGroup()
-                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCPFBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                            .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscarFuncionario))
-                    .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dkpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
 
         pack();
@@ -272,6 +280,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     private javax.swing.JDesktopPane dkpFundo;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCPF;
+    private javax.swing.JPanel pnlBotoes;
     private javax.swing.JTable tblFuncionarios;
     private javax.swing.JTextField txtCPFBuscado;
     // End of variables declaration//GEN-END:variables
