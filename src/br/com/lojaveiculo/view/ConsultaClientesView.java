@@ -277,7 +277,7 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
         try{
             abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblClientes.getSelectedRow(), 1)));
         } catch (Exception e){
-            apresentaMensagem("Selecione um item da tabela.", "Erro ao alterar cliente");
+            apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de alterarção");
         }
     }//GEN-LAST:event_btnAlterarClienteActionPerformed
 
@@ -348,7 +348,7 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
             if (incidencia != -1) {
                 tblClientes.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhum cliente com o '" + cpf + "'.", "Funcionário não encontrado");
+                apresentaMensagem("Não foi encontrado nenhum cliente com o CPF '" + cpf + "'.", "Cliente não encontrado");
             }
         } else {
             apresentaMensagem("Digite um CPF válido!", "CPF inválido");

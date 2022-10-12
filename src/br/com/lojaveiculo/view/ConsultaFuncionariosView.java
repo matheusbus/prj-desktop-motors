@@ -44,7 +44,6 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
-        repositorioDePessoas.ordenaOrdemAlfabetica();
         popularTabela();
         
     }

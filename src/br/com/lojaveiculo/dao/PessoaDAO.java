@@ -8,11 +8,7 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -93,12 +89,5 @@ public class PessoaDAO implements PessoaRepositorio {
         return funcionarios;
     }
 
-    @Override
-    public void ordenaOrdemAlfabetica() {
-           List<Pessoa> list = new ArrayList<>();
-           list.addAll(pessoas);
-           Collections.sort(list, (Pessoa p1, Pessoa p2) -> p1.getNome().compareTo(p2.getNome()));
-           System.err.println(list);
-        }
-    }
+}
     

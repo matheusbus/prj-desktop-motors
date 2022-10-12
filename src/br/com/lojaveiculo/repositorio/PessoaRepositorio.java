@@ -20,6 +20,6 @@ public interface PessoaRepositorio {
     public Pessoa buscarPessoaPorCPF(String cpf);
     public Set<Pessoa> getClientes();
     public Set<Pessoa> getFuncionarios();
-    public void ordenaOrdemAlfabetica();
+ 
 
 }
