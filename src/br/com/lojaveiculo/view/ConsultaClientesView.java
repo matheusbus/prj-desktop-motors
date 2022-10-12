@@ -52,7 +52,6 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblClientes.getModel();
-        criaClientes();
         popularTabela();
     }
 
@@ -69,16 +68,7 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
        setVisible(false);
     }
     
-    //Teste
-    public void criaClientes() {
-        Pessoa func1 = new Cliente("Rafael", "12876163993", "47987654321");
-        Pessoa func2 = new Cliente("Matheus", "18376412983", "4799876213");
-        Pessoa func3 = new Cliente("Eduardo", "18723465409", "47965427123");
-        repositorioDePessoas.adicionarPessoa(func1);
-        repositorioDePessoas.adicionarPessoa(func2);
-        repositorioDePessoas.adicionarPessoa(func3);
-    }
-        
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

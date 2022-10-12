@@ -5,7 +5,13 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
+import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Cliente;
+import br.com.lojaveiculo.model.Gerente;
+import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.model.Vendedor;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
 /**
@@ -15,6 +21,7 @@ import javax.swing.ImageIcon;
 public class PrincipalView extends javax.swing.JFrame {
 
     private Veiculo veiculo;
+    private PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     /**
      * Creates new form InicialView
      */
@@ -24,6 +31,8 @@ public class PrincipalView extends javax.swing.JFrame {
         this.add(painelFundo);
         this.setContentPane(painelFundo);
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
+        criaFuncionarios();
+        criaClientes();
         
         
         // Adicionar o painel ao centro do frame
@@ -314,7 +323,26 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem muTelaVenda;
     private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
+    //Teste
+    public void criaFuncionarios() {
+        Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "47987654321");
+        Pessoa func2 = new Gerente(8000.00, "Matheus", "18376412983", "4799876213", "Financeiro");
+        Pessoa func3 = new Vendedor(12.0, 4000, "Eduardo", "18723465409", "47965427123");
+        repositorioDePessoas.adicionarPessoa(func1);
+        repositorioDePessoas.adicionarPessoa(func2);
+        repositorioDePessoas.adicionarPessoa(func3);
+    }
 
+     //Teste
+    public void criaClientes() {
+        Pessoa client1 = new Cliente("Marcos", "287163993", "4798234321");
+        Pessoa client2 = new Cliente("Gabriel", "376412983", "479546213");
+        Pessoa client3 = new Cliente("Joao", "187465409", "4796576123");
+        repositorioDePessoas.adicionarPessoa(client1);
+        repositorioDePessoas.adicionarPessoa(client2);
+        repositorioDePessoas.adicionarPessoa(client3);
+    }
+        
     
 }
 
