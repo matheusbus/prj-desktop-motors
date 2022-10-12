@@ -97,8 +97,8 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         return clientes;
     }
 
-        @Override
-        public Set<Pessoa> getFuncionarios() {
+    @Override
+    public Set<Pessoa> getFuncionarios() {
         Set<Pessoa> funcionarios = new HashSet<>();
         for (Pessoa p : pessoas) {
             if (p instanceof Funcionario) {
@@ -110,5 +110,4 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
 
     
                
-        
-}
+} 

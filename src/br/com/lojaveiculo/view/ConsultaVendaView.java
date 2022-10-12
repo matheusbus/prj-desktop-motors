@@ -5,15 +5,11 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.model.Marca;
-import br.com.lojaveiculo.model.Moto;
-import br.com.lojaveiculo.model.Veiculo;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
+import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.model.Venda;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerIJTheme;
-import java.util.Map;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,31 +17,31 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaVendaView extends TelaBaseConsultaView{
+public final class ConsultaVendaView extends TelaBaseConsultaView {
 
-    private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
+    private final VendaRepositorio repositorioDeVendas = new VendaDAO();
     private DefaultTableModel grid;
     private VendaView venda;
-    private VeiculoRepositorio veiculos;
+    private VendaRepositorio vendas;
 
     // Construtor chamado na tela inicial
     public ConsultaVendaView() {
         organizaLayout();
         this.btnSelecionarVenda.setEnabled(false);
     }
-    
+
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarVenda.setEnabled(true);
         this.venda = venda;
-        this.veiculos = new VeiculoDAO();
+        this.vendas = new VendaDAO();
     }
-      
+
     @Override
-    public void organizaLayout(){
-        initComponents();  
-        
+    public void organizaLayout() {
+        initComponents();
+
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -53,7 +49,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
         grid = (DefaultTableModel) tblVendas.getModel();
         popularTabela();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -237,7 +233,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnCadastrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendaActionPerformed
         abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarVendaActionPerformed
@@ -245,7 +241,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     private void btnRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVendaActionPerformed
         removerDaTabela();
     }//GEN-LAST:event_btnRemoverVendaActionPerformed
- 
+
     private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
         limpaSelecao();
         buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
@@ -257,8 +253,8 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
 
     private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
         try {
-            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblVendas.getSelectedRow(), 0)));
-        } catch (Exception e){
+            // abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblVendas.getSelectedRow(), 0)));
+        } catch (Exception e) {
             apresentaMensagem("Selecione um Venda!", "Erro ao alterar Venda");
         }
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
@@ -266,90 +262,87 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     @Override
     public void abrirTelaCadastro() {
         VendaView cadVenda = new VendaView();
-        cadVenda.setVisible(true);        
+        cadVenda.setVisible(true);
     }
-    
+
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
-        altMoto.setVisible(true);
+        //CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
+        //altMoto.setVisible(true);
     }
-    
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
-    
+
     @Override
-    public void limparTabela(){
+    public void limparTabela() {
         grid.setRowCount(0);
     }
-    
+
     @Override
     public void removerDaTabela() {
-        if (!(tblVendas.getSelectedRow() == -1)){
-            String placa = (String) grid.getValueAt(tblVendas.getSelectedRow(), 0);
-            repositorioDeVeiculos.removeVeiculo(placa);
+        if (!(tblVendas.getSelectedRow() == -1)) {
+            int numeroVenda = (int) grid.getValueAt(tblVendas.getSelectedRow(), 0);
+            repositorioDeVendas.removeVenda(numeroVenda);
             limparTabela();
             popularTabela();
         } else {
             apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
         }
     }
-    
+
     @Override
-    public void limpaSelecao(){
+    public void limpaSelecao() {
         // Limpar seleção da linha atual na tabela
         tblVendas.clearSelection();
     }
-    
+
     @Override
-    public void popularTabela(){
+    public void popularTabela() {
         limparTabela();
         tblVendas.getModel();
-        Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-            if(entry.getValue() instanceof Moto){
-                Moto moto = (Moto) entry.getValue();
-                grid.addRow(moto.obterDados());
-            }
+        List<Venda> vendas = repositorioDeVendas.getVenda();
+
+        for (Venda v : vendas) {
+            grid.addRow(v.obterDados());
+
         }
     }
-     
+
     @Override
-    public void buscaNaTabela(String placa){
+    public void buscaNaTabela(String placa) {
         int incidencia = -1;
-        if(placa.length() == 7){
-            for(int i = 0; i <= tblVendas.getRowCount()-1; i++){
-                if(grid.getValueAt(i, 0).equals(placa)){
+        if (placa.length() == 7) {
+            for (int i = 0; i <= tblVendas.getRowCount() - 1; i++) {
+                if (grid.getValueAt(i, 0).equals(placa)) {
                     incidencia = i;
                 }
             }
-            if(incidencia != -1){
-            tblVendas.setRowSelectionInterval(incidencia, incidencia);
+            if (incidencia != -1) {
+                tblVendas.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
+                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '" + placa + "'.", "Veículo não encontrado");
             }
         } else {
             apresentaMensagem("Digite uma placa válida!", "Placa inválida");
         }
     }
-    
-    public void selecionaItem(String placa){
-       venda.veiculo = veiculos.buscarVeiculo(placa); 
-       venda.VeiculoSelecionado = true;
-       setVisible(false);
+
+    public void selecionaItem(String placa) {
+        venda.veiculo = veiculos.buscarVeiculo(placa);
+        venda.VeiculoSelecionado = true;
+        setVisible(false);
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         FlatArcDarkIJTheme.setup();
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

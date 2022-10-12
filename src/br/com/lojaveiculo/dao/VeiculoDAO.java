@@ -6,6 +6,8 @@ package br.com.lojaveiculo.dao;
 
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,4 +98,5 @@ public class VeiculoDAO implements VeiculoRepositorio{
     public Veiculo buscarVeiculo(String placa) {
         return veiculos.get(placa);
     }
-}
+    
+    }
