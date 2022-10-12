@@ -80,4 +80,8 @@ public abstract class Veiculo {
               "Preço: " + this.preco + "\n" + 
               "Tipo de Combustível: " + this.tipoCombustivel + "\n";
     }
+
+    public Marca getMarca() {
+        return marca;
+    }
 }

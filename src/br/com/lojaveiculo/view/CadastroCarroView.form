@@ -31,7 +31,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="309" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" min="-2" pref="309" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -57,12 +57,10 @@
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtPlaca" alignment="0" pref="97" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblCombustivel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtAno" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbCombustivel" alignment="0" pref="95" max="32767" attributes="0"/>
-                                      <Component id="lblAno" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblCombustivel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtAno" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbCombustivel" alignment="0" pref="95" max="32767" attributes="0"/>
+                                  <Component id="lblAno" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblPlaca" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -78,7 +76,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jLabel1" max="32767" attributes="0"/>
+              <Component id="lblTitulo" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -253,7 +251,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPreco">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto" size="24" style="1"/>
