@@ -69,6 +69,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         btnAlterarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consulta de Clientes");
 
         dkpFundo.setPreferredSize(new java.awt.Dimension(940, 464));
 
