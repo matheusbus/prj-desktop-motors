@@ -19,6 +19,7 @@ public final class LoginView extends javax.swing.JFrame {
     
     private PrincipalView telaPrincipal;
     private UsuarioRepositorio usuariosSistema;
+    
     /**
      * Creates new form LoginView
      */
@@ -27,7 +28,7 @@ public final class LoginView extends javax.swing.JFrame {
         this.setContentPane(pnlPrincipal);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        //organizaLayout();
+        organizaLayout();
         criaUsuarios();
     }
     
@@ -126,20 +127,22 @@ public final class LoginView extends javax.swing.JFrame {
                             .addComponent(lblLogado)))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(lblFundo))
-                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
+                        .addComponent(lblFundo)
+                        .addGap(18, 18, 18)
                         .addComponent(lblBemVindo)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(lblFundo)
-                .addGap(18, 18, 18)
-                .addComponent(lblBemVindo, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblFundo)
+                        .addGap(97, 97, 97))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)))
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,4 +217,6 @@ public final class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
+
+
 }

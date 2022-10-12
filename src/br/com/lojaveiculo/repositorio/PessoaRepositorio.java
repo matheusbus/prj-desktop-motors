@@ -8,7 +8,7 @@ import br.com.lojaveiculo.model.Pessoa;
 import java.util.Set;
 
 /**
- *
+ **
  * @author Matheus
  */
 public interface PessoaRepositorio {
@@ -18,5 +18,7 @@ public interface PessoaRepositorio {
     public boolean removerPessoa(String cpf);
     public Pessoa buscarPessoaPorNome(String nome);
     public Pessoa buscarPessoaPorCPF(String cpf);
+    public Set<Pessoa> getClientes();
+    public Set<Pessoa> getFuncionarios();
 
 }

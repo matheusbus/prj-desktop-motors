@@ -16,6 +16,7 @@ public abstract class TelaBaseCadastroView extends TelaBaseView {
     
     //Método para limpar campos
     public abstract void limparCampos();
+    public abstract boolean verificaCamposNulos();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

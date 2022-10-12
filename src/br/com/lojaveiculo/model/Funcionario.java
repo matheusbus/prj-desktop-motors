@@ -6,7 +6,6 @@ package br.com.lojaveiculo.model;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *

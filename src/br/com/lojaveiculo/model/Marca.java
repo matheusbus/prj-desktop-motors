@@ -8,6 +8,7 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
+
 public final class Marca {
     
     private String nome;
