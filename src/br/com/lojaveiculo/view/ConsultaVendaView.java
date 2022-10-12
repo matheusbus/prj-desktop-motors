@@ -31,8 +31,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
-        organizaLayout();
-       
+        organizaLayout();     
         this.venda = venda;
         this.vendas = new VendaDAO();
     }
@@ -240,9 +239,10 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         }
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
+    
     @Override
     public void abrirTelaCadastro() {
-        VendaView cadVenda = new VendaView();
+        VendaView cadVenda = new VendaView(this);
         cadVenda.setVisible(true);
     }
 

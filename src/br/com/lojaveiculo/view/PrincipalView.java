@@ -172,7 +172,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         muConsultaVendas.setText("Venda");
         muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsulta(evt);
+                muConsultaVendasActionPerformed(evt);
             }
         });
         muConsultas.add(muConsultaVendas);
@@ -274,18 +274,15 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-      
+      VendaView Venda = new VendaView();
+      Venda.setVisible(true);   
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
-    private void muConsulta(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsulta
-        ConsultaVendaView consultaVendaView = new ConsultaVendaView();
-        consultaVendaView.setVisible(true);
-    }//GEN-LAST:event_muConsulta
-
-    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
       ConsultaVendaView consultaVenda = new ConsultaVendaView();
       consultaVenda.setVisible(true);  
-    }                                                
+    }//GEN-LAST:event_muConsultaVendasActionPerformed
+                                             
 
     
         public static void main(String args[]) {
