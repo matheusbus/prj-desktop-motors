@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -14,11 +15,16 @@
 =======
 <<<<<<< HEAD
 >>>>>>> f5aff264522e57aee597654bf239c637b1db8e9d
+=======
+>>>>>>> a8b148d05e86c5c8bf396404762eef658549c77d
             <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseConsultaView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/PrincipalView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaFuncionariosView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/instancia/FabricaObjetos.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Veiculo.java</file>
             <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/interfaces/TabelaConsultaVeiculo.java</file>
             <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -65,6 +71,10 @@
 >>>>>>> c42eb73cc523fb9b0473d8844665f45907cbe7fe
 >>>>>>> f5aff264522e57aee597654bf239c637b1db8e9d
 >>>>>>> 1835fc37a766cf6032436635cd077d40169b4815
+=======
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaClientesView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/LoginView.java</file>
+>>>>>>> a8b148d05e86c5c8bf396404762eef658549c77d
         </group>
     </open-files>
 </project-private>
