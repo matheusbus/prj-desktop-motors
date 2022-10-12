@@ -4,58 +4,77 @@
  */
 package br.com.lojaveiculo.dao;
 
+import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
  *
  * @author Rafael
  */
-public class VendaDAO implements VendaRepositorio {
-    
+public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
+
     private static List<Venda> vendas;
-    
-    
+
     public VendaDAO() {
-        if(vendas == null){
-        this.vendas = new ArrayList<>();
-    }
+        if (vendas == null) {
+            this.vendas = new ArrayList<>();
+        }
     }
 
     @Override
     public List<Venda> getVenda() {
-       return vendas;
+        return vendas;
     }
 
     @Override
     public boolean adicionarVenda(Venda v) {
         if (vendas.add(v)) {
             return true;
-        }
-        else
+        } else {
             return false;
+        }
     }
 
     @Override
     public boolean removeVenda(int id) {
-     for (Venda v : vendas){
-         if(v.getIdVenda() == id){
-             vendas.remove(v);
-             return true;
-         }
+        for (Venda v : vendas) {
+            if (v.getIdVenda() == id) {
+                vendas.remove(v);
+                return true;
+            }
+        }
+        return false;
     }
-       return false;
-}
 
     @Override
     public Venda buscaVenda(int id) {
-      for (Venda v : vendas){
-          if(v.getIdVenda() == id){
-              return v;
-          }
-      }
-      return null;
+        for (Venda v : vendas) {
+            if (v.getIdVenda() == id) {
+                return v;
+            }
+        }
+        return null;
     }
+
+    Collections.sort(veiculos,(v1, v2) -> {
+        return v1.getVeiculo().getMarca().getNome().compareTo
+                (v2.getVeiculo().getMarca().getNome()});
+                
+    Collections.sort(veiculos, new Comparator<Veiculo>() {        
+        @Override
+        public int compare(Venda v1, Venda v2) {
+
+        return v1.getVeiculo().getMarca().getNome().compareTo
+                (v2.getVeiculo().getMarca().getNome()});
+    }
+                
+    
+    
+    
+    
 }

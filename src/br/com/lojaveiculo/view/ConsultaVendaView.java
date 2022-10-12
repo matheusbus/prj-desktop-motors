@@ -31,8 +31,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
-        organizaLayout();
-       
+        organizaLayout();     
         this.venda = venda;
         this.vendas = new VendaDAO();
     }
@@ -73,7 +72,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nº Venda", "Data da Venda", "Veículo", "Cliente", "Vendedor"
+                "Nº Venda", "Data da Venda", "Placa do Veículo", "CPF do Cliente", "CPF do Vendedor"
             }
         ) {
             Class[] types = new Class [] {
@@ -240,9 +239,10 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         }
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
+    
     @Override
     public void abrirTelaCadastro() {
-        VendaView cadVenda = new VendaView();
+        VendaView cadVenda = new VendaView(this);
         cadVenda.setVisible(true);
     }
 
@@ -284,9 +284,9 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     public void popularTabela() {
         limparTabela();
         tblVendas.getModel();
-        List<Venda> vendas = repositorioDeVendas.getVenda();
+        List<Venda> vendasX = repositorioDeVendas.getVenda();
 
-        for (Venda v : vendas) {
+        for (Venda v : vendasX) {
             grid.addRow(v.obterDados());
 
         }

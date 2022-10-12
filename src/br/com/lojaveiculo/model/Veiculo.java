@@ -4,14 +4,11 @@
  */
 package br.com.lojaveiculo.model;
 
-import java.util.Collections;
-import java.util.Comparator;
-
 /**
  *
  * @author Matheus
  */
-public abstract class Veiculo {
+public abstract class Veiculo implements Comparable<Veiculo> {
 
     protected String placa;
     protected String modelo;
@@ -84,4 +81,10 @@ public abstract class Veiculo {
     public Marca getMarca() {
         return marca;
     }
+
+    @Override
+    public int compareTo(Veiculo v) {
+        return marca.CompareTo(v.getMarca());
+    }
 }
+ 

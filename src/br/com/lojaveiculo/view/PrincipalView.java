@@ -132,11 +132,6 @@ public final class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal.add(muCadastros);
 
         muConsultas.setText("Consultas");
-        muConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultasActionPerformed(evt);
-            }
-        });
 
         muClientes.setText("Clientes");
         muClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +248,7 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsMotoActionPerformed
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-        RelatorioView relatorio = new RelatorioView();
+        RelatorioVendaView relatorio = new RelatorioVendaView();
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
@@ -279,18 +274,15 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        VendaView vendaView = new VendaView();
-        vendaView.setVisible(true);
+      VendaView Venda = new VendaView();
+      Venda.setVisible(true);   
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
-    private void muConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultasActionPerformed
-        
-    }//GEN-LAST:event_muConsultasActionPerformed
-
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
-        ConsultaVendaView consultaVenda = new ConsultaVendaView();
-        consultaVenda.setVisible(true);
+      ConsultaVendaView consultaVenda = new ConsultaVendaView();
+      consultaVenda.setVisible(true);  
     }//GEN-LAST:event_muConsultaVendasActionPerformed
+                                             
 
     
         public static void main(String args[]) {
