@@ -160,43 +160,46 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     }//GEN-LAST:event_btnCadFuncionarioActionPerformed
 
     public void cadastrarVendedor() {
-        if (verificaCPF(txtCpf.getText())) {
-            if (verificaCamposNulos()) {
-                String sCpf = txtCpf.getText();
-                String sNome = txtNome.getText();
-                String sTelefone = txtTelefone.getText();
-                String sSalario = txtSalario.getText();
-                String sComissao = txtComissao.getText();
+        if (verificaExistenciaCPF(txtCpf.getText())) {
+            if (verificaIntegridadeCPF(txtCpf.getText())) {
+                if (verificaCamposNulos()) {
+                    String sCpf = txtCpf.getText();
+                    String sNome = txtNome.getText();
+                    String sTelefone = txtTelefone.getText();
+                    String sSalario = txtSalario.getText();
+                    String sComissao = txtComissao.getText();
 
-                Double dSalario = Double.parseDouble(sSalario);
-                Double dComissao = Double.parseDouble(sComissao);
+                    Double dSalario = Double.parseDouble(sSalario);
+                    Double dComissao = Double.parseDouble(sComissao);
 
-                Pessoa p = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
-                pessoas.adicionarPessoa(p);
-                if (consulta != null) {
-                    consulta.limparTabela();
-                    consulta.popularTabela();
+                    Pessoa p = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
+                    pessoas.adicionarPessoa(p);
+                    if (consulta != null) {
+                        consulta.limparTabela();
+                        consulta.popularTabela();
+                    }
+                    apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
+                    this.dispose();
+                } else {
+                    apresentaMensagem("Preencha todos os campos", "Erro");
                 }
-                apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
-                this.dispose();
             } else {
-                apresentaMensagem("Preencha todos os campos", "Erro");
+                apresentaMensagem("CPF inválido, digite novamente", "Erro");
             }
-        } else {
-            apresentaMensagem("CPF inválido, digite novamente", "Erro");
         }
+        else
+            apresentaMensagem("CPF já consta no sistema", "Erro");
     }
 
-    @Override
-      public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")))) {
+    public boolean verificaExistenciaCPF(String cpf) {
+        if (pessoas.buscarPessoaPorCPF(cpf) == null) {
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean verificaCPF(String cpf) {
+    public boolean verificaIntegridadeCPF(String cpf) {
         if (cpf.length() == 11) {
             return true;
         } else {
@@ -243,6 +246,15 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(400, 400);
+    }
+
+    @Override
+    public boolean verificaCamposNulos() {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

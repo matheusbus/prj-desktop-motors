@@ -151,7 +151,8 @@ public final class CadastroGerenteView extends TelaBaseCadastroView {
     }//GEN-LAST:event_btnCadGerenteActionPerformed
 
     public void cadastrarGerente() {
-        if (verificaCPF(txtCpf.getText())) {
+        if(verificaExistenciaCPF(txtCpf.getText())){
+        if (verificaIntegridadeCPF(txtCpf.getText())) {
             if (verificaCamposNulos()) {
                 String sCpf = txtCpf.getText();
                 String sNome = txtNome.getText();
@@ -175,19 +176,19 @@ public final class CadastroGerenteView extends TelaBaseCadastroView {
         else 
             apresentaMensagem("CPF inválido, digite novamente", "Erro");
     }
-    
-     
+        else
+            apresentaMensagem("CPF ja consta no sistema", "Erro");
+    }    
 
-    @Override
-    public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtDepartamento.getText().trim().equals("")))) {
-            return true;
-        } else {
-            return false;
+    public boolean verificaExistenciaCPF(String cpf) {
+        if (pessoas.buscarPessoaPorCPF(cpf) == null){
+         return true;   
         }
+        else
+            return false;     
     }
 
-    public boolean verificaCPF(String cpf) {
+    public boolean verificaIntegridadeCPF(String cpf) {
         if (cpf.length() == 11) {
             return true;
         } else {
@@ -236,4 +237,12 @@ public final class CadastroGerenteView extends TelaBaseCadastroView {
         this.setSize(400, 400);
     }
 
+      @Override
+    public boolean verificaCamposNulos() {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtDepartamento.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

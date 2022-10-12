@@ -22,12 +22,14 @@ public final class VendaView extends TelaBaseView {
 
     protected Pessoa vendedor;
     protected Veiculo veiculo;
+    protected Pessoa cliente;
     protected boolean selecionado;
     private PessoaRepositorio pessoas;
     private VeiculoRepositorio veiculos;
     protected String sCpf;
     protected boolean VeiculoSelecionado;
     protected boolean VendedorSelecionado;
+    protected boolean ClienteSelecionado;
   
     
     public VendaView() {
@@ -54,9 +56,13 @@ public final class VendaView extends TelaBaseView {
         btnEfetuarVenda = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtaVeiculoSelecionado = new javax.swing.JTextArea();
-        txtVendedorSelecionado = new javax.swing.JTextField();
         btnSelecionaVendedor = new javax.swing.JButton();
         lblVenderVeiculo = new javax.swing.JLabel();
+        btnSelecionaCliente = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtaClienteSelecionado = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtaVendedorSelecionado = new javax.swing.JTextArea();
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,8 +89,6 @@ public final class VendaView extends TelaBaseView {
         txtaVeiculoSelecionado.setRows(5);
         jScrollPane1.setViewportView(txtaVeiculoSelecionado);
 
-        txtVendedorSelecionado.setEditable(false);
-
         btnSelecionaVendedor.setText("Selecionar Vendedor");
         btnSelecionaVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,46 +100,73 @@ public final class VendaView extends TelaBaseView {
         lblVenderVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         lblVenderVeiculo.setText("Vender Veiculo");
 
+        btnSelecionaCliente.setText("Selecionar Cliente");
+        btnSelecionaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionaClienteActionPerformed(evt);
+            }
+        });
+
+        txtaClienteSelecionado.setColumns(20);
+        txtaClienteSelecionado.setRows(5);
+        jScrollPane2.setViewportView(txtaClienteSelecionado);
+
+        txtaVendedorSelecionado.setColumns(20);
+        txtaVendedorSelecionado.setRows(5);
+        jScrollPane3.setViewportView(txtaVendedorSelecionado);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelecionaVendedor)
-                            .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(363, 363, 363))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSelecionaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(btnEfetuarVenda)
+                .addGap(149, 149, 149)
+                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSelecionaVeiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSelecionaVendedor)
+                    .addComponent(btnSelecionaCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelecionaVendedor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtVendedorSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,24 +184,36 @@ public final class VendaView extends TelaBaseView {
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
      if(VendedorSelecionado){
-        txtVendedorSelecionado.setText(vendedor.getNome());
+        txtaVendedorSelecionado.setText(vendedor.toString());
      }
      if(VeiculoSelecionado){
        txtaVeiculoSelecionado.setText(veiculo.toString());
      }
+     if(ClienteSelecionado){
+         txtaClienteSelecionado.setText(cliente.toString());
+     }
     }//GEN-LAST:event_formMouseMoved
+
+    private void btnSelecionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaClienteActionPerformed
+        ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
+        consultaCliente.setVisible(true);
+    }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEfetuarVenda;
+    private javax.swing.JButton btnSelecionaCliente;
     private javax.swing.JButton btnSelecionaVeiculo;
     private javax.swing.JButton btnSelecionaVendedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblVenderVeiculo;
-    private javax.swing.JTextField txtVendedorSelecionado;
+    private javax.swing.JTextArea txtaClienteSelecionado;
     private javax.swing.JTextArea txtaVeiculoSelecionado;
+    private javax.swing.JTextArea txtaVendedorSelecionado;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -183,6 +226,6 @@ public final class VendaView extends TelaBaseView {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setSize(400, 400);
+        this.setSize(500, 600);
     }
 }

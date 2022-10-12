@@ -12,15 +12,7 @@ package br.com.lojaveiculo.model;
 public class Vendedor extends Funcionario{
   
     private double comissão;
-    private Usuario oUsuario;
-
-    public Usuario getoUsuario() {
-        return oUsuario;
-    }
-
-    public void setoUsuario(Usuario oUsuario) {
-        this.oUsuario = oUsuario;
-    }
+  
 
     public Vendedor(double comissão, double Salario , String nome, String cpf, String telefone) {
         super(Salario, nome, cpf, telefone);
