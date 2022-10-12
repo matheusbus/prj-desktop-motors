@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
+public final class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaMotoView consultaMoto = null;
@@ -23,7 +23,6 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     
     /**
      * Creates new form CadastroFuncionario
-     * @param consultaMoto
      */
     public CadastroMotoView(){
         organizaLayout();

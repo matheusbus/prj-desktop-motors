@@ -87,10 +87,25 @@ public class FabricaObjetos {
     
     
     public void criaVeiculos(){
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0001", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0002", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0003", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0004", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
+        // Motos
+        repositorioDeVeiculos.addVeiculo(new Moto("MUC7958", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
+        repositorioDeVeiculos.addVeiculo(new Moto("JJR4355", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("JEJ8798", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("LQM0006", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
+        repositorioDeVeiculos.addVeiculo(new Moto("KHY2839", "CG 160 Start", new Marca("Honda"), 2004, 15000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("HNV2868", "CG 160 Titan", new Marca("Honda"), 2018, 85000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("JVJ0137", "Forza 350", new Marca("Honda"), 2020, 70000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Elite 125", new Marca("Honda"), 2022, 14000, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Biz 125", new Marca("Honda"), 2021, 12000, "Gasolina", 250));
+        repositorioDeVeiculos.addVeiculo(new Moto("NDB5469", "Biz 110i", new Marca("Honda"), 2022, 11500, "Gasolina", 260));
+        repositorioDeVeiculos.addVeiculo(new Moto("HNN8837", "CB 500F", new Marca("Honda"), 2020, 12480, "Gasolina", 170));
+        repositorioDeVeiculos.addVeiculo(new Moto("IIL4469", "CB 250F Twister", new Marca("Honda"), 2019, 16790, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("MNY4694", "CB 1000R Black Edition", new Marca("Honda"), 2018, 18900, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("KCL4219", "CB 1000R", new Marca("Honda"), 2017, 19900, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("JFL6804", "CB 250F Twister", new Marca("Honda"), 2018, 20100, "Gasolina", 200));
+        repositorioDeVeiculos.addVeiculo(new Moto("JTV0949", "Honda ADV", new Marca("Honda"), 2019, 13400, "Gasolina", 230));
+        
+        // Carros
         repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), 2003, 25000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), 2002, 80000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("MJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), 1992, 50000, "Gasolina", 2));
