@@ -22,6 +22,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         criaInstancia.criaClientes();
         criaInstancia.criaFuncionarios();
         criaInstancia.criaVeiculos();
+        criaInstancia.criaVendas();
     }
 
     public void organizaLayout(){

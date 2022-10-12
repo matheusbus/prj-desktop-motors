@@ -268,6 +268,7 @@ public final class VendaView extends TelaBaseView {
     private javax.swing.JTextArea txtaVendedorSelecionado;
     // End of variables declaration//GEN-END:variables
 
+<<<<<<< HEAD
     /*public boolean efetuarVenda(){
          vendas = new VendaDAO();
          venda = new Venda(this.veiculo, this.cliente, this.vendedor);
@@ -276,6 +277,9 @@ public final class VendaView extends TelaBaseView {
          return true;
      }*/
      
+=======
+
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
     public boolean efetuarVenda() {
         vendas = new VendaDAO();
         venda = new Venda(this.veiculo, this.cliente, this.vendedor);
@@ -296,7 +300,11 @@ public final class VendaView extends TelaBaseView {
         }
     }
 
+<<<<<<< HEAD
     @Override
+=======
+
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }

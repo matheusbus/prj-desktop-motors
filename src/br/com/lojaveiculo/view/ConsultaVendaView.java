@@ -93,6 +93,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         tblVendas.setToolTipText("");
         tblVendas.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblVendas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblVendas.setShowGrid(true);
         jScrollPane1.setViewportView(tblVendas);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
