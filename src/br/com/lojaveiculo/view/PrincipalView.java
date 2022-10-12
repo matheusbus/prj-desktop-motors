@@ -175,6 +175,11 @@ public final class PrincipalView extends javax.swing.JFrame {
         muConsultas.add(muConsultaFuncionarios);
 
         muConsultaVendas.setText("Venda");
+        muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsultaVendasActionPerformed(evt);
+            }
+        });
         muConsultas.add(muConsultaVendas);
 
         mbMenuPrincipal.add(muConsultas);
@@ -282,6 +287,10 @@ public final class PrincipalView extends javax.swing.JFrame {
         ConsultaVendaView consultaVenda = new ConsultaVendaView();
         consultaVenda.setVisible(true);
     }//GEN-LAST:event_muConsultasActionPerformed
+
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_muConsultaVendasActionPerformed
 
     
         public static void main(String args[]) {

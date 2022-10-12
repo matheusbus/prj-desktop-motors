@@ -69,12 +69,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultasActionPerformed"/>
           </Events>
-=======
->>>>>>> 785ba26b34542ed3aa69624104a90a3ebad9960c
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="muClientes">
               <Properties>
@@ -115,14 +112,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaFuncionariosActionPerformed"/>
               </Events>
             </MenuItem>
-<<<<<<< HEAD
             <MenuItem class="javax.swing.JMenuItem" name="muConsultaVendas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Venda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaVendasActionPerformed"/>
+              </Events>
             </MenuItem>
-=======
->>>>>>> 785ba26b34542ed3aa69624104a90a3ebad9960c
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="muVendas">
