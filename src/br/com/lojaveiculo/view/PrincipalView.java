@@ -29,7 +29,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         this.add(painelFundo);
         this.setContentPane(painelFundo);
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
-        this.setSize(1400, 900);
+        this.setSize(800, 400);
         this.setLocationRelativeTo(null);
     }
     

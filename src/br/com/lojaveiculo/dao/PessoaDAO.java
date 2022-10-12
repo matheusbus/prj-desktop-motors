@@ -17,28 +17,28 @@ import java.util.Set;
  */
 public class PessoaDAO implements PessoaRepositorio {
 
-    private static Set<Pessoa> pessoa;
+    private static Set<Pessoa> pessoas;
 
     public PessoaDAO() {
-        if (PessoaDAO.pessoa == null) {
-            pessoa = new HashSet<>();
+        if (PessoaDAO.pessoas == null) {
+            pessoas = new HashSet<>();
         }
     }
 
     @Override
     public Set<Pessoa> getPessoas() {
-        return PessoaDAO.pessoa;
+        return PessoaDAO.pessoas;
     }
 
     @Override
     public boolean adicionarPessoa(Pessoa p) {
-        PessoaDAO.pessoa.add(p);
+        PessoaDAO.pessoas.add(p);
         return true;
     }
 
     @Override
     public Pessoa buscarPessoaPorNome(String nome) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getNome().equals(nome)) {
                 return p;
             }
@@ -48,7 +48,7 @@ public class PessoaDAO implements PessoaRepositorio {
 
     @Override
     public Pessoa buscarPessoaPorCPF(String cpf) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpf)) {
                 return p;
             }
@@ -58,9 +58,9 @@ public class PessoaDAO implements PessoaRepositorio {
 
     @Override
     public boolean removerPessoa(String cpf) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpf)) {
-                pessoa.remove(p);
+                pessoas.remove(p);
                 return true;
             }
         }
@@ -70,7 +70,7 @@ public class PessoaDAO implements PessoaRepositorio {
     @Override
     public Set<Pessoa> getClientes() {
         Set<Pessoa> clientes = new HashSet<>();
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p instanceof Cliente) {
                 clientes.add(p);
             }
@@ -78,14 +78,16 @@ public class PessoaDAO implements PessoaRepositorio {
         return clientes;
     }
 
-        @Override
-        public Set<Pessoa> getFuncionarios() {
+    @Override
+    public Set<Pessoa> getFuncionarios() {
         Set<Pessoa> funcionarios = new HashSet<>();
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p instanceof Funcionario) {
                 funcionarios.add(p);
             }
         }
         return funcionarios;
     }
+
 }
+    

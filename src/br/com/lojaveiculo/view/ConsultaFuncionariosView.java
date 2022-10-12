@@ -45,6 +45,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setResizable(false);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
         popularTabela();
+        
     }
            
     public void selecionaItem(String cpf){

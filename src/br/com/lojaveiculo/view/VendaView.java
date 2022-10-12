@@ -5,14 +5,18 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseView;
-import br.com.lojaveiculo.dao.PessoaDAO;
+//import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.model.Vendedor;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+//import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,9 +27,11 @@ public final class VendaView extends TelaBaseView {
     protected Pessoa vendedor;
     protected Veiculo veiculo;
     protected Pessoa cliente;
+    protected Venda venda;
     protected boolean selecionado;
-    private PessoaRepositorio pessoas;
+    //private PessoaRepositorio pessoas;
     private VeiculoRepositorio veiculos;
+    private VendaRepositorio vendas;
     protected String sCpf;
     protected boolean VeiculoSelecionado;
     protected boolean VendedorSelecionado;
@@ -36,7 +42,7 @@ public final class VendaView extends TelaBaseView {
         organizaLayout();
         vendedor = new Vendedor(0.0, 0.0, "", "", "");
         veiculo = new Carro("", "", null, 0, 0, "", 0);
-        pessoas = new PessoaDAO();
+        //pessoas = new PessoaDAO();
         veiculos = new VeiculoDAO();
         VendedorSelecionado = false;
         VeiculoSelecionado = false;
@@ -87,6 +93,11 @@ public final class VendaView extends TelaBaseView {
         btnEfetuarVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEfetuarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnEfetuarVenda.setText("Efetuar Venda");
+        btnEfetuarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEfetuarVendaActionPerformed(evt);
+            }
+        });
 
         txtaVeiculoSelecionado.setEditable(false);
         txtaVeiculoSelecionado.setColumns(20);
@@ -111,12 +122,19 @@ public final class VendaView extends TelaBaseView {
             }
         });
 
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        txtaClienteSelecionado.setEditable(false);
         txtaClienteSelecionado.setColumns(20);
         txtaClienteSelecionado.setRows(5);
         jScrollPane2.setViewportView(txtaClienteSelecionado);
 
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        txtaVendedorSelecionado.setEditable(false);
         txtaVendedorSelecionado.setColumns(20);
         txtaVendedorSelecionado.setRows(5);
+        txtaVendedorSelecionado.setPreferredSize(new java.awt.Dimension(150, 84));
         jScrollPane3.setViewportView(txtaVendedorSelecionado);
 
         cbTipoVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto" }));
@@ -138,9 +156,9 @@ public final class VendaView extends TelaBaseView {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,6 +234,17 @@ public final class VendaView extends TelaBaseView {
         consultaCliente.setVisible(true);
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
+    private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
+        if ((ClienteSelecionado) || (VeiculoSelecionado) || (VendedorSelecionado)) {
+        if(efetuarVenda()){
+            apresentaMensagem("Venda efetuada com sucesso", "Suceso");
+        }
+    }
+        else {
+        apresentaMensagem("Selecione todos os campos", "ERRO");
+        }
+    }//GEN-LAST:event_btnEfetuarVendaActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -234,9 +263,18 @@ public final class VendaView extends TelaBaseView {
     private javax.swing.JTextArea txtaVendedorSelecionado;
     // End of variables declaration//GEN-END:variables
 
+    
+     public boolean efetuarVenda(){
+         vendas = new VendaDAO();
+         venda = new Venda(this.veiculo, this.cliente, this.vendedor);
+         vendas.adicionarVenda(venda);
+         veiculos.removeVeiculo(veiculo.getPlaca());
+         return true;
+     }
+     
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
     @Override
