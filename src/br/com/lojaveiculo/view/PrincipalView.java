@@ -170,6 +170,11 @@ public final class PrincipalView extends javax.swing.JFrame {
         muConsultas.add(muConsultaFuncionarios);
 
         muConsultaVendas.setText("Venda");
+        muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsulta(evt);
+            }
+        });
         muConsultas.add(muConsultaVendas);
 
         mbMenuPrincipal.add(muConsultas);
@@ -238,7 +243,7 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-       ConsultaVendaView consultaMoto = new ConsultaVendaView();
+       ConsultaMotoView consultaMoto = new ConsultaMotoView();
        consultaMoto.setVisible(true);
     }//GEN-LAST:event_miConsMotoActionPerformed
 
@@ -269,9 +274,13 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        VendaView vendaView = new VendaView();
-        vendaView.setVisible(true);
+      
     }//GEN-LAST:event_muTelaVendaActionPerformed
+
+    private void muConsulta(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsulta
+        ConsultaVendaView consultaVendaView = new ConsultaVendaView();
+        consultaVendaView.setVisible(true);
+    }//GEN-LAST:event_muConsulta
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {                                                 
       ConsultaVendaView consultaVenda = new ConsultaVendaView();
