@@ -41,9 +41,4 @@ public final class Marca {
     public String toString() {
         return "Marca{" + "nome=" + nome + '}';
     }
-
-    int CompareTo(Marca marca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

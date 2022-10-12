@@ -249,8 +249,8 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsMotoActionPerformed
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-        RelatorioVendaView relatorio = new RelatorioVendaView();
-        relatorio.setVisible(true);
+       // RelatorioVendaView relatorio = new RelatorioVendaView();
+        //relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
 

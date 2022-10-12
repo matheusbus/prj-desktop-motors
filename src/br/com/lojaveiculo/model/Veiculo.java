@@ -8,7 +8,7 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
-public abstract class Veiculo implements Comparable<Veiculo> {
+public abstract class Veiculo  {
 
     protected String placa;
     protected String modelo;
@@ -82,9 +82,5 @@ public abstract class Veiculo implements Comparable<Veiculo> {
         return marca;
     }
 
-    @Override
-    public int compareTo(Veiculo v) {
-        return marca.CompareTo(v.getMarca());
-    }
 }
  

@@ -64,7 +64,7 @@ public class VendaDAO implements VendaRepositorio {
     }
 
     
-    public void ordena(){
+   public void ordena(){
         Collections.sort(vendas);
     }      
 

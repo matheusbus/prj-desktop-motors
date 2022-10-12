@@ -59,7 +59,8 @@ public class Venda implements Comparable<Venda> {
     
     @Override
     public int compareTo(Venda o) {
-    //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
-    return cliente.getNome().compareTo(o.cliente.getNome());
+   //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
+   return cliente.getNome().compareTo(o.cliente.getNome());
 }
 }
+
