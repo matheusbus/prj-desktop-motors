@@ -72,7 +72,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nº Venda", "Data da Venda", "Veículo", "Cliente", "Vendedor"
+                "Nº Venda", "Data da Venda", "Placa do Veículo", "CPF do Cliente", "CPF do Vendedor"
             }
         ) {
             Class[] types = new Class [] {
