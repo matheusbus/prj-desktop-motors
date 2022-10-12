@@ -234,7 +234,7 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-       ConsultaMotoView consultaMoto = new ConsultaMotoView();
+       ConsultaVendaView consultaMoto = new ConsultaVendaView();
        consultaMoto.setVisible(true);
     }//GEN-LAST:event_miConsMotoActionPerformed
 

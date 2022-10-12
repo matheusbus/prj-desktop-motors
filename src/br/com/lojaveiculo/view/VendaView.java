@@ -189,7 +189,7 @@ public final class VendaView extends TelaBaseView {
         consultaCarro.setVisible(true);
     }
         else {
-        ConsultaMotoView consultaMoto = new ConsultaMotoView(this);
+        ConsultaVendaView consultaMoto = new ConsultaVendaView(this);
         consultaMoto.setVisible(true);
         }
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed

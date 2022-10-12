@@ -3,19 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/PrincipalView.java</file>
-=======
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseConsultaView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/PrincipalView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaFuncionariosView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/instancia/FabricaObjetos.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Veiculo.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaClientesView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/LoginView.java</file>
->>>>>>> 4a02e83ee0d921151438f68efe19dc5948c176fc
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2/src/br/com/lojaveiculo/dao/PessoaDAO.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Pessoa.java</file>
         </group>
     </open-files>
 </project-private>
