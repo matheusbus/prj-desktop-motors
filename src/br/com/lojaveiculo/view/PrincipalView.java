@@ -62,6 +62,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuVeiculos = new javax.swing.JMenu();
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
+        muClientes = new javax.swing.JMenuItem();
         muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
         muRelatorios = new javax.swing.JMenu();
@@ -169,6 +170,14 @@ public class PrincipalView extends javax.swing.JFrame {
 
         muConsultas.add(menuVeiculos);
 
+        muClientes.setText("Clientes");
+        muClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muClientesActionPerformed(evt);
+            }
+        });
+        muConsultas.add(muClientes);
+
         mbMenuPrincipal.add(muConsultas);
 
         muVendas.setText("Venda");
@@ -265,6 +274,11 @@ public class PrincipalView extends javax.swing.JFrame {
         cadCliente.setVisible(true);
     }//GEN-LAST:event_miCadClientesActionPerformed
 
+    private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
+       ConsultaClientesView consultaCliente = new ConsultaClientesView();
+       consultaCliente.setVisible(true);
+    }//GEN-LAST:event_muClientesActionPerformed
+
     
         public static void main(String args[]) {
             
@@ -293,6 +307,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem miRelatorios;
     private javax.swing.JMenu muCadVeiculo;
     private javax.swing.JMenu muCadastros;
+    private javax.swing.JMenuItem muClientes;
     private javax.swing.JMenuItem muConsultaFuncionarios;
     private javax.swing.JMenu muConsultas;
     private javax.swing.JMenu muRelatorios;

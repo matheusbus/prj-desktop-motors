@@ -5,18 +5,31 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
+import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Cliente;
+import br.com.lojaveiculo.model.Pessoa;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Rafael
  */
-public class CadastroClienteView extends TelaBaseCadastroView {
+public final class CadastroClienteView extends TelaBaseCadastroView {
 
+    private final PessoaRepositorio pessoas = new PessoaDAO();
+    private ConsultaClientesView consulta = null;
     /**
      * Creates new form CadastroClienteView
      */
     public CadastroClienteView() {
-        initComponents();
+        organizaLayout();
+    }
+
+    CadastroClienteView(ConsultaClientesView consultaCliente) {
+        organizaLayout();
+        this.consulta = consultaCliente;
     }
 
     /**
@@ -113,9 +126,53 @@ public class CadastroClienteView extends TelaBaseCadastroView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadClienteActionPerformed
-
+            cadastrarCliente();
     }//GEN-LAST:event_btnCadClienteActionPerformed
 
+    
+        public void cadastrarCliente() {
+        if(verificaExistenciaCPF(txtCpf.getText())){
+        if (verificaIntegridadeCPF(txtCpf.getText())) {
+            if (verificaCamposNulos()) {
+                String sCpf = txtCpf.getText();
+                String sNome = txtNome.getText();
+                String sTelefone = txtTelefone.getText();
+
+                Pessoa p = new Cliente(sNome, sCpf, sTelefone);
+                pessoas.adicionarPessoa(p);
+                if (consulta != null) {
+                    consulta.limparTabela();
+                    consulta.popularTabela();
+                }
+                apresentaMensagem("Cliente cadastrado com sucesso", "Sucesso");
+                this.dispose();
+            }
+            else
+                apresentaMensagem("Preencha todos os campos", "Erro");
+        }
+        else 
+            apresentaMensagem("CPF inválido, digite novamente", "Erro");
+    }
+        else
+            apresentaMensagem("CPF ja consta no sistema", "Erro");
+    }
+        
+        
+            public boolean verificaExistenciaCPF(String cpf) {
+        if (pessoas.buscarPessoaPorCPF(cpf) == null){
+         return true;   
+        }
+        else
+            return false;     
+    }
+
+    public boolean verificaIntegridadeCPF(String cpf) {
+        if (cpf.length() == 11) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCliente;
@@ -130,21 +187,30 @@ public class CadastroClienteView extends TelaBaseCadastroView {
 
     @Override
     public void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       txtCpf.setText("");
+       txtNome.setText("");
+       txtTelefone.setText("");
     }
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
     @Override
     public void organizaLayout() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(315, 300);
     }
 
     @Override
     public boolean verificaCamposNulos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -46,7 +46,9 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + '}';
+        return "Nome: " + this.nome + "\n" +
+        "CPF: " + this.telefone + "\n" +
+        "Telefone: " + this.cpf + "\n";  
     }
     
      public Object[] obterDados(){
