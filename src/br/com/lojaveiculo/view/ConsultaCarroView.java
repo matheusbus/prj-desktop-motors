@@ -97,8 +97,8 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             }
         });
         tblCarros.setToolTipText("");
-        tblCarros.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        tblCarros.setSelectionForeground(new java.awt.Color(34, 110, 157));
+        tblCarros.setSelectionBackground(new java.awt.Color(34, 110, 157));
+        tblCarros.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblCarros);
         if (tblCarros.getColumnModel().getColumnCount() > 0) {
             tblCarros.getColumnModel().getColumn(0).setMinWidth(100);

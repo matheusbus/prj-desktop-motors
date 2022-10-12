@@ -113,12 +113,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="muVendas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Venda"/>
+            <Property name="text" type="java.lang.String" value="Vendas"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="muTelaVenda">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tela Venda"/>
+                <Property name="text" type="java.lang.String" value="Efetuar Venda"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muTelaVendaActionPerformed"/>

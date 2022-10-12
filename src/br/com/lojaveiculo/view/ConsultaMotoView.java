@@ -98,6 +98,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         });
         tblMotos.setToolTipText("");
         tblMotos.setSelectionBackground(new java.awt.Color(34, 110, 157));
+        tblMotos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblMotos);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
