@@ -8,6 +8,8 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,30 +17,47 @@ import java.util.Set;
  *
  * @author Matheus
  */
-public class PessoaDAO implements PessoaRepositorio {
+public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
 
-    private static Set<Pessoa> pessoa;
+    private static Set<Pessoa> pessoas;
 
+    @Override
+    public int compare(Pessoa o1, Pessoa o2) {
+        //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
+        //});
+       
+               
+//return p1.getNome().compareTo(p2.getNome());
+        return 0;
+    }
+    
+    //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
+    //ordenaOrdemAlfabetica.stream()
+            //.sorted(Comparator.comparing(Pessoas: :getNome))
+            //.collect(Collectors.toList())
+            //.forEach(pessoa -> System.out.Println(pessoa));
+    
+            
     public PessoaDAO() {
-        if (PessoaDAO.pessoa == null) {
-            pessoa = new HashSet<>();
+        if (PessoaDAO.pessoas == null) {
+            pessoas = new HashSet<>();
         }
     }
 
     @Override
     public Set<Pessoa> getPessoas() {
-        return PessoaDAO.pessoa;
+        return PessoaDAO.pessoas;
     }
 
     @Override
     public boolean adicionarPessoa(Pessoa p) {
-        PessoaDAO.pessoa.add(p);
+        PessoaDAO.pessoas.add(p);
         return true;
     }
 
     @Override
     public Pessoa buscarPessoaPorNome(String nome) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getNome().equals(nome)) {
                 return p;
             }
@@ -48,7 +67,7 @@ public class PessoaDAO implements PessoaRepositorio {
 
     @Override
     public Pessoa buscarPessoaPorCPF(String cpf) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpf)) {
                 return p;
             }
@@ -58,9 +77,9 @@ public class PessoaDAO implements PessoaRepositorio {
 
     @Override
     public boolean removerPessoa(String cpf) {
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpf)) {
-                pessoa.remove(p);
+                pessoas.remove(p);
                 return true;
             }
         }
@@ -70,7 +89,7 @@ public class PessoaDAO implements PessoaRepositorio {
     @Override
     public Set<Pessoa> getClientes() {
         Set<Pessoa> clientes = new HashSet<>();
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p instanceof Cliente) {
                 clientes.add(p);
             }
@@ -81,11 +100,15 @@ public class PessoaDAO implements PessoaRepositorio {
         @Override
         public Set<Pessoa> getFuncionarios() {
         Set<Pessoa> funcionarios = new HashSet<>();
-        for (Pessoa p : pessoa) {
+        for (Pessoa p : pessoas) {
             if (p instanceof Funcionario) {
                 funcionarios.add(p);
             }
         }
         return funcionarios;
     }
+
+    
+               
+        
 }
