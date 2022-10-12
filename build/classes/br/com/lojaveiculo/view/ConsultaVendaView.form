@@ -78,9 +78,9 @@
                   <Table columnCount="5" rowCount="1">
                     <Column editable="false" title="N&#xba; Venda" type="java.lang.Integer"/>
                     <Column editable="false" title="Data da Venda" type="java.lang.String"/>
-                    <Column editable="false" title="Ve&#xed;culo" type="java.lang.String"/>
-                    <Column editable="false" title="Cliente" type="java.lang.String"/>
-                    <Column editable="false" title="Vendedor" type="java.lang.String"/>
+                    <Column editable="false" title="Placa do Ve&#xed;culo" type="java.lang.String"/>
+                    <Column editable="false" title="CPF do Cliente" type="java.lang.String"/>
+                    <Column editable="false" title="CPF do Vendedor" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
