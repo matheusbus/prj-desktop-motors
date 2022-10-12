@@ -19,6 +19,7 @@ public final class LoginView extends javax.swing.JFrame {
     
     private PrincipalView telaPrincipal;
     private UsuarioRepositorio usuariosSistema;
+    
     /**
      * Creates new form LoginView
      */
@@ -214,4 +215,6 @@ public final class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
+
+
 }

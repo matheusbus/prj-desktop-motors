@@ -47,7 +47,6 @@ public class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
-        criaFuncionarios();
         popularTabela();
     }
 
@@ -64,15 +63,7 @@ public class ConsultaFuncionariosView extends TelaBaseConsultaView {
        setVisible(false);
     }
 
-    //Teste
-    public void criaFuncionarios() {
-        Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "47987654321");
-        Pessoa func2 = new Gerente(8000.00, "Matheus", "18376412983", "4799876213", "Financeiro");
-        Pessoa func3 = new Vendedor(12.0, 4000, "Eduardo", "18723465409", "47965427123");
-        repositorioDePessoas.adicionarPessoa(func1);
-        repositorioDePessoas.adicionarPessoa(func2);
-        repositorioDePessoas.adicionarPessoa(func3);
-    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

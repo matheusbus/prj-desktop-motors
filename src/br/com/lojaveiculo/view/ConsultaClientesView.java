@@ -71,12 +71,12 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
     
     //Teste
     public void criaClientes() {
-        Pessoa func1 = new Cliente("Rafael", "12876163993", "47987654321");
-        Pessoa func2 = new Cliente("Matheus", "18376412983", "4799876213");
-        Pessoa func3 = new Cliente("Eduardo", "18723465409", "47965427123");
-        repositorioDePessoas.adicionarPessoa(func1);
-        repositorioDePessoas.adicionarPessoa(func2);
-        repositorioDePessoas.adicionarPessoa(func3);
+        Pessoa client1 = new Cliente("Marcos", "287163993", "4798234321");
+        Pessoa client2 = new Cliente("Gabriel", "376412983", "479546213");
+        Pessoa client3 = new Cliente("Joao", "187465409", "4796576123");
+        repositorioDePessoas.adicionarPessoa(client1);
+        repositorioDePessoas.adicionarPessoa(client2);
+        repositorioDePessoas.adicionarPessoa(client3);
     }
         
     @SuppressWarnings("unchecked")
