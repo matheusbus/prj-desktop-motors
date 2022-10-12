@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaMotoView extends TelaBaseConsultaView{
+public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
@@ -96,7 +96,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         });
         tblMotos.setToolTipText("");
         tblMotos.setSelectionBackground(new java.awt.Color(34, 110, 157));
-        tblMotos.setSelectionForeground(new java.awt.Color(34, 110, 157));
+        tblMotos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblMotos);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
@@ -240,7 +240,10 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        removerDaTabela();
+        if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
+            removerDaTabela();
+            apresentaMensagem("Veículo removido!", "Remoção efetuada");
+        }
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
  
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
@@ -368,5 +371,10 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     private javax.swing.JTable tblMotos;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public int criaQuestaoPrgunta(String mensagem, String titulo) {
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
+    }
 
 }

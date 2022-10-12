@@ -5,6 +5,7 @@
 package br.com.lojaveiculo.instancia;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.dao.UsuarioDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Carro;
@@ -12,9 +13,11 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
+import br.com.lojaveiculo.model.Usuario;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import br.com.lojaveiculo.repositorio.UsuarioRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 
@@ -27,6 +30,7 @@ public class FabricaObjetos {
     private PessoaRepositorio repositorioDePessoas;
     private VeiculoRepositorio repositorioDeVeiculos;
     private VendaRepositorio repositorioDeVendas;
+    private UsuarioRepositorio repositorioDeUsuarios;
 
     public FabricaObjetos() {
         if (repositorioDePessoas == null) {
@@ -38,6 +42,17 @@ public class FabricaObjetos {
         if (repositorioDeVendas == null) {
             repositorioDeVendas = new VendaDAO();
         }
+        if (repositorioDeUsuarios == null) {
+            repositorioDeUsuarios = new UsuarioDAO();
+        }
+    }
+       
+    public void criaUsuarios(){
+        repositorioDeUsuarios = new UsuarioDAO();
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("Rafael", "rafa123"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("Eduardo", "edu123"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("Matheus", "math123"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("admin", "admin"));
     }
 
     //Teste

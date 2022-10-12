@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
@@ -15,10 +16,11 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public final class CadastroCarroView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
+public final class CadastroCarroView extends TelaBaseCadastroView implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaCarroView consultaCarro = null;
+    private Carro carro;
   
     
     /**
@@ -34,8 +36,11 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
         organizaLayout();
     }
     
-    public CadastroCarroView(Carro carro){
+    public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro){
         organizaLayout();
+        this.consultaCarro = consultaCarro;
+        this.txtPlaca.setEditable(false);
+        this.carro = carro;
         lblTitulo.setText("Alterar Carro");
         btnCadCarro.setText("Alterar");
         txtPlaca.setText(carro.getPlaca());
@@ -45,8 +50,10 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
         txtPreco.setText(Double.toString(carro.getPreco()));
         cbPorta.setSelectedItem(Integer.toString(carro.getPortas()));
         cbCombustivel.setSelectedItem((String) carro.getTipoCombustivel());
+        
     }
 
+    @Override
     public void organizaLayout(){
         initComponents();
         this.setLocationRelativeTo(null);
@@ -93,6 +100,8 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
             }
         });
 
+        txtModelo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
         lblModelo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblModelo.setForeground(new java.awt.Color(255, 255, 255));
         lblModelo.setText("Modelo");
@@ -101,9 +110,13 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
         lblMarca.setForeground(new java.awt.Color(255, 255, 255));
         lblMarca.setText("Marca");
 
+        txtMarca.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
         lblPortas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPortas.setForeground(new java.awt.Color(255, 255, 255));
         lblPortas.setText("Portas");
+
+        txtPlaca.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
         lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,7 +128,7 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
 
         cbCombustivel.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         cbCombustivel.setForeground(new java.awt.Color(255, 255, 255));
-        cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Álcool", "Flex", "Diesel", " " }));
+        cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Álcool", "Flex", "Diesel" }));
 
         lblAno.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblAno.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,14 +138,20 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Valor");
 
+        txtPreco.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Cadastrar Carro");
         lblTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        cbAno.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cbAno.setForeground(new java.awt.Color(255, 255, 255));
         cbAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
 
+        cbPorta.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cbPorta.setForeground(new java.awt.Color(255, 255, 255));
         cbPorta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,7 +199,7 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +241,11 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-        cadastrarCarro();
+        if(lblTitulo.getText().equals("Alterar Carro")){
+            alterarCarro(carro);
+        } else {
+            cadastrarCarro();
+        }
     }//GEN-LAST:event_btnCadCarroActionPerformed
 
     public void cadastrarCarro(){
@@ -242,14 +265,36 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
                     consultaCarro.limparTabela();
                     consultaCarro.popularTabela();
                 }
-                JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
+                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!", "Erro no cadastro", HEIGHT);
+                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "A placa digitada é invalida!", "Erro no cadastro", HEIGHT);
+            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }         
+    }
+    
+    public void alterarCarro(Carro carro){
+        if(verificaPlaca(txtPlaca.getText())){
+            if(verificaCamposNulos()){
+                veiculos.removeVeiculo(carro.getPlaca());
+                carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
+                carro.setModelo(txtModelo.getText());
+                carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
+                carro.setPreco(Double.parseDouble(txtPreco.getText()));
+                carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                veiculos.addVeiculo(carro);
+                consultaCarro.popularTabela();
+                
+                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                this.dispose();
+            } else {
+                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
+            }
+        } else {
+            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
+        }
     }
     
     @Override
@@ -270,6 +315,16 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
         }
     }
     
+    @Override
+    public void limparCampos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;
     private javax.swing.JComboBox<String> cbAno;
@@ -288,6 +343,8 @@ public final class CadastroCarroView extends javax.swing.JFrame implements Valid
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
+
+
 
 
 }

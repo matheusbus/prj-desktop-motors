@@ -7,7 +7,6 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
@@ -30,6 +29,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
+        
     }
     
     // Construtor chamado na tela de venda
@@ -264,7 +264,10 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        removerDaTabela();
+        if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
+            removerDaTabela();
+            apresentaMensagem("Veículo removido!", "Remoção efetuada");
+        }
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
 
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
@@ -293,13 +296,18 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroCarroView altCarro = new CadastroCarroView((Carro) obj);
+        CadastroCarroView altCarro = new CadastroCarroView(this, (Carro) obj);
         altCarro.setVisible(true);
     }
     
     @Override
     public void apresentaMensagem(String mensagem, String titulo){
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+    
+    @Override
+    public int criaQuestaoPrgunta(String mensagem, String titulo) {
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
 
     @Override
@@ -393,5 +401,5 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     private javax.swing.JTable tblCarros;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
-    
+   
 }

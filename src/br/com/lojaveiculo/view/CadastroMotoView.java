@@ -35,8 +35,10 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         this.consultaMoto = consultaMoto;
     }
     
+    // Construtor utilizado ao alterar uma moto.
     public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto){
         organizaLayout();
+        this.txtPlaca.setEditable(false);
         this.consultaMoto = consultaMoto;
         lblTitulo.setText("Alterar Carro");
         lblTitulo.setText("Alterar Moto");
@@ -51,6 +53,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         this.moto = moto;
     }
 
+    @Override
     public void organizaLayout(){
         initComponents();
         this.setLocationRelativeTo(null);
@@ -120,7 +123,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
 
         cbCombustivel.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         cbCombustivel.setForeground(new java.awt.Color(255, 255, 255));
-        cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Álcool", "Flex", "Diesel", " " }));
+        cbCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Elétrica" }));
 
         lblAno.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblAno.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,10 +267,9 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                 moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
                 moto.getMarca().setNome(txtMarca.getText());
                 veiculos.addVeiculo(moto);
-                consultaMoto.limparTabela();
                 consultaMoto.popularTabela();
                 
-                apresentaMensagem("Veículos alterado com sucesso.", "Alteração realizada");
+                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
                 this.dispose();
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
