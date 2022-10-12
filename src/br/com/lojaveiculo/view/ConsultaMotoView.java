@@ -68,7 +68,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         btnAlterarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Carros");
+        setTitle("Consulta de Motos");
 
         tblMotos.setForeground(new java.awt.Color(255, 255, 255));
         tblMotos.setModel(new javax.swing.table.DefaultTableModel(
@@ -268,7 +268,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
+        CadastroMotoView altMoto = new CadastroMotoView(this, (Moto) obj);
         altMoto.setVisible(true);
     }
     

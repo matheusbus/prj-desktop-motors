@@ -28,7 +28,7 @@ public class Gerente extends Funcionario {
 
     @Override
     public Object[] obterDados() {
-        return new Object[]{super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName()};
+        return new Object[]{super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName() + " " + getDepartamento()};
 
     }
 }

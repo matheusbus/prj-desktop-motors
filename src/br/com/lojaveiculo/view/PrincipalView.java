@@ -274,7 +274,8 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-      
+      ConsultaVendaView consultaVenda = new ConsultaVendaView();
+      consultaVenda.setVisible(true);  
     }                                                
 
     
