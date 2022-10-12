@@ -32,6 +32,9 @@ public final class PrincipalView extends javax.swing.JFrame {
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
         this.setSize(1400, 900);
         this.setLocationRelativeTo(null);
+        
+        // Tela cheia: quando o software estiver pronto
+        //this.setExtendedState(this.MAXIMIZED_BOTH);
     }
     
     @SuppressWarnings("unchecked")
