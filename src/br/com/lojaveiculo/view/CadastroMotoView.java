@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public final class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
-    private ConsultaVendaView consultaMoto = null;
+    private ConsultaMotoView consultaMoto = null;
   
     
     /**
@@ -28,14 +28,14 @@ public final class CadastroMotoView extends javax.swing.JFrame implements Valida
         organizaLayout();
     }
     
-    public CadastroMotoView(ConsultaVendaView consultaMoto) {
+    public CadastroMotoView(ConsultaMotoView consultaMoto) {
         organizaLayout();
         this.consultaMoto = consultaMoto;
     }
     
     public CadastroMotoView(Moto moto){
         organizaLayout();
-        lblTitulo.setText("Alterar Carro");
+        lblTitulo.setText("Alterar Moto");
         btnCadMoto.setText("Alterar");
         txtPlaca.setText(moto.getPlaca());
         txtModelo.setText(moto.getModelo());
@@ -227,8 +227,8 @@ public final class CadastroMotoView extends javax.swing.JFrame implements Valida
                 String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
                 int cilindradas = Integer.parseInt(txtCilindradas.getText());
 
-                Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
-                veiculos.addVeiculo(novoCarro);
+                Moto novaMoto = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
+                veiculos.addVeiculo(novaMoto);
                 if(consultaMoto != null){
                     consultaMoto.limparTabela();
                     consultaMoto.popularTabela();

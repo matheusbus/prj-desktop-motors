@@ -42,7 +42,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" pref="934" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Component id="pnlBotoes" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblMotos">
+            <Component class="javax.swing.JTable" name="tblVendas">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -156,23 +156,23 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblPlaca" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblPlaca" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtPlacaBuscada" min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="txtNumeroVenda" min="-2" pref="142" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnBuscarVeiculo" min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="btnBuscarVenda" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                      <Component id="btnCadastrarVenda" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCadastrarVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="btnRemoverVenda" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnRemoverVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="btnSelecionarVenda" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSelecionarVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnAlterarVeiculo" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="btnAlterarVenda" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -184,17 +184,17 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtPlacaBuscada" max="32767" attributes="0"/>
+                                  <Component id="txtNumeroVenda" max="32767" attributes="0"/>
                                   <Component id="lblPlaca" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnBuscarVeiculo" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarVenda" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCadastrarVeiculo" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnRemoverVeiculo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnCadastrarVenda" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnRemoverVenda" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="btnSelecionarVeiculo" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="btnAlterarVeiculo" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="btnSelecionarVenda" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="btnAlterarVenda" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -203,7 +203,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnBuscarVeiculo">
+            <Component class="javax.swing.JButton" name="btnBuscarVenda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -217,7 +217,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarVeiculoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarVendaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPlaca">
@@ -228,12 +228,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Placa:"/>
+                <Property name="text" type="java.lang.String" value="N&#xba; Venda"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPlacaBuscada">
+            <Component class="javax.swing.JTextField" name="txtNumeroVenda">
             </Component>
-            <Component class="javax.swing.JButton" name="btnCadastrarVeiculo">
+            <Component class="javax.swing.JButton" name="btnCadastrarVenda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -247,10 +247,10 @@
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVeiculoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnRemoverVeiculo">
+            <Component class="javax.swing.JButton" name="btnRemoverVenda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -264,10 +264,10 @@
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVeiculoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSelecionarVeiculo">
+            <Component class="javax.swing.JButton" name="btnSelecionarVenda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -281,10 +281,10 @@
                 <Property name="text" type="java.lang.String" value="Selecionar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarVeiculoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAlterarVeiculo">
+            <Component class="javax.swing.JButton" name="btnAlterarVenda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -298,7 +298,7 @@
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarVeiculoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarVendaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

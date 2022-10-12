@@ -31,13 +31,13 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     // Construtor chamado na tela inicial
     public ConsultaVendaView() {
         organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(false);
+        this.btnSelecionarVenda.setEnabled(false);
     }
     
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
         organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(true);
+        this.btnSelecionarVenda.setEnabled(true);
         this.venda = venda;
         this.veiculos = new VeiculoDAO();
     }
@@ -50,7 +50,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        grid = (DefaultTableModel) tblMotos.getModel();
+        grid = (DefaultTableModel) tblVendas.getModel();
         popularTabela();
     }
     
@@ -60,21 +60,21 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
 
         dkpFundo = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMotos = new javax.swing.JTable();
+        tblVendas = new javax.swing.JTable();
         pnlBotoes = new javax.swing.JPanel();
-        btnBuscarVeiculo = new javax.swing.JButton();
+        btnBuscarVenda = new javax.swing.JButton();
         lblPlaca = new javax.swing.JLabel();
-        txtPlacaBuscada = new javax.swing.JTextField();
-        btnCadastrarVeiculo = new javax.swing.JButton();
-        btnRemoverVeiculo = new javax.swing.JButton();
-        btnSelecionarVeiculo = new javax.swing.JButton();
-        btnAlterarVeiculo = new javax.swing.JButton();
+        txtNumeroVenda = new javax.swing.JTextField();
+        btnCadastrarVenda = new javax.swing.JButton();
+        btnRemoverVenda = new javax.swing.JButton();
+        btnSelecionarVenda = new javax.swing.JButton();
+        btnAlterarVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Carros");
 
-        tblMotos.setForeground(new java.awt.Color(255, 255, 255));
-        tblMotos.setModel(new javax.swing.table.DefaultTableModel(
+        tblVendas.setForeground(new java.awt.Color(255, 255, 255));
+        tblVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null}
             },
@@ -97,65 +97,65 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
                 return canEdit [columnIndex];
             }
         });
-        tblMotos.setToolTipText("");
-        tblMotos.setSelectionBackground(new java.awt.Color(34, 110, 157));
-        tblMotos.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(tblMotos);
+        tblVendas.setToolTipText("");
+        tblVendas.setSelectionBackground(new java.awt.Color(34, 110, 157));
+        tblVendas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tblVendas);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
         pnlBotoes.setForeground(new java.awt.Color(82, 148, 226));
 
-        btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnBuscarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarVeiculo.setText("Buscar");
-        btnBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnBuscarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnBuscarVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarVenda.setText("Buscar");
+        btnBuscarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarVeiculoActionPerformed(evt);
+                btnBuscarVendaActionPerformed(evt);
             }
         });
 
         lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
-        lblPlaca.setText("Placa:");
+        lblPlaca.setText("Nº Venda");
 
-        btnCadastrarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadastrarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadastrarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarVeiculo.setText("Cadastrar");
-        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarVenda.setText("Cadastrar");
+        btnCadastrarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVeiculoActionPerformed(evt);
+                btnCadastrarVendaActionPerformed(evt);
             }
         });
 
-        btnRemoverVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnRemoverVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnRemoverVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemoverVeiculo.setText("Remover");
-        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoverVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnRemoverVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnRemoverVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemoverVenda.setText("Remover");
+        btnRemoverVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverVeiculoActionPerformed(evt);
+                btnRemoverVendaActionPerformed(evt);
             }
         });
 
-        btnSelecionarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnSelecionarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnSelecionarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnSelecionarVeiculo.setText("Selecionar");
-        btnSelecionarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnSelecionarVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnSelecionarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnSelecionarVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelecionarVenda.setText("Selecionar");
+        btnSelecionarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarVeiculoActionPerformed(evt);
+                btnSelecionarVendaActionPerformed(evt);
             }
         });
 
-        btnAlterarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
-        btnAlterarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnAlterarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterarVeiculo.setText("Alterar");
-        btnAlterarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterarVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnAlterarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAlterarVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterarVenda.setText("Alterar");
+        btnAlterarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarVeiculoActionPerformed(evt);
+                btnAlterarVendaActionPerformed(evt);
             }
         });
 
@@ -164,21 +164,21 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
         pnlBotoesLayout.setHorizontalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(11, 11, 11)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
-                        .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblPlaca)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnBuscarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNumeroVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSelecionarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         pnlBotoesLayout.setVerticalGroup(
@@ -188,15 +188,15 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPlacaBuscada)
+                            .addComponent(txtNumeroVenda)
                             .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarVeiculo))
-                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscarVenda))
+                    .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemoverVenda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSelecionarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -210,7 +210,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -238,35 +238,35 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
+    private void btnCadastrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendaActionPerformed
         abrirTelaCadastro();
-    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
+    }//GEN-LAST:event_btnCadastrarVendaActionPerformed
 
-    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
+    private void btnRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVendaActionPerformed
         removerDaTabela();
-    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
+    }//GEN-LAST:event_btnRemoverVendaActionPerformed
  
-    private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
+    private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
         limpaSelecao();
-        buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
-    }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
+        buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
+    }//GEN-LAST:event_btnBuscarVendaActionPerformed
 
-    private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-        selecionaItem((String) grid.getValueAt(tblMotos.getSelectedRow(), 0));
-    }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
+    private void btnSelecionarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVendaActionPerformed
+        selecionaItem((String) grid.getValueAt(tblVendas.getSelectedRow(), 0));
+    }//GEN-LAST:event_btnSelecionarVendaActionPerformed
 
-    private void btnAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVeiculoActionPerformed
+    private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
         try {
-            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
+            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblVendas.getSelectedRow(), 0)));
         } catch (Exception e){
-            apresentaMensagem("Selecione um veículo!", "Erro ao alterar moto");
+            apresentaMensagem("Selecione um Venda!", "Erro ao alterar Venda");
         }
-    }//GEN-LAST:event_btnAlterarVeiculoActionPerformed
+    }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
     @Override
     public void abrirTelaCadastro() {
-        CadastroMotoView cadMoto = new CadastroMotoView(this);
-        cadMoto.setVisible(true);        
+        VendaView cadVenda = new VendaView();
+        cadVenda.setVisible(true);        
     }
     
     @Override
@@ -288,26 +288,26 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     
     @Override
     public void removerDaTabela() {
-        if (!(tblMotos.getSelectedRow() == -1)){
-            String placa = (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
+        if (!(tblVendas.getSelectedRow() == -1)){
+            String placa = (String) grid.getValueAt(tblVendas.getSelectedRow(), 0);
             repositorioDeVeiculos.removeVeiculo(placa);
             limparTabela();
             popularTabela();
         } else {
-            apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
+            apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
         }
     }
     
     @Override
     public void limpaSelecao(){
         // Limpar seleção da linha atual na tabela
-        tblMotos.clearSelection();
+        tblVendas.clearSelection();
     }
     
     @Override
     public void popularTabela(){
         limparTabela();
-        tblMotos.getModel();
+        tblVendas.getModel();
         Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
         
         for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
@@ -322,13 +322,13 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     public void buscaNaTabela(String placa){
         int incidencia = -1;
         if(placa.length() == 7){
-            for(int i = 0; i <= tblMotos.getRowCount()-1; i++){
+            for(int i = 0; i <= tblVendas.getRowCount()-1; i++){
                 if(grid.getValueAt(i, 0).equals(placa)){
                     incidencia = i;
                 }
             }
             if(incidencia != -1){
-            tblMotos.setRowSelectionInterval(incidencia, incidencia);
+            tblVendas.setRowSelectionInterval(incidencia, incidencia);
             } else {
                 apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
             }
@@ -359,17 +359,17 @@ public final class ConsultaVendaView extends TelaBaseConsultaView{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarVeiculo;
-    private javax.swing.JButton btnBuscarVeiculo;
-    private javax.swing.JButton btnCadastrarVeiculo;
-    private javax.swing.JButton btnRemoverVeiculo;
-    private javax.swing.JButton btnSelecionarVeiculo;
+    private javax.swing.JButton btnAlterarVenda;
+    private javax.swing.JButton btnBuscarVenda;
+    private javax.swing.JButton btnCadastrarVenda;
+    private javax.swing.JButton btnRemoverVenda;
+    private javax.swing.JButton btnSelecionarVenda;
     private javax.swing.JDesktopPane dkpFundo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlaca;
     private javax.swing.JPanel pnlBotoes;
-    private javax.swing.JTable tblMotos;
-    private javax.swing.JTextField txtPlacaBuscada;
+    private javax.swing.JTable tblVendas;
+    private javax.swing.JTextField txtNumeroVenda;
     // End of variables declaration//GEN-END:variables
 
 }
