@@ -284,9 +284,13 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
     private void muConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultasActionPerformed
+        
+    }//GEN-LAST:event_muConsultasActionPerformed
+
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
         ConsultaVendaView consultaVenda = new ConsultaVendaView();
         consultaVenda.setVisible(true);
-    }//GEN-LAST:event_muConsultasActionPerformed
+    }//GEN-LAST:event_muConsultaVendasActionPerformed
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
         // TODO add your handling code here:
