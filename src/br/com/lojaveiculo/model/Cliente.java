@@ -47,7 +47,7 @@ public class Cliente extends Pessoa {
 
     @Override
     public Object[] obterDados() {
-        return new Object[] {super.nome, super.cpf, super.telefone};
+        return new Object[] {this.nome, this.cpf, this.telefone};
     } 
     
     

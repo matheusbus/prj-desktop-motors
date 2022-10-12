@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rafael
  */
-public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
+public class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
@@ -361,6 +361,11 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             apresentaMensagem("Digite um CPF válido!", "CPF inválido");
         }
 
+    }
+
+    @Override
+    public void abrirTelaAlterarCadastro(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

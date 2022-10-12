@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rafael
  */
-public final class ConsultaClientesView extends TelaBaseConsultaView {
+public class ConsultaClientesView extends TelaBaseConsultaView {
     
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
@@ -35,12 +35,25 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         this.btnSelecionarCliente.setEnabled(false);
     }
 
-    ConsultaClientesView(VendaView venda) {
+    public ConsultaClientesView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarCliente.setEnabled(true);
         this.venda = venda;
         pessoas = new PessoaDAO();
        
+    }
+    
+    
+    @Override
+    public void organizaLayout() {
+        initComponents(); 
+        // Adicionar painel ao fundo
+        this.setContentPane(dkpFundo);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        grid = (DefaultTableModel) tblClientes.getModel();
+        criaClientes();
+        popularTabela();
     }
 
     /**
@@ -80,7 +93,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         dkpFundo.setPreferredSize(new java.awt.Dimension(940, 464));
 
@@ -241,12 +254,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
-        if (grid.getValueAt(tblClientes.getSelectedRow(), 5).equals("Vendedor")) {
+       grid.getValueAt(tblClientes.getSelectedRow(), 1);
             String cpf = (String) grid.getValueAt(tblClientes.getSelectedRow(), 1);
             selecionaItem(cpf);
-        }
-        else
-        apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 
 
@@ -276,7 +286,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void popularTabela() {
-          limparTabela();
+        limparTabela();
         tblClientes.getModel();
         Set<Pessoa> clientes = repositorioDePessoas.getClientes();
         for (Pessoa client : clientes) {
@@ -327,15 +337,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
          JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
+
     @Override
-    public void organizaLayout() {
-        initComponents(); 
-        // Adicionar painel ao fundo
-        this.setContentPane(dkpFundo);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        grid = (DefaultTableModel) tblClientes.getModel();
-        criaClientes();
-        popularTabela();
+    public void abrirTelaAlterarCadastro(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
