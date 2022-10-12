@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.dao;
 
-import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
@@ -60,17 +59,10 @@ public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
         }
         return null;
     }
-
-    Collections.sort(veiculos,(v1, v2) -> {
-        return v1.getVeiculo().getMarca().getNome().compareTo
-                (v2.getVeiculo().getMarca().getNome()});
-                
-    Collections.sort(veiculos, new Comparator<Veiculo>() {        
-        @Override
-        public int compare(Venda v1, Venda v2) {
-
-        return v1.getVeiculo().getMarca().getNome().compareTo
-                (v2.getVeiculo().getMarca().getNome()});
+    
+    @Override
+    public int compare(Venda v1, Venda v2) {
+        return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
     }
                 
     

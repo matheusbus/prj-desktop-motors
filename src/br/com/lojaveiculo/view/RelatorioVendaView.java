@@ -4,6 +4,11 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.instancia.FabricaRelatorio;
+import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.model.Venda;
+import java.util.List;
+
 /**
  *
  * @author eduar
@@ -31,6 +36,8 @@ public class RelatorioVendaView extends javax.swing.JFrame {
         btnExibirRelatorio = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblMaisVendido1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtRelatorio = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -50,6 +57,10 @@ public class RelatorioVendaView extends javax.swing.JFrame {
             }
         });
 
+        txtRelatorio.setColumns(20);
+        txtRelatorio.setRows(5);
+        jScrollPane1.setViewportView(txtRelatorio);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,11 +76,14 @@ public class RelatorioVendaView extends javax.swing.JFrame {
                             .addComponent(lblMaisVendido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
                                     .addComponent(lblFiltroVeiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbFiltroVeiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(148, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,9 +94,15 @@ public class RelatorioVendaView extends javax.swing.JFrame {
                 .addComponent(cbFiltroVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(lblMaisVendido1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(btnExibirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
         );
@@ -95,7 +115,11 @@ public class RelatorioVendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_cbFiltroVeiculosActionPerformed
 
     private void btnExibirRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirRelatorioActionPerformed
-        // TODO add your handling code here:
+        FabricaRelatorio relatorio = new FabricaRelatorio();
+        List<Venda> listaOrdenada = relatorio.getListaOrdenada();
+        for(Venda v : listaOrdenada){
+            txtRelatorio.append(v.toString());
+        }
     }//GEN-LAST:event_btnExibirRelatorioActionPerformed
 
     /**
@@ -138,7 +162,9 @@ public class RelatorioVendaView extends javax.swing.JFrame {
     private javax.swing.JButton btnExibirRelatorio;
     private javax.swing.JComboBox<String> cbFiltroVeiculos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFiltroVeiculos;
     private javax.swing.JLabel lblMaisVendido1;
+    private javax.swing.JTextArea txtRelatorio;
     // End of variables declaration//GEN-END:variables
 }
