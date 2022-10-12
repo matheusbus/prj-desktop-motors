@@ -18,10 +18,10 @@ public class Venda {
     private Veiculo veiculo;
     private Pessoa cliente;
     private Pessoa vendedor;
-    private static int GeradorID;
+    private static int GeradorID = 1;
 
     public Venda(Veiculo veiculo, Pessoa cliente, Pessoa vendedor) {
-        idVenda = GeradorID ++;
+        idVenda = GeradorID++;
         this.dataVenda = LocalDate.now();      
         this.veiculo = veiculo;
         this.cliente = cliente;
