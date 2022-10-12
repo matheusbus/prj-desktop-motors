@@ -60,14 +60,14 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         dkpFundo = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMotos = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        pnlBotoes = new javax.swing.JPanel();
         btnBuscarVeiculo = new javax.swing.JButton();
         lblPlaca = new javax.swing.JLabel();
         txtPlacaBuscada = new javax.swing.JTextField();
         btnCadastrarVeiculo = new javax.swing.JButton();
         btnRemoverVeiculo = new javax.swing.JButton();
         btnSelecionarVeiculo = new javax.swing.JButton();
-        btnSelecionarVeiculo1 = new javax.swing.JButton();
+        btnAlterarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Carros");
@@ -100,8 +100,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         tblMotos.setSelectionBackground(new java.awt.Color(153, 204, 255));
         jScrollPane1.setViewportView(tblMotos);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(82, 148, 226));
+        pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
+        pnlBotoes.setForeground(new java.awt.Color(82, 148, 226));
 
         btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -147,24 +147,24 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             }
         });
 
-        btnSelecionarVeiculo1.setBackground(new java.awt.Color(82, 148, 226));
-        btnSelecionarVeiculo1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnSelecionarVeiculo1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSelecionarVeiculo1.setText("Alterar");
-        btnSelecionarVeiculo1.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
+        btnAlterarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAlterarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterarVeiculo.setText("Alterar");
+        btnAlterarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarVeiculo1ActionPerformed(evt);
+                btnAlterarVeiculoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
+        pnlBotoes.setLayout(pnlBotoesLayout);
+        pnlBotoesLayout.setHorizontalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPlacaBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,30 +176,30 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSelecionarVeiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlBotoesLayout.setVerticalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
+                        .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPlacaBuscada)
                             .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarVeiculo))
                     .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSelecionarVeiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dkpFundo.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dkpFundo.setLayer(pnlBotoes, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dkpFundoLayout = new javax.swing.GroupLayout(dkpFundo);
         dkpFundo.setLayout(dkpFundoLayout);
@@ -209,16 +209,16 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -253,9 +253,13 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         selecionaItem((String) grid.getValueAt(tblMotos.getSelectedRow(), 0));
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
-    private void btnSelecionarVeiculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculo1ActionPerformed
-        abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
-    }//GEN-LAST:event_btnSelecionarVeiculo1ActionPerformed
+    private void btnAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVeiculoActionPerformed
+        try {
+            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
+        } catch (Exception e){
+            apresentaMensagem("Selecione um veículo!", "Erro ao alterar moto");
+        }
+    }//GEN-LAST:event_btnAlterarVeiculoActionPerformed
 
     @Override
     public void abrirTelaCadastro() {
@@ -352,15 +356,15 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarVeiculo;
     private javax.swing.JButton btnBuscarVeiculo;
     private javax.swing.JButton btnCadastrarVeiculo;
     private javax.swing.JButton btnRemoverVeiculo;
     private javax.swing.JButton btnSelecionarVeiculo;
-    private javax.swing.JButton btnSelecionarVeiculo1;
     private javax.swing.JDesktopPane dkpFundo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlaca;
+    private javax.swing.JPanel pnlBotoes;
     private javax.swing.JTable tblMotos;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables

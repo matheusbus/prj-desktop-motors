@@ -6,7 +6,6 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
-import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
@@ -37,6 +36,8 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     
     public CadastroMotoView(Moto moto){
         organizaLayout();
+        lblTitulo.setText("Alterar Carro");
+        btnCadMoto.setText("Alterar");
         txtPlaca.setText(moto.getPlaca());
         txtModelo.setText(moto.getModelo());
         txtMarca.setText(moto.getMarca().getNome());
@@ -77,7 +78,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
         txtAno = new javax.swing.JTextField();
         lblPreco = new javax.swing.JLabel();
         txtPreco = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carro");
@@ -125,9 +126,9 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
         lblPreco.setText("Valor");
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastrar Moto");
+        lblTitulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Cadastrar Moto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +138,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +173,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -264,7 +265,6 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadMoto;
     private javax.swing.JComboBox<String> cbCombustivel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblCilindradas;
     private javax.swing.JLabel lblCombustivel;
@@ -272,6 +272,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblPlaca;
     private javax.swing.JLabel lblPreco;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtCilindradas;
     private javax.swing.JTextField txtMarca;
