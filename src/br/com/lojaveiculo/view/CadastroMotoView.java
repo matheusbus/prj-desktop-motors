@@ -25,13 +25,13 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
      * Creates new form CadastroFuncionario
      * @param consultaMoto
      */
+    public CadastroMotoView(){
+        organizaLayout();
+    }
+    
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
         organizaLayout();
         this.consultaMoto = consultaMoto;
-    }
-    
-    public CadastroMotoView(){
-        organizaLayout();
     }
     
     public CadastroMotoView(Moto moto){

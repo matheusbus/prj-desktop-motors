@@ -22,7 +22,6 @@ import java.util.Set;
 public class PessoaDAO implements PessoaRepositorio {
 
     private static Set<Pessoa> pessoas;
-    private static List<Pessoa> pessoas1;
 
     public PessoaDAO() {
         if (PessoaDAO.pessoas == null) {
@@ -93,10 +92,13 @@ public class PessoaDAO implements PessoaRepositorio {
         }
         return funcionarios;
     }
-    
 
-        public void ordenaOrdemAlfabetica() {
-           Collections.sort((List) pessoas, (Pessoa p1, Pessoa p2) -> p1.getNome().compareTo(p2.getNome()));
+    @Override
+    public void ordenaOrdemAlfabetica() {
+           List<Pessoa> list = new ArrayList<>();
+           list.addAll(pessoas);
+           Collections.sort(list, (Pessoa p1, Pessoa p2) -> p1.getNome().compareTo(p2.getNome()));
+           System.err.println(list);
         }
-
     }
+    

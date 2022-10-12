@@ -9,6 +9,7 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -273,7 +274,11 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 
     private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
-        // TODO add your handling code here:
+        try{
+            abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblClientes.getSelectedRow(), 1)));
+        } catch (Exception e){
+            apresentaMensagem("Selecione um item da tabela.", "Erro ao alterar cliente");
+        }
     }//GEN-LAST:event_btnAlterarClienteActionPerformed
 
 
@@ -294,7 +299,7 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
     @Override
     public void abrirTelaCadastro() {
         CadastroClienteView cadastroCliente = new CadastroClienteView(this);
-        cadastroCliente.setVisible(true);;
+        cadastroCliente.setVisible(true);
     }
 
     @Override
@@ -312,7 +317,7 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
                 grid.addRow(client.obterDados());
 
             }
-        }
+    }
 
     @Override
     public void removerDaTabela() {
@@ -359,6 +364,23 @@ public class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        CadastroClienteView altCliente = new CadastroClienteView((Cliente) obj);
+        altCliente.setVisible(true);
     }
+    
+        /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        
+        FlatArcDarkIJTheme.setup();
+        
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ConsultaClientesView().setVisible(true);
+            }
+        });
+    }
+
 }
