@@ -48,6 +48,8 @@ public final class VendaView extends TelaBaseView {
         VeiculoSelecionado = false;
     }
 
+     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -207,7 +209,7 @@ public final class VendaView extends TelaBaseView {
         consultaCarro.setVisible(true);
     }
         else {
-        ConsultaMotoView consultaMoto = new ConsultaMotoView(this);
+        ConsultaVendaView consultaMoto = new ConsultaVendaView(this);
         consultaMoto.setVisible(true);
         }
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed

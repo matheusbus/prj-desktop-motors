@@ -39,6 +39,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         organizaLayout();
         this.consultaMoto = consultaMoto;
         lblTitulo.setText("Alterar Carro");
+        lblTitulo.setText("Alterar Moto");
         btnCadMoto.setText("Alterar");
         txtPlaca.setText(moto.getPlaca());
         txtModelo.setText(moto.getModelo());
@@ -236,8 +237,8 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                 String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
                 int cilindradas = Integer.parseInt(txtCilindradas.getText());
 
-                Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
-                veiculos.addVeiculo(novoCarro);
+                Moto novaMoto = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
+                veiculos.addVeiculo(novaMoto);
                 if(consultaMoto != null){
                     consultaMoto.limparTabela();
                     consultaMoto.popularTabela();

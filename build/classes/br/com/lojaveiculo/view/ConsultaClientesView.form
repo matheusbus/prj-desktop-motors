@@ -3,7 +3,10 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+<<<<<<< HEAD
     <Property name="title" type="java.lang.String" value="Consulta de Clientes"/>
+=======
+>>>>>>> a62686997309e9f53c33c22b3a48c7a6aef21d4c
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

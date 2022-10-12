@@ -48,10 +48,13 @@ public class Venda {
         return idVenda;
     }
     
-    
-    
-    
-    
-    
-    
+     public Object[] obterDados() {
+        return new Object[]{this.idVenda, this.dataVenda, this.veiculo.getPlaca(), this.cliente.getCpf(), this.vendedor.getCpf()};
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "idVenda=" + idVenda + ", dataVenda=" + dataVenda + ", veiculo=" + veiculo + ", cliente=" + cliente + ", vendedor=" + vendedor + '}';
+    }
+     
 }

@@ -8,7 +8,7 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
-public abstract class Pessoa {
+public abstract class Pessoa implements Comparable<Pessoa>{
     
     protected String nome;
     protected String cpf;
@@ -54,6 +54,11 @@ public abstract class Pessoa {
      public Object[] obterDados(){
         return new Object[] {this.nome, this.cpf, this.telefone};
     } 
+
+    @Override
+    public int compareTo(Pessoa p) {
+        return nome.compareTo(getNome());
+    }
     
     
     

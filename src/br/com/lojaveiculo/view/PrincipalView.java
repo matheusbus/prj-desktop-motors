@@ -53,6 +53,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
         muConsultaFuncionarios = new javax.swing.JMenuItem();
+        muConsultaVendas = new javax.swing.JMenuItem();
         muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
         muRelatorios = new javax.swing.JMenu();
@@ -131,6 +132,11 @@ public final class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal.add(muCadastros);
 
         muConsultas.setText("Consultas");
+        muConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsultasActionPerformed(evt);
+            }
+        });
 
         muClientes.setText("Clientes");
         muClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +173,14 @@ public final class PrincipalView extends javax.swing.JFrame {
             }
         });
         muConsultas.add(muConsultaFuncionarios);
+
+        muConsultaVendas.setText("Venda");
+        muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsultaVendasActionPerformed(evt);
+            }
+        });
+        muConsultas.add(muConsultaVendas);
 
         mbMenuPrincipal.add(muConsultas);
 
@@ -234,7 +248,7 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-       ConsultaMotoView consultaMoto = new ConsultaMotoView();
+       ConsultaVendaView consultaMoto = new ConsultaVendaView();
        consultaMoto.setVisible(true);
     }//GEN-LAST:event_miConsMotoActionPerformed
 
@@ -269,6 +283,15 @@ public final class PrincipalView extends javax.swing.JFrame {
         vendaView.setVisible(true);
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
+    private void muConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultasActionPerformed
+        
+    }//GEN-LAST:event_muConsultasActionPerformed
+
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
+        ConsultaVendaView consultaVenda = new ConsultaVendaView();
+        consultaVenda.setVisible(true);
+    }//GEN-LAST:event_muConsultaVendasActionPerformed
+
     
         public static void main(String args[]) {
             
@@ -299,6 +322,7 @@ public final class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu muCadastros;
     private javax.swing.JMenuItem muClientes;
     private javax.swing.JMenuItem muConsultaFuncionarios;
+    private javax.swing.JMenuItem muConsultaVendas;
     private javax.swing.JMenu muConsultas;
     private javax.swing.JMenu muRelatorios;
     private javax.swing.JMenuItem muTelaVenda;
