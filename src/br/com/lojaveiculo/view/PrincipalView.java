@@ -5,15 +5,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
-import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.model.Cliente;
-import br.com.lojaveiculo.model.Gerente;
-import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Veiculo;
-import br.com.lojaveiculo.model.Vendedor;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.instancia.FabricaObjetos;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
 /**
@@ -21,32 +13,27 @@ import javax.swing.ImageIcon;
  * @author Matheus
  */
 public final class PrincipalView extends javax.swing.JFrame {
-
-    private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
-    private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     
     public PrincipalView() {
         initComponents();
+        organizaLayout();
+        // Instancia objetos do sistema
+        FabricaObjetos criaInstancia = new FabricaObjetos();
+        criaInstancia.criaClientes();
+        criaInstancia.criaFuncionarios();
+        criaInstancia.criaVeiculos();
+        criaInstancia.criaVendas();
+    }
+
+    public void organizaLayout(){
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         this.add(painelFundo);
         this.setContentPane(painelFundo);
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
-        criaFuncionarios();
-        criaClientes();
-        
-        
-        // Adicionar o painel ao centro do frame
-        //this.setContentPane(dkpnlFundo);
-        
-        // Para iniciar em tela cheia
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setSize(900, 600);
-        
-        // Setar posicao do frame na tela (null = centro)
+        this.setSize(800, 400);
         this.setLocationRelativeTo(null);
-        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +54,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
         muConsultaFuncionarios = new javax.swing.JMenuItem();
+        muConsultaVendas = new javax.swing.JMenuItem();
         muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
         muRelatorios = new javax.swing.JMenu();
@@ -182,6 +170,14 @@ public final class PrincipalView extends javax.swing.JFrame {
         });
         muConsultas.add(muConsultaFuncionarios);
 
+        muConsultaVendas.setText("Venda");
+        muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsultaVendasActionPerformed(evt);
+            }
+        });
+        muConsultas.add(muConsultaVendas);
+
         mbMenuPrincipal.add(muConsultas);
 
         muVendas.setText("Vendas");
@@ -253,8 +249,8 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsMotoActionPerformed
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-        RelatorioView relatorio = new RelatorioView();
-        relatorio.setVisible(true);
+       // RelatorioVendaView relatorio = new RelatorioVendaView();
+        //relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
 
@@ -279,9 +275,15 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        VendaView vendaView = new VendaView();
-        vendaView.setVisible(true);
+      VendaView Venda = new VendaView();
+      Venda.setVisible(true);   
     }//GEN-LAST:event_muTelaVendaActionPerformed
+
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
+      ConsultaVendaView consultaVenda = new ConsultaVendaView();
+      consultaVenda.setVisible(true);  
+    }//GEN-LAST:event_muConsultaVendasActionPerformed
+                                             
 
     
         public static void main(String args[]) {
@@ -313,32 +315,13 @@ public final class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu muCadastros;
     private javax.swing.JMenuItem muClientes;
     private javax.swing.JMenuItem muConsultaFuncionarios;
+    private javax.swing.JMenuItem muConsultaVendas;
     private javax.swing.JMenu muConsultas;
     private javax.swing.JMenu muRelatorios;
     private javax.swing.JMenuItem muTelaVenda;
     private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
-    //Teste
-    public void criaFuncionarios() {
-        Pessoa func1 = new Vendedor(10.0, 2000, "Rafael", "12876163993", "47987654321");
-        Pessoa func2 = new Gerente(8000.00, "Matheus", "18376412983", "4799876213", "Financeiro");
-        Pessoa func3 = new Vendedor(12.0, 4000, "Eduardo", "18723465409", "47965427123");
-        repositorioDePessoas.adicionarPessoa(func1);
-        repositorioDePessoas.adicionarPessoa(func2);
-        repositorioDePessoas.adicionarPessoa(func3);
-    }
-
-     //Teste
-    public void criaClientes() {
-        Pessoa client1 = new Cliente("Marcos", "287163993", "4798234321");
-        Pessoa client2 = new Cliente("Gabriel", "376412983", "479546213");
-        Pessoa client3 = new Cliente("Joao", "187465409", "4796576123");
-        repositorioDePessoas.adicionarPessoa(client1);
-        repositorioDePessoas.adicionarPessoa(client2);
-        repositorioDePessoas.adicionarPessoa(client3);
-    }
-        
-    
+       
 }
 
 

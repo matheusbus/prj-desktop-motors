@@ -41,5 +41,4 @@ public final class Marca {
     public String toString() {
         return "Marca{" + "nome=" + nome + '}';
     }
-    
 }

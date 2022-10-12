@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Marca;
@@ -15,28 +16,30 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadastroVeiculo{
+public final class CadastroMotoView extends TelaBaseCadastroView implements ValidaCadastroVeiculo{
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaMotoView consultaMoto = null;
+    private Moto moto;
   
     
     /**
      * Creates new form CadastroFuncionario
-     * @param consultaMoto
      */
+    public CadastroMotoView(){
+        organizaLayout();
+    }
+    
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
         organizaLayout();
         this.consultaMoto = consultaMoto;
     }
     
-    public CadastroMotoView(){
+    public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto){
         organizaLayout();
-    }
-    
-    public CadastroMotoView(Moto moto){
-        organizaLayout();
+        this.consultaMoto = consultaMoto;
         lblTitulo.setText("Alterar Carro");
+        lblTitulo.setText("Alterar Moto");
         btnCadMoto.setText("Alterar");
         txtPlaca.setText(moto.getPlaca());
         txtModelo.setText(moto.getModelo());
@@ -45,6 +48,7 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
         txtAno.setText(Integer.toString(moto.getAno()));
         txtPreco.setText(Double.toString(moto.getPreco()));
         cbCombustivel.setSelectedItem((String) moto.getTipoCombustivel());
+        this.moto = moto;
     }
 
     public void organizaLayout(){
@@ -214,7 +218,12 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
-        cadastrarMoto();
+        if(lblTitulo.getText().equals("Alterar Carro")){
+            alterarMoto(moto);
+        } else {
+            cadastrarMoto();
+        }
+        
     }//GEN-LAST:event_btnCadMotoActionPerformed
 
     public void cadastrarMoto(){
@@ -228,20 +237,45 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
                 String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
                 int cilindradas = Integer.parseInt(txtCilindradas.getText());
 
-                Moto novoCarro = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
-                veiculos.addVeiculo(novoCarro);
+                Moto novaMoto = new Moto(placa, modelo, marca, ano, preco, tipoCombustivel, cilindradas);
+                veiculos.addVeiculo(novaMoto);
                 if(consultaMoto != null){
                     consultaMoto.limparTabela();
                     consultaMoto.popularTabela();
                 }
-                JOptionPane.showMessageDialog(rootPane, "Veículo cadastrado com sucesso.", "Cadastro realizado", HEIGHT);
+                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos!", "Erro no cadastro", HEIGHT);
+                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "A placa digitada é invalida!", "Erro no cadastro", HEIGHT);
+            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
+    }
+    
+    public void alterarMoto(Moto moto){
+        if(verificaPlaca(txtPlaca.getText())){
+            if(verificaCamposNulos()){
+                veiculos.removeVeiculo(moto.getPlaca());
+                moto.setAno(Integer.parseInt(txtAno.getText()));
+                moto.setCilindrada(Integer.parseInt(txtCilindradas.getText()));
+                moto.setModelo(txtModelo.getText());
+                moto.setPreco(Double.parseDouble(txtPreco.getText()));
+                moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                moto.getMarca().setNome(txtMarca.getText());
+                veiculos.addVeiculo(moto);
+                consultaMoto.limparTabela();
+                consultaMoto.popularTabela();
+                
+                apresentaMensagem("Veículos alterado com sucesso.", "Alteração realizada");
+                this.dispose();
+            } else {
+                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
+            }
+        } else {
+            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
+        }
+        
     }
     
     @Override
@@ -280,5 +314,15 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void limparCampos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
 
 }
