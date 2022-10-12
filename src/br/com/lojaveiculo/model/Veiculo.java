@@ -77,7 +77,7 @@ public abstract class Veiculo {
               "Modelo: " +  this.modelo + "\n" +
               "Marca: " + marca.getNome() + "\n" +
               "Ano: " + this.ano + "\n" + 
-              "Preço: " + this.preco + "\n" + 
+              "Preço: R$" + this.preco + "\n" + 
               "Tipo de Combustível: " + this.tipoCombustivel + "\n";
     }
 

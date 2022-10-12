@@ -10,7 +10,9 @@ import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerIJTheme;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -49,7 +51,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblMotos.getModel();
-        criaVeiculos();
         popularTabela();
     }
     
@@ -98,6 +99,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         });
         tblMotos.setToolTipText("");
         tblMotos.setSelectionBackground(new java.awt.Color(34, 110, 157));
+        tblMotos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblMotos);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
@@ -345,6 +347,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         FlatArcDarkIJTheme.setup();
         
         /* Create and display the form */
@@ -369,10 +372,4 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
 
-    public void criaVeiculos(){
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0001", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0002", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0003", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("ABC0004", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
-    }
 }
