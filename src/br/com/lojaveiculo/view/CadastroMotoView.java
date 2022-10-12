@@ -6,6 +6,7 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
+import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
@@ -32,6 +33,17 @@ public class CadastroMotoView extends javax.swing.JFrame implements ValidaCadast
     
     public CadastroMotoView(){
         organizaLayout();
+    }
+    
+    public CadastroMotoView(Moto moto){
+        organizaLayout();
+        txtPlaca.setText(moto.getPlaca());
+        txtModelo.setText(moto.getModelo());
+        txtMarca.setText(moto.getMarca().getNome());
+        txtCilindradas.setText(Integer.toString(moto.getAno()));
+        txtAno.setText(Integer.toString(moto.getAno()));
+        txtPreco.setText(Double.toString(moto.getPreco()));
+        cbCombustivel.setSelectedItem((String) moto.getTipoCombustivel());
     }
 
     public void organizaLayout(){

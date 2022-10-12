@@ -18,6 +18,8 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     
     // Método que é sobrescrito para abrir as telas de cadastro em qualquer tela de consulta
     public abstract void abrirTelaCadastro();
+    // Método que é sobrescrito para abrir a tela de cadastro com as informações do item à alterar
+    public abstract void abrirTelaAlterarCadastro(Object obj);
     
     // Métodos comuns para manipulação da tabela na tela de consultas
     public abstract void limpaSelecao();
