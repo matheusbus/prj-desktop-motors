@@ -26,12 +26,19 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     public CadastroClienteView() {
         organizaLayout();
     }
-
-    CadastroClienteView(ConsultaClientesView consultaCliente) {
+    
+    public CadastroClienteView(ConsultaClientesView consultaCliente) {
         organizaLayout();
         this.consulta = consultaCliente;
     }
 
+    public CadastroClienteView(Cliente cliente){
+        organizaLayout();
+        this.txtNome.setText(cliente.getNome());
+        this.txtCpf.setText(cliente.getCpf());
+        this.txtTelefone.setText(cliente.getTelefone());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,7 +165,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     }
         
         
-            public boolean verificaExistenciaCPF(String cpf) {
+    public boolean verificaExistenciaCPF(String cpf) {
         if (pessoas.buscarPessoaPorCPF(cpf) == null){
          return true;   
         }
