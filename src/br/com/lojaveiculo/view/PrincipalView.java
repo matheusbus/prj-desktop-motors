@@ -132,11 +132,6 @@ public final class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal.add(muCadastros);
 
         muConsultas.setText("Consultas");
-        muConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultasActionPerformed(evt);
-            }
-        });
 
         muClientes.setText("Clientes");
         muClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +172,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         muConsultaVendas.setText("Venda");
         muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultaVendasActionPerformed(evt);
+                muConsulta(evt);
             }
         });
         muConsultas.add(muConsultaVendas);
@@ -279,18 +274,18 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        VendaView vendaView = new VendaView();
-        vendaView.setVisible(true);
+      
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
-    private void muConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultasActionPerformed
-        
-    }//GEN-LAST:event_muConsultasActionPerformed
+    private void muConsulta(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsulta
+        ConsultaVendaView consultaVendaView = new ConsultaVendaView();
+        consultaVendaView.setVisible(true);
+    }//GEN-LAST:event_muConsulta
 
-    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
-        ConsultaVendaView consultaVenda = new ConsultaVendaView();
-        consultaVenda.setVisible(true);
-    }//GEN-LAST:event_muConsultaVendasActionPerformed
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+      ConsultaVendaView consultaVenda = new ConsultaVendaView();
+      consultaVenda.setVisible(true);  
+    }                                                
 
     
         public static void main(String args[]) {

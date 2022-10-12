@@ -284,9 +284,9 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     public void popularTabela() {
         limparTabela();
         tblVendas.getModel();
-        List<Venda> vendas = repositorioDeVendas.getVenda();
+        List<Venda> vendasX = repositorioDeVendas.getVenda();
 
-        for (Venda v : vendas) {
+        for (Venda v : vendasX) {
             grid.addRow(v.obterDados());
 
         }
