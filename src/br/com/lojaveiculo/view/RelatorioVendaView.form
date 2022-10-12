@@ -47,13 +47,20 @@
                           <Component id="lblMaisVendido1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblFiltroVeiculos" alignment="0" max="32767" attributes="0"/>
                                   <Component id="cbFiltroVeiculos" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="351" max="-2" attributes="0"/>
+                          </Group>
+=======
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.form
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
@@ -65,11 +72,15 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+<<<<<<< HEAD
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+=======
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="btnExibirRelatorio" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,9 +115,18 @@
               <Component id="cbFiltroVeiculos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="lblMaisVendido1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="227" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <Component id="btnExibirRelatorio" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.form
@@ -156,7 +176,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
+<<<<<<< HEAD
+        <Component class="javax.swing.JTextArea" name="txtRelatorio">
+=======
         <Component class="javax.swing.JTextArea" name="txtaRelatorio">
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>

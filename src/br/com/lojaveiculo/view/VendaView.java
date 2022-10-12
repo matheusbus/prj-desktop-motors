@@ -269,6 +269,15 @@ public final class VendaView extends TelaBaseView {
     // End of variables declaration//GEN-END:variables
 
 
+    /*public boolean efetuarVenda(){
+         vendas = new VendaDAO();
+         venda = new Venda(this.veiculo, this.cliente, this.vendedor);
+         vendas.adicionarVenda(venda);
+         veiculos.removeVeiculo(veiculo.getPlaca());
+         return true;
+     }*/
+     
+
     public boolean efetuarVenda() {
         vendas = new VendaDAO();
         venda = new Venda(this.veiculo, this.cliente, this.vendedor);

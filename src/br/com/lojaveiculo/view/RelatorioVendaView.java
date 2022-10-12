@@ -4,9 +4,16 @@
  */
 package br.com.lojaveiculo.view;
 
+<<<<<<< HEAD
+import br.com.lojaveiculo.instancia.FabricaRelatorio;
+import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.model.Venda;
+import java.util.List;
+=======
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import javax.swing.JOptionPane;
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
 
 /**
  *
@@ -46,7 +53,11 @@ public class RelatorioVendaView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblMaisVendido1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+<<<<<<< HEAD
+        txtRelatorio = new javax.swing.JTextArea();
+=======
         txtaRelatorio = new javax.swing.JTextArea();
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(602, 300));
@@ -73,6 +84,10 @@ public class RelatorioVendaView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtaRelatorio);
 =======
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.java
+
+        txtRelatorio.setColumns(20);
+        txtRelatorio.setRows(5);
+        jScrollPane1.setViewportView(txtRelatorio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,12 +122,20 @@ public class RelatorioVendaView extends javax.swing.JFrame {
                             .addComponent(lblMaisVendido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
                                     .addComponent(lblFiltroVeiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbFiltroVeiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(16, 16, 16))
+=======
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(148, Short.MAX_VALUE))
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.java
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +165,15 @@ public class RelatorioVendaView extends javax.swing.JFrame {
                 .addComponent(cbFiltroVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(lblMaisVendido1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(btnExibirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.java
@@ -163,8 +192,16 @@ public class RelatorioVendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_cbFiltroVeiculosActionPerformed
 
     private void btnExibirRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirRelatorioActionPerformed
+<<<<<<< HEAD
+        FabricaRelatorio relatorio = new FabricaRelatorio();
+        List<Venda> listaOrdenada = relatorio.getListaOrdenada();
+        for(Venda v : listaOrdenada){
+            txtRelatorio.append(v.toString());
+        }
+=======
         // TODO add your handling code here:
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.java
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
     }//GEN-LAST:event_btnExibirRelatorioActionPerformed
 
     /**
@@ -207,13 +244,21 @@ public class RelatorioVendaView extends javax.swing.JFrame {
     private javax.swing.JButton btnExibirRelatorio;
     private javax.swing.JComboBox<String> cbFiltroVeiculos;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD
+    private javax.swing.JScrollPane jScrollPane1;
+=======
 <<<<<<< HEAD:src/br/com/lojaveiculo/view/RelatorioView.java
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMaisVendido;
 =======
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
     private javax.swing.JLabel lblFiltroVeiculos;
 >>>>>>> cfc62eec89df42e12c94ac98d5e63deb230ca2ed:src/br/com/lojaveiculo/view/RelatorioVendaView.java
     private javax.swing.JLabel lblMaisVendido1;
+<<<<<<< HEAD
+    private javax.swing.JTextArea txtRelatorio;
+=======
     private javax.swing.JTextArea txtaRelatorio;
+>>>>>>> 9b3ebc591dc50a7a1b822bafa524dc43a1e2070a
     // End of variables declaration//GEN-END:variables
 }

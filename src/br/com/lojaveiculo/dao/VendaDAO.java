@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.dao;
 
-import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
@@ -64,6 +63,7 @@ public class VendaDAO implements VendaRepositorio {
         return null;
     }
 
+    
     public void ordena(){
         Collections.sort(vendas);
     }      
