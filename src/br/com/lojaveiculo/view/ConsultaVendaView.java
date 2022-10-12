@@ -8,7 +8,6 @@ import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -27,13 +26,12 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     // Construtor chamado na tela inicial
     public ConsultaVendaView() {
         organizaLayout();
-        this.btnSelecionarVenda.setEnabled(false);
     }
 
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
         organizaLayout();
-        this.btnSelecionarVenda.setEnabled(true);
+       
         this.venda = venda;
         this.vendas = new VendaDAO();
     }
@@ -63,7 +61,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         txtNumeroVenda = new javax.swing.JTextField();
         btnCadastrarVenda = new javax.swing.JButton();
         btnRemoverVenda = new javax.swing.JButton();
-        btnSelecionarVenda = new javax.swing.JButton();
         btnAlterarVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -135,16 +132,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             }
         });
 
-        btnSelecionarVenda.setBackground(new java.awt.Color(82, 148, 226));
-        btnSelecionarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnSelecionarVenda.setForeground(new java.awt.Color(255, 255, 255));
-        btnSelecionarVenda.setText("Selecionar");
-        btnSelecionarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarVendaActionPerformed(evt);
-            }
-        });
-
         btnAlterarVenda.setBackground(new java.awt.Color(82, 148, 226));
         btnAlterarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnAlterarVenda.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,9 +158,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                 .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSelecionarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(184, 184, 184)
                 .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -190,9 +175,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                         .addComponent(btnBuscarVenda))
                     .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRemoverVenda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSelecionarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -246,10 +229,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         limpaSelecao();
         buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVendaActionPerformed
-
-    private void btnSelecionarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVendaActionPerformed
-        selecionaItem((String) grid.getValueAt(tblVendas.getSelectedRow(), 0));
-    }//GEN-LAST:event_btnSelecionarVendaActionPerformed
 
     private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
         try {
@@ -330,33 +309,11 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         }
     }
 
-    public void selecionaItem(String placa) {
-        venda.veiculo = veiculos.buscarVeiculo(placa);
-        venda.VeiculoSelecionado = true;
-        setVisible(false);
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        FlatArcDarkIJTheme.setup();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaVendaView().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVenda;
     private javax.swing.JButton btnBuscarVenda;
     private javax.swing.JButton btnCadastrarVenda;
     private javax.swing.JButton btnRemoverVenda;
-    private javax.swing.JButton btnSelecionarVenda;
     private javax.swing.JDesktopPane dkpFundo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlaca;
