@@ -5,7 +5,6 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseView;
-//import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Carro;
@@ -13,7 +12,6 @@ import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.model.Vendedor;
-//import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import javax.swing.JOptionPane;
@@ -29,13 +27,13 @@ public final class VendaView extends TelaBaseView {
     protected Pessoa cliente;
     protected Venda venda;
     protected boolean selecionado;
-    //private PessoaRepositorio pessoas;
     private VeiculoRepositorio veiculos;
     private VendaRepositorio vendas;
     protected String sCpf;
     protected boolean VeiculoSelecionado;
     protected boolean VendedorSelecionado;
     protected boolean ClienteSelecionado;
+    private ConsultaVendaView consulta = null;
   
     
     public VendaView() {
@@ -46,6 +44,17 @@ public final class VendaView extends TelaBaseView {
         veiculos = new VeiculoDAO();
         VendedorSelecionado = false;
         VeiculoSelecionado = false;
+    }
+    
+        public VendaView(ConsultaVendaView consultaVenda) {
+        organizaLayout();
+        vendedor = new Vendedor(0.0, 0.0, "", "", "");
+        veiculo = new Carro("", "", null, 0, 0, "", 0);
+        //pessoas = new PessoaDAO();
+        veiculos = new VeiculoDAO();
+        VendedorSelecionado = false;
+        VeiculoSelecionado = false;
+        this.consulta = consultaVenda;
     }
 
      
@@ -271,6 +280,8 @@ public final class VendaView extends TelaBaseView {
          venda = new Venda(this.veiculo, this.cliente, this.vendedor);
          vendas.adicionarVenda(venda);
          veiculos.removeVeiculo(veiculo.getPlaca());
+         consulta.limparTabela();
+         consulta.popularTabela();
          return true;
      }
      
