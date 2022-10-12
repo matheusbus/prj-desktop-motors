@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * @author Rafael
  */
 
-public class Venda {
+public class Venda implements Comparable<Venda> {
     
     private int idVenda;
     private LocalDate dataVenda;
@@ -56,5 +56,10 @@ public class Venda {
     public String toString() {
         return "Venda{" + "idVenda=" + idVenda + ", dataVenda=" + dataVenda + ", veiculo=" + veiculo + ", cliente=" + cliente + ", vendedor=" + vendedor + '}';
     }
-     
+    
+    @Override
+    public int compareTo(Venda o) {
+    //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
+    return cliente.getNome().compareTo(o.cliente.getNome());
+}
 }

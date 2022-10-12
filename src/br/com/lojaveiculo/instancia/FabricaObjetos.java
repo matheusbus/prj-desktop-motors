@@ -6,33 +6,40 @@ package br.com.lojaveiculo.instancia;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
+import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
 
 /**
  *
  * @author Matheus
  */
 public class FabricaObjetos {
-    
+
     private PessoaRepositorio repositorioDePessoas;
     private VeiculoRepositorio repositorioDeVeiculos;
-    
+    private VendaRepositorio repositorioDeVendas;
+
     public FabricaObjetos() {
-        if(repositorioDePessoas == null){
-            repositorioDePessoas  = new PessoaDAO();
+        if (repositorioDePessoas == null) {
+            repositorioDePessoas = new PessoaDAO();
         }
-        if(repositorioDeVeiculos == null){
+        if (repositorioDeVeiculos == null) {
             repositorioDeVeiculos = new VeiculoDAO();
         }
+        if (repositorioDeVendas == null) {
+            repositorioDeVendas = new VendaDAO();
+        }
     }
-    
+
     //Teste
     public void criaFuncionarios() {
         repositorioDePessoas.adicionarPessoa(new Vendedor(10.0, 2000, "Rafael", "12876163993", "(98) 3357-4626"));
@@ -52,7 +59,7 @@ public class FabricaObjetos {
         repositorioDePessoas.adicionarPessoa(new Vendedor(8.0, 2300, "Ivone Pena dos Santos Chaves", "72482237432", "(44) 2759-6625"));
     }
 
-     //Teste
+    //Teste
     public void criaClientes() {
         repositorioDePessoas.adicionarPessoa(new Cliente("João Lucas Farias", "28716399312", "(69) 2327-1880"));
         repositorioDePessoas.adicionarPessoa(new Cliente("Rafael Dalmarco", "37641298342", "(82) 2742-5572"));
@@ -84,9 +91,8 @@ public class FabricaObjetos {
         repositorioDePessoas.adicionarPessoa(new Cliente("Amanda Feitosa Figueiredo Abreu", "81435844297", "(61) 3506-5257"));
         repositorioDePessoas.adicionarPessoa(new Cliente("Manuella Barsosa de Padua da Cunha", "87357881270", "(69) 3681-3507"));
     }
-    
-    
-    public void criaVeiculos(){
+
+    public void criaVeiculos() {
         // Motos
         repositorioDeVeiculos.addVeiculo(new Moto("MUC7958", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
         repositorioDeVeiculos.addVeiculo(new Moto("JJR4355", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
@@ -104,7 +110,7 @@ public class FabricaObjetos {
         repositorioDeVeiculos.addVeiculo(new Moto("KCL4219", "CB 1000R", new Marca("Honda"), 2017, 19900, "Gasolina", 180));
         repositorioDeVeiculos.addVeiculo(new Moto("JFL6804", "CB 250F Twister", new Marca("Honda"), 2018, 20100, "Gasolina", 200));
         repositorioDeVeiculos.addVeiculo(new Moto("JTV0949", "Honda ADV", new Marca("Honda"), 2019, 13400, "Gasolina", 230));
-        
+
         // Carros
         repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), 2003, 25000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), 2002, 80000, "Diesel", 4));
@@ -126,5 +132,20 @@ public class FabricaObjetos {
         repositorioDeVeiculos.addVeiculo(new Carro("MMM0009", "911 Carrera Coup", new Marca("Porsche"), 1992, 25600, "Flex", 7));
         repositorioDeVeiculos.addVeiculo(new Carro("MEU6423", "Gallardo Coupe LP560-4", new Marca("LAMBORGHINI"), 2010, 47000, "Gasolina", 7));
     }
-    
+
+    public void criaVendas() {
+        repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("MKQ8507"),
+                        repositorioDePessoas.buscarPessoaPorCPF("28716399312"),
+                        repositorioDePessoas.buscarPessoaPorCPF("72482237432")));
+       repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("MJE6388"),
+                        repositorioDePessoas.buscarPessoaPorCPF("87357881270"),
+                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+       repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("MEZ1270"),
+                        repositorioDePessoas.buscarPessoaPorCPF("18746540915"),
+                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+    }
+
 }
