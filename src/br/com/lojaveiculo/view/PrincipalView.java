@@ -132,11 +132,6 @@ public final class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal.add(muCadastros);
 
         muConsultas.setText("Consultas");
-        muConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultasActionPerformed(evt);
-            }
-        });
 
         muClientes.setText("Clientes");
         muClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -283,14 +278,10 @@ public final class PrincipalView extends javax.swing.JFrame {
         vendaView.setVisible(true);
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
-    private void muConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultasActionPerformed
-        
-    }//GEN-LAST:event_muConsultasActionPerformed
-
-    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
+    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         ConsultaVendaView consultaVenda = new ConsultaVendaView();
         consultaVenda.setVisible(true);
-    }//GEN-LAST:event_muConsultaVendasActionPerformed
+    }                                                
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
         // TODO add your handling code here:
