@@ -39,7 +39,7 @@ public class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.btnSelecionarFuncionario.setEnabled(false);
     }
     
-       @Override
+    @Override
     public void organizaLayout() {
         initComponents(); 
         // Adicionar painel ao fundo
@@ -257,7 +257,7 @@ public class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private void btnCadastrarGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarGerenteActionPerformed
         CadastroGerenteView cadastroGerente = new CadastroGerenteView(this);
-        cadastroGerente.setVisible(true);;
+        cadastroGerente.setVisible(true);
     }//GEN-LAST:event_btnCadastrarGerenteActionPerformed
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed

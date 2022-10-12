@@ -58,11 +58,11 @@ public class PrincipalView extends javax.swing.JFrame {
         miCadVendedor = new javax.swing.JMenuItem();
         miCadGerente = new javax.swing.JMenuItem();
         muConsultas = new javax.swing.JMenu();
-        muConsultaFuncionarios = new javax.swing.JMenuItem();
+        muClientes = new javax.swing.JMenuItem();
         menuVeiculos = new javax.swing.JMenu();
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
-        muClientes = new javax.swing.JMenuItem();
+        muConsultaFuncionarios = new javax.swing.JMenuItem();
         muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
         muRelatorios = new javax.swing.JMenu();
@@ -142,13 +142,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         muConsultas.setText("Consultas");
 
-        muConsultaFuncionarios.setText("Funcionários");
-        muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+        muClientes.setText("Clientes");
+        muClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultaFuncionariosActionPerformed(evt);
+                muClientesActionPerformed(evt);
             }
         });
-        muConsultas.add(muConsultaFuncionarios);
+        muConsultas.add(muClientes);
 
         menuVeiculos.setText("Veículos");
 
@@ -170,13 +170,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         muConsultas.add(menuVeiculos);
 
-        muClientes.setText("Clientes");
-        muClientes.addActionListener(new java.awt.event.ActionListener() {
+        muConsultaFuncionarios.setText("Funcionários");
+        muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muClientesActionPerformed(evt);
+                muConsultaFuncionariosActionPerformed(evt);
             }
         });
-        muConsultas.add(muClientes);
+        muConsultas.add(muConsultaFuncionarios);
 
         mbMenuPrincipal.add(muConsultas);
 

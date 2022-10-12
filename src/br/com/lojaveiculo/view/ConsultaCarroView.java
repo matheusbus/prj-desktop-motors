@@ -98,8 +98,28 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         });
         tblCarros.setToolTipText("");
         tblCarros.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        tblCarros.setSelectionForeground(new java.awt.Color(153, 204, 255));
+        tblCarros.setSelectionForeground(new java.awt.Color(34, 110, 157));
         jScrollPane1.setViewportView(tblCarros);
+        if (tblCarros.getColumnModel().getColumnCount() > 0) {
+            tblCarros.getColumnModel().getColumn(0).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblCarros.getColumnModel().getColumn(2).setMinWidth(130);
+            tblCarros.getColumnModel().getColumn(2).setPreferredWidth(130);
+            tblCarros.getColumnModel().getColumn(2).setMaxWidth(130);
+            tblCarros.getColumnModel().getColumn(3).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(3).setMaxWidth(100);
+            tblCarros.getColumnModel().getColumn(4).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(4).setMaxWidth(100);
+            tblCarros.getColumnModel().getColumn(5).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(5).setMaxWidth(100);
+            tblCarros.getColumnModel().getColumn(6).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(6).setMaxWidth(100);
+        }
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(102, 204, 255))); // NOI18N
         pnlBotoes.setPreferredSize(new java.awt.Dimension(912, 102));
@@ -385,18 +405,18 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         repositorioDeVeiculos.addVeiculo(new Carro("MGU3473", "Defender 90 TDI Hard Top Diesel", new Marca("Land Rover"), 1996, 40000, "Gasolina", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("MEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), 2008, 40000, "Alcool", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LZH3275", "SL-63 AMG 5.5 Bi-Turbo V8 Aut.", new Marca("Mercedes-Benz"), 2013, 40000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MLL1094", "Wraith 6.6 V12 Aut.", new Marca("Rolls-Royce"), 2014, 40000, "", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MHE0503", "156 SportWagon 2.5 V6 24V 190cv 4p Aut.", new Marca("Alfa Romeo"), 2003, 40000, "", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MMD3744", "Pick-Up 4x2 Curto/Longo 2.5 TDI Diesel", new Marca("Matra"), 2002, 40000, "", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("LZH7265", "Outback 3.0 H6 SW 245cv Aut.", new Marca("Subaru"), 2004, 40000, "", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("LYN0101", "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V", new Marca("Fiat"), 2002, 40000, "", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJE5467", "F599 GTB Fiorano F1 6.0 V12 620cv", new Marca("Ferrari"), 2007, 400000, "", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), 2001, 40000, "", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MCB0839", "155 Super", new Marca("Alfa Romeo"), 1995, 40000, "", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJF5888", "Carnival EX 3.8 V6 24V 242cv Aut.", new Marca("Kia Motors"), 2006, 40000, "", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJB2287", "Quattroporte Automatica 4.2 32V 400cv", new Marca("Maserati"), 2008, 40000, "", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MMM0009", "Porsche", new Marca("911 Carrera Coup"), 1992, 40000, "", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MEU6423", "Gallardo Coupe LP560-4", new Marca("LAMBORGHINI"), 2010, 40000, "", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MLL1094", "Wraith 6.6 V12 Aut.", new Marca("Rolls-Royce"), 2014, 40000, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MHE0503", "156 SportWagon 2.5 V6 24V 190cv 4p Aut.", new Marca("Alfa Romeo"), 2003, 40000, "Alcool", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MMD3744", "Pick-Up 4x2 Curto/Longo 2.5 TDI Diesel", new Marca("Matra"), 2002, 40000, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("LZH7265", "Outback 3.0 H6 SW 245cv Aut.", new Marca("Subaru"), 2004, 40000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("LYN0101", "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V", new Marca("Fiat"), 2002, 40000, "Flex", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJE5467", "F599 GTB Fiorano F1 6.0 V12 620cv", new Marca("Ferrari"), 2007, 400000, "Flex", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), 2001, 40000, "Alcool", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MCB0839", "155 Super", new Marca("Alfa Romeo"), 1995, 40000, "Flex", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJF5888", "Carnival EX 3.8 V6 24V 242cv Aut.", new Marca("Kia Motors"), 2006, 40000, "Gasolina", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJB2287", "Quattroporte Automatica 4.2 32V 400cv", new Marca("Maserati"), 2008, 40000, "Alcool", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MMM0009", "911 Carrera Coup", new Marca("Porsche"), 1992, 40000, "Flex", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MEU6423", "Gallardo Coupe LP560-4", new Marca("LAMBORGHINI"), 2010, 40000, "Gasolina", 7));
     }
     
 }

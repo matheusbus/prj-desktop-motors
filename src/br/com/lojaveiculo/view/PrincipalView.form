@@ -70,12 +70,12 @@
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="muConsultaFuncionarios">
+            <MenuItem class="javax.swing.JMenuItem" name="muClientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaFuncionariosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muClientesActionPerformed"/>
               </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="menuVeiculos">
@@ -101,12 +101,12 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="muClientes">
+            <MenuItem class="javax.swing.JMenuItem" name="muConsultaFuncionarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Clientes"/>
+                <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muClientesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaFuncionariosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
