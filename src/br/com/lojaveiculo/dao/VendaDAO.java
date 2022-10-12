@@ -7,18 +7,19 @@ package br.com.lojaveiculo.dao;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  *
  * @author Rafael
  */
-public class VendaDAO implements VendaRepositorio {
+public class VendaDAO implements VendaRepositorio{
     
     private static List<Venda> vendas;
     
     
-    public VendaDAO() {
+    public VendaDAO() { 
         if(vendas == null){
         this.vendas = new ArrayList<>();
     }
@@ -58,4 +59,10 @@ public class VendaDAO implements VendaRepositorio {
       }
       return null;
     }
+    
+    @Override
+    public void ordena(){
+        Collections.sort(vendas);
+    }
+       
 }
