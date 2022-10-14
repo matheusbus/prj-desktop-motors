@@ -48,7 +48,7 @@ public final class LoginView extends TelaBaseView {
         pnlPrincipal.add(lblBemVindo);
         pnlPrincipal.add(lblLogado);
         lblFundo.setSize(pnlPrincipal.getWidth(), pnlPrincipal.getHeight());
-        lblLogado.setVisible(false);
+        lblLogado.setVisible(false);        
     }
 
     @SuppressWarnings("unchecked")
@@ -165,16 +165,14 @@ public final class LoginView extends TelaBaseView {
     }// </editor-fold>//GEN-END:initComponents
   
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
-        Usuario usuBuscado = repositorioDeUsuarios.buscaUsuario(txtLogin.getText());
-        if (usuBuscado == null){
-            apresentaMensagem("O usuário digitado não foi encontrado.", "Erro de login");
-        } else {
-            if(usuBuscado.getSenha().equals(txtSenha.getText())){
-                logar();
-            }
-        }
+        validaLogin();
     }//GEN-LAST:event_btnLogarActionPerformed
 
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(null, mensagem, titulo, HEIGHT);
+    }    
+    
     public void logar(){
         criaTelaPrincipal();
         this.dispose();
@@ -184,12 +182,18 @@ public final class LoginView extends TelaBaseView {
         PrincipalView telaPrincipal = new PrincipalView();
         telaPrincipal.setVisible(true);
     }
-    
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(null, mensagem, titulo, HEIGHT);
-    }
 
+    public void validaLogin(){
+        Usuario usuBuscado = repositorioDeUsuarios.buscaUsuario(txtLogin.getText());
+        if (usuBuscado == null){
+            apresentaMensagem("O usuário digitado não foi encontrado.", "Erro de login");
+        } else {
+            if(usuBuscado.getSenha().equals(txtSenha.getText())){
+                logar();
+            }
+        }
+    }
+    
     public static void main(String args[]) {
         
         FlatArcDarkIJTheme.setup();
