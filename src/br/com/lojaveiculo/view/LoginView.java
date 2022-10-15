@@ -50,14 +50,11 @@ public final class LoginView extends TelaBaseView {
         pnlPrincipal.add(lblBemVindo);
         pnlPrincipal.add(lblLogado);
         lblFundo.setSize(pnlPrincipal.getWidth(), pnlPrincipal.getHeight());
-<<<<<<< HEAD
         lblLogado.setVisible(false);
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         lblLogo.add(painelFundo);
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
-=======
         lblLogado.setVisible(false);        
->>>>>>> d15daf9cdd54cd79a6bc5e6eb84075500c4b44f1
     }
 
     @SuppressWarnings("unchecked")

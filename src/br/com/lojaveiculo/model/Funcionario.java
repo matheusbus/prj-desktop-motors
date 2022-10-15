@@ -17,7 +17,7 @@ public abstract class Funcionario extends Pessoa {
     protected LocalDate dataAdmissao;
 
     public Funcionario(double salario, String nome, String cpf, String telefone) {
-        super(nome, cpf, telefone);
+        //super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.salario = salario;
         this.dataAdmissao = LocalDate.now();             
     }

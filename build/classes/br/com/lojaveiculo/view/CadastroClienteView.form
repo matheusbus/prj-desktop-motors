@@ -28,18 +28,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel1" min="-2" pref="830" max="-2" attributes="0"/>
-                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pnlDados" min="-2" pref="830" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="lblCadastrarCliente" min="-2" pref="203" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel3" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="pnlEndereco" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pnlContato" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -59,15 +61,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblCadastrarCliente" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlDados" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlEndereco" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel3" max="32767" attributes="0"/>
+              <Component id="pnlContato" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnCadCliente" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="btnCancela" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnCancela" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
@@ -103,7 +105,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadClienteActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnlDados">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -225,7 +227,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="pnlEndereco">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -247,8 +249,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEndereco" min="-2" pref="242" max="-2" attributes="0"/>
+                      <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEndereco" min="-2" pref="242" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -260,8 +262,8 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txtCidade" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <Component id="cbEstado" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -280,7 +282,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -288,10 +290,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="13" max="32767" attributes="0"/>
               </Group>
@@ -304,14 +306,14 @@
             <Property name="text" type="java.lang.String" value="CEP"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblEndereco">
           <Properties>
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCep">
         </Component>
-        <Component class="javax.swing.JTextField" name="lblEndereco">
+        <Component class="javax.swing.JTextField" name="txtEndereco">
         </Component>
         <Component class="javax.swing.JLabel" name="lblBairro">
           <Properties>
@@ -332,7 +334,7 @@
             <Property name="text" type="java.lang.String" value="Estado"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cbEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="27">
@@ -372,7 +374,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
+    <Container class="javax.swing.JPanel" name="pnlContato">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -459,7 +461,7 @@
     <Component class="javax.swing.JButton" name="btnCancela">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="65" green="53" red="4b" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>

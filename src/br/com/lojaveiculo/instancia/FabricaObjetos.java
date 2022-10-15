@@ -76,35 +76,35 @@ public class FabricaObjetos {
 
     //Teste
     public void criaClientes() {
-        repositorioDePessoas.adicionarPessoa(new Cliente("João Lucas Farias", "28716399312", "(69) 2327-1880"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Rafael Dalmarco", "37641298342", "(82) 2742-5572"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Eduardo Sangaletti", "18746540915", "(27) 3318-2804"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Matheus Buschermoehle", "52463590181", "(28) 3403-5566"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("João Lucas Farias", "45924056686", "(68) 2277-3282"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Pietro da Conceição", "24914665891", "(61) 2495-2764"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Sra. Daniela da Mota", "33006963563", "(91) 3559-1725"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Maria Sophia Cunha", "67148968240", "(28) 3716-9843"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Renan Barros", "39524532778", "(97) 3783-8310"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Milena Mendes", "97038843184", "(96) 2585-5135"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Maria Sophia da Mata", "18426463622", "(64) 3325-3289"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Pedro Sales", "74089551609", "(79) 3146-8889"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Mirella Araújo", "51456173308", "(97) 3957-1086"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Isabella da Rocha", "13586612192", "(24) 2381-6258"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Ana Vitória Farias", "57425425262", "(22) 3981-7757"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("João Vitor da Luz", "75249704557", "(69) 2311-9775"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Algemira Lana Vasconcellos Peixoto", "22155381476", "(42) 2954-8487"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Raul Barthon Temperini Amaral", "12779475463", "(99) 3546-6680"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Glauco Bocafoli Caruso Assis", "62740831110", "(48) 3840-2324"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Elaine Bilé Bezerra Zava", "83650080338", "(84) 2409-7572"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("José Maria Rios Santomauro Lourenço", "38644518097", "(48) 2352-7704"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Angela Prata Bilé Camara", "05340683915", "(27) 3712-3983"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Anne Nazare Teixeira Borges", "03774734305", "(82) 2411-4682"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Liliane Carmo Furtunato Castro", "32849015237", "(89) 2346-2487"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Myrian Paulo Fonseca Mesquita", "19267157485", "(51) 3264-0892"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Pedro Campos de Padua Pinho", "39815913727", "(43) 2085-8422"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Wellington Linhares Carneiro Gomes", "31776483529", "(49) 3412-4121"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Amanda Feitosa Figueiredo Abreu", "81435844297", "(61) 3506-5257"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Manuella Barsosa de Padua da Cunha", "87357881270", "(69) 3681-3507"));
+        //repositorioDePessoas.adicionarPessoa(new Cliente(nome, cpf, 0, cnh, categoriaCnh, cep, endereco, bairro, cidade, estado, telefone, email, whatsapp))
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", 448687823, "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Otavio Bilé Pires", "33682388508", 364831364, "E", "82576355780", "49032-100", "Rua Manoel Vicente de Brito", "Farolândia", "Aracaju", "SE", "(79) 2018-2811", "otavio.pires@geradornv.com.br", "(79) 98426-1367"));
+        /*repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", "448687823", "B", "18960466861", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));*/
     }
 
     public void criaVeiculos() {

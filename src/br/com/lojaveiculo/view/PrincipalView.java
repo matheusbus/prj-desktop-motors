@@ -20,7 +20,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         // Instancia objetos do sistema
         FabricaObjetos criaInstancia = new FabricaObjetos();
         criaInstancia.criaClientes();
-        criaInstancia.criaFuncionarios();
+        //criaInstancia.criaFuncionarios();
         criaInstancia.criaVeiculos();
         criaInstancia.criaVendas();
     }
