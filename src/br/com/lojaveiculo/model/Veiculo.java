@@ -13,18 +13,49 @@ public abstract class Veiculo  {
     protected String placa;
     protected String modelo;
     protected Marca marca;
+    protected String chassi;
+    protected String cor;
+    protected String tipoCarroceria;
     protected int ano;
     protected double preco;
     protected String tipoCombustivel;
 
-    public Veiculo(String placa, String modelo, Marca marca, int ano, double preco, String tipoCombustivel) {
+    public Veiculo(String placa, String modelo, Marca marca, String chassi, String cor, String tipoCarroceria, int ano, double preco, String tipoCombustivel) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
+        this.chassi = chassi;
+        this.cor = cor;
+        this.tipoCarroceria = tipoCarroceria;
         this.ano = ano;
         this.preco = preco;
         this.tipoCombustivel = tipoCombustivel;
 
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getTipoCarroceria() {
+        return tipoCarroceria;
+    }
+
+    public void setTipoCarroceria(String tipoCarroceria) {
+        this.tipoCarroceria = tipoCarroceria;
+    }
+
+    
+    public String getChassi() {
+        return chassi;
+    }
+
+    public void setChassi(String chassi) {
+        this.chassi = chassi;
     }
 
     public String getPlaca() {
@@ -64,7 +95,11 @@ public abstract class Veiculo  {
     }
 
     public Object[] obterDados() {
-        return new Object[]{this.placa, this.modelo, this.marca.getNome(), this.ano, this.preco, this.tipoCombustivel};
+        return new Object[]{this.placa, this.modelo, this.marca.getNome(), this.chassi, this.cor, this.tipoCarroceria, this.ano, this.preco, this.tipoCombustivel};
+    }
+
+    public Marca getMarca() {
+        return marca;
     }
 
     @Override
@@ -72,15 +107,13 @@ public abstract class Veiculo  {
         return "Veiculo: " + "\n"
                 + "Placa: " + this.placa + "\n"
                 + "Modelo: " + this.modelo + "\n"
-                + "Marca: " + marca.getNome() + "\n"
+                + "Marca: " + this.marca.getNome() + "\n"
+                + "Chassi: " + this.chassi + "\n"
+                + "Cor: " + this.cor + "\n"
+                + "Tipo: " + this.tipoCarroceria + "\n"
                 + "Ano: " + this.ano + "\n"
                 + "Preço: R$" + this.preco + "\n"
-                + "Tipo de Combustível: " + this.tipoCombustivel + "\n";
+                + "Combustível: " + this.tipoCombustivel + "\n";
     }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
 }
  

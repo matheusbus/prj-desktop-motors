@@ -73,17 +73,17 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
 
         tblCarros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Portas"
+                "Placa", "Modelo", "Marca", "Chassi", "Cor", "Tipo", "Ano", "Preço", "Combustível", "Portas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -95,28 +95,22 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             }
         });
         tblCarros.setToolTipText("");
+        tblCarros.setColumnSelectionAllowed(true);
         tblCarros.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblCarros.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblCarros.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblCarros);
+        tblCarros.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tblCarros.getColumnModel().getColumnCount() > 0) {
-            tblCarros.getColumnModel().getColumn(0).setMinWidth(100);
             tblCarros.getColumnModel().getColumn(0).setPreferredWidth(100);
-            tblCarros.getColumnModel().getColumn(0).setMaxWidth(100);
-            tblCarros.getColumnModel().getColumn(2).setMinWidth(130);
-            tblCarros.getColumnModel().getColumn(2).setPreferredWidth(130);
-            tblCarros.getColumnModel().getColumn(2).setMaxWidth(130);
-            tblCarros.getColumnModel().getColumn(3).setMinWidth(100);
-            tblCarros.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tblCarros.getColumnModel().getColumn(3).setMaxWidth(100);
-            tblCarros.getColumnModel().getColumn(4).setMinWidth(100);
-            tblCarros.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tblCarros.getColumnModel().getColumn(4).setMaxWidth(100);
-            tblCarros.getColumnModel().getColumn(5).setMinWidth(100);
-            tblCarros.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tblCarros.getColumnModel().getColumn(5).setMaxWidth(100);
-            tblCarros.getColumnModel().getColumn(6).setMinWidth(100);
+            tblCarros.getColumnModel().getColumn(1).setMinWidth(300);
+            tblCarros.getColumnModel().getColumn(1).setPreferredWidth(300);
+            tblCarros.getColumnModel().getColumn(1).setMaxWidth(300);
+            tblCarros.getColumnModel().getColumn(2).setPreferredWidth(180);
             tblCarros.getColumnModel().getColumn(6).setPreferredWidth(100);
-            tblCarros.getColumnModel().getColumn(6).setMaxWidth(100);
+            tblCarros.getColumnModel().getColumn(7).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(8).setPreferredWidth(100);
+            tblCarros.getColumnModel().getColumn(9).setPreferredWidth(100);
         }
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(102, 204, 255))); // NOI18N
@@ -196,7 +190,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                 .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(880, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +226,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE))
+                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1788, Short.MAX_VALUE))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
@@ -241,7 +235,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                 .addContainerGap()
                 .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -266,7 +260,6 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
         if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
             removerDaTabela();
-            apresentaMensagem("Veículo removido!", "Remoção efetuada");
         }
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
 
@@ -322,6 +315,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             repositorioDeVeiculos.removeVeiculo(placa);
             limparTabela();
             popularTabela();
+            apresentaMensagem("Veículo removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
         }

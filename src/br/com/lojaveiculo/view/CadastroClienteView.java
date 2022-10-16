@@ -509,7 +509,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
          initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setSize(860, 500);
+        this.setSize(860, 475);
         this.add(pnlDados);
         this.add(pnlContato);
         this.add(pnlEndereco);
