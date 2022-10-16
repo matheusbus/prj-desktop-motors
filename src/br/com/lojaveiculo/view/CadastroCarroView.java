@@ -112,7 +112,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblTitulo.setText("Novo Carro");
         lblTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        pnlDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Veículo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 14))); // NOI18N
+        pnlDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Veículo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         txtModelo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
@@ -141,6 +141,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblMarca.setText("Marca");
 
         txtPreco.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtPreco.setRequestFocusEnabled(false);
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,8 +208,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                                 .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosLayout.createSequentialGroup()
                                     .addGroup(pnlDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtPreco)
-                                        .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
                                     .addGap(18, 18, 18)
                                     .addGroup(pnlDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(cbCombustivel, 0, 131, Short.MAX_VALUE)

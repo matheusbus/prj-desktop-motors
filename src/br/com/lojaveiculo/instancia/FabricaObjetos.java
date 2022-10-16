@@ -46,7 +46,8 @@ public class FabricaObjetos {
             repositorioDeUsuarios = new UsuarioDAO();
         }
     }
-       
+      
+    // Teste
     public void criaUsuarios(){
         repositorioDeUsuarios = new UsuarioDAO();
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Rafael", "rafa123"));
