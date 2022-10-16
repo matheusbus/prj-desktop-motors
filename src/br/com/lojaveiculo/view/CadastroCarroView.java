@@ -242,7 +242,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
         if(lblTitulo.getText().equals("Alterar Carro")){
-            alterarCarro(carro);
+            alterarCadastro(carro);
         } else {
             cadastrarCarro();
         }
@@ -275,7 +275,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         }         
     }
     
-    public void alterarCarro(Carro carro){
+    public void alterarCadastro(Carro carro){
         if(verificaPlaca(txtPlaca.getText())){
             if(verificaCamposNulos()){
                 veiculos.removeVeiculo(carro.getPlaca());
@@ -290,10 +290,10 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                 apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
                 this.dispose();
             } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
+                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
             }
         } else {
-            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
+            apresentaMensagem("A placa digitada é invalida!", "Erro na alteração");
         }
     }
     

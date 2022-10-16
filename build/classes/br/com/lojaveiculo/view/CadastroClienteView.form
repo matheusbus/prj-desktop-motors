@@ -32,7 +32,7 @@
                           <Component id="pnlDados" min="-2" pref="830" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="lblCadastrarCliente" min="-2" pref="203" max="-2" attributes="0"/>
+                              <Component id="lblTitulo" min="-2" pref="203" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
@@ -59,7 +59,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblCadastrarCliente" min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="pnlDados" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -77,7 +77,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblCadastrarCliente">
+    <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto" size="18" style="1"/>
@@ -85,7 +85,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Novo cliente"/>
+        <Property name="text" type="java.lang.String" value="Novo Cliente"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadCliente">

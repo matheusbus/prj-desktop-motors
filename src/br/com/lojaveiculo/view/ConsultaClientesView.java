@@ -282,7 +282,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-        removerDaTabela();
+        if(0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
+            removerDaTabela();
+        }
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
@@ -365,7 +367,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroClienteView altCliente = new CadastroClienteView((Cliente) obj);
+        CadastroClienteView altCliente = new CadastroClienteView(this, (Cliente) obj);
         altCliente.setVisible(true);
     }
     
@@ -406,6 +408,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
 }

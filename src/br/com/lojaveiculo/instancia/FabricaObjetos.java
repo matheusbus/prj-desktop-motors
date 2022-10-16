@@ -77,35 +77,20 @@ public class FabricaObjetos {
     //Teste
     public void criaClientes() {
         //repositorioDePessoas.adicionarPessoa(new Cliente(nome, cpf, 0, cnh, categoriaCnh, cep, endereco, bairro, cidade, estado, telefone, email, whatsapp))
-        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", 448687823, "18960466861", "B", "88139-038", "Rua 1457", "Passagem de Maciambú (Ens Brito)", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@geradornv.com.br", "(47) 97958-5521"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Otavio Bilé Pires", "33682388508", 364831364, "82576355780", "E", "49032-100", "Rua Manoel Vicente de Brito", "Farolândia", "Aracaju", "SE", "(79) 2018-2811", "otavio.pires@geradornv.com.br", "(79) 98426-1367"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Martin Coimbra da Cunha", "22411697309", 195496139, "65162622491", "E", "64607-705", "Travessa Cícero Duarte", "Junco", "Picos", "PI", "(86) 96911-8388", "martin.cunha@geradornv.com.br", "(86) 3118-7575"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Tiago Campelo Vogas", "86986758162", 111568894, "71628886900", "A", "77815-300", "Rua 13", "Loteamento Nova Araguaína", "Araguaína", "TO", "(63) 99913-1836", "tiago.vogas@geradornv.com.br", "(63) 3716-1393"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Dhiego Barbosa Vabo", "07270772606", 420786570, "79376418541", "A", "32681-666", "Beco Estreito", "Jardim Teresópolis", "Betim", "MG", "(35) 97663-5438", "dhiego.vabo@geradornv.com.br", "(32) 3748-4953"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Thamirys Cretella Garbelini", "13687741567", 137624475, "68439568105", "AB", "49020-490", "Rua Urquiza Leal", "Salgado Filho", "Aracaju", "SE", "(79) 98513-1457", "thamirys.garbelini@geradornv.com.br", "(79) 3223-5168"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Viviane Leal Castilho", "48078625960", 482221975, "58239142190", "B", "81870-015", "Rua João Antônio Culpi", "Pinheirinho", "Curitiba", "PR", "(42) 98265-8484", "viviane.castilho@geradornv.com.br", "(42) 3305-5634"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Joyce Claudino Soares", "62115525132", 246188467, "32286279286", "ACC", "72321-000", "Quadra QR 407", "Samambaia Norte (Samambaia)", "Brasília", "DF", "(61) 98741-0918", "joyce.soares@geradornv.com.br", "(61) 2971-4550"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Adriel Soares Garbelini", "92576474551", 117856381, "45684739432", "ACC", "49506-436", "Avenida Asa Branca", "Doutor José Milton Machado", "Itabaiana", "SE", "(79) 98046-4267", "adriel.garbelini@geradornv.com.br", "(79) 3100-4753"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Thalia Pinheiro Garcia", "73715154128", 398275579, "10378854685", "A", "77025-514", "Quadra ARSO 151 QI 5", "Plano Diretor Sul", "Palmas", "TO", "(63) 99128-2345", "thalia.garcia@geradornv.com.br", "(63) 2135-5215"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Breno Pena Rocha", "61120269377", 394635589, "97926767490", "E", "64065-030", "Rua João de Barro", "Pedra Mole", "Teresina", "PI", "(89) 99395-0372", "breno.rocha@geradornv.com.br", "(89) 2613-5301"));
-        repositorioDePessoas.adicionarPessoa(new Cliente("Carlos Auzier Velasco", "17151887566", 122396820, "26292145715", "B", "49511-500", "Rua José Vicente Monteiro", "Queimadas", "Itabaiana", "SE", "(79) 97636-2894", "carlos.velasco@geradornv.com.br", "(79) 2361-3217"));
-/*        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));
-        repositorioDePessoas.adicionarPessoa(new Cliente("", "", , "", "", "", "", "", "", "", "", "", ""));*/
-
+        repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", 448687823, "18960466861", "B", "88139-038", "Rua 1457", "Passagem", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@gmail.com.br", "(47) 97958-5521"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Otavio Bilé Pires", "33682388508", 364831364, "82576355780", "E", "49032-100", "Rua Manoel Vicente de Brito", "Farolândia", "Aracaju", "SE", "(79) 2018-2811", "otavio.pires@gmail.com.br", "(79) 98426-1367"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Martin Coimbra da Cunha", "22411697309", 195496139, "65162622491", "E", "64607-705", "Travessa Cícero Duarte", "Junco", "Picos", "PI", "(86) 96911-8388", "martin.cunha@gmail.com.br", "(86) 3118-7575"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Tiago Campelo Vogas", "86986758162", 111568894, "71628886900", "A", "77815-300", "Rua 13", "Nova Araguaína", "Araguaína", "TO", "(63) 99913-1836", "tiago.vogas@gmail.com.br", "(63) 3716-1393"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Dhiego Barbosa Vabo", "07270772606", 420786570, "79376418541", "A", "32681-666", "Beco Estreito", "Jardim Teresópolis", "Betim", "MG", "(35) 97663-5438", "dhiego.vabo@gmail.com.br", "(32) 3748-4953"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Thamirys Cretella Garbelini", "13687741567", 137624475, "68439568105", "AB", "49020-490", "Rua Urquiza Leal", "Salgado Filho", "Aracaju", "SE", "(79) 98513-1457", "thamirys.garbelini@gmail.com.br", "(79) 3223-5168"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Viviane Leal Castilho", "48078625960", 482221975, "58239142190", "B", "81870-015", "Rua João Antônio Culpi", "Pinheirinho", "Curitiba", "PR", "(42) 98265-8484", "viviane.castilho@gmail.com.br", "(42) 3305-5634"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Joyce Claudino Soares", "62115525132", 246188467, "32286279286", "ACC", "72321-000", "Quadra QR 407", "Samambaia", "Brasília", "DF", "(61) 98741-0918", "joyce.soares@gmail.com.br", "(61) 2971-4550"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Adriel Soares Garbelini", "92576474551", 117856381, "45684739432", "ACC", "49506-436", "Avenida Asa Branca", "Doutor José Milton Machado", "Itabaiana", "SE", "(79) 98046-4267", "adriel.garbelini@gmail.com.br", "(79) 3100-4753"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Thalia Pinheiro Garcia", "73715154128", 398275579, "10378854685", "A", "77025-514", "Quadra ARSO 151 QI 5", "Plano Diretor Sul", "Palmas", "TO", "(63) 99128-2345", "thalia.garcia@gmail.com.br", "(63) 2135-5215"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Breno Pena Rocha", "61120269377", 394635589, "97926767490", "E", "64065-030", "Rua João de Barro", "Pedra Mole", "Teresina", "PI", "(89) 99395-0372", "breno.rocha@gmail.com.br", "(89) 2613-5301"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Carlos Auzier Velasco", "17151887566", 122396820, "26292145715", "B", "49511-500", "Rua José Vicente Monteiro", "Queimadas", "Itabaiana", "SE", "(79) 97636-2894", "carlos.velasco@gmail.com.br", "(79) 2361-3217"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Anthony Nespoli Vilela", "35634362237", 245549649, "64616494618", "D", "69921-872", "Rua Fluminense", "Defesa Civil", "Rio Branco", "AC", "(68) 97519-7135", "anthony.vilela@gmail.com.br", "(68) 2979-8950"));
+        repositorioDePessoas.adicionarPessoa(new Cliente("Maiara Cavalcante Quindeler", "88408268236", 310347543, "62099023823", "ACC", "68907-303", "Avenida Antônio Carlos Farias de Souza", "Pantanal", "Macapá", "AP", "(96) 99923-7567", "maiara.quindeler@gmail.com.br", "(96) 3534-4724"));
     }
 
     public void criaVeiculos() {
