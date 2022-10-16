@@ -330,6 +330,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
             repositorioDePessoas.removerPessoa(CPF);
             limparTabela();
             popularTabela();
+            apresentaMensagem("Cliente removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
         }

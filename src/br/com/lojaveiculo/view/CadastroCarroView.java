@@ -109,7 +109,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
 
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Cadastrar Carro");
+        lblTitulo.setText("Novo Carro");
         lblTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         pnlDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Veículo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 14))); // NOI18N
@@ -452,8 +452,5 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
-
-
-
 
 }
