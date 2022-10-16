@@ -95,12 +95,10 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             }
         });
         tblCarros.setToolTipText("");
-        tblCarros.setColumnSelectionAllowed(true);
         tblCarros.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblCarros.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tblCarros.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblCarros);
-        tblCarros.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tblCarros.getColumnModel().getColumnCount() > 0) {
             tblCarros.getColumnModel().getColumn(0).setPreferredWidth(100);
             tblCarros.getColumnModel().getColumn(1).setMinWidth(300);

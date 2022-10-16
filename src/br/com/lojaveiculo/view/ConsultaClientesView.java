@@ -99,6 +99,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         tblClientes.setToolTipText("");
         tblClientes.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblClientes.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblClientes);
         if (tblClientes.getColumnModel().getColumnCount() > 0) {
             tblClientes.getColumnModel().getColumn(0).setMinWidth(250);

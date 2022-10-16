@@ -95,43 +95,43 @@ public class FabricaObjetos {
 
     public void criaVeiculos() {
         // Motos
-        repositorioDeVeiculos.addVeiculo(new Moto("MUC7958", "Biz 80", new Marca("Fiat"), 2008, 25000, "Gasolina", 80));
-        repositorioDeVeiculos.addVeiculo(new Moto("JJR4355", "Biz 100", new Marca("Fiat"), 2010, 80000, "Gasolina", 120));
-        repositorioDeVeiculos.addVeiculo(new Moto("JEJ8798", "CG150", new Marca("Honda"), 2015, 12000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("LQM0006", "CG200", new Marca("Honda"), 2018, 80000, "Gasolina", 200));
-        repositorioDeVeiculos.addVeiculo(new Moto("KHY2839", "CG 160 Start", new Marca("Honda"), 2004, 15000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("HNV2868", "CG 160 Titan", new Marca("Honda"), 2018, 85000, "Gasolina", 120));
-        repositorioDeVeiculos.addVeiculo(new Moto("JVJ0137", "Forza 350", new Marca("Honda"), 2020, 70000, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Elite 125", new Marca("Honda"), 2022, 14000, "Gasolina", 180));
-        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Biz 125", new Marca("Honda"), 2021, 12000, "Gasolina", 250));
-        repositorioDeVeiculos.addVeiculo(new Moto("NDB5469", "Biz 110i", new Marca("Honda"), 2022, 11500, "Gasolina", 260));
-        repositorioDeVeiculos.addVeiculo(new Moto("HNN8837", "CB 500F", new Marca("Honda"), 2020, 12480, "Gasolina", 170));
-        repositorioDeVeiculos.addVeiculo(new Moto("IIL4469", "CB 250F Twister", new Marca("Honda"), 2019, 16790, "Gasolina", 180));
-        repositorioDeVeiculos.addVeiculo(new Moto("MNY4694", "CB 1000R Black Edition", new Marca("Honda"), 2018, 18900, "Gasolina", 150));
-        repositorioDeVeiculos.addVeiculo(new Moto("KCL4219", "CB 1000R", new Marca("Honda"), 2017, 19900, "Gasolina", 180));
-        repositorioDeVeiculos.addVeiculo(new Moto("JFL6804", "CB 250F Twister", new Marca("Honda"), 2018, 20100, "Gasolina", 200));
-        repositorioDeVeiculos.addVeiculo(new Moto("JTV0949", "Honda ADV", new Marca("Honda"), 2019, 13400, "Gasolina", 230));
+        repositorioDeVeiculos.addVeiculo(new Moto("MUC7958", "Biz 80", new Marca("Fiat"), "31F AaadDL lR EL9194", "Azul", "Big Trail", 2008, 25000, "Gasolina", 80));
+        repositorioDeVeiculos.addVeiculo(new Moto("JJR4355", "Biz 100", new Marca("Fiat"), "5SC EAJ7AS Sx uV4752", "Prata", "Motoneta", 2010, 80000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("JEJ8798", "CG150", new Marca("Honda"), "86H XgGsZ4 j2 Ed9892", "Vermelho", "Street", 2015, 12000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("LQM0006", "CG200", new Marca("Honda"), "6k9 9AS3H8 2X gK4032", "Prata", "Street", 2018, 80000, "Gasolina", 200));
+        repositorioDeVeiculos.addVeiculo(new Moto("KHY2839", "CG 160 Start", new Marca("Honda"), "30M MtDas1 5r Preto", "Branco", "Naked", 2004, 15000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("HNV2868", "CG 160 Titan", new Marca("Honda"), "1Z5 AcFWyN U3 1g3691", "Branco", "Street", 2018, 85000, "Gasolina", 120));
+        repositorioDeVeiculos.addVeiculo(new Moto("JVJ0137", "Forza 350", new Marca("Honda"), "5EL W9Srn3 NF ul8043", "Prata", "Street", 2020, 70000, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Elite 125", new Marca("Honda"), "8MR M0ZZYN vs mB1068", "Verde", "Street", 2022, 14000, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("MXF7325", "Biz 125", new Marca("Honda"), "3jA 1WkRRu rj zG8252", "Marrom", "Motoneta", 2021, 12000, "Gasolina", 250));
+        repositorioDeVeiculos.addVeiculo(new Moto("NDB5469", "Biz 110i", new Marca("Honda"), "2s2 v3T2A3 fd e13693", "Branco", "Motoneta", 2022, 11500, "Gasolina", 260));
+        repositorioDeVeiculos.addVeiculo(new Moto("HNN8837", "CB 500F", new Marca("Honda"), "52x 7AlAlk R9 3A6378", "Preto", "Street", 2020, 12480, "Gasolina", 170));
+        repositorioDeVeiculos.addVeiculo(new Moto("IIL4469", "CB 250F Twister", new Marca("Honda"), "1hK 3eAxCA ck 6X9940", "Preto", "Street", 2019, 16790, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("MNY4694", "CB 1000R Black Edition", new Marca("Honda"), "66f mSPuE0 ph 085755", "Branco", "Street", 2018, 18900, "Gasolina", 150));
+        repositorioDeVeiculos.addVeiculo(new Moto("KCL4219", "CB 1000R", new Marca("Honda"), "8f7 UF2d8A UA uA5652", "Prata", "Naked", 2017, 19900, "Gasolina", 180));
+        repositorioDeVeiculos.addVeiculo(new Moto("JFL6804", "CB 250F Twister", new Marca("Honda"), "1f9 UsjA23 Uj 496421", "Azul", "Triciclo", 2018, 20100, "Gasolina", 200));
+        repositorioDeVeiculos.addVeiculo(new Moto("JTV0949", "Honda ADV", new Marca("Honda"), "2s1 C1mALM kA NA4566", "Amarelo", "Esportiva", 2019, 13400, "Gasolina", 230));
 
         // Carros
-        repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), 2003, 25000, "Diesel", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), 2002, 80000, "Diesel", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), 1992, 120000, "Gasolina", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MBR4428", "Hilux CD SR 4x4 3.0 8V 90cv Diesel", new Marca("Toyota"), 2002, 130000, "Flex", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MGU3473", "Defender 90 TDI Hard Top Diesel", new Marca("Land Rover"), 1996, 115000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), 2008, 40000, "Alcool", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("LZH3275", "SL-63 AMG 5.5 Bi-Turbo V8 Aut.", new Marca("Mercedes-Benz"), 2013, 80000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MLL1094", "Wraith 6.6 V12 Aut.", new Marca("Rolls-Royce"), 2014, 15000, "Gasolina", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MHE0503", "156 SportWagon 2.5 V6 24V 190cv 4p Aut.", new Marca("Alfa Romeo"), 2003, 50000, "Alcool", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MMD3744", "Pick-Up 4x2 Curto/Longo 2.5 TDI Diesel", new Marca("Matra"), 2002, 75600, "Gasolina", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("LZH7265", "Outback 3.0 H6 SW 245cv Aut.", new Marca("Subaru"), 2004, 78000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("LYN0101", "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V", new Marca("Fiat"), 2002, 61300, "Flex", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJE5467", "F599 GTB Fiorano F1 6.0 V12 620cv", new Marca("Ferrari"), 2007, 400000, "Flex", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), 2001, 40560, "Alcool", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MCB0839", "155 Super", new Marca("Alfa Romeo"), 1995, 71050, "Flex", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJF5888", "Carnival EX 3.8 V6 24V 242cv Aut.", new Marca("Kia Motors"), 2006, 68400, "Gasolina", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJB2287", "Quattroporte Automatica 4.2 32V 400cv", new Marca("Maserati"), 2008, 17000, "Alcool", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MMM0009", "911 Carrera Coup", new Marca("Porsche"), 1992, 25600, "Flex", 7));
-        repositorioDeVeiculos.addVeiculo(new Carro("MEU6423", "Gallardo Coupe LP560-4", new Marca("LAMBORGHINI"), 2010, 47000, "Gasolina", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), "231 j8rVAA 13 k34845", "Prata", "Caminhoneta", 2003, 25000, "Diesel", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), "682 CsJk3U m8 DR0975", "Chumbo", "Sedan", 2002, 80000, "Diesel", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), "7Wk ketC5v yg GU6616", "Cinza", "Sedan", 1992, 120000, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MBR4428", "Hilux CD SR 4x4 3.0 8V 90cv Diesel", new Marca("Toyota"), "6t3 UAeD7y zu VT2245", "Preto", "Hatch",  2002, 130000, "Flex", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MGU3473", "Defender 90 TDI Hard Top Diesel", new Marca("Land Rover"), "5My P60kM9 GK 1C2457", "Prata", "Hatch", 1996, 115000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("MEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), "6hU u8E4Ce vm z01635", "Amarelo", "Sedan", 2008, 40000, "Alcool", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("LZH3275", "SL-63 AMG 5.5 Bi-Turbo V8 Aut.", new Marca("Mercedes-Benz"), "53x AZGA60 7T Z70286", "Vermelho", "SUV", 2013, 80000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("MLL1094", "Wraith 6.6 V12 Aut.", new Marca("Rolls-Royce"), "30A 2NVAXN h6 Aj3203", "AZUL", "Vermelho", 2014, 15000, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MHE0503", "156 SportWagon 2.5 V6 24V 190cv 4p Aut.", new Marca("Alfa Romeo"), "7AG a5wjBp CH lM5868", "Prata", "Sedan", 2003, 50000, "Alcool", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MMD3744", "Pick-Up 4x2 Curto/Longo 2.5 TDI Diesel", new Marca("Matra"), "7w2 kPjAH2 dc h29305", "Prata", "Hatch", 2002, 75600, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("LZH7265", "Outback 3.0 H6 SW 245cv Aut.", new Marca("Subaru"), "6ZF MYAJpT z2 JH2876", "Preto", "SUV", 2004, 78000, "Gasolina", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("LYN0101", "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V", new Marca("Fiat"), "48a yv3Pb3 c4 Sa9206", "Vermelho", "Sedan", 2002, 61300, "Flex", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJE5467", "F599 GTB Fiorano F1 6.0 V12 620cv", new Marca("Ferrari"), "3Kk GAKA5A Jn As6993", "Azul", "Esportivo", 2007, 400000, "Flex", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), "5bA sJe15x 4h Bv6251", "Azul", "Hatch",  2001, 40560, "Alcool", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MCB0839", "155 Super", new Marca("Alfa Romeo"), "32L 0mReZA 2F e73667", "Preto", "SUV", 1995, 71050, "Flex", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJF5888", "Carnival EX 3.8 V6 24V 242cv Aut.", new Marca("Kia Motors"), "3CB 5MwlnF tV 6z5784", "Prata", "Sedan", 2006, 68400, "Gasolina", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MJB2287", "Quattroporte Automatica 4.2 32V 400cv", new Marca("Maserati"), "7H1 UAlw4K v1 1A8385", "Branco", "SUV", 2008, 17000, "Alcool", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MMM0009", "911 Carrera Coup", new Marca("Porsche"), "1xp h17VcH 7J 4P2337", "Branco", "Hatch", 1992, 25600, "Flex", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MEU6423", "Gallardo Coupe LP560-4", new Marca("LAMBORGHINI"), "1kC 705AzL YT u91639", "Branco", "Sedan", 2010, 47000, "Gasolina", 7));
     }
 
     public void criaVendas() {
