@@ -136,14 +136,23 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblPreco" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="txtPreco" min="-2" pref="181" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCombustivel" min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="cbCombustivel" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="lblChassi" min="-2" pref="189" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="txtChassi" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblPreco" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="txtPreco" min="-2" pref="181" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCombustivel" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="cbCombustivel" min="-2" pref="131" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -164,13 +173,6 @@
                                   <Component id="cbTipoCarroceria" min="-2" pref="253" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblChassi" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                              <Component id="txtChassi" alignment="0" min="-2" pref="338" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
