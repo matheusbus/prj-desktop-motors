@@ -12,8 +12,8 @@ public class Moto extends Veiculo{
 
     protected int cilindrada;
 
-    public Moto(String placa, String modelo, Marca marca, int ano, double preco, String tipoCombustivel, int cilindrada) {
-        super(placa, modelo, marca, ano, preco, tipoCombustivel);
+    public Moto(String placa, String modelo, Marca marca, String chassi, String cor, String tipoCarroceria, int ano, double preco, String tipoCombustivel, int cilindrada) {
+        super(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel);
         this.cilindrada = cilindrada;
     }
 
@@ -27,11 +27,11 @@ public class Moto extends Veiculo{
 
     @Override
     public String toString() {
-        return super.toString() + "\nMoto{" + "cilindrada=" + cilindrada + '}';
+        return super.toString() + "\n" + "Cilindrada: " + this.cilindrada;
     }
     
     @Override
     public Object[] obterDados(){
-        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
+        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
     }
 }

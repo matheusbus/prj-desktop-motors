@@ -39,6 +39,6 @@ public final class Marca {
 
     @Override
     public String toString() {
-        return "Marca{" + "nome=" + nome + '}';
+        return "Marca:" + this.nome;
     }
 }
