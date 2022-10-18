@@ -9,34 +9,22 @@ import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-<<<<<<< HEAD
-=======
 
->>>>>>> bb9008c67d9f1093f9165c3d895def17ba4ccc9e
 import java.util.List;
 
 /**
  *
  * @author Rafael
  */
-
-<<<<<<< HEAD
-public class VendaDAO implements VendaRepositorio{
-    
-    private static List<Venda> vendas;
-    
-    
-    public VendaDAO() { 
-        if(vendas == null){
-        this.vendas = new ArrayList<>();
-    }
-
+//public class VendaDAO implements VendaRepositorio{
+//private static List<Venda> vendas;
+//public VendaDAO() { 
+// if(vendas == null){
+// this.vendas = new ArrayList<>();
+//}
 public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
-=======
 
-public class VendaDAO implements VendaRepositorio {
->>>>>>> bb9008c67d9f1093f9165c3d895def17ba4ccc9e
-
+//public class VendaDAO implements VendaRepositorio {
     private static List<Venda> vendas = new ArrayList<>();
 
     public VendaDAO() {
@@ -79,32 +67,15 @@ public class VendaDAO implements VendaRepositorio {
         }
         return null;
     }
-<<<<<<< HEAD
-    
-    
+
     @Override
     public int compare(Venda v1, Venda v2) {
         return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
-    
-    @Override
-    public void ordena(){
-        Collections.sort(vendas);
+
     }
 
-    
-                
-    
-        
-  
-   
-=======
-
-    
-   public void ordena(){
+    @Override
+    public void ordena() {
         Collections.sort(vendas);
-    }      
-
->>>>>>> bb9008c67d9f1093f9165c3d895def17ba4ccc9e
+    }
 }
-
-
