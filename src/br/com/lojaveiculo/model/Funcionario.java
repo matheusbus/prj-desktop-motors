@@ -15,14 +15,52 @@ public abstract class Funcionario extends Pessoa {
     
     protected double salario;
     protected LocalDate dataAdmissao;
+    protected String pisPasep;
+    protected String banco;
+    protected int agencia;
+    protected int contaCorrente;
 
-    public Funcionario(double salario, String nome, String cpf, String telefone) {
-        super(nome, cpf, telefone);
+    public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) {
+        super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.salario = salario;
-        this.dataAdmissao = LocalDate.now();             
+        this.dataAdmissao = LocalDate.now(); 
+        this.banco = banco;
+        this.agencia = agencia;
+        this.contaCorrente = contaCorrente;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public int getContaCorrente() {
+        return contaCorrente;
+    }
+
+    public void setContaCorrente(int contaCorrente) {
+        this.contaCorrente = contaCorrente;
+    }
+
+    public String getPisPasep() {
+        return this.pisPasep;
+    }
+
+    public void setPisPasep(String pisPasep) {
+        this.pisPasep = pisPasep;
     }
     
-
     public double getSalario() {
         return salario;
     }
@@ -40,10 +78,19 @@ public abstract class Funcionario extends Pessoa {
     }
 
     @Override
-    public Object[] obterDados() {
-         return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao};
- 
+    public String toString() {
+        return  super.toString() +
+                "Salário: R$" + this.salario + "\n" +
+                "Admissão: " + this.dataAdmissao + "\n" +
+                "Pis/Pasep: " + this.pisPasep + "\n" +
+                "Banco: " + this.banco + "\n" +
+                "Agência: " + this.agencia + "\n" +
+                "Conta Corrente: " + this.contaCorrente + "\n";
+    }
     
+    @Override
+    public Object[] obterDados() {
+         return new Object[] {super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, this.salario, this.dataAdmissao, this.banco, this.agencia, this.contaCorrente};
     }
     
 }

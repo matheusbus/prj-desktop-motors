@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public final class ConsultaMotoView extends TelaBaseConsultaView{
+public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
@@ -73,17 +73,17 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         tblMotos.setForeground(new java.awt.Color(255, 255, 255));
         tblMotos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Cilindradas"
+                "Placa", "Modelo", "Marca", "Ano", "Preço", "Combustível", "Cilindradas", "Chassi", "Cor", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -97,6 +97,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         tblMotos.setToolTipText("");
         tblMotos.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblMotos.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblMotos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblMotos);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(82, 148, 226))); // NOI18N
@@ -160,8 +161,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
         pnlBotoes.setLayout(pnlBotoesLayout);
         pnlBotoesLayout.setHorizontalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,7 +177,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
                 .addComponent(btnSelecionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAlterarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +208,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1788, Short.MAX_VALUE)
                     .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -217,7 +218,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
                 .addContainerGap()
                 .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -240,7 +241,10 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        removerDaTabela();
+        if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
+            removerDaTabela();
+            apresentaMensagem("Veículo removido!", "Remoção efetuada");
+        }
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
  
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
@@ -368,5 +372,10 @@ public final class ConsultaMotoView extends TelaBaseConsultaView{
     private javax.swing.JTable tblMotos;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public int criaQuestaoPrgunta(String mensagem, String titulo) {
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
+    }
 
 }

@@ -16,11 +16,16 @@ import java.util.List;
  *
  * @author Rafael
  */
+//public class VendaDAO implements VendaRepositorio{
+//private static List<Venda> vendas;
+//public VendaDAO() { 
+// if(vendas == null){
+// this.vendas = new ArrayList<>();
+//}
+public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
 
-
-public class VendaDAO implements VendaRepositorio {
-
-    private static List<Venda> vendas;
+//public class VendaDAO implements VendaRepositorio {
+    private static List<Venda> vendas = new ArrayList<>();
 
     public VendaDAO() {
         if (vendas == null) {
@@ -63,9 +68,14 @@ public class VendaDAO implements VendaRepositorio {
         return null;
     }
 
-    
-   public void ordena(){
-        Collections.sort(vendas);
-    }      
+    @Override
+    public int compare(Venda v1, Venda v2) {
+        return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
 
+    }
+
+    @Override
+    public void ordena() {
+        Collections.sort(vendas);
+    }
 }

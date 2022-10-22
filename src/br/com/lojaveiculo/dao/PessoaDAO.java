@@ -25,19 +25,16 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
     public int compare(Pessoa o1, Pessoa o2) {
         //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
         //});
-       
-               
-//return p1.getNome().compareTo(p2.getNome());
+
+        //return p1.getNome().compareTo(p2.getNome());
         return 0;
     }
-    
+
     //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
     //ordenaOrdemAlfabetica.stream()
-            //.sorted(Comparator.comparing(Pessoas: :getNome))
-            //.collect(Collectors.toList())
-            //.forEach(pessoa -> System.out.Println(pessoa));
-    
-            
+    //.sorted(Comparator.comparing(Pessoas: :getNome))
+    //.collect(Collectors.toList())
+    //.forEach(pessoa -> System.out.Println(pessoa));
     public PessoaDAO() {
         if (PessoaDAO.pessoas == null) {
             pessoas = new HashSet<>();
@@ -108,6 +105,4 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         return funcionarios;
     }
 
-    
-               
-} 
+}

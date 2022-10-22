@@ -13,8 +13,8 @@ public class Gerente extends Funcionario {
 
     private String departamento;
 
-    public Gerente(double Salario, String nome, String cpf, String telefone, String departamento) {
-        super(Salario, nome, cpf, telefone);
+    public Gerente(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente, String departamento) {
+        super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email, salario, pisPasep, banco, agencia, contaCorrente);
         this.departamento = departamento;
     }
 
@@ -27,8 +27,13 @@ public class Gerente extends Funcionario {
     }
 
     @Override
+    public String toString() {
+        return super.toString() + 
+               "Departamento: " + this.departamento;
+    }    
+    
+    @Override
     public Object[] obterDados() {
-        return new Object[]{super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName() + " " + getDepartamento()};
-
+        return new Object[]{super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, super.salario, super.dataAdmissao, super.banco, super.agencia, super.contaCorrente, this.getClass().getSimpleName() + " " + getDepartamento()};
     }
 }

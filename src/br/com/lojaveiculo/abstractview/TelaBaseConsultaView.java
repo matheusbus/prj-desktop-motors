@@ -14,8 +14,6 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
         initComponents();
     }
     
-
-    
     // Método que é sobrescrito para abrir as telas de cadastro em qualquer tela de consulta
     public abstract void abrirTelaCadastro();
     // Método que é sobrescrito para abrir a tela de cadastro com as informações do item à alterar
@@ -31,6 +29,8 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     // Como segue o exemplo comentado abaixo.
     public abstract void buscaNaTabela(String parametro);
     //public abstract void buscaNaTabela(int ano);
+    
+    public abstract int criaQuestaoPrgunta(String mensagem, String titulo);
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

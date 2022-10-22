@@ -22,7 +22,7 @@ public class VeiculoDAO implements VeiculoRepositorio{
     public VeiculoDAO() {
         if(veiculos == null){
         this.veiculos = new HashMap<>();
-    }
+        }
     }
     
      @Override
