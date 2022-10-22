@@ -6,6 +6,7 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public final class CadastroVendedorView extends TelaBaseCadastroView {
+public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
     private ConsultaFuncionariosView consulta;
@@ -25,12 +26,12 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
      *
      * @param consultaFuncView
      */
-    public CadastroVendedorView(ConsultaFuncionariosView consultaFuncView) {
+    public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncView) {
         organizaLayout();
         consulta = consultaFuncView;
     }
 
-    public CadastroVendedorView() {
+    public CadastroFuncionariosView() {
         organizaLayout();
     }
 
@@ -54,10 +55,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         btnCancela = new javax.swing.JButton();
         txtCategoriaCnh1 = new javax.swing.JTextField();
         lblCategoriaCnh1 = new javax.swing.JLabel();
-        txtCnh1 = new javax.swing.JTextField();
-        lblCNH1 = new javax.swing.JLabel();
-        txtRg1 = new javax.swing.JTextField();
-        lblRg1 = new javax.swing.JLabel();
         pnlEndereco = new javax.swing.JPanel();
         lblCep = new javax.swing.JLabel();
         lblEndereco = new javax.swing.JLabel();
@@ -78,7 +75,7 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         txtWhatsapp = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         lblBanco = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbBanco = new javax.swing.JComboBox<>();
         lblAgencia = new javax.swing.JLabel();
         txtAgencia = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -87,6 +84,7 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         lblSalario = new javax.swing.JLabel();
         txtComissao = new javax.swing.JTextField();
         lblCargo = new javax.swing.JLabel();
+        cbTipoFuncionario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -104,7 +102,7 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
 
         lblCadastrarGerente1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblCadastrarGerente1.setForeground(new java.awt.Color(255, 255, 255));
-        lblCadastrarGerente1.setText("Cadastrar Vendedor");
+        lblCadastrarGerente1.setText("Cadastrar Funcionário");
 
         pnlDadosPessoais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -186,10 +184,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         });
 
         lblCategoriaCnh1.setText("Categoria CNH");
-
-        lblCNH1.setText("CNH");
-
-        lblRg1.setText("RG");
 
         pnlEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -307,9 +301,9 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
 
         lblBanco.setText("Banco");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander Brasil", "Banrisul", "Banco Pan" }));
+        cbBanco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cbBanco.setForeground(new java.awt.Color(255, 255, 255));
+        cbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander Brasil", "Banrisul", "Banco Pan" }));
 
         lblAgencia.setText("Agência");
 
@@ -328,7 +322,7 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBanco))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,11 +364,13 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtContaCorrente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        cbTipoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Vendedor", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -393,9 +389,11 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                     .addComponent(pnlContato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCadastrarGerente1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -406,33 +404,15 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(lblCategoriaCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(txtCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblCNH1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(txtRg1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblRg1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblCadastrarGerente1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCadastrarGerente1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addComponent(pnlDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -440,7 +420,7 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                 .addComponent(pnlContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCadFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -454,26 +434,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 255, Short.MAX_VALUE)
                     .addComponent(lblCategoriaCnh1)
-                    .addGap(0, 255, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 252, Short.MAX_VALUE)
-                    .addComponent(txtCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 252, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 255, Short.MAX_VALUE)
-                    .addComponent(lblCNH1)
-                    .addGap(0, 255, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 252, Short.MAX_VALUE)
-                    .addComponent(txtRg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 252, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 255, Short.MAX_VALUE)
-                    .addComponent(lblRg1)
                     .addGap(0, 255, Short.MAX_VALUE)))
         );
 
@@ -499,24 +459,43 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
                     String sComissao = txtComissao.getText();
                     Double dSalario = Double.valueOf(sSalario);
                     Double dComissao = Double.valueOf(sComissao);
+                    long lRg = Long.valueOf(txtRg.getText());
+                    String sCep = txtCep.getText();
+                    String sEndereco = txtEndereco.getText();
+                    String sBairro = txtBairro.getText();
+                    String sCidade = txtCidade.getText();
+                    String sEstado = cbEstado.getItemAt(cbEstado.getSelectedIndex());
+                    String sEmail = txtEmail.getText();
+                    String sPisPasep = "";
+                    String sBanco = cbBanco.getItemAt(cbBanco.getSelectedIndex());
+                    int iAgencia = Integer.valueOf(txtAgencia.getText());
+                    int iContaCorrente = Integer.valueOf(txtContaCorrente.getText());
 
-                    Pessoa p = new Vendedor(dComissao, dSalario, sNome, sCpf, sTelefone);
-                    pessoas.adicionarPessoa(p);
+                    if (cbTipoFuncionario.getSelectedIndex() == 0) {
+                        Pessoa p = new Gerente(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente);
+                        pessoas.adicionarPessoa(p);
+                        apresentaMensagem("Gerente cadastrado com sucesso", "Sucesso");
+                        this.dispose();
+                    } else {
+                        Pessoa p = new Vendedor(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente, dComissao);
+                        pessoas.adicionarPessoa(p);
+                        apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
+                        this.dispose();
+                    }
                     if (consulta != null) {
                         consulta.limparTabela();
                         consulta.popularTabela();
                     }
-                    apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
-                    this.dispose();
+
                 } else {
                     apresentaMensagem("Preencha todos os campos", "Erro");
                 }
             } else {
                 apresentaMensagem("CPF inválido, digite novamente", "Erro");
             }
-        }
-        else
+        } else {
             apresentaMensagem("CPF já consta no sistema", "Erro");
+        }
     }
 
     public boolean verificaExistenciaCPF(String cpf) {
@@ -541,8 +520,9 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
     private javax.swing.JButton btnCancela;
+    private javax.swing.JComboBox<String> cbBanco;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbTipoFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -551,7 +531,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblBanco;
     private javax.swing.JLabel lblCNH;
-    private javax.swing.JLabel lblCNH1;
     private javax.swing.JLabel lblCadastrarGerente1;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCategoriaCnh;
@@ -563,7 +542,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     private javax.swing.JLabel lblEndereco;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblRg;
-    private javax.swing.JLabel lblRg1;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JPanel pnlContato;
@@ -576,7 +554,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCnh;
-    private javax.swing.JTextField txtCnh1;
     private javax.swing.JTextField txtComissao;
     private javax.swing.JTextField txtContaCorrente;
     private javax.swing.JTextField txtCpf;
@@ -584,7 +561,6 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRg;
-    private javax.swing.JTextField txtRg1;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtWhatsapp;
@@ -610,12 +586,14 @@ public final class CadastroVendedorView extends TelaBaseCadastroView {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setSize(860, 475);
+        this.setSize(900, 550);
     }
 
     @Override
     public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")))) {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")) 
+            || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals("")) 
+            || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
             return true;
         } else {
             return false;

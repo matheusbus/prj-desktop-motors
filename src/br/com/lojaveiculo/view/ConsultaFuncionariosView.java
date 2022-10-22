@@ -43,6 +43,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
         popularTabela();
         
@@ -64,8 +65,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         tblFuncionarios = new javax.swing.JTable();
         pnlBotoes = new javax.swing.JPanel();
         btnSelecionarFuncionario = new javax.swing.JButton();
-        btnCadastrarVendedor = new javax.swing.JButton();
-        btnCadastrarGerente = new javax.swing.JButton();
+        btnCadastrarFuncionário = new javax.swing.JButton();
         btnBuscarFuncionario = new javax.swing.JButton();
         txtCPFBuscado = new javax.swing.JTextField();
         lblCPF = new javax.swing.JLabel();
@@ -76,21 +76,22 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         setPreferredSize(new java.awt.Dimension(940, 464));
         setResizable(false);
 
-        dkpFundo.setPreferredSize(new java.awt.Dimension(940, 464));
+        dkpFundo.setPreferredSize(new java.awt.Dimension(1800, 800));
+        dkpFundo.setRequestFocusEnabled(false);
 
         tblFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "CPF", "Telefone", "Salário", "Data Admissão", "Cargo"
+                "Nome", "CPF", "RG", "CEP", "Endereço", "Bairro", "Cidade", "Estado", "Telefone", "Email", "Salário", "Data Admissão", "Banco", "Agencia", "Conta Corrente", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -129,23 +130,13 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             }
         });
 
-        btnCadastrarVendedor.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadastrarVendedor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadastrarVendedor.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarVendedor.setText("Cadastrar Vendedor");
-        btnCadastrarVendedor.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarFuncionário.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadastrarFuncionário.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadastrarFuncionário.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarFuncionário.setText("Cadastrar Funcionário");
+        btnCadastrarFuncionário.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVendedorActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarGerente.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadastrarGerente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadastrarGerente.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarGerente.setText("Cadastrar Gerente");
-        btnCadastrarGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarGerenteActionPerformed(evt);
+                btnCadastrarFuncionárioActionPerformed(evt);
             }
         });
 
@@ -177,23 +168,21 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         pnlBotoes.setLayout(pnlBotoesLayout);
         pnlBotoesLayout.setHorizontalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCPFBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1060, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +195,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                             .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCadastrarGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCadastrarVendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
@@ -234,7 +222,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                 .addContainerGap()
                 .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -242,11 +230,11 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 1849, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
         );
 
         pack();
@@ -257,13 +245,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 
-    private void btnCadastrarGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarGerenteActionPerformed
-        CadastroGerenteView cadastroGerente = new CadastroGerenteView(this);
-        cadastroGerente.setVisible(true);
-    }//GEN-LAST:event_btnCadastrarGerenteActionPerformed
-
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
-        if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 5).equals("Vendedor")) {
+        if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 15).equals("Vendedor")) {
         String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
         selecionaItem(cpf);
         }
@@ -275,10 +258,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         removerDaTabela();
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
-    private void btnCadastrarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendedorActionPerformed
-        CadastroVendedorView cadastroVendedor = new CadastroVendedorView(this);
-        cadastroVendedor.setVisible(true);
-    }//GEN-LAST:event_btnCadastrarVendedorActionPerformed
+    private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
+       abrirTelaCadastro();
+    }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,8 +268,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarFuncionario;
-    private javax.swing.JButton btnCadastrarGerente;
-    private javax.swing.JButton btnCadastrarVendedor;
+    private javax.swing.JButton btnCadastrarFuncionário;
     private javax.swing.JButton btnRemoverFuncionario;
     private javax.swing.JButton btnSelecionarFuncionario;
     private javax.swing.JDesktopPane dkpFundo;
@@ -300,7 +281,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
+            cadastroVendedor.setVisible(true);
     }
 
     @Override

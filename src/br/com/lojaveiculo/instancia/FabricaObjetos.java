@@ -58,21 +58,21 @@ public class FabricaObjetos {
 
     //Teste
     public void criaFuncionarios() {
-        repositorioDePessoas.adicionarPessoa(new Vendedor(10.0, 2000, "Rafael", "12876163993", "(98) 3357-4626"));
-        repositorioDePessoas.adicionarPessoa(new Gerente(8000.00, "Matheus", "18376412983", "(79) 3256-9225", "Financeiro"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(12.0, 4000, "Eduardo", "18723465409", "(82) 3501-5376"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 5000, "Elisa Silveira", "59968114995", "(97) 3522-5866"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(13.5, 6000, "Nicollas Nepomuceno Pinto Alentejo", "25516297648", "(63) 3233-4798"));
-        repositorioDePessoas.adicionarPessoa(new Gerente(7000.00, "Yago Garbelini Teixeira Vaz", "14332847156", "(95) 2936-7851", "Administrativo"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 1600, "Lucas Felipe Figueiras Alfradique Carino", "69148632880", "(67) 3326-0230"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(17.5, 2200, "Jhonas Carneiro Gualberto Conceição", "12445499593", "(87) 3323-5724"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(22.0, 2500, "Rone Cretella Monnerat Belmiro", "67505462342", "(54) 2567-8074"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(10.0, 2900, "Augusto Gouveia Mourão Corrêa", "04786841340", "(35) 2471-5577"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(5.5, 2600, "Sandra Braz Mateus Barcelos", "62912457106", "(84) 3242-5950"));
-        repositorioDePessoas.adicionarPessoa(new Gerente(15500, "Elenice Nespoli Latin Celestino", "19883542186", "(92) 2045-2818", "Recursos Humanos"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(6.0, 4030, "Roseli Carvel Espindola Viana", "35941780133", "(61) 2417-7629"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(7.5, 1800, "Silvio Prata de Lima Neto", "61325635804", "(65) 2951-9753"));
-        repositorioDePessoas.adicionarPessoa(new Vendedor(8.0, 2300, "Ivone Pena dos Santos Chaves", "72482237432", "(44) 2759-6625"));
+        repositorioDePessoas.adicionarPessoa(new Vendedor("Rafael", "12876163993", 1212121212, "89163232", "Rua Valmor Pasqualine", "Canta Galo", "Rio do Sul", "SC", "(98) 3357-4626", "rdalmarco@yahoo.com.br", 10.0, "", "Santander", 0, 0, 0.0)); 
+        //repositorioDePessoas.adicionarPessoa(new Gerente(8000.00, "Matheus", "18376412983", "(79) 3256-9225", "Financeiro"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(12.0, 4000, "Eduardo", "18723465409", "(82) 3501-5376"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 5000, "Elisa Silveira", "59968114995", "(97) 3522-5866"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(13.5, 6000, "Nicollas Nepomuceno Pinto Alentejo", "25516297648", "(63) 3233-4798"));
+        //repositorioDePessoas.adicionarPessoa(new Gerente(7000.00, "Yago Garbelini Teixeira Vaz", "14332847156", "(95) 2936-7851", "Administrativo"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 1600, "Lucas Felipe Figueiras Alfradique Carino", "69148632880", "(67) 3326-0230"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(17.5, 2200, "Jhonas Carneiro Gualberto Conceição", "12445499593", "(87) 3323-5724"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(22.0, 2500, "Rone Cretella Monnerat Belmiro", "67505462342", "(54) 2567-8074"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(10.0, 2900, "Augusto Gouveia Mourão Corrêa", "04786841340", "(35) 2471-5577"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(5.5, 2600, "Sandra Braz Mateus Barcelos", "62912457106", "(84) 3242-5950"));
+        //repositorioDePessoas.adicionarPessoa(new Gerente(15500, "Elenice Nespoli Latin Celestino", "19883542186", "(92) 2045-2818", "Recursos Humanos"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(6.0, 4030, "Roseli Carvel Espindola Viana", "35941780133", "(61) 2417-7629"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(7.5, 1800, "Silvio Prata de Lima Neto", "61325635804", "(65) 2951-9753"));
+        //repositorioDePessoas.adicionarPessoa(new Vendedor(8.0, 2300, "Ivone Pena dos Santos Chaves", "72482237432", "(44) 2759-6625"));
     }
 
     //Teste
