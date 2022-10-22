@@ -28,12 +28,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="dkpFundo" alignment="0" pref="946" max="32767" attributes="0"/>
+          <Component id="dkpFundo" alignment="0" pref="1849" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="dkpFundo" alignment="0" pref="470" max="32767" attributes="0"/>
+          <Component id="dkpFundo" alignment="0" pref="698" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -41,8 +41,9 @@
     <Container class="javax.swing.JDesktopPane" name="dkpFundo">
       <Properties>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[940, 464]"/>
+          <Dimension value="[1800, 800]"/>
         </Property>
+        <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -64,7 +65,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pnlBotoes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="354" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="582" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -81,12 +82,22 @@
             <Component class="javax.swing.JTable" name="tblFuncionarios">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="0">
+                  <Table columnCount="16" rowCount="0">
                     <Column editable="false" title="Nome" type="java.lang.String"/>
                     <Column editable="false" title="CPF" type="java.lang.String"/>
+                    <Column editable="false" title="RG" type="java.lang.Long"/>
+                    <Column editable="false" title="CEP" type="java.lang.String"/>
+                    <Column editable="false" title="Endere&#xe7;o" type="java.lang.String"/>
+                    <Column editable="false" title="Bairro" type="java.lang.String"/>
+                    <Column editable="false" title="Cidade" type="java.lang.String"/>
+                    <Column editable="false" title="Estado" type="java.lang.String"/>
                     <Column editable="false" title="Telefone" type="java.lang.String"/>
+                    <Column editable="false" title="Email" type="java.lang.String"/>
                     <Column editable="false" title="Sal&#xe1;rio" type="java.lang.String"/>
                     <Column editable="false" title="Data Admiss&#xe3;o" type="java.lang.String"/>
+                    <Column editable="false" title="Banco" type="java.lang.String"/>
+                    <Column editable="false" title="Agencia" type="java.lang.Integer"/>
+                    <Column editable="false" title="Conta Corrente" type="java.lang.Integer"/>
                     <Column editable="false" title="Cargo" type="java.lang.String"/>
                   </Table>
                 </Property>
@@ -150,8 +161,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblCPF" min="-2" pref="42" max="-2" attributes="0"/>
@@ -160,15 +171,13 @@
                           </Group>
                           <Component id="btnBuscarFuncionario" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCadastrarGerente" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCadastrarVendedor" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="btnCadastrarFuncionário" min="-2" pref="172" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="btnSelecionarFuncionario" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnRemoverFuncionario" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="btnRemoverFuncionario" min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace pref="1060" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -185,12 +194,11 @@
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="btnBuscarFuncionario" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCadastrarGerente" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnSelecionarFuncionario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="btnRemoverFuncionario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCadastrarVendedor" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnCadastrarFuncionário" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
@@ -215,7 +223,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarFuncionarioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCadastrarVendedor">
+            <Component class="javax.swing.JButton" name="btnCadastrarFuncion&#xe1;rio">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e2" green="94" red="52" type="rgb"/>
@@ -226,27 +234,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar Vendedor"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVendedorActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCadastrarGerente">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e2" green="94" red="52" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Roboto" size="14" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar Gerente"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarGerenteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarFuncion&#xe1;rioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarFuncionario">
