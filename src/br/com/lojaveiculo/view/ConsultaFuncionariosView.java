@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rafael
  */
-public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
+public final class ConsultaFuncionariosView extends TelaBaseConsultaView{
 
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
