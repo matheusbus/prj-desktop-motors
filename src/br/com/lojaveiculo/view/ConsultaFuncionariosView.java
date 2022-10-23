@@ -72,8 +72,12 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnOrdenarFunc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+<<<<<<< HEAD
+        setTitle("Conulta de Funcionários");
+=======
         setTitle("Consulta de Funcionários");
         setPreferredSize(new java.awt.Dimension(940, 464));
+>>>>>>> 2267bc086b8b0816c9bff9bfd2a3ba24ea18098c
         setResizable(false);
 
         dkpFundo.setPreferredSize(new java.awt.Dimension(1800, 800));
@@ -280,11 +284,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
-
-        pessoas.ordenaNome();
-        limparTabela();
-        popularTabela();
-      
+           repositorioDePessoas.ordenaNome();
+           limparTabela();
+           popularTabela();
     }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
