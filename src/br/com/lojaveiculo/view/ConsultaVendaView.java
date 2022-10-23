@@ -254,7 +254,9 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
     private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
-        // TODO add your handling code here:
+        repositorioDeVendas.ordena();
+        limparTabela();
+        popularTabela();
     }//GEN-LAST:event_btnAlterarVenda1ActionPerformed
 
     

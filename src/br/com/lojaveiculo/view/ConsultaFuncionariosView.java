@@ -8,6 +8,7 @@ import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.Set;
 import javax.swing.JOptionPane;
