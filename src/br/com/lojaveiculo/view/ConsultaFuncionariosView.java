@@ -280,10 +280,11 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
+
         pessoas.ordenaNome();
         limparTabela();
         popularTabela();
-        
+      
     }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
