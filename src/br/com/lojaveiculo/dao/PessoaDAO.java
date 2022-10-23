@@ -28,7 +28,6 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         //});
 
         //return p1.getNome().compareTo(p2.getNome());
-        //return 0;
 
     //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
     //ordenaOrdemAlfabetica.stream()

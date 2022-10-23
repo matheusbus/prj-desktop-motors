@@ -72,7 +72,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnOrdenarFunc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Conulta de Funcionários");
+        setTitle("Consulta de Funcionários");
         setPreferredSize(new java.awt.Dimension(940, 464));
         setResizable(false);
 
