@@ -22,12 +22,12 @@
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseConsultaView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/dao/VendaDAO.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroMotoView.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroGerenteView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaClientesView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Venda.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/repositorio/PessoaRepositorio.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/PrincipalView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Funcionario.java</file>
+            <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroFuncionariosView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Gerente.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroCarroView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Vendedor.java</file>
@@ -37,6 +37,7 @@
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/dao/VeiculoDAO.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseCadastroView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/repositorio/VendaRepositorio.java</file>
+            <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/instancia/FabricaRelatorio.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/dao/PessoaDAO.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/interfaces/Autenticavel.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/instancia/FabricaObjetos.java</file>
@@ -46,7 +47,6 @@
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/VendaView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaVendaView.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroVendedorView.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/repositorio/UsuarioRepositorio.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/interfaces/ValidaCadastroVeiculo.java</file>
             <file>file:/C:/Users/Rafael/Desktop/NetBeans/Programas/DestktopMotors-Prog2/src/br/com/lojaveiculo/model/Marca.java</file>

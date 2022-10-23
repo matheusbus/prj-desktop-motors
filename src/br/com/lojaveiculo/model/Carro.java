@@ -39,5 +39,11 @@ public class Carro extends Veiculo {
     public Object[] obterDados(){
         return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.portas};
     }
-    
+
+    @Override
+    public int compareTo(Veiculo o) {
+        return modelo.compareTo(getPlaca());
+    }
 }
+
+

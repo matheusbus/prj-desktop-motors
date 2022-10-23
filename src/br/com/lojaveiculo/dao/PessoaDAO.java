@@ -11,6 +11,7 @@ import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,14 +22,13 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
 
     private static Set<Pessoa> pessoas;
 
-    @Override
-    public int compare(Pessoa o1, Pessoa o2) {
+    //@Override
+    //public int compare(Pessoa o1, Pessoa o2) {
         //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
         //});
 
         //return p1.getNome().compareTo(p2.getNome());
-        return 0;
-    }
+        //return 0;
 
     //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
     //ordenaOrdemAlfabetica.stream()
@@ -103,6 +103,15 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
             }
         }
         return funcionarios;
+    }
+
+    @Override
+    public int compare(Pessoa o1, Pessoa o2) {
+        return o1.getNome().compareTo(o2.getNome());
+    }
+
+    public void ordenaNome(){
+        Collections.sort((List) pessoas);
     }
 
 }
