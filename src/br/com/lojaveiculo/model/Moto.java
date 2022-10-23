@@ -34,4 +34,10 @@ public class Moto extends Veiculo{
     public Object[] obterDados(){
         return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
     }
+
+    @Override
+    public int compareTo(Veiculo o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

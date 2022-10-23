@@ -135,18 +135,17 @@ public class FabricaObjetos {
     }
 
     public void criaVendas() {
-        repositorioDeVendas.adicionarVenda(
-                new Venda(repositorioDeVeiculos.buscarVeiculo("MKQ8507"),
-                        repositorioDePessoas.buscarPessoaPorCPF("28716399312"),
-                        repositorioDePessoas.buscarPessoaPorCPF("72482237432")));
+       repositorioDeVendas.adicionarVenda(
+              new Venda(repositorioDeVeiculos.buscarVeiculo("MKQ8507"),
+                      repositorioDePessoas.buscarPessoaPorCPF("48078625960"),
+                      repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
         repositorioDeVendas.adicionarVenda(
                 new Venda(repositorioDeVeiculos.buscarVeiculo("MJE6388"),
-                        repositorioDePessoas.buscarPessoaPorCPF("87357881270"),
-                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+                      repositorioDePessoas.buscarPessoaPorCPF("48078625960"),
+                       repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
         repositorioDeVendas.adicionarVenda(
-                new Venda(repositorioDeVeiculos.buscarVeiculo("MEZ1270"),
-                        repositorioDePessoas.buscarPessoaPorCPF("18746540915"),
-                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
-    }
-
+              new Venda(repositorioDeVeiculos.buscarVeiculo("MEZ1270"),
+                        repositorioDePessoas.buscarPessoaPorCPF("48078625960"),
+                       repositorioDePessoas.buscarPessoaPorCPF("12876163993")));   
+    }   
 }
