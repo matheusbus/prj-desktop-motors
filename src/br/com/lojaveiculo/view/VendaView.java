@@ -7,11 +7,9 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import javax.swing.JOptionPane;
@@ -242,12 +240,12 @@ public final class VendaView extends TelaBaseView {
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
     private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
-        if ((ClienteSelecionado) || (VeiculoSelecionado) || (VendedorSelecionado)) {
+        if ((ClienteSelecionado) && (VeiculoSelecionado) && (VendedorSelecionado)) {
             if (efetuarVenda()) {
                 apresentaMensagem("Venda efetuada com sucesso", "Suceso");
                 this.dispose();
             }
-        } else {
+        }else {
             apresentaMensagem("Selecione todos os campos", "ERRO");
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed

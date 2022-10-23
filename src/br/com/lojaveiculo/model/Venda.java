@@ -13,11 +13,11 @@ import java.time.LocalDate;
 
 public class Venda implements Comparable<Venda> {
     
-    private int idVenda;
-    private LocalDate dataVenda;
-    private Veiculo veiculo;
-    private Pessoa cliente;
-    private Pessoa vendedor;
+    private final int idVenda;
+    private final LocalDate dataVenda;
+    private final Veiculo veiculo;
+    private final Pessoa cliente;
+    private final Pessoa vendedor;
     private static int GeradorID = 1;
 
     public Venda(Veiculo veiculo, Pessoa cliente, Pessoa vendedor) {

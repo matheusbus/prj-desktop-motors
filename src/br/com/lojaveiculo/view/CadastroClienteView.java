@@ -399,7 +399,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                apresentaMensagem("CPF inválido, digite novamente", "Erro"); 
             }
         } else {
-            apresentaMensagem("CPF ja consta no sistema", "Erro");
+            apresentaMensagem("CPF já consta no sistema", "Erro");
         }
     }
         
