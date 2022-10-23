@@ -110,6 +110,7 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         return o1.getNome().compareTo(o2.getNome());
     }
 
+    @Override
     public void ordenaNome(){
         Collections.sort((List) pessoas);
     }
