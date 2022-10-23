@@ -13,11 +13,11 @@ import java.time.LocalDate;
 
 public class Venda implements Comparable<Venda> {
     
-    private int idVenda;
-    private LocalDate dataVenda;
-    private Veiculo veiculo;
-    private Pessoa cliente;
-    private Pessoa vendedor;
+    private final int idVenda;
+    private final LocalDate dataVenda;
+    private final Veiculo veiculo;
+    private final Pessoa cliente;
+    private final Pessoa vendedor;
     private static int GeradorID = 1;
 
     public Venda(Veiculo veiculo, Pessoa cliente, Pessoa vendedor) {
@@ -60,7 +60,7 @@ public class Venda implements Comparable<Venda> {
     @Override
     public int compareTo(Venda o) {
    //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
-   return cliente.getNome().compareTo(o.cliente.getNome());
+   return veiculo.getPlaca().compareTo(o.veiculo.getPlaca());
 }
 }
 
