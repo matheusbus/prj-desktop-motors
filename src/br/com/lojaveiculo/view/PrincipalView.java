@@ -182,7 +182,7 @@ public final class PrincipalView extends javax.swing.JFrame {
 
         muRelatorios.setText("Relatórios");
 
-        miRelatorios.setText("Relatório");
+        miRelatorios.setText("Vendas");
         miRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miRelatoriosActionPerformed(evt);
