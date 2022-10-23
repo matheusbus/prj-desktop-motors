@@ -134,7 +134,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnCadastrarFuncionário.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarFuncionário.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarFuncionário.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarFuncionário.setText("Cadastrar Funcionário");
+        btnCadastrarFuncionário.setText("Cadastrar");
         btnCadastrarFuncionário.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarFuncionárioActionPerformed(evt);
