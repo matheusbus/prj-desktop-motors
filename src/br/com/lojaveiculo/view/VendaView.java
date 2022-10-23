@@ -52,6 +52,7 @@ public final class VendaView extends TelaBaseView {
         veiculos = new VeiculoDAO();
         VendedorSelecionado = false;
         VeiculoSelecionado = false;
+        ClienteSelecionado = false;
         this.consultaVenda = consultaVenda;
     }
 
@@ -241,7 +242,7 @@ public final class VendaView extends TelaBaseView {
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
     private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
-        if ((ClienteSelecionado) || (VeiculoSelecionado) || (VendedorSelecionado)) {
+        if ((ClienteSelecionado) && (VeiculoSelecionado) && (VendedorSelecionado)) {
             if (efetuarVenda()) {
                 apresentaMensagem("Venda efetuada com sucesso", "Suceso");
                 this.dispose();
@@ -269,14 +270,6 @@ public final class VendaView extends TelaBaseView {
     // End of variables declaration//GEN-END:variables
 
 
-    /*public boolean efetuarVenda(){
-         vendas = new VendaDAO();
-         venda = new Venda(this.veiculo, this.cliente, this.vendedor);
-         vendas.adicionarVenda(venda);
-         veiculos.removeVeiculo(veiculo.getPlaca());
-         return true;
-     }*/
-     
 
     public boolean efetuarVenda() {
         vendas = new VendaDAO();
@@ -299,6 +292,7 @@ public final class VendaView extends TelaBaseView {
     }
 
 
+    @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }

@@ -20,7 +20,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         // Instancia objetos do sistema
         FabricaObjetos criaInstancia = new FabricaObjetos();
         criaInstancia.criaClientes();
-        //criaInstancia.criaFuncionarios();
+        criaInstancia.criaFuncionarios();
         criaInstancia.criaVeiculos();
         criaInstancia.criaVendas();
     }
@@ -44,18 +44,16 @@ public final class PrincipalView extends javax.swing.JFrame {
         mbMenuPrincipal = new javax.swing.JMenuBar();
         muCadastros = new javax.swing.JMenu();
         miCadClientes = new javax.swing.JMenuItem();
+        miCadFuncionarios = new javax.swing.JMenuItem();
         muCadVeiculo = new javax.swing.JMenu();
         miCadCarro = new javax.swing.JMenuItem();
         miCadMoto = new javax.swing.JMenuItem();
-        menuFuncionarios = new javax.swing.JMenu();
-        miCadVendedor = new javax.swing.JMenuItem();
-        miCadGerente = new javax.swing.JMenuItem();
         muConsultas = new javax.swing.JMenu();
         muClientes = new javax.swing.JMenuItem();
+        muConsultaFuncionarios = new javax.swing.JMenuItem();
         menuVeiculos = new javax.swing.JMenu();
         miConsCarro = new javax.swing.JMenuItem();
         miConsMoto = new javax.swing.JMenuItem();
-        muConsultaFuncionarios = new javax.swing.JMenuItem();
         muConsultaVendas = new javax.swing.JMenuItem();
         muVendas = new javax.swing.JMenu();
         muTelaVenda = new javax.swing.JMenuItem();
@@ -92,6 +90,14 @@ public final class PrincipalView extends javax.swing.JFrame {
         });
         muCadastros.add(miCadClientes);
 
+        miCadFuncionarios.setText("Funcionarios");
+        miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadFuncionariosActionPerformed(evt);
+            }
+        });
+        muCadastros.add(miCadFuncionarios);
+
         muCadVeiculo.setText("Veículos");
 
         miCadCarro.setText("Carro");
@@ -112,26 +118,6 @@ public final class PrincipalView extends javax.swing.JFrame {
 
         muCadastros.add(muCadVeiculo);
 
-        menuFuncionarios.setText("Funcionarios");
-
-        miCadVendedor.setText("Vendedor");
-        miCadVendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadVendedorActionPerformed(evt);
-            }
-        });
-        menuFuncionarios.add(miCadVendedor);
-
-        miCadGerente.setText("Gerente");
-        miCadGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadGerenteActionPerformed(evt);
-            }
-        });
-        menuFuncionarios.add(miCadGerente);
-
-        muCadastros.add(menuFuncionarios);
-
         mbMenuPrincipal.add(muCadastros);
 
         muConsultas.setText("Consultas");
@@ -143,6 +129,14 @@ public final class PrincipalView extends javax.swing.JFrame {
             }
         });
         muConsultas.add(muClientes);
+
+        muConsultaFuncionarios.setText("Funcionários");
+        muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muConsultaFuncionariosActionPerformed(evt);
+            }
+        });
+        muConsultas.add(muConsultaFuncionarios);
 
         menuVeiculos.setText("Veículos");
 
@@ -164,15 +158,7 @@ public final class PrincipalView extends javax.swing.JFrame {
 
         muConsultas.add(menuVeiculos);
 
-        muConsultaFuncionarios.setText("Funcionários");
-        muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultaFuncionariosActionPerformed(evt);
-            }
-        });
-        muConsultas.add(muConsultaFuncionarios);
-
-        muConsultaVendas.setText("Venda");
+        muConsultaVendas.setText("Vendas");
         muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muConsultaVendasActionPerformed(evt);
@@ -230,16 +216,6 @@ public final class PrincipalView extends javax.swing.JFrame {
        consultaFuncionarios.setVisible(true);
     }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
 
-    private void miCadVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadVendedorActionPerformed
-       CadastroVendedorView cadastroVendedor = new CadastroVendedorView();
-       cadastroVendedor.setVisible(true);
-    }//GEN-LAST:event_miCadVendedorActionPerformed
-
-    private void miCadGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadGerenteActionPerformed
-       CadastroGerenteView cadastroGerente = new CadastroGerenteView();
-       cadastroGerente.setVisible(true);
-    }//GEN-LAST:event_miCadGerenteActionPerformed
-
     private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
        ConsultaCarroView consultaCarro = new ConsultaCarroView();
        consultaCarro.setVisible(true);
@@ -285,6 +261,11 @@ public final class PrincipalView extends javax.swing.JFrame {
       ConsultaVendaView consultaVenda = new ConsultaVendaView();
       consultaVenda.setVisible(true);  
     }//GEN-LAST:event_muConsultaVendasActionPerformed
+
+    private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
+        CadastroFuncionariosView cadFuncionarios = new CadastroFuncionariosView();
+        cadFuncionarios.setVisible(true);
+    }//GEN-LAST:event_miCadFuncionariosActionPerformed
                                              
 
     
@@ -303,13 +284,11 @@ public final class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JDesktopPane dkpnlFundo;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar mbMenuPrincipal;
-    private javax.swing.JMenu menuFuncionarios;
     private javax.swing.JMenu menuVeiculos;
     private javax.swing.JMenuItem miCadCarro;
     private javax.swing.JMenuItem miCadClientes;
-    private javax.swing.JMenuItem miCadGerente;
+    private javax.swing.JMenuItem miCadFuncionarios;
     private javax.swing.JMenuItem miCadMoto;
-    private javax.swing.JMenuItem miCadVendedor;
     private javax.swing.JMenuItem miConsCarro;
     private javax.swing.JMenuItem miConsMoto;
     private javax.swing.JMenuItem miRelatorios;
