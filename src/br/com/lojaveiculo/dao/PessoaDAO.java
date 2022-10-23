@@ -8,8 +8,8 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +18,7 @@ import java.util.Set;
  *
  * @author Matheus
  */
-public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
+public class PessoaDAO implements PessoaRepositorio {
 
     private static Set<Pessoa> pessoas;
 
@@ -104,15 +104,10 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         }
         return funcionarios;
     }
-
+    
     @Override
-    public int compare(Pessoa o1, Pessoa o2) {
-        return o1.getNome().compareTo(o2.getNome());
-    }
-
-    @Override
-    public void ordenaNome(){
-        Collections.sort((List) pessoas);
-    }
-
+   public void ordenaNome(){
+       List<Pessoa> sortedList = new ArrayList<>(pessoas);
+       Collections.sort(sortedList);
+   } 
 }

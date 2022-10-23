@@ -21,5 +21,4 @@ public interface PessoaRepositorio {
     public Set<Pessoa> getClientes();
     public Set<Pessoa> getFuncionarios();
     public void ordenaNome();
-
 }
