@@ -28,7 +28,14 @@ public class RelatorioView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         RepositorioDeVendas = new VendaDAO();
         
-        RepositorioDeVendas.getVenda().stream().sorted((Venda v1, Venda v2) -> v1.getCliente().getCpf().compareTo(v2.getCliente().getCpf()));
+        //RepositorioDeVendas.getVenda().stream().sorted((Venda v1, Venda v2) -> v1.getCliente().getCpf().compareTo(v2.getCliente().getCpf()));
+        
+        RepositorioDeVendas.getVenda().stream().sorted(new Comparator<Venda>(){
+            @Override
+            public int compare(Venda v1, Venda v2){
+                return v1.getCliente().getNome().compareTo(v2.getCliente().getNome());
+            }
+        });
         
         for(Venda v : RepositorioDeVendas.getVenda()){
             txtDados.append("ID Venda: " + v.getIdVenda() + "\n");
