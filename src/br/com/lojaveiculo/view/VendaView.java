@@ -246,7 +246,7 @@ public final class VendaView extends TelaBaseView {
                 apresentaMensagem("Venda efetuada com sucesso", "Suceso");
                 this.dispose();
             }
-        } else {
+        }else {
             apresentaMensagem("Selecione todos os campos", "ERRO");
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed
