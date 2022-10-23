@@ -9,8 +9,6 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import static java.awt.image.ImageObserver.HEIGHT;
-import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -74,12 +72,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnOrdenarFunc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-<<<<<<< HEAD
         setTitle("Conulta de Funcionários");
-=======
-        setTitle("Consulta de Funcionários");
         setPreferredSize(new java.awt.Dimension(940, 464));
->>>>>>> 2267bc086b8b0816c9bff9bfd2a3ba24ea18098c
         setResizable(false);
 
         dkpFundo.setPreferredSize(new java.awt.Dimension(1800, 800));
@@ -286,13 +280,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
-<<<<<<< HEAD
         
-=======
-           repositorioDePessoas.ordenaNome();
-           limparTabela();
-           popularTabela();
->>>>>>> ca6dc0fb2f84cf5c79d469b4c9be754b4a370c18
     }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
