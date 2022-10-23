@@ -370,7 +370,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        cbTipoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Vendedor", " " }));
+        cbTipoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerente", "Vendedor" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
