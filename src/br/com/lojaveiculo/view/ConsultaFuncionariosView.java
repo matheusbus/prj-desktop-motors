@@ -35,10 +35,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         organizaLayout();
         this.btnSelecionarFuncionario.setEnabled(false);
     }
-    
+
     @Override
     public void organizaLayout() {
-        initComponents(); 
+        initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -46,15 +46,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
         popularTabela();
-        
-    }
-           
-    public void selecionaItem(String cpf){
-       venda.vendedor = pessoas.buscarPessoaPorCPF(cpf); 
-       venda.VendedorSelecionado = true;
-       setVisible(false);
+
     }
 
+    public void selecionaItem(String cpf) {
+        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
+        venda.VendedorSelecionado = true;
+        setVisible(false);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -133,7 +132,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnCadastrarFuncionário.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarFuncionário.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarFuncionário.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarFuncionário.setText("Cadastrar Funcionário");
+        btnCadastrarFuncionário.setText("Cadastrar");
         btnCadastrarFuncionário.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarFuncionárioActionPerformed(evt);
@@ -247,19 +246,24 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
         if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 15).equals("Vendedor")) {
-        String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
-        selecionaItem(cpf);
-        }
-        else
+            String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
+            selecionaItem(cpf);
+        } else
             apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
     private void btnRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionarioActionPerformed
-        removerDaTabela();
+        if (!(tblFuncionarios.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o funcionário da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
+        }
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
     private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
-       abrirTelaCadastro();
+        abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     /**
@@ -281,8 +285,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-         CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
-            cadastroVendedor.setVisible(true);
+        CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
+        cadastroVendedor.setVisible(true);
     }
 
     @Override
@@ -298,6 +302,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             repositorioDePessoas.removerPessoa(CPF);
             limparTabela();
             popularTabela();
+            apresentaMensagem("Funcionário removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
         }
@@ -308,20 +313,17 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
- 
-
     @Override
     public void popularTabela() {
         limparTabela();
         tblFuncionarios.getModel();
         Set<Pessoa> funcionarios = repositorioDePessoas.getFuncionarios();
 
-        for (Pessoa func :funcionarios) {
-                grid.addRow(func.obterDados());
+        for (Pessoa func : funcionarios) {
+            grid.addRow(func.obterDados());
 
-            }
         }
-
+    }
 
     @Override
     public void limparTabela() {
@@ -355,7 +357,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
 
 }
