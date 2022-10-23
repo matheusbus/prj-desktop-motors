@@ -22,7 +22,7 @@ import java.util.List;
 // if(vendas == null){
 // this.vendas = new ArrayList<>();
 //}
-public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
+public class VendaDAO implements VendaRepositorio {
 
 //public class VendaDAO implements VendaRepositorio {
     private static List<Venda> vendas = new ArrayList<>();
@@ -66,12 +66,6 @@ public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
             }
         }
         return null;
-    }
-
-    @Override
-    public int compare(Venda v1, Venda v2) {
-        return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
-
     }
 
     @Override
