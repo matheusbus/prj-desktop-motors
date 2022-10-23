@@ -115,10 +115,10 @@ public class FabricaObjetos {
         // Carros
         repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), "231 j8rVAA 13 k34845", "Prata", "Caminhoneta", 2003, 25000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), "682 CsJk3U m8 DR0975", "Chumbo", "Sedan", 2002, 80000, "Diesel", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), "7Wk ketC5v yg GU6616", "Cinza", "Sedan", 1992, 120000, "Gasolina", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("AJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), "7Wk ketC5v yg GU6616", "Cinza", "Sedan", 1992, 120000, "Gasolina", 2));
         repositorioDeVeiculos.addVeiculo(new Carro("MBR4428", "Hilux CD SR 4x4 3.0 8V 90cv Diesel", new Marca("Toyota"), "6t3 UAeD7y zu VT2245", "Preto", "Hatch",  2002, 130000, "Flex", 2));
         repositorioDeVeiculos.addVeiculo(new Carro("MGU3473", "Defender 90 TDI Hard Top Diesel", new Marca("Land Rover"), "5My P60kM9 GK 1C2457", "Prata", "Hatch", 1996, 115000, "Gasolina", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), "6hU u8E4Ce vm z01635", "Amarelo", "Sedan", 2008, 40000, "Alcool", 4));
+        repositorioDeVeiculos.addVeiculo(new Carro("ZEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), "6hU u8E4Ce vm z01635", "Amarelo", "Sedan", 2008, 40000, "Alcool", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LZH3275", "SL-63 AMG 5.5 Bi-Turbo V8 Aut.", new Marca("Mercedes-Benz"), "53x AZGA60 7T Z70286", "Vermelho", "SUV", 2013, 80000, "Gasolina", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("MLL1094", "Wraith 6.6 V12 Aut.", new Marca("Rolls-Royce"), "30A 2NVAXN h6 Aj3203", "AZUL", "Vermelho", 2014, 15000, "Gasolina", 2));
         repositorioDeVeiculos.addVeiculo(new Carro("MHE0503", "156 SportWagon 2.5 V6 24V 190cv 4p Aut.", new Marca("Alfa Romeo"), "7AG a5wjBp CH lM5868", "Prata", "Sedan", 2003, 50000, "Alcool", 2));
