@@ -49,7 +49,7 @@ public class Venda implements Comparable<Venda> {
     }
     
      public Object[] obterDados() {
-        return new Object[]{this.idVenda, this.dataVenda, this.veiculo.getPlaca(), this.cliente.getCpf(), this.vendedor.getCpf()};
+        return new Object[]{this.idVenda, this.dataVenda, this.veiculo.getPlaca(), this.cliente.getCpf(), this.vendedor.getCpf(), this.veiculo.getPreco()};
     }
 
     @Override
