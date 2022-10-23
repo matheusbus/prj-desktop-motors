@@ -17,6 +17,7 @@ public interface VendaRepositorio {
     public boolean adicionarVenda(Venda v);
     public boolean removeVenda(int id);
     public Venda buscaVenda(int id);
-    public void ordena();
+    public void ordenaPlaca();
+    public void ordenaPreco();
     
 }
