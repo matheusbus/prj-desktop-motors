@@ -8,6 +8,7 @@ import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -224,9 +225,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
-            .addComponent(jScrollPane2)
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,6 +287,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         popularTabela();
         
     }//GEN-LAST:event_btnOrdenarFuncActionPerformed
+
 
     /**
      * @param args the command line arguments
