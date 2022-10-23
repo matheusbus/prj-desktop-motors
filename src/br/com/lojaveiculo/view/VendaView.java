@@ -240,12 +240,14 @@ public final class VendaView extends TelaBaseView {
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
     private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
-        if ((ClienteSelecionado) && (VeiculoSelecionado) && (VendedorSelecionado)) {
-            if (efetuarVenda()) {
-                apresentaMensagem("Venda efetuada com sucesso", "Suceso");
-                this.dispose();
+        try {
+            if ((ClienteSelecionado) && (VeiculoSelecionado) && (VendedorSelecionado)) {
+                if (efetuarVenda()) {
+                    apresentaMensagem("Venda efetuada com sucesso", "Suceso");
+                    this.dispose();
+                }
             }
-        }else {
+        } catch (NullPointerException e) {
             apresentaMensagem("Selecione todos os campos", "ERRO");
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed
