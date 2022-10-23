@@ -63,7 +63,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         btnAlterarVenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Carros");
+        setTitle("Consulta de Vendas");
 
         tblVendas.setForeground(new java.awt.Color(255, 255, 255));
         tblVendas.setModel(new javax.swing.table.DefaultTableModel(
