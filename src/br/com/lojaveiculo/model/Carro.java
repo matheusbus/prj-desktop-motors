@@ -12,8 +12,8 @@ public class Carro extends Veiculo {
     
     protected int portas;
     
-    public Carro(String placa, String modelo, Marca marca, int ano, double preco, String tipoCombustivel, int portas){
-        super(placa, modelo, marca, ano, preco, tipoCombustivel);
+    public Carro(String placa, String modelo, Marca marca, String chassi, String cor, String tipoCarroceria, int ano, double preco, String tipoCombustivel, int portas){
+        super(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel);
         this.portas = portas;
     }
     
@@ -37,7 +37,7 @@ public class Carro extends Veiculo {
      */
     @Override
     public Object[] obterDados(){
-        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.ano, super.preco, super.tipoCombustivel, this.portas};
+        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.portas};
     }
     
 }

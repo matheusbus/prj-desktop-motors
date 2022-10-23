@@ -11,25 +11,30 @@ package br.com.lojaveiculo.model;
  **/
 public class Vendedor extends Funcionario{
   
-    private double comissão;
+    private double comissao;
   
 
-    public Vendedor(double comissão, double Salario , String nome, String cpf, String telefone) {
-        super(Salario, nome, cpf, telefone);
-        this.comissão = comissão;
+    public Vendedor(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente, double commissao) {
+        super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email, salario, pisPasep, banco, agencia, contaCorrente);
+        this.comissao = commissao;
     }
 
-    public double getComissão() {
-        return comissão;
+    public double getComissao() {
+        return comissao;
     }
 
-    public void setComissão(double comissão) {
-        this.comissão = comissão;
+    public void setComissao(double comissão) {
+        this.comissao = comissão;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() +
+               "Commisão: " + this.comissao + "%";
     }
     
     @Override
     public Object[] obterDados() {
-         return new Object[] {super.nome, super.cpf, super.telefone, this.salario, this.dataAdmissao, getClass().getSimpleName()};
-        
-}
+         return new Object[] {super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, super.salario, super.dataAdmissao, super.banco, super.agencia, super.contaCorrente, getClass().getSimpleName()};
+    }
 }

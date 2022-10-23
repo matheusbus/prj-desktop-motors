@@ -11,6 +11,7 @@ import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import static java.awt.image.ImageObserver.HEIGHT;
+import java.util.Collections;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -75,17 +76,17 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Telefone"
+                "Nome", "CPF", "RG", "CNH", "Categoria CNH", "CEP", "Endereço", "Bairro", "Cidade", "Estado", "Telefone", "E-mail", "Whatsapp"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -99,7 +100,43 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         tblClientes.setToolTipText("");
         tblClientes.setSelectionBackground(new java.awt.Color(34, 110, 157));
         tblClientes.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(0).setMinWidth(250);
+            tblClientes.getColumnModel().getColumn(0).setPreferredWidth(250);
+            tblClientes.getColumnModel().getColumn(0).setMaxWidth(250);
+            tblClientes.getColumnModel().getColumn(1).setMinWidth(100);
+            tblClientes.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tblClientes.getColumnModel().getColumn(1).setMaxWidth(100);
+            tblClientes.getColumnModel().getColumn(2).setMinWidth(100);
+            tblClientes.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tblClientes.getColumnModel().getColumn(2).setMaxWidth(100);
+            tblClientes.getColumnModel().getColumn(3).setMinWidth(100);
+            tblClientes.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tblClientes.getColumnModel().getColumn(3).setMaxWidth(100);
+            tblClientes.getColumnModel().getColumn(4).setMinWidth(100);
+            tblClientes.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tblClientes.getColumnModel().getColumn(4).setMaxWidth(100);
+            tblClientes.getColumnModel().getColumn(5).setMinWidth(100);
+            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tblClientes.getColumnModel().getColumn(5).setMaxWidth(100);
+            tblClientes.getColumnModel().getColumn(6).setMinWidth(250);
+            tblClientes.getColumnModel().getColumn(6).setPreferredWidth(250);
+            tblClientes.getColumnModel().getColumn(6).setMaxWidth(250);
+            tblClientes.getColumnModel().getColumn(7).setMinWidth(150);
+            tblClientes.getColumnModel().getColumn(7).setPreferredWidth(150);
+            tblClientes.getColumnModel().getColumn(7).setMaxWidth(150);
+            tblClientes.getColumnModel().getColumn(8).setMinWidth(150);
+            tblClientes.getColumnModel().getColumn(8).setPreferredWidth(150);
+            tblClientes.getColumnModel().getColumn(8).setMaxWidth(150);
+            tblClientes.getColumnModel().getColumn(9).setMinWidth(50);
+            tblClientes.getColumnModel().getColumn(9).setPreferredWidth(50);
+            tblClientes.getColumnModel().getColumn(9).setMaxWidth(50);
+            tblClientes.getColumnModel().getColumn(11).setMinWidth(200);
+            tblClientes.getColumnModel().getColumn(11).setPreferredWidth(200);
+            tblClientes.getColumnModel().getColumn(11).setMaxWidth(200);
+        }
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setPreferredSize(new java.awt.Dimension(912, 102));
@@ -162,8 +199,8 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -174,11 +211,11 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
                 .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemoverCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(btnSelecionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAlterarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(884, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +247,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
                 .addContainerGap()
                 .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1788, Short.MAX_VALUE))
                 .addContainerGap())
         );
         dkpFundoLayout.setVerticalGroup(
@@ -219,7 +256,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -227,11 +264,11 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 1800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(dkpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
 
         pack();
@@ -247,7 +284,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-        removerDaTabela();
+        if(0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
+            removerDaTabela();
+        }
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
@@ -292,6 +331,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
             repositorioDePessoas.removerPessoa(CPF);
             limparTabela();
             popularTabela();
+            apresentaMensagem("Cliente removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
         }
@@ -330,7 +370,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroClienteView altCliente = new CadastroClienteView((Cliente) obj);
+        CadastroClienteView altCliente = new CadastroClienteView(this, (Cliente) obj);
         altCliente.setVisible(true);
     }
     
@@ -371,6 +411,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
 }

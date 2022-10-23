@@ -39,7 +39,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     @Override
     public void organizaLayout() {
         initComponents();
-
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -286,7 +285,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         limparTabela();
         tblVendas.getModel();
         List<Venda> vendasX = repositorioDeVendas.getVenda();
-
         for (Venda v : vendasX) {
             grid.addRow(v.obterDados());
 

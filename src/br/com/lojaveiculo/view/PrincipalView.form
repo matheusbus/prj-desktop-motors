@@ -9,6 +9,14 @@
             <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="miCadFuncionarios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Funcionarios"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadFuncionariosActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miCadClientes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
@@ -36,29 +44,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadMotoActionPerformed"/>
-                  </Events>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="menuFuncionarios">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Funcionarios"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="miCadVendedor">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Vendedor"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadVendedorActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="miCadGerente">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Gerente"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadGerenteActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

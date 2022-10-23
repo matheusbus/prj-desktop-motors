@@ -10,6 +10,5 @@ package br.com.lojaveiculo.interfaces;
  */
 public interface ValidaCadastroVeiculo {
     
-    public boolean verificaCamposNulos();
     public boolean verificaPlaca(String placa);
 }
