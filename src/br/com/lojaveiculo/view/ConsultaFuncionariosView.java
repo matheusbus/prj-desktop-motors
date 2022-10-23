@@ -69,6 +69,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         txtCPFBuscado = new javax.swing.JTextField();
         lblCPF = new javax.swing.JLabel();
         btnRemoverFuncionario = new javax.swing.JButton();
+        btnOrdenarFunc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Conulta de Funcionários");
@@ -163,6 +164,16 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             }
         });
 
+        btnOrdenarFunc.setBackground(new java.awt.Color(82, 148, 226));
+        btnOrdenarFunc.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnOrdenarFunc.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrdenarFunc.setText("Ordena");
+        btnOrdenarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarFuncActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
         pnlBotoes.setLayout(pnlBotoesLayout);
         pnlBotoesLayout.setHorizontalGroup(
@@ -181,7 +192,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                 .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1060, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(873, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +209,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                         .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
@@ -210,10 +224,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jScrollPane2)
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,6 +279,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
+    private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
+       // ordenaNome();
+    }//GEN-LAST:event_btnOrdenarFuncActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +290,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarFuncionario;
     private javax.swing.JButton btnCadastrarFuncionário;
+    private javax.swing.JButton btnOrdenarFunc;
     private javax.swing.JButton btnRemoverFuncionario;
     private javax.swing.JButton btnSelecionarFuncionario;
     private javax.swing.JDesktopPane dkpFundo;
