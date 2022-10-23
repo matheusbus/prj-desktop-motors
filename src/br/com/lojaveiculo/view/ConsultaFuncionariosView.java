@@ -280,7 +280,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
-       // ordenaNome();
+        
     }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
