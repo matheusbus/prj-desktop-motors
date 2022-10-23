@@ -21,12 +21,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Rafael
  */
 public final class ConsultaClientesView extends TelaBaseConsultaView {
-    
+
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
     private VendaView venda;
     private PessoaRepositorio pessoas;
- 
+
     // Construtor chamado na tela inicial
     public ConsultaClientesView() {
         organizaLayout();
@@ -40,11 +40,11 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         this.venda = venda;
         pessoas = new PessoaDAO();
     }
-    
+
     @Override
     public void organizaLayout() {
         initComponents();
-        
+
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -52,7 +52,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         grid = (DefaultTableModel) tblClientes.getModel();
         popularTabela();
     }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -280,12 +280,16 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-       abrirTelaCadastro();
+        abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-        if(0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
+        if (!(tblClientes.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
             removerDaTabela();
+        }
         }
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
@@ -294,9 +298,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 
     private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
-        try{
+        try {
             abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblClientes.getSelectedRow(), 1)));
-        } catch (Exception e){
+        } catch (Exception e) {
             apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de alterarção");
         }
     }//GEN-LAST:event_btnAlterarClienteActionPerformed
@@ -309,7 +313,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void limpaSelecao() {
-         // Limpar seleção da linha atual na tabela
+        // Limpar seleção da linha atual na tabela
         tblClientes.clearSelection();
     }
 
@@ -319,14 +323,14 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         tblClientes.getModel();
         Set<Pessoa> clientes = repositorioDePessoas.getClientes();
         for (Pessoa client : clientes) {
-                grid.addRow(client.obterDados());
+            grid.addRow(client.obterDados());
 
-            }
+        }
     }
 
     @Override
     public void removerDaTabela() {
-       if (!(tblClientes.getSelectedRow() == -1)) {
+        if (!(tblClientes.getSelectedRow() == -1)) {
             String CPF = (String) grid.getValueAt(tblClientes.getSelectedRow(), 1);
             repositorioDePessoas.removerPessoa(CPF);
             limparTabela();
@@ -360,33 +364,31 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
             apresentaMensagem("Digite um CPF válido!", "CPF inválido");
         }
     }
- 
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
-         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
-
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
         CadastroClienteView altCliente = new CadastroClienteView(this, (Cliente) obj);
         altCliente.setVisible(true);
     }
-    
-    public void selecionaItem(String cpf){
-       venda.cliente = pessoas.buscarPessoaPorCPF(cpf); 
-       venda.ClienteSelecionado = true;
-       setVisible(false);
+
+    public void selecionaItem(String cpf) {
+        venda.cliente = pessoas.buscarPessoaPorCPF(cpf);
+        venda.ClienteSelecionado = true;
+        setVisible(false);
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         FlatArcDarkIJTheme.setup();
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

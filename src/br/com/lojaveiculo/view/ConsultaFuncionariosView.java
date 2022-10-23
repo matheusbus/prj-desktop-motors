@@ -9,6 +9,8 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import static java.awt.image.ImageObserver.HEIGHT;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -35,10 +37,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         organizaLayout();
         this.btnSelecionarFuncionario.setEnabled(false);
     }
-    
+
     @Override
     public void organizaLayout() {
-        initComponents(); 
+        initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -46,15 +48,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
         popularTabela();
-        
-    }
-           
-    public void selecionaItem(String cpf){
-       venda.vendedor = pessoas.buscarPessoaPorCPF(cpf); 
-       venda.VendedorSelecionado = true;
-       setVisible(false);
+
     }
 
+    public void selecionaItem(String cpf) {
+        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
+        venda.VendedorSelecionado = true;
+        setVisible(false);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -70,6 +71,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         txtCPFBuscado = new javax.swing.JTextField();
         lblCPF = new javax.swing.JLabel();
         btnRemoverFuncionario = new javax.swing.JButton();
+        btnOrdenarFunc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Conulta de Funcionários");
@@ -133,7 +135,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         btnCadastrarFuncionário.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarFuncionário.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarFuncionário.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarFuncionário.setText("Cadastrar Funcionário");
+        btnCadastrarFuncionário.setText("Cadastrar");
         btnCadastrarFuncionário.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarFuncionárioActionPerformed(evt);
@@ -164,6 +166,16 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             }
         });
 
+        btnOrdenarFunc.setBackground(new java.awt.Color(82, 148, 226));
+        btnOrdenarFunc.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnOrdenarFunc.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrdenarFunc.setText("Ordena");
+        btnOrdenarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarFuncActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
         pnlBotoes.setLayout(pnlBotoesLayout);
         pnlBotoesLayout.setHorizontalGroup(
@@ -182,7 +194,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                 .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1060, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(873, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +211,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                         .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
@@ -211,10 +226,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dkpFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jScrollPane2)
         );
         dkpFundoLayout.setVerticalGroup(
             dkpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,20 +261,29 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
         if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 15).equals("Vendedor")) {
-        String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
-        selecionaItem(cpf);
-        }
-        else
+            String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
+            selecionaItem(cpf);
+        } else
             apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
     private void btnRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionarioActionPerformed
-        removerDaTabela();
+        if (!(tblFuncionarios.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o funcionário da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
+        }
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
     private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
-       abrirTelaCadastro();
+        abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
+
+    private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
+        
+    }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +292,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarFuncionario;
     private javax.swing.JButton btnCadastrarFuncionário;
+    private javax.swing.JButton btnOrdenarFunc;
     private javax.swing.JButton btnRemoverFuncionario;
     private javax.swing.JButton btnSelecionarFuncionario;
     private javax.swing.JDesktopPane dkpFundo;
@@ -281,8 +305,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-         CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
-            cadastroVendedor.setVisible(true);
+        CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
+        cadastroVendedor.setVisible(true);
     }
 
     @Override
@@ -298,6 +322,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             repositorioDePessoas.removerPessoa(CPF);
             limparTabela();
             popularTabela();
+            apresentaMensagem("Funcionário removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
         }
@@ -308,20 +333,17 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
- 
-
     @Override
     public void popularTabela() {
         limparTabela();
         tblFuncionarios.getModel();
         Set<Pessoa> funcionarios = repositorioDePessoas.getFuncionarios();
 
-        for (Pessoa func :funcionarios) {
-                grid.addRow(func.obterDados());
+        for (Pessoa func : funcionarios) {
+            grid.addRow(func.obterDados());
 
-            }
         }
-
+    }
 
     @Override
     public void limparTabela() {
@@ -355,7 +377,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
 
 }
