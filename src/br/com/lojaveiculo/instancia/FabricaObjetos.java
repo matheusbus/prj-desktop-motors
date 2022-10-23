@@ -10,7 +10,6 @@ import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Cliente;
-import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Usuario;
