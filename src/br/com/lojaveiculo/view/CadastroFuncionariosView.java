@@ -488,6 +488,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                     }
 
                 } else {
+                    //verificar, não está aparecendo erro na tela
                     apresentaMensagem("Preencha todos os campos", "Erro");
                 }
             } else {
