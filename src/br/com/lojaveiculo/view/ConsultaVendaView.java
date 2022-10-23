@@ -61,6 +61,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         btnCadastrarVenda = new javax.swing.JButton();
         btnRemoverVenda = new javax.swing.JButton();
         btnAlterarVenda = new javax.swing.JButton();
+        btnAlterarVenda1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta de Vendas");
@@ -142,6 +143,16 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             }
         });
 
+        btnAlterarVenda1.setBackground(new java.awt.Color(82, 148, 226));
+        btnAlterarVenda1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAlterarVenda1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterarVenda1.setText("Ordena");
+        btnAlterarVenda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarVenda1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
         pnlBotoes.setLayout(pnlBotoesLayout);
         pnlBotoesLayout.setHorizontalGroup(
@@ -156,28 +167,31 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                     .addComponent(btnBuscarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAlterarVenda1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotoesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
                         .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNumeroVenda)
                             .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscarVenda))
-                    .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterarVenda1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
         );
 
         dkpFundo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -238,6 +252,10 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             apresentaMensagem("Selecione um Venda!", "Erro ao alterar Venda");
         }
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
+
+    private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarVenda1ActionPerformed
 
     
     @Override
@@ -312,6 +330,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVenda;
+    private javax.swing.JButton btnAlterarVenda1;
     private javax.swing.JButton btnBuscarVenda;
     private javax.swing.JButton btnCadastrarVenda;
     private javax.swing.JButton btnRemoverVenda;
