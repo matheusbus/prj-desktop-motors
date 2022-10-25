@@ -146,6 +146,14 @@ public class FabricaObjetos {
         repositorioDeVendas.adicionarVenda(
               new Venda(repositorioDeVeiculos.buscarVeiculo("ZEZ1270"),
                         repositorioDePessoas.buscarPessoaPorCPF("61120269377"),
-                       repositorioDePessoas.buscarPessoaPorCPF("12876163993")));   
+                       repositorioDePessoas.buscarPessoaPorCPF("12876163993"))); 
+         repositorioDeVendas.adicionarVenda(
+              new Venda(repositorioDeVeiculos.buscarVeiculo("MJE5467"),
+                        repositorioDePessoas.buscarPessoaPorCPF("62115525132"),
+                       repositorioDePessoas.buscarPessoaPorCPF("11077688804")));
+         repositorioDeVendas.adicionarVenda(
+              new Venda(repositorioDeVeiculos.buscarVeiculo("LZH3275"),
+                        repositorioDePessoas.buscarPessoaPorCPF("62115525132"),
+                       repositorioDePessoas.buscarPessoaPorCPF("18376412983")));
     }   
 }

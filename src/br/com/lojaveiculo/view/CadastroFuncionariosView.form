@@ -49,20 +49,6 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="txtCategoriaCnh1" min="-2" pref="121" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="lblCategoriaCnh1" min="-2" pref="121" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -87,20 +73,6 @@
                   <Component id="btnCancela" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="252" max="32767" attributes="0"/>
-                  <Component id="txtCategoriaCnh1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="252" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="255" max="32767" attributes="0"/>
-                  <Component id="lblCategoriaCnh1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="255" max="32767" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -273,13 +245,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelaActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtCategoriaCnh1">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblCategoriaCnh1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Categoria CNH"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="pnlEndereco">
       <Properties>
