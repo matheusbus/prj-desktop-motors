@@ -6,10 +6,13 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.exceções.VerificaCamposNulosException;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -335,8 +338,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         if (lblTitulo.getText().equals("Alterar Carro")) {
             alterarCadastro(carro);
         } else {
-            cadastrarCarro();
-        }
+                cadastrarCarro();         
+            }
     }//GEN-LAST:event_btnCadCarroActionPerformed
 
     private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
@@ -344,54 +347,63 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }//GEN-LAST:event_btnCancelaActionPerformed
 
     public void cadastrarCarro() {
-        try {
-            if (verificaPlaca(txtPlaca.getText())) {
-                if (verificaCamposNulos()) {
-                    String placa = txtPlaca.getText().toUpperCase();
-                    String modelo = txtModelo.getText();
-                    Marca marca = new Marca(txtMarca.getText());
-                    String chassi = txtChassi.getText();
-                    String cor = txtCor.getText();
-                    String tipoCarroceria = cbTipoCarroceria.getSelectedItem().toString();
-                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                    Double preco = Double.valueOf(txtPreco.getText());
-                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                    int portas = Integer.parseInt(cbPorta.getSelectedItem().toString());
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                String placa = txtPlaca.getText().toUpperCase();
+                String modelo = txtModelo.getText();
+                Marca marca = new Marca(txtMarca.getText());
+                String chassi = txtChassi.getText();
+                String cor = txtCor.getText();
+                String tipoCarroceria = cbTipoCarroceria.getSelectedItem().toString();
+                int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
+                Double preco = Double.valueOf(txtPreco.getText());
+                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                int portas = Integer.parseInt(cbPorta.getSelectedItem().toString());
 
-                    Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
-                    veiculos.addVeiculo(novoCarro);
-                    if (consultaCarro != null) {
-                        consultaCarro.limparTabela();
-                        consultaCarro.popularTabela();
-                    }
-                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                    this.dispose();
-                } else {
-                    apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
+                Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
+                veiculos.addVeiculo(novoCarro);
+                if (consultaCarro != null) {
+                    consultaCarro.limparTabela();
+                    consultaCarro.popularTabela();
                 }
+                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
+                this.dispose();
+                }
+                catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos", "Erro");
+                }
+            } else {
+                apresentaMensagem("Preencha todos os campos", "Erro");
             }
-        } catch (NullPointerException e) {
-            apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
+
+        } else {
+            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
     }
 
     public void alterarCadastro(Carro carro) {
         if (verificaPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
-                veiculos.removeVeiculo(carro.getPlaca());
-                carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
-                carro.setModelo(txtModelo.getText());
-                carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
-                carro.setPreco(Double.parseDouble(txtPreco.getText()));
-                carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
-                carro.setChassi(carro.getChassi());
-                carro.setCor(txtCor.getText());
-                carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
-                veiculos.addVeiculo(carro);
-                consultaCarro.popularTabela();
+                try {
+                    veiculos.removeVeiculo(carro.getPlaca());
+                    carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
+                    carro.setModelo(txtModelo.getText());
+                    carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
+                    carro.setPreco(Double.parseDouble(txtPreco.getText()));
+                    carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                    carro.setChassi(carro.getChassi());
+                    carro.setCor(txtCor.getText());
+                    carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
+                    veiculos.addVeiculo(carro);
+                    consultaCarro.popularTabela();
 
-                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
-                this.dispose();
+                    apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    this.dispose();
+
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos.", "Erro");
+                }
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
             }
@@ -427,6 +439,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;

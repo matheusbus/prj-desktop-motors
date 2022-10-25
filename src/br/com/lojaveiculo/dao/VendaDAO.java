@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.lojaveiculo.dao;
 
-import br.com.lojaveiculo.model.ComparadorPreçoVenda;
+import br.com.lojaveiculo.comparator.ComparadorPreçoVenda;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import java.util.List;
 

@@ -366,6 +366,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         if(verificaExistenciaCPF(txtCpf.getText())){
             if (verificaIntegridadeCPF(txtCpf.getText())) {
                 if (verificaCamposNulos()) {
+                    try {
                     String sNome = txtNome.getText();
                     String sCpf = txtCpf.getText();
                     long sRg = Integer.parseInt(txtRg.getText());
@@ -389,6 +390,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                     apresentaMensagem(p.toString(), "teste");
                     apresentaMensagem("Cliente cadastrado com sucesso", "Sucesso");
                     this.dispose();
+                    }
+                    catch (NumberFormatException ex) {
+                        apresentaMensagem("Preencha os campos valores válidos", "Erro");
+                    }
                 } else {
                     apresentaMensagem("Preencha todos os campos", "Erro");
                 }

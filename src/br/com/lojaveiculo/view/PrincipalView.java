@@ -269,15 +269,6 @@ public final class PrincipalView extends javax.swing.JFrame {
                                              
 
     
-        public static void main(String args[]) {
-            
-            FlatArcDarkIJTheme.setup();
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new PrincipalView().setVisible(true);
-            });
-    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -173,10 +173,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="btnCadastrarFuncionário" min="-2" pref="172" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="btnSelecionarFuncionario" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnRemoverFuncionario" min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="btnSelecionarFuncionario" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnOrdenarFunc" min="-2" pref="169" max="-2" attributes="0"/>
                       <EmptySpace pref="873" max="32767" attributes="0"/>
@@ -198,10 +198,12 @@
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnSelecionarFuncionario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="btnRemoverFuncionario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="btnOrdenarFunc" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCadastrarFuncionário" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="btnCadastrarFuncionário" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="btnRemoverFuncionario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
