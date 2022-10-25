@@ -10,22 +10,20 @@ import java.util.List;
 public class FabricaRelatorio implements Comparator<Venda> {
 
     public List<Venda> listaOrdenada;
-    
+
     public FabricaRelatorio() {
-        
+
         VendaDAO vendas = new VendaDAO();
         List<Venda> listaVendas = vendas.getVenda();
-        
 
-        Collections.sort(listaVendas, new Comparator<Venda>(){
+        Collections.sort(listaVendas, new Comparator<Venda>() {
             @Override
-            public int compare(Venda v1, Venda v2){
+            public int compare(Venda v1, Venda v2) {
                 return v1.getVeiculo().getPlaca().compareTo(v2.getVeiculo().getPlaca());
             }
-    });
+        });
         listaOrdenada = listaVendas;
     }
-
 
     public List<Venda> getListaOrdenada() {
         return listaOrdenada;
@@ -33,8 +31,7 @@ public class FabricaRelatorio implements Comparator<Venda> {
 
     @Override
     public int compare(Venda v1, Venda v2) {
-       return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome()); 
+        return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome());
     }
 
-    
 }

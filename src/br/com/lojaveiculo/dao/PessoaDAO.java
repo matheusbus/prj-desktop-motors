@@ -24,11 +24,9 @@ public class PessoaDAO implements PessoaRepositorio {
 
     //@Override
     //public int compare(Pessoa o1, Pessoa o2) {
-        //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
-        //});
-
-        //return p1.getNome().compareTo(p2.getNome());
-
+    //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
+    //});
+    //return p1.getNome().compareTo(p2.getNome());
     //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
     //ordenaOrdemAlfabetica.stream()
     //.sorted(Comparator.comparing(Pessoas: :getNome))
@@ -103,10 +101,10 @@ public class PessoaDAO implements PessoaRepositorio {
         }
         return funcionarios;
     }
-    
+
     @Override
-   public void ordenaNome(){
-       List<Pessoa> sortedList = new ArrayList<>(pessoas);
-       Collections.sort(sortedList);
-   } 
+    public void ordenaNome() {
+        List<Pessoa> sortedList = new ArrayList<>(pessoas);
+        Collections.sort(sortedList);
+    }
 }

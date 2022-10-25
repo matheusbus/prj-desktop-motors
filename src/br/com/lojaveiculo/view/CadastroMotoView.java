@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
@@ -131,6 +127,12 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         lblCor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblCor.setForeground(new java.awt.Color(255, 255, 255));
         lblCor.setText("Cor");
+
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -341,6 +343,10 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
+
     public void cadastrarMoto() {
         if (verificaPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
@@ -409,7 +415,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     @Override
     public boolean verificaCamposNulos() {
         if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
-                || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")))) {
+                || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")) || (txtChassi.getText().trim().equals("")))) {
             return true;
         } else {
             return false;

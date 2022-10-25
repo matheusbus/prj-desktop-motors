@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
@@ -464,9 +460,8 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                             consulta.popularTabela();
                         }
                     } catch (NumberFormatException ex) {
-                       apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
-                   }
-                    
+                        apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
+                    }
 
                 } else {
                     //verificar, não está aparecendo erro na tela
@@ -571,9 +566,9 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     @Override
     public boolean verificaCamposNulos() {
-        if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")) 
-            || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals("")) 
-            || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
+        if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals(""))
+                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
+                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
             return true;
         } else {
             return false;

@@ -10,9 +10,8 @@ import java.time.LocalDate;
  *
  * @author Rafael
  */
-
 public class Venda implements Comparable<Venda> {
-    
+
     private final int idVenda;
     private final LocalDate dataVenda;
     private final Veiculo veiculo;
@@ -22,7 +21,7 @@ public class Venda implements Comparable<Venda> {
 
     public Venda(Veiculo veiculo, Pessoa cliente, Pessoa vendedor) {
         idVenda = GeradorID++;
-        this.dataVenda = LocalDate.now();      
+        this.dataVenda = LocalDate.now();
         this.veiculo = veiculo;
         this.cliente = cliente;
         this.vendedor = vendedor;
@@ -47,8 +46,8 @@ public class Venda implements Comparable<Venda> {
     public int getIdVenda() {
         return idVenda;
     }
-    
-     public Object[] obterDados() {
+
+    public Object[] obterDados() {
         return new Object[]{this.idVenda, this.dataVenda, this.veiculo.getPlaca(), this.cliente.getCpf(), this.vendedor.getCpf(), this.veiculo.getPreco()};
     }
 
@@ -56,11 +55,10 @@ public class Venda implements Comparable<Venda> {
     public String toString() {
         return "Venda{" + "idVenda=" + idVenda + ", dataVenda=" + dataVenda + ", veiculo=" + veiculo + ", cliente=" + cliente + ", vendedor=" + vendedor + '}';
     }
-    
+
     @Override
     public int compareTo(Venda o) {
-   //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
-   return veiculo.getPlaca().compareTo(o.veiculo.getPlaca());
+        //Aqui estou usando o compareTo(método da interface comparable) e usando o getNome de Pessoa para ordenar por nome (ordem alfabética).
+        return veiculo.getPlaca().compareTo(o.veiculo.getPlaca());
+    }
 }
-}
-

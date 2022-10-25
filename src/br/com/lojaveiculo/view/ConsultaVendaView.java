@@ -31,7 +31,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     // Construtor chamado na tela de venda
     public ConsultaVendaView(VendaView venda) {
-        organizaLayout();     
+        organizaLayout();
         this.venda = venda;
         this.vendas = new VendaDAO();
     }
@@ -263,15 +263,13 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
     private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
-        if(cbOrdena.getSelectedIndex() == 0) {
-        ordenaPlaca();
+        if (cbOrdena.getSelectedIndex() == 0) {
+            ordenaPlaca();
+        } else {
+            ordenaPreco();
         }
-        else {
-               ordenaPreco();
-                }
     }//GEN-LAST:event_btnAlterarVenda1ActionPerformed
 
-    
     @Override
     public void abrirTelaCadastro() {
         VendaView cadVenda = new VendaView(this);
@@ -342,17 +340,17 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         }
     }
 
-        public void ordenaPlaca() {
-            repositorioDeVendas.ordenaPlaca();
-            limparTabela();
-            popularTabela();
-        }
-        
-        public void ordenaPreco() {
-            repositorioDeVendas.ordenaPreco();
-            limparTabela();
-            popularTabela();
-        }
+    public void ordenaPlaca() {
+        repositorioDeVendas.ordenaPlaca();
+        limparTabela();
+        popularTabela();
+    }
+
+    public void ordenaPreco() {
+        repositorioDeVendas.ordenaPreco();
+        limparTabela();
+        popularTabela();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVenda;
     private javax.swing.JButton btnAlterarVenda1;

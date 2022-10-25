@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.model;
 
-
 /**
  *
  * @author Rafael
@@ -17,9 +16,9 @@ public class Gerente extends Funcionario {
 
     @Override
     public String toString() {
-        return super.toString(); 
-    }    
-    
+        return super.toString();
+    }
+
     @Override
     public Object[] obterDados() {
         return new Object[]{super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, super.salario, super.dataAdmissao, super.banco, super.agencia, super.contaCorrente, this.getClass().getSimpleName()};

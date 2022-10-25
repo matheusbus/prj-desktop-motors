@@ -9,7 +9,7 @@ package br.com.lojaveiculo.model;
  * @author Matheus
  */
 public class Usuario {
-    
+
     private static int codigoGerado = 0;
     private int codigo;
     private String login;
@@ -40,5 +40,5 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 }

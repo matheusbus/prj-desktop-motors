@@ -9,6 +9,6 @@ package br.com.lojaveiculo.interfaces;
  * @author Matheus
  */
 public interface ValidaCadastroVeiculo {
-    
+
     public boolean verificaPlaca(String placa);
 }

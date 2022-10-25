@@ -12,9 +12,11 @@ import java.util.List;
  * @author Matheus
  */
 public interface UsuarioRepositorio {
-    
+
     public List<Usuario> getUsuarios();
+
     public boolean adicionarUsuario(Usuario p);
+
     public Usuario buscaUsuario(String login);
-    
+
 }

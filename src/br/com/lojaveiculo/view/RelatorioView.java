@@ -13,7 +13,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-
 /**
  *
  * @author Matheus
@@ -22,7 +21,7 @@ public class RelatorioView extends javax.swing.JFrame {
 
     private final VendaRepositorio RepositorioDeVendas;
     private static List<Venda> vendas = new ArrayList<>();
-    
+
     /**
      * Creates new form RelatorioView
      */
@@ -32,31 +31,29 @@ public class RelatorioView extends javax.swing.JFrame {
         setSize(800, 650);
         setLocationRelativeTo(null);
         RepositorioDeVendas = new VendaDAO();
-        
+
         //RepositorioDeVendas.getVenda().stream().sorted((Venda v1, Venda v2) -> 
         //v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome()));
-        
         //RepositorioDeVendas.getVenda().stream().sorted(new Comparator<Venda>(){
-            //@Override
-            //public int compare(Venda v1, Venda v2){
-                //return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome());
-           // }
+        //@Override
+        //public int compare(Venda v1, Venda v2){
+        //return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome());
+        // }
         //});
-        
         vendas = RepositorioDeVendas.getVenda();
-        
-         Collections.sort(vendas, new Comparator<Venda>() {
+
+        Collections.sort(vendas, new Comparator<Venda>() {
             @Override
             public int compare(Venda v1, Venda v2) {
                 return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome());
             }
         });
-         
-        for(Venda v : RepositorioDeVendas.getVenda()){
+
+        for (Venda v : RepositorioDeVendas.getVenda()) {
             txtDados.append("ID Venda: " + v.getIdVenda() + "\n");
             txtDados.append("Nome do Vendedor: " + v.getVendedor().getNome() + "\n");
             txtDados.append("Cliente: " + v.getCliente().getNome() + "\n");
-            txtDados.append("CPF do Cliente: " + v.getCliente().getCpf()+ "\n");
+            txtDados.append("CPF do Cliente: " + v.getCliente().getCpf() + "\n");
             txtDados.append("Modeo do Veiculo: " + v.getVeiculo().getModelo() + "\n");
             txtDados.append("Placa do Veiculo: " + v.getVeiculo().getPlaca() + "\n");
             txtDados.append("----------------" + "\n");

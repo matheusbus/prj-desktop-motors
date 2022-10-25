@@ -30,7 +30,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-    
+
     // Construtor chamado na tela de venda
     public ConsultaMotoView(VendaView venda) {
         organizaLayout();
@@ -38,11 +38,11 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         this.venda = venda;
         this.veiculos = new VeiculoDAO();
     }
-      
+
     @Override
-    public void organizaLayout(){
-        initComponents();  
-        
+    public void organizaLayout() {
+        initComponents();
+
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -50,7 +50,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         grid = (DefaultTableModel) tblMotos.getModel();
         popularTabela();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -235,18 +235,18 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
         abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
+        if (0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")) {
             removerDaTabela();
             apresentaMensagem("Veículo removido!", "Remoção efetuada");
         }
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
- 
+
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         limpaSelecao();
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
@@ -259,7 +259,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     private void btnAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVeiculoActionPerformed
         try {
             abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
-        } catch (Exception e){
+        } catch (Exception e) {
             apresentaMensagem("Selecione um veículo!", "Erro ao alterar moto");
         }
     }//GEN-LAST:event_btnAlterarVeiculoActionPerformed
@@ -267,29 +267,28 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     @Override
     public void abrirTelaCadastro() {
         CadastroMotoView cadMoto = new CadastroMotoView(this);
-        cadMoto.setVisible(true);        
+        cadMoto.setVisible(true);
     }
-    
+
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
         CadastroMotoView altMoto = new CadastroMotoView(this, (Moto) obj);
         altMoto.setVisible(true);
     }
-    
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
-    
+
     @Override
-    public void limparTabela(){
+    public void limparTabela() {
         grid.setRowCount(0);
     }
-    
+
     @Override
     public void removerDaTabela() {
-        if (!(tblMotos.getSelectedRow() == -1)){
+        if (!(tblMotos.getSelectedRow() == -1)) {
             String placa = (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
             repositorioDeVeiculos.removeVeiculo(placa);
             limparTabela();
@@ -298,56 +297,55 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
             apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
         }
     }
-    
+
     @Override
-    public void limpaSelecao(){
+    public void limpaSelecao() {
         // Limpar seleção da linha atual na tabela
         tblMotos.clearSelection();
     }
-    
+
     @Override
-    public void popularTabela(){
+    public void popularTabela() {
         limparTabela();
         tblMotos.getModel();
         Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-        for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-            if(entry.getValue() instanceof Moto){
+
+        for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
+            if (entry.getValue() instanceof Moto) {
                 Moto moto = (Moto) entry.getValue();
                 grid.addRow(moto.obterDados());
             }
         }
     }
-     
+
     @Override
-    public void buscaNaTabela(String placa){
+    public void buscaNaTabela(String placa) {
         int incidencia = -1;
-        if(placa.length() == 7){
-            for(int i = 0; i <= tblMotos.getRowCount()-1; i++){
-                if(grid.getValueAt(i, 0).equals(placa)){
+        if (placa.length() == 7) {
+            for (int i = 0; i <= tblMotos.getRowCount() - 1; i++) {
+                if (grid.getValueAt(i, 0).equals(placa)) {
                     incidencia = i;
                 }
             }
-            if(incidencia != -1){
-            tblMotos.setRowSelectionInterval(incidencia, incidencia);
+            if (incidencia != -1) {
+                tblMotos.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
+                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '" + placa + "'.", "Veículo não encontrado");
             }
         } else {
             apresentaMensagem("Digite uma placa válida!", "Placa inválida");
         }
     }
-    
-    public void selecionaItem(String placa){
-       venda.veiculo = veiculos.buscarVeiculo(placa); 
-       venda.VeiculoSelecionado = true;
-       setVisible(false);
+
+    public void selecionaItem(String placa) {
+        venda.veiculo = veiculos.buscarVeiculo(placa);
+        venda.VeiculoSelecionado = true;
+        setVisible(false);
     }
-    
+
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;

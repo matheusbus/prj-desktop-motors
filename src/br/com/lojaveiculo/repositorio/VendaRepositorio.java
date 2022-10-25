@@ -12,12 +12,17 @@ import java.util.List;
  * @author Rafael
  */
 public interface VendaRepositorio {
-    
+
     public List<Venda> getVenda();
+
     public boolean adicionarVenda(Venda v);
+
     public boolean removeVenda(int id);
+
     public Venda buscaVenda(int id);
+
     public void ordenaPlaca();
+
     public void ordenaPreco();
-    
+
 }

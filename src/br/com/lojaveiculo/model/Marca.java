@@ -8,15 +8,13 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
-
 public final class Marca {
-    
+
     private String nome;
     private int codigoMarca;
     private static int geradorCodigoMarca = 0;
-    
-    
-    public Marca(String nome){
+
+    public Marca(String nome) {
         this.codigoMarca = geradorCodigoMarca++;
         this.nome = nome;
     }
@@ -28,7 +26,7 @@ public final class Marca {
     public void setCodigoMarca(int codigoMarca) {
         this.codigoMarca = codigoMarca;
     }
-    
+
     public String getNome() {
         return nome;
     }

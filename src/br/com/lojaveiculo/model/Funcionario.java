@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.model;
 
-
 import java.time.LocalDate;
 
 /**
@@ -12,7 +11,7 @@ import java.time.LocalDate;
  * @author Rafael
  */
 public abstract class Funcionario extends Pessoa {
-    
+
     protected double salario;
     protected LocalDate dataAdmissao;
     protected String pisPasep;
@@ -23,7 +22,7 @@ public abstract class Funcionario extends Pessoa {
     public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) {
         super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.salario = salario;
-        this.dataAdmissao = LocalDate.now(); 
+        this.dataAdmissao = LocalDate.now();
         this.banco = banco;
         this.agencia = agencia;
         this.contaCorrente = contaCorrente;
@@ -60,7 +59,7 @@ public abstract class Funcionario extends Pessoa {
     public void setPisPasep(String pisPasep) {
         this.pisPasep = pisPasep;
     }
-    
+
     public double getSalario() {
         return salario;
     }
@@ -79,19 +78,18 @@ public abstract class Funcionario extends Pessoa {
 
     @Override
     public String toString() {
-        return  super.toString() +
-                "Salário: R$" + this.salario + "\n" +
-                "Admissão: " + this.dataAdmissao + "\n" +
-                "Pis/Pasep: " + this.pisPasep + "\n" +
-                "Banco: " + this.banco + "\n" +
-                "Agência: " + this.agencia + "\n" +
-                "Conta Corrente: " + this.contaCorrente + "\n";
+        return super.toString()
+                + "Salário: R$" + this.salario + "\n"
+                + "Admissão: " + this.dataAdmissao + "\n"
+                + "Pis/Pasep: " + this.pisPasep + "\n"
+                + "Banco: " + this.banco + "\n"
+                + "Agência: " + this.agencia + "\n"
+                + "Conta Corrente: " + this.contaCorrente + "\n";
     }
-    
+
     @Override
     public Object[] obterDados() {
-         return new Object[] {super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, this.salario, this.dataAdmissao, this.banco, this.agencia, this.contaCorrente};
+        return new Object[]{super.nome, super.cpf, super.rg, super.cep, super.endereco, super.bairro, super.cidade, super.estado, super.telefone, super.email, this.salario, this.dataAdmissao, this.banco, this.agencia, this.contaCorrente};
     }
-    
-}
 
+}
