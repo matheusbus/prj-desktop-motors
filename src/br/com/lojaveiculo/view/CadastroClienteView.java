@@ -387,7 +387,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                         consultaCliente.limparTabela();
                         consultaCliente.popularTabela();
                     }
-                    apresentaMensagem(p.toString(), "teste");
+                    //apresentaMensagem(p.toString(), "teste");
                     apresentaMensagem("Cliente cadastrado com sucesso", "Sucesso");
                     this.dispose();
                     }

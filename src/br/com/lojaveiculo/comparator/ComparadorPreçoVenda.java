@@ -1,4 +1,3 @@
-
 package br.com.lojaveiculo.comparator;
 
 import br.com.lojaveiculo.model.*;
@@ -12,10 +11,10 @@ public class ComparadorPreçoVenda implements Comparator<Venda> {
 
     @Override
     public int compare(Venda v1, Venda v2) {
-          if(v1.getVeiculo().getPreco() > v2.getVeiculo().getPreco())
+        if (v1.getVeiculo().getPreco() > v2.getVeiculo().getPreco()) {
             return 1;
-        else
+        } else {
             return -1;
+        }
     }
-    }
-   
+}

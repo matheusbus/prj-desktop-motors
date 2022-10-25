@@ -1,4 +1,3 @@
-
 package br.com.lojaveiculo.dao;
 
 import br.com.lojaveiculo.comparator.ComparadorPreçoVenda;
@@ -13,7 +12,6 @@ import java.util.List;
  *
  * @author Rafael
  */
-
 public class VendaDAO implements VendaRepositorio {
 
     private static List<Venda> vendas = new ArrayList<>();
@@ -63,12 +61,10 @@ public class VendaDAO implements VendaRepositorio {
     public void ordenaPlaca() {
         Collections.sort(vendas);
     }
- 
+
     @Override
     public void ordenaPreco() {
-    
-Collections.sort(vendas, new ComparadorPreçoVenda()); 
+        Collections.sort(vendas, new ComparadorPreçoVenda());
 
-        }
+    }
 }
-
