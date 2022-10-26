@@ -8,12 +8,13 @@ import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
+
 /**
  *
  * @author Matheus
  */
 public final class PrincipalView extends javax.swing.JFrame {
-    
+
     public PrincipalView() {
         initComponents();
         organizaLayout();
@@ -25,7 +26,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         criaInstancia.criaVendas();
     }
 
-    public void organizaLayout(){
+    public void organizaLayout() {
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         this.add(painelFundo);
         this.setContentPane(painelFundo);
@@ -35,7 +36,7 @@ public final class PrincipalView extends javax.swing.JFrame {
         // Tela cheia: quando o software estiver pronto
         //this.setExtendedState(this.MAXIMIZED_BOTH);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -59,7 +60,6 @@ public final class PrincipalView extends javax.swing.JFrame {
         muTelaVenda = new javax.swing.JMenuItem();
         muRelatorios = new javax.swing.JMenu();
         miRelatorios = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DestkopMotors");
@@ -192,9 +192,6 @@ public final class PrincipalView extends javax.swing.JFrame {
 
         mbMenuPrincipal.add(muRelatorios);
 
-        jMenu3.setText("Opções");
-        mbMenuPrincipal.add(jMenu3);
-
         setJMenuBar(mbMenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,23 +209,23 @@ public final class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void muConsultaFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaFuncionariosActionPerformed
-       ConsultaFuncionariosView consultaFuncionarios = new ConsultaFuncionariosView();
-       consultaFuncionarios.setVisible(true);
+        ConsultaFuncionariosView consultaFuncionarios = new ConsultaFuncionariosView();
+        consultaFuncionarios.setVisible(true);
     }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
 
     private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
-       ConsultaCarroView consultaCarro = new ConsultaCarroView();
-       consultaCarro.setVisible(true);
+        ConsultaCarroView consultaCarro = new ConsultaCarroView();
+        consultaCarro.setVisible(true);
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-       ConsultaMotoView consultaMoto = new ConsultaMotoView();
-       consultaMoto.setVisible(true);
+        ConsultaMotoView consultaMoto = new ConsultaMotoView();
+        consultaMoto.setVisible(true);
     }//GEN-LAST:event_miConsMotoActionPerformed
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-       RelatorioView relatorio = new RelatorioView();
-       relatorio.setVisible(true);
+        RelatorioView relatorio = new RelatorioView();
+        relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
 
@@ -248,41 +245,28 @@ public final class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadClientesActionPerformed
 
     private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
-       ConsultaClientesView consultaCliente = new ConsultaClientesView();
-       consultaCliente.setVisible(true);
+        ConsultaClientesView consultaCliente = new ConsultaClientesView();
+        consultaCliente.setVisible(true);
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-      VendaView Venda = new VendaView();
-      Venda.setVisible(true);   
+        VendaView Venda = new VendaView();
+        Venda.setVisible(true);
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
-      ConsultaVendaView consultaVenda = new ConsultaVendaView();
-      consultaVenda.setVisible(true);  
+        ConsultaVendaView consultaVenda = new ConsultaVendaView();
+        consultaVenda.setVisible(true);
     }//GEN-LAST:event_muConsultaVendasActionPerformed
 
     private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
         CadastroFuncionariosView cadFuncionarios = new CadastroFuncionariosView();
         cadFuncionarios.setVisible(true);
     }//GEN-LAST:event_miCadFuncionariosActionPerformed
-                                             
 
-    
-        public static void main(String args[]) {
-            
-            FlatArcDarkIJTheme.setup();
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new PrincipalView().setVisible(true);
-            });
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar mbMenuPrincipal;
     private javax.swing.JMenu menuVeiculos;
     private javax.swing.JMenuItem miCadCarro;
@@ -302,7 +286,5 @@ public final class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem muTelaVenda;
     private javax.swing.JMenu muVendas;
     // End of variables declaration//GEN-END:variables
-       
+
 }
-
-

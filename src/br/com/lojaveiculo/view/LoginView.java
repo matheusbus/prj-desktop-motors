@@ -19,10 +19,9 @@ import javax.swing.JOptionPane;
  * @author Matheus
  */
 public final class LoginView extends TelaBaseView {
-    
-    
+
     private final UsuarioRepositorio repositorioDeUsuarios;
-    
+
     /**
      * Creates new form LoginView
      */
@@ -33,10 +32,9 @@ public final class LoginView extends TelaBaseView {
         FabricaObjetos fab = new FabricaObjetos();
         fab.criaUsuarios();
     }
-   
 
     @Override
-    public void organizaLayout(){
+    public void organizaLayout() {
         this.setContentPane(pnlPrincipal);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -54,7 +52,7 @@ public final class LoginView extends TelaBaseView {
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         lblLogo.add(painelFundo);
         painelFundo.setImg(new ImageIcon("src/br/com/lojaveiculo/img/fundoPrincipalView.png"));
-        lblLogado.setVisible(false);        
+        lblLogado.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -170,7 +168,7 @@ public final class LoginView extends TelaBaseView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-  
+
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
         validaLogin();
     }//GEN-LAST:event_btnLogarActionPerformed
@@ -178,33 +176,33 @@ public final class LoginView extends TelaBaseView {
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(null, mensagem, titulo, HEIGHT);
-    }    
-    
-    public void logar(){
+    }
+
+    public void logar() {
         criaTelaPrincipal();
         this.dispose();
     }
-    
-    private void criaTelaPrincipal(){
+
+    private void criaTelaPrincipal() {
         PrincipalView telaPrincipal = new PrincipalView();
         telaPrincipal.setVisible(true);
     }
 
-    public void validaLogin(){
+    public void validaLogin() {
         Usuario usuBuscado = repositorioDeUsuarios.buscaUsuario(txtLogin.getText());
-        if (usuBuscado == null){
+        if (usuBuscado == null) {
             apresentaMensagem("O usuário digitado não foi encontrado.", "Erro de login");
         } else {
-            if(usuBuscado.getSenha().equals(txtSenha.getText())){
+            if (usuBuscado.getSenha().equals(txtSenha.getText())) {
                 logar();
             }
         }
     }
-    
+
     public static void main(String args[]) {
-        
+
         FlatArcDarkIJTheme.setup();
-        
+
         // Create and display the form
         java.awt.EventQueue.invokeLater(() -> {
             new LoginView().setVisible(true);
@@ -223,8 +221,5 @@ public final class LoginView extends TelaBaseView {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-
-
-
 
 }

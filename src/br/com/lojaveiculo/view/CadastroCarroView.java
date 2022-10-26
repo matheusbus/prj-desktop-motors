@@ -1,42 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.exceções.VerificaCamposNulosException;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author eduar
  */
-public final class CadastroCarroView extends TelaBaseCadastroView implements ValidaCadastroVeiculo{
+public final class CadastroCarroView extends TelaBaseCadastroView implements ValidaCadastroVeiculo {
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaCarroView consultaCarro = null;
     private Carro carro;
-  
-    
+
     /**
      * Creates new form CadastroFuncionario
+     *
      * @param consultaCarro
      */
     public CadastroCarroView(ConsultaCarroView consultaCarro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
     }
-    
-    public CadastroCarroView(){
+
+    public CadastroCarroView() {
         organizaLayout();
     }
-    
-    public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro){
+
+    public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
         this.txtPlaca.setEditable(false);
@@ -53,17 +52,16 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         txtPreco.setText(Double.toString(carro.getPreco()));
         cbPorta.setSelectedItem(Integer.toString(carro.getPortas()));
         cbCombustivel.setSelectedItem((String) carro.getTipoCombustivel());
-        
+
     }
 
     @Override
-    public void organizaLayout(){
+    public void organizaLayout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -141,7 +139,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblMarca.setText("Marca");
 
         txtPreco.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPreco.setRequestFocusEnabled(false);
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,6 +176,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblTipoCarroceria.setText("Tipo da Carroceria");
 
         txtChassi.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtChassi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtChassiActionPerformed(evt);
+            }
+        });
 
         lblChassi.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblChassi.setForeground(new java.awt.Color(255, 255, 255));
@@ -333,7 +340,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-        if(lblTitulo.getText().equals("Alterar Carro")){
+        if (lblTitulo.getText().equals("Alterar Carro")) {
             alterarCadastro(carro);
         } else {
             cadastrarCarro();
@@ -344,53 +351,71 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    public void cadastrarCarro(){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                String placa = txtPlaca.getText().toUpperCase();
-                String modelo = txtModelo.getText();
-                Marca marca = new Marca(txtMarca.getText());
-                String chassi = txtChassi.getText();
-                String cor = txtCor.getText();
-                String tipoCarroceria = cbTipoCarroceria.getSelectedItem().toString();
-                int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                Double preco = Double.valueOf(txtPreco.getText());
-                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                int portas = Integer.parseInt(cbPorta.getSelectedItem().toString());
-                
-                Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
-                veiculos.addVeiculo(novoCarro);
-                if(consultaCarro != null){
-                    consultaCarro.limparTabela();
-                    consultaCarro.popularTabela();
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
+
+    private void txtChassiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChassiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtChassiActionPerformed
+
+    public void cadastrarCarro() {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    String placa = txtPlaca.getText().toUpperCase();
+                    String modelo = txtModelo.getText();
+                    Marca marca = new Marca(txtMarca.getText());
+                    String chassi = txtChassi.getText();
+                    String cor = txtCor.getText();
+                    String tipoCarroceria = cbTipoCarroceria.getSelectedItem().toString();
+                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
+                    Double preco = Double.valueOf(txtPreco.getText());
+                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                    int portas = Integer.parseInt(cbPorta.getSelectedItem().toString());
+
+                    Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
+                    veiculos.addVeiculo(novoCarro);
+                    if (consultaCarro != null) {
+                        consultaCarro.limparTabela();
+                        consultaCarro.popularTabela();
+                    }
+                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
+                    this.dispose();
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos", "Erro");
                 }
-                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                this.dispose();
             } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
+                apresentaMensagem("Preencha todos os campos", "Erro");
             }
+
         } else {
             apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
-        }         
+        }
     }
-    
-    public void alterarCadastro(Carro carro){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                veiculos.removeVeiculo(carro.getPlaca());
-                carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
-                carro.setModelo(txtModelo.getText());
-                carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
-                carro.setPreco(Double.parseDouble(txtPreco.getText()));
-                carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
-                carro.setChassi(carro.getChassi());
-                carro.setCor(txtCor.getText());
-                carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
-                veiculos.addVeiculo(carro);
-                consultaCarro.popularTabela();
-                
-                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
-                this.dispose();
+
+    public void alterarCadastro(Carro carro) {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    veiculos.removeVeiculo(carro.getPlaca());
+                    carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
+                    carro.setModelo(txtModelo.getText());
+                    carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
+                    carro.setPreco(Double.parseDouble(txtPreco.getText()));
+                    carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                    carro.setChassi(carro.getChassi());
+                    carro.setCor(txtCor.getText());
+                    carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
+                    veiculos.addVeiculo(carro);
+                    consultaCarro.popularTabela();
+
+                    apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    this.dispose();
+
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos.", "Erro");
+                }
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
             }
@@ -398,10 +423,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
             apresentaMensagem("A placa digitada é invalida!", "Erro na alteração");
         }
     }
-    
+
     @Override
     public boolean verificaCamposNulos() {
-        if(!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals("")) || (txtPreco.getText().trim().equals("")))){
+        if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
+                || (txtPreco.getText().trim().equals("")) || (txtChassi.getText().trim().equals("")))) {
             return true;
         } else {
             return false;
@@ -410,13 +436,13 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
 
     @Override
     public boolean verificaPlaca(String placa) {
-        if(placa.length() == 7){
+        if (placa.length() == 7) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     @Override
     public void limparCampos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -426,7 +452,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;
     private javax.swing.JButton btnCancela;

@@ -287,9 +287,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         if (!(tblClientes.getSelectedRow() != -1)) {
             apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
         } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
-            removerDaTabela();
-        }
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
         }
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
@@ -385,17 +385,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-
-        FlatArcDarkIJTheme.setup();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaClientesView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;

@@ -13,9 +13,10 @@ public abstract class TelaBaseCadastroView extends TelaBaseView {
     public TelaBaseCadastroView() {
         initComponents();
     }
-    
+
     //Método para limpar campos
     public abstract void limparCampos();
+
     public abstract boolean verificaCamposNulos();
 
     @SuppressWarnings("unchecked")
@@ -37,7 +38,6 @@ public abstract class TelaBaseCadastroView extends TelaBaseView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

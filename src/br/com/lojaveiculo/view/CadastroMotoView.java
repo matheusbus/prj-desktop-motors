@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
@@ -16,27 +12,26 @@ import javax.swing.JOptionPane;
  *
  * @author eduar
  */
-public final class CadastroMotoView extends TelaBaseCadastroView implements ValidaCadastroVeiculo{
+public final class CadastroMotoView extends TelaBaseCadastroView implements ValidaCadastroVeiculo {
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaMotoView consultaMoto = null;
     private Moto moto;
-  
-    
+
     /**
      * Creates new form CadastroFuncionario
      */
-    public CadastroMotoView(){
+    public CadastroMotoView() {
         organizaLayout();
     }
-    
+
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
         organizaLayout();
         this.consultaMoto = consultaMoto;
     }
-    
+
     // Construtor utilizado ao alterar uma moto.
-    public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto){
+    public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto) {
         organizaLayout();
         this.txtPlaca.setEditable(false);
         this.consultaMoto = consultaMoto;
@@ -56,13 +51,13 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     }
 
     @Override
-    public void organizaLayout(){
+    public void organizaLayout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,6 +127,12 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         lblCor.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblCor.setForeground(new java.awt.Color(255, 255, 255));
         lblCor.setText("Cor");
+
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -330,40 +331,48 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
-        if(lblTitulo.getText().equals("Alterar Moto")){
+        if (lblTitulo.getText().equals("Alterar Moto")) {
             alterarMoto(moto);
         } else {
             cadastrarMoto();
         }
-        
+
     }//GEN-LAST:event_btnCadMotoActionPerformed
 
     private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    public void cadastrarMoto(){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                String placa = txtPlaca.getText().toUpperCase();
-                String modelo = txtModelo.getText();
-                Marca marca = new Marca(txtMarca.getText());
-                String chassi = txtChassi.getText();
-                String cor = txtCor.getText();
-                String tipoCarroceira = cbTipoCarroceria.getSelectedItem().toString();
-                int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                Double preco = Double.valueOf(txtPreco.getText());
-                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                int cilindradas = Integer.parseInt(txtCilindradas.getText());
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
-                Moto novaMoto = new Moto(placa, modelo, marca, chassi, cor, tipoCarroceira, ano, preco, tipoCombustivel, cilindradas);
-                veiculos.addVeiculo(novaMoto);
-                if(consultaMoto != null){
-                    consultaMoto.limparTabela();
-                    consultaMoto.popularTabela();
+    public void cadastrarMoto() {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    String placa = txtPlaca.getText().toUpperCase();
+                    String modelo = txtModelo.getText();
+                    Marca marca = new Marca(txtMarca.getText());
+                    String chassi = txtChassi.getText();
+                    String cor = txtCor.getText();
+                    String tipoCarroceira = cbTipoCarroceria.getSelectedItem().toString();
+                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
+                    Double preco = Double.valueOf(txtPreco.getText());
+                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                    int cilindradas = Integer.parseInt(txtCilindradas.getText());
+
+                    Moto novaMoto = new Moto(placa, modelo, marca, chassi, cor, tipoCarroceira, ano, preco, tipoCombustivel, cilindradas);
+                    veiculos.addVeiculo(novaMoto);
+                    if (consultaMoto != null) {
+                        consultaMoto.limparTabela();
+                        consultaMoto.popularTabela();
+                    }
+                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
+                    this.dispose();
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Prencha os campos com valores válidos", "Erro");
                 }
-                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                this.dispose();
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
@@ -371,38 +380,42 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
             apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
     }
-    
-    public void alterarMoto(Moto moto){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                veiculos.removeVeiculo(moto.getPlaca());
-                moto.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
-                moto.setCilindrada(Integer.parseInt(txtCilindradas.getText()));
-                moto.setModelo(txtModelo.getText());
-                moto.setPreco(Double.parseDouble(txtPreco.getText()));
-                moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
-                moto.getMarca().setNome(txtMarca.getText());
-                moto.setChassi(txtChassi.getText());
-                moto.setCor(txtCor.getText());
-                moto.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
-                veiculos.addVeiculo(moto);
-                consultaMoto.popularTabela();
-                
-                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
-                this.dispose();
+
+    public void alterarMoto(Moto moto) {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    veiculos.removeVeiculo(moto.getPlaca());
+                    moto.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
+                    moto.setCilindrada(Integer.parseInt(txtCilindradas.getText()));
+                    moto.setModelo(txtModelo.getText());
+                    moto.setPreco(Double.parseDouble(txtPreco.getText()));
+                    moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                    moto.getMarca().setNome(txtMarca.getText());
+                    moto.setChassi(txtChassi.getText());
+                    moto.setCor(txtCor.getText());
+                    moto.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
+                    veiculos.addVeiculo(moto);
+                    consultaMoto.popularTabela();
+
+                    apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    this.dispose();
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos", "Erro");
+                }
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
             apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
-        
+
     }
-    
+
     @Override
     public boolean verificaCamposNulos() {
-        if(!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals("")) 
-          || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")))){
+        if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
+                || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")) || (txtChassi.getText().trim().equals("")))) {
             return true;
         } else {
             return false;
@@ -411,7 +424,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
 
     @Override
     public boolean verificaPlaca(String placa) {
-        if(placa.length() == 7){
+        if (placa.length() == 7) {
             return true;
         } else {
             return false;

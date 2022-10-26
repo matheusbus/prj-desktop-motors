@@ -22,18 +22,6 @@ public class PessoaDAO implements PessoaRepositorio {
 
     private static Set<Pessoa> pessoas;
 
-    //@Override
-    //public int compare(Pessoa o1, Pessoa o2) {
-        //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
-        //});
-
-        //return p1.getNome().compareTo(p2.getNome());
-
-    //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
-    //ordenaOrdemAlfabetica.stream()
-    //.sorted(Comparator.comparing(Pessoas: :getNome))
-    //.collect(Collectors.toList())
-    //.forEach(pessoa -> System.out.Println(pessoa));
     public PessoaDAO() {
         if (PessoaDAO.pessoas == null) {
             pessoas = new HashSet<>();
@@ -82,6 +70,8 @@ public class PessoaDAO implements PessoaRepositorio {
         return false;
     }
 
+    
+    // Tirar dúvida com professor - método de filtrar a lista e não de adicionar (o adicionar é na nova lista filtrada)
     @Override
     public Set<Pessoa> getClientes() {
         Set<Pessoa> clientes = new HashSet<>();
@@ -103,10 +93,10 @@ public class PessoaDAO implements PessoaRepositorio {
         }
         return funcionarios;
     }
-    
+
     @Override
-   public void ordenaNome(){
-       List<Pessoa> sortedList = new ArrayList<>(pessoas);
-       Collections.sort(sortedList);
-   } 
+    public void ordenaNome() {
+        List<Pessoa> sortedList = new ArrayList<>(pessoas);
+        Collections.sort(sortedList);
+    }
 }

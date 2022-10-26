@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
@@ -35,10 +31,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         organizaLayout();
         this.btnSelecionarFuncionario.setEnabled(false);
     }
-    
+
     @Override
     public void organizaLayout() {
-        initComponents(); 
+        initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
@@ -46,15 +42,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
         popularTabela();
-        
-    }
-           
-    public void selecionaItem(String cpf){
-       venda.vendedor = pessoas.buscarPessoaPorCPF(cpf); 
-       venda.VendedorSelecionado = true;
-       setVisible(false);
+
     }
 
+    public void selecionaItem(String cpf) {
+        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
+        venda.VendedorSelecionado = true;
+        setVisible(false);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -190,9 +185,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                 .addGap(42, 42, 42)
                 .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(873, Short.MAX_VALUE))
@@ -210,9 +205,10 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
                         .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSelecionarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnOrdenarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCadastrarFuncionário, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18))
         );
 
@@ -261,10 +257,9 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
         if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 15).equals("Vendedor")) {
-        String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
-        selecionaItem(cpf);
-        }
-        else
+            String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
+            selecionaItem(cpf);
+        } else
             apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
@@ -273,16 +268,15 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
     private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
-       abrirTelaCadastro();
+        abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnOrdenarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarFuncActionPerformed
         pessoas.ordenaNome();
         limparTabela();
         popularTabela();
-        
-    }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
+    }//GEN-LAST:event_btnOrdenarFuncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,8 +298,8 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-         CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
-            cadastroVendedor.setVisible(true);
+        CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
+        cadastroVendedor.setVisible(true);
     }
 
     @Override
@@ -331,20 +325,17 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
- 
-
     @Override
     public void popularTabela() {
         limparTabela();
         tblFuncionarios.getModel();
         Set<Pessoa> funcionarios = repositorioDePessoas.getFuncionarios();
 
-        for (Pessoa func :funcionarios) {
-                grid.addRow(func.obterDados());
+        for (Pessoa func : funcionarios) {
+            grid.addRow(func.obterDados());
 
-            }
         }
-
+    }
 
     @Override
     public void limparTabela() {

@@ -46,22 +46,23 @@ public class FabricaObjetos {
             repositorioDeUsuarios = new UsuarioDAO();
         }
     }
-      
+
     // Teste
-    public void criaUsuarios(){
+    public void criaUsuarios() {
         repositorioDeUsuarios = new UsuarioDAO();
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Rafael", "rafa123"));
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Eduardo", "edu123"));
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Matheus", "math123"));
         repositorioDeUsuarios.adicionarUsuario(new Usuario("admin", "admin"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("", ""));
     }
 
     //Teste
     public void criaFuncionarios() {
-        repositorioDePessoas.adicionarPessoa(new Vendedor("Rafael", "12876163993", 1212121, "89163232", "Rua Valmor Pasqualine", "Canta Galo", "Rio do Sul", "SC", "(98) 3357-4626", "rdalmarco@yahoo.com.br", 10.0, "", "Santander", 0, 0, 0.0)); 
+        repositorioDePessoas.adicionarPessoa(new Vendedor("Rafael", "12876163993", 1212121, "89163232", "Rua Valmor Pasqualine", "Canta Galo", "Rio do Sul", "SC", "(98) 3357-4626", "rdalmarco@yahoo.com.br", 10.0, "", "Santander", 0, 0, 0.0));
         repositorioDePessoas.adicionarPessoa(new Vendedor("Matheus", "18376412983", 1313131, "89161424", "Rua dos vereadores", "Centro", "Ibirama", "SC", "(79) 3256-9225", "buschermoehle@gmail.com", 8.0, "", "Itaú", 0, 0, 0.0));
         repositorioDePessoas.adicionarPessoa(new Vendedor("Eduardo", "11077688804", 1414141, "89161464", "Rua José Pinheiro", "Bela Aliança", "Rio do Sul", "SC", "(47) 9999-0000", "sangaletti@gmail.com", 6.0, "", "Nubank", 0, 0, 0.0));
-        repositorioDePessoas.adicionarPessoa(new Gerente("Paolo", "44444444444", 2424242, "89160444", "Rua Jardim primavera", "Centro", "Rodeio", "SC", "(47) 4949-2424", "paolao@gmail.com", 10000.0, "99999", "Banco Pan", 234, 123456));
+        repositorioDePessoas.adicionarPessoa(new Gerente("Admin", "44444444444", 2424242, "89160444", "Rua Jardim primavera", "Centro", "Rodeio", "SC", "(47) 4949-2424", "paolao@gmail.com", 10000.0, "99999", "Banco Pan", 234, 123456));
         //repositorioDePessoas.adicionarPessoa(new Vendedor(13.5, 6000, "Nicollas Nepomuceno Pinto Alentejo", "25516297648", "(63) 3233-4798"));
         //repositorioDePessoas.adicionarPessoa(new Gerente(7000.00, "Yago Garbelini Teixeira Vaz", "14332847156", "(95) 2936-7851", "Administrativo"));
         //repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 1600, "Lucas Felipe Figueiras Alfradique Carino", "69148632880", "(67) 3326-0230"));
@@ -116,7 +117,7 @@ public class FabricaObjetos {
         repositorioDeVeiculos.addVeiculo(new Carro("MKQ8507", "CL-244 2.8 132cv 4x4 TB Int.", new Marca("Cross Lander"), "231 j8rVAA 13 k34845", "Prata", "Caminhoneta", 2003, 25000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LWR9396", "9000 CD 2.3 Turbo", new Marca("Saab"), "682 CsJk3U m8 DR0975", "Chumbo", "Sedan", 2002, 80000, "Diesel", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("AJE6388", "TOPIC FURGAO L 2.2 8V/ 2.0 16V 4p", new Marca("JINBEI"), "7Wk ketC5v yg GU6616", "Cinza", "Sedan", 1992, 120000, "Gasolina", 2));
-        repositorioDeVeiculos.addVeiculo(new Carro("MBR4428", "Hilux CD SR 4x4 3.0 8V 90cv Diesel", new Marca("Toyota"), "6t3 UAeD7y zu VT2245", "Preto", "Hatch",  2002, 130000, "Flex", 2));
+        repositorioDeVeiculos.addVeiculo(new Carro("MBR4428", "Hilux CD SR 4x4 3.0 8V 90cv Diesel", new Marca("Toyota"), "6t3 UAeD7y zu VT2245", "Preto", "Hatch", 2002, 130000, "Flex", 2));
         repositorioDeVeiculos.addVeiculo(new Carro("MGU3473", "Defender 90 TDI Hard Top Diesel", new Marca("Land Rover"), "5My P60kM9 GK 1C2457", "Prata", "Hatch", 1996, 115000, "Gasolina", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("ZEZ1270", "HOVER CUV 2.4 16V 5p Mec.", new Marca("GREAT WALL"), "6hU u8E4Ce vm z01635", "Amarelo", "Sedan", 2008, 40000, "Alcool", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LZH3275", "SL-63 AMG 5.5 Bi-Turbo V8 Aut.", new Marca("Mercedes-Benz"), "53x AZGA60 7T Z70286", "Vermelho", "SUV", 2013, 80000, "Gasolina", 4));
@@ -126,7 +127,7 @@ public class FabricaObjetos {
         repositorioDeVeiculos.addVeiculo(new Carro("LZH7265", "Outback 3.0 H6 SW 245cv Aut.", new Marca("Subaru"), "6ZF MYAJpT z2 JH2876", "Preto", "SUV", 2004, 78000, "Gasolina", 4));
         repositorioDeVeiculos.addVeiculo(new Carro("LYN0101", "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V", new Marca("Fiat"), "48a yv3Pb3 c4 Sa9206", "Vermelho", "Sedan", 2002, 61300, "Flex", 2));
         repositorioDeVeiculos.addVeiculo(new Carro("MJE5467", "F599 GTB Fiorano F1 6.0 V12 620cv", new Marca("Ferrari"), "3Kk GAKA5A Jn As6993", "Azul", "Esportivo", 2007, 400000, "Flex", 4));
-        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), "5bA sJe15x 4h Bv6251", "Azul", "Hatch",  2001, 40560, "Alcool", 7));
+        repositorioDeVeiculos.addVeiculo(new Carro("MII7048", "PT Cruiser Limited 2.0 16V 4p", new Marca("Fiat"), "5bA sJe15x 4h Bv6251", "Azul", "Hatch", 2001, 40560, "Alcool", 7));
         repositorioDeVeiculos.addVeiculo(new Carro("MCB0839", "155 Super", new Marca("Alfa Romeo"), "32L 0mReZA 2F e73667", "Preto", "SUV", 1995, 71050, "Flex", 7));
         repositorioDeVeiculos.addVeiculo(new Carro("MJF5888", "Carnival EX 3.8 V6 24V 242cv Aut.", new Marca("Kia Motors"), "3CB 5MwlnF tV 6z5784", "Prata", "Sedan", 2006, 68400, "Gasolina", 7));
         repositorioDeVeiculos.addVeiculo(new Carro("MJB2287", "Quattroporte Automatica 4.2 32V 400cv", new Marca("Maserati"), "7H1 UAlw4K v1 1A8385", "Branco", "SUV", 2008, 17000, "Alcool", 7));
@@ -135,17 +136,25 @@ public class FabricaObjetos {
     }
 
     public void criaVendas() {
-       repositorioDeVendas.adicionarVenda(
-              new Venda(repositorioDeVeiculos.buscarVeiculo("MKQ8507"),
-                      repositorioDePessoas.buscarPessoaPorCPF("48078625960"),
-                      repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+        repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("MKQ8507"),
+                        repositorioDePessoas.buscarPessoaPorCPF("48078625960"),
+                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
         repositorioDeVendas.adicionarVenda(
                 new Venda(repositorioDeVeiculos.buscarVeiculo("AJE6388"),
-                      repositorioDePessoas.buscarPessoaPorCPF("22411697309"),
-                       repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+                        repositorioDePessoas.buscarPessoaPorCPF("22411697309"),
+                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
         repositorioDeVendas.adicionarVenda(
-              new Venda(repositorioDeVeiculos.buscarVeiculo("ZEZ1270"),
+                new Venda(repositorioDeVeiculos.buscarVeiculo("ZEZ1270"),
                         repositorioDePessoas.buscarPessoaPorCPF("61120269377"),
-                       repositorioDePessoas.buscarPessoaPorCPF("12876163993")));   
-    }   
+                        repositorioDePessoas.buscarPessoaPorCPF("12876163993")));
+        repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("MJE5467"),
+                        repositorioDePessoas.buscarPessoaPorCPF("62115525132"),
+                        repositorioDePessoas.buscarPessoaPorCPF("11077688804")));
+        repositorioDeVendas.adicionarVenda(
+                new Venda(repositorioDeVeiculos.buscarVeiculo("LZH3275"),
+                        repositorioDePessoas.buscarPessoaPorCPF("62115525132"),
+                        repositorioDePessoas.buscarPessoaPorCPF("18376412983")));
+    }
 }

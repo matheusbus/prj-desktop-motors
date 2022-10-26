@@ -8,8 +8,8 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
-public abstract class Pessoa implements Comparable<Pessoa>{
-    
+public abstract class Pessoa implements Comparable<Pessoa> {
+
     protected String nome;
     protected String cpf;
     protected long rg;
@@ -33,7 +33,7 @@ public abstract class Pessoa implements Comparable<Pessoa>{
         this.telefone = telefone;
         this.email = email;
     }
-    
+
     public void setRg(long rg) {
         this.rg = rg;
     }
@@ -116,21 +116,21 @@ public abstract class Pessoa implements Comparable<Pessoa>{
 
     @Override
     public String toString() {
-        return  "Nome: " + this.nome + "\n" +
-                "CPF: " + this.cpf + "\n" +
-                "Telefone: " + this.telefone + "\n" + 
-                "RG: " + this.rg + "\n" + 
-                "Cep: " + this.cep + "\n" + 
-                "Endereço: " + this.endereco + "\n" + 
-                "Bairro: " + this.bairro + "\n" + 
-                "Cidade: " + this.cidade + ", " + this.estado + "\n" + 
-                "E-mail: " + this.email + "\n";
+        return "Nome: " + this.nome + "\n"
+                + "CPF: " + this.cpf + "\n"
+                + "Telefone: " + this.telefone + "\n"
+                + "RG: " + this.rg + "\n"
+                + "Cep: " + this.cep + "\n"
+                + "Endereço: " + this.endereco + "\n"
+                + "Bairro: " + this.bairro + "\n"
+                + "Cidade: " + this.cidade + ", " + this.estado + "\n"
+                + "E-mail: " + this.email + "\n";
     }
-    
-    public Object[] obterDados(){
-        return new Object[] {this.nome, this.cpf, this.rg, this.cep, this.endereco, this.bairro, this.cidade, this.estado, this.telefone, this.email};
-    } 
-     
+
+    public Object[] obterDados() {
+        return new Object[]{this.nome, this.cpf, this.rg, this.cep, this.endereco, this.bairro, this.cidade, this.estado, this.telefone, this.email};
+    }
+
     @Override
     public int compareTo(Pessoa p) {
         return nome.compareTo(getNome());

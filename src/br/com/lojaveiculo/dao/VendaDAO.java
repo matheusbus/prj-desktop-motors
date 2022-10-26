@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.lojaveiculo.dao;
 
+import br.com.lojaveiculo.comparator.ComparadorPreçoVenda;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import java.util.List;
 
@@ -16,15 +12,8 @@ import java.util.List;
  *
  * @author Rafael
  */
-//public class VendaDAO implements VendaRepositorio{
-//private static List<Venda> vendas;
-//public VendaDAO() { 
-// if(vendas == null){
-// this.vendas = new ArrayList<>();
-//}
-public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
+public class VendaDAO implements VendaRepositorio {
 
-//public class VendaDAO implements VendaRepositorio {
     private static List<Venda> vendas = new ArrayList<>();
 
     public VendaDAO() {
@@ -69,13 +58,12 @@ public class VendaDAO implements VendaRepositorio, Comparator<Venda> {
     }
 
     @Override
-    public int compare(Venda v1, Venda v2) {
-        return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
-
+    public void ordenaPlaca() {
+        Collections.sort(vendas);
     }
 
     @Override
-    public void ordena() {
-        Collections.sort(vendas);
+    public void ordenaPreco() {
+        Collections.sort(vendas, new ComparadorPreçoVenda());
     }
 }

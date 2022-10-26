@@ -4,10 +4,6 @@
  */
 package br.com.lojaveiculo.model;
 
-
-
-
-
 /**
  *
  * @author Matheus
@@ -53,7 +49,6 @@ public abstract class Veiculo {
         this.tipoCarroceria = tipoCarroceria;
     }
 
-    
     public String getChassi() {
         return chassi;
     }
@@ -121,4 +116,3 @@ public abstract class Veiculo {
     }
 
 }
- 

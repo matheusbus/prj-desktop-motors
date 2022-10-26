@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
@@ -53,8 +49,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         txtNome = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         btnCancela = new javax.swing.JButton();
-        txtCategoriaCnh1 = new javax.swing.JTextField();
-        lblCategoriaCnh1 = new javax.swing.JLabel();
         pnlEndereco = new javax.swing.JPanel();
         lblCep = new javax.swing.JLabel();
         lblEndereco = new javax.swing.JLabel();
@@ -182,8 +176,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 btnCancelaActionPerformed(evt);
             }
         });
-
-        lblCategoriaCnh1.setText("Categoria CNH");
 
         pnlEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -394,16 +386,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(txtCategoriaCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblCategoriaCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,16 +407,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                     .addComponent(btnCadFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 252, Short.MAX_VALUE)
-                    .addComponent(txtCategoriaCnh1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 252, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 255, Short.MAX_VALUE)
-                    .addComponent(lblCategoriaCnh1)
-                    .addGap(0, 255, Short.MAX_VALUE)))
         );
 
         pack();
@@ -451,40 +423,44 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     public void cadastrarVendedor() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
             if (verificaIntegridadeCPF(txtCpf.getText())) {
-                if (verificaCamposNulos()) {
-                    String sNome = txtNome.getText();
-                    String sCpf = txtCpf.getText();
-                    String sTelefone = txtTelefone.getText();
-                    String sSalario = txtSalario.getText();
-                    String sComissao = txtComissao.getText();
-                    Double dSalario = Double.valueOf(sSalario);
-                    Double dComissao = Double.valueOf(sComissao);
-                    long lRg = Long.valueOf(txtRg.getText());
-                    String sCep = txtCep.getText();
-                    String sEndereco = txtEndereco.getText();
-                    String sBairro = txtBairro.getText();
-                    String sCidade = txtCidade.getText();
-                    String sEstado = cbEstado.getItemAt(cbEstado.getSelectedIndex());
-                    String sEmail = txtEmail.getText();
-                    String sPisPasep = "";
-                    String sBanco = cbBanco.getItemAt(cbBanco.getSelectedIndex());
-                    int iAgencia = Integer.valueOf(txtAgencia.getText());
-                    int iContaCorrente = Integer.valueOf(txtContaCorrente.getText());
+                if (!verificaCamposNulos()) {
+                    try {
+                        String sNome = txtNome.getText();
+                        String sCpf = txtCpf.getText();
+                        String sTelefone = txtTelefone.getText();
+                        String sSalario = txtSalario.getText();
+                        String sComissao = txtComissao.getText();
+                        Double dSalario = Double.valueOf(sSalario);
+                        Double dComissao = Double.valueOf(sComissao);
+                        long lRg = Long.valueOf(txtRg.getText());
+                        String sCep = txtCep.getText();
+                        String sEndereco = txtEndereco.getText();
+                        String sBairro = txtBairro.getText();
+                        String sCidade = txtCidade.getText();
+                        String sEstado = cbEstado.getItemAt(cbEstado.getSelectedIndex());
+                        String sEmail = txtEmail.getText();
+                        String sPisPasep = "";
+                        String sBanco = cbBanco.getItemAt(cbBanco.getSelectedIndex());
+                        int iAgencia = Integer.valueOf(txtAgencia.getText());
+                        int iContaCorrente = Integer.valueOf(txtContaCorrente.getText());
 
-                    if (cbTipoFuncionario.getSelectedIndex() == 0) {
-                        Pessoa p = new Gerente(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente);
-                        pessoas.adicionarPessoa(p);
-                        apresentaMensagem("Gerente cadastrado com sucesso", "Sucesso");
-                        this.dispose();
-                    } else {
-                        Pessoa p = new Vendedor(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente, dComissao);
-                        pessoas.adicionarPessoa(p);
-                        apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
-                        this.dispose();
-                    }
-                    if (consulta != null) {
-                        consulta.limparTabela();
-                        consulta.popularTabela();
+                        if (cbTipoFuncionario.getSelectedIndex() == 0) {
+                            Pessoa p = new Gerente(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente);
+                            pessoas.adicionarPessoa(p);
+                            apresentaMensagem("Gerente cadastrado com sucesso", "Sucesso");
+                            this.dispose();
+                        } else {
+                            Pessoa p = new Vendedor(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente, dComissao);
+                            pessoas.adicionarPessoa(p);
+                            apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
+                            this.dispose();
+                        }
+                        if (consulta != null) {
+                            consulta.limparTabela();
+                            consulta.popularTabela();
+                        }
+                    } catch (NumberFormatException ex) {
+                        apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
                     }
 
                 } else {
@@ -535,7 +511,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     private javax.swing.JLabel lblCadastrarGerente1;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCategoriaCnh;
-    private javax.swing.JLabel lblCategoriaCnh1;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCpf;
@@ -551,7 +526,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     private javax.swing.JTextField txtAgencia;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCategoriaCnh;
-    private javax.swing.JTextField txtCategoriaCnh1;
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCnh;
@@ -592,9 +566,9 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     @Override
     public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals("")) 
-            || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals("")) 
-            || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
+        if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals(""))
+                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
+                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
             return true;
         } else {
             return false;
