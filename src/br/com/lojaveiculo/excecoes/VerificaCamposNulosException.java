@@ -1,4 +1,4 @@
-package br.com.lojaveiculo.exceções;
+package br.com.lojaveiculo.excecoes;
 
 public class VerificaCamposNulosException extends Exception {
 
