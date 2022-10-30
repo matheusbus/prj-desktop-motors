@@ -6,15 +6,25 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
-
 /**
  *
  * @author Matheus
  */
 public final class PrincipalView extends javax.swing.JFrame {
 
+    private ConsultaFuncionariosView consultaFuncionarios;
+    private ConsultaCarroView consultaCarro;
+    private ConsultaMotoView consultaMoto;
+    private RelatorioView relatorio;
+    private CadastroCarroView cadCarro;
+    private CadastroMotoView cadMoto;
+    private CadastroClienteView cadCliente;
+    private ConsultaClientesView consultaCliente;
+    private VendaView venda;
+    private ConsultaVendaView consultaVenda;
+    private CadastroFuncionariosView cadFuncionarios;
+    
     public PrincipalView() {
         initComponents();
         organizaLayout();
@@ -209,61 +219,86 @@ public final class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void muConsultaFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaFuncionariosActionPerformed
-        ConsultaFuncionariosView consultaFuncionarios = new ConsultaFuncionariosView();
-        consultaFuncionarios.setVisible(true);
+        if(verificaTelaAberta(consultaFuncionarios)){
+            consultaFuncionarios = new ConsultaFuncionariosView();
+            consultaFuncionarios.setVisible(true);
+        }
     }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
 
     private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
-        ConsultaCarroView consultaCarro = new ConsultaCarroView();
-        consultaCarro.setVisible(true);
+        if(verificaTelaAberta(consultaCarro)){
+            consultaCarro = new ConsultaCarroView();
+            consultaCarro.setVisible(true);
+        }
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-        ConsultaMotoView consultaMoto = new ConsultaMotoView();
-        consultaMoto.setVisible(true);
+        if(verificaTelaAberta(consultaMoto)){
+            consultaMoto = new ConsultaMotoView();
+            consultaMoto.setVisible(true);
+        }
     }//GEN-LAST:event_miConsMotoActionPerformed
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-        RelatorioView relatorio = new RelatorioView();
-        relatorio.setVisible(true);
+        if(verificaTelaAberta(relatorio)){
+            relatorio = new RelatorioView();
+            relatorio.setVisible(true);    
+        }
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
 
     private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
-        CadastroCarroView cadCarro = new CadastroCarroView();
-        cadCarro.setVisible(true);
+        if(verificaTelaAberta(cadCarro)){
+            cadCarro = new CadastroCarroView();
+            cadCarro.setVisible(true);
+        }
     }//GEN-LAST:event_miCadCarroActionPerformed
 
     private void miCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadMotoActionPerformed
-        CadastroMotoView cadMoto = new CadastroMotoView();
-        cadMoto.setVisible(true);
+        if(verificaTelaAberta(cadMoto)){
+            cadMoto = new CadastroMotoView();
+            cadMoto.setVisible(true);
+        }
     }//GEN-LAST:event_miCadMotoActionPerformed
 
     private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
-        CadastroClienteView cadCliente = new CadastroClienteView();
-        cadCliente.setVisible(true);
+        if(verificaTelaAberta(cadCliente)){
+            cadCliente = new CadastroClienteView();
+            cadCliente.setVisible(true);
+        }
     }//GEN-LAST:event_miCadClientesActionPerformed
 
     private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
-        ConsultaClientesView consultaCliente = new ConsultaClientesView();
-        consultaCliente.setVisible(true);
+        if(verificaTelaAberta(consultaCliente)){
+            consultaCliente = new ConsultaClientesView();
+            consultaCliente.setVisible(true);
+        }
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        VendaView Venda = new VendaView();
-        Venda.setVisible(true);
+        if(verificaTelaAberta(venda)){
+            venda = new VendaView();
+            venda.setVisible(true);
+        }
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
-        ConsultaVendaView consultaVenda = new ConsultaVendaView();
-        consultaVenda.setVisible(true);
+        if(verificaTelaAberta(consultaVenda)){
+            consultaVenda = new ConsultaVendaView();
+            consultaVenda.setVisible(true);
+        }
     }//GEN-LAST:event_muConsultaVendasActionPerformed
 
     private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
-        CadastroFuncionariosView cadFuncionarios = new CadastroFuncionariosView();
-        cadFuncionarios.setVisible(true);
+        if(verificaTelaAberta(cadFuncionarios)){
+            cadFuncionarios = new CadastroFuncionariosView();
+            cadFuncionarios.setVisible(true);
+        }
     }//GEN-LAST:event_miCadFuncionariosActionPerformed
 
+    public boolean verificaTelaAberta(Object tela){
+        return tela == null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;

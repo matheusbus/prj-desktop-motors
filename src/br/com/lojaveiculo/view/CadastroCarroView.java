@@ -93,7 +93,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCancela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Carro");
+        setTitle("Cadastro de Carros");
 
         btnCadCarro.setBackground(new java.awt.Color(82, 148, 226));
         btnCadCarro.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
