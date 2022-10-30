@@ -2,14 +2,13 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.exceções.VerificaCamposNulosException;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Component;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -445,9 +444,12 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
 
     @Override
     public void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(Component comp : this.getComponents()){
+            if(comp instanceof JTextField jTextField){
+                jTextField.setText("");
+            }
+        }
     }
-
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);

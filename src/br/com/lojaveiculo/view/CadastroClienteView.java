@@ -5,8 +5,11 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.awt.Component;
 import static java.awt.image.ImageObserver.HEIGHT;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -349,10 +352,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadClienteActionPerformed
-        if (this.lblTitulo.getText().equals("Novo Cliente")) {
+        if (this.cliente == null) {
             cadastrarCliente();
         } else {
-            alterarCadastro(cliente);
+            alterarCliente(cliente);
         }
     }//GEN-LAST:event_btnCadClienteActionPerformed
 
@@ -362,7 +365,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
 
     public void cadastrarCliente() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
-            if (verificaIntegridadeCPF(txtCpf.getText())) {
+            if (verificaCpf(txtCpf.getText())) {
                 if (verificaCamposNulos()) {
                     try {
                         String sNome = txtNome.getText();
@@ -402,7 +405,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         }
     }
 
-    public void alterarCadastro(Cliente cliente) {
+    public void alterarCliente(Cliente cliente) {
         if (verificaCpf(txtCpf.getText())) {
             if (verificaCamposNulos()) {
                 pessoas.removerPessoa(cliente.getCpf());
@@ -432,23 +435,47 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     }
 
     public boolean verificaExistenciaCPF(String cpf) {
-        if (pessoas.buscarPessoaPorCPF(cpf) == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean verificaIntegridadeCPF(String cpf) {
-        if (cpf.length() == 11) {
-            return true;
-        } else {
-            return false;
-        }
+        return pessoas.buscarPessoaPorCPF(cpf) == null;
     }
 
     public boolean verificaCpf(String cpf) {
-        if (cpf.length() == 11) {
+        return cpf.length() == 11;
+    }
+    
+    @Override
+    public void limparCampos() {
+        for(Component comp : this.getComponents()){
+            if(comp instanceof JTextField jTextField){
+                jTextField.setText("");
+            }
+        }
+    }
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(860, 475);
+        this.add(pnlDados);
+        this.add(pnlContato);
+        this.add(pnlEndereco);
+        this.add(btnCadCliente);
+        this.add(btnCancela);
+    }
+
+    @Override
+    public boolean verificaCamposNulos() {
+        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))
+                || txtBairro.getText().trim().equals("") || txtCategoriaCnh.getText().trim().equals("") || txtCep.getText().trim().equals("")
+                || txtCidade.getText().trim().equals("") || txtRg.getText().trim().equals("") || txtCnh.getText().trim().equals("")
+                || txtEndereco.getText().trim().equals("") || cbEstado.getSelectedItem().toString().trim().equals("")
+                || txtWhatsapp.getText().trim().equals(""))) {
             return true;
         } else {
             return false;
@@ -490,41 +517,4 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     private javax.swing.JTextField txtWhatsapp;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void limparCampos() {
-        txtCpf.setText("");
-        txtNome.setText("");
-        txtTelefone.setText("");
-    }
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void organizaLayout() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setSize(860, 475);
-        this.add(pnlDados);
-        this.add(pnlContato);
-        this.add(pnlEndereco);
-        this.add(btnCadCliente);
-        this.add(btnCancela);
-    }
-
-    @Override
-    public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))
-                || txtBairro.getText().trim().equals("") || txtCategoriaCnh.getText().trim().equals("") || txtCep.getText().trim().equals("")
-                || txtCidade.getText().trim().equals("") || txtRg.getText().trim().equals("") || txtCnh.getText().trim().equals("")
-                || txtEndereco.getText().trim().equals("") || cbEstado.getSelectedItem().toString().trim().equals("")
-                || txtWhatsapp.getText().trim().equals(""))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

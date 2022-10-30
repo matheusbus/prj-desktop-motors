@@ -4,20 +4,34 @@
  */
 package br.com.lojaveiculo.abstractview;
 
+import java.awt.Component;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Rafael
  */
-public abstract class TelaBaseCadastroView extends TelaBaseView {
+public class TelaBaseCadastroView extends TelaBaseView {
 
     public TelaBaseCadastroView() {
         initComponents();
     }
 
     //Método para limpar campos
-    public abstract void limparCampos();
+    public void limparCampos(){
+        
+    }
 
-    public abstract boolean verificaCamposNulos();
+    public boolean verificaCamposNulos(){
+        for(Component comp : getComponents()){
+            if(comp instanceof JTextField jTextField){
+                // continuar
+            }
+        }
+        return true;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,6 +52,16 @@ public abstract class TelaBaseCadastroView extends TelaBaseView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    public void apresentaMensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    }
+
+    @Override
+    public void organizaLayout() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

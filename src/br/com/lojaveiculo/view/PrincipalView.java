@@ -221,15 +221,15 @@ public final class PrincipalView extends javax.swing.JFrame {
     private void muConsultaFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaFuncionariosActionPerformed
         if(verificaTelaAberta(consultaFuncionarios)){
             consultaFuncionarios = new ConsultaFuncionariosView();
-            consultaFuncionarios.setVisible(true);
         }
+        consultaFuncionarios.setVisible(true);
     }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
 
     private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
         if(verificaTelaAberta(consultaCarro)){
             consultaCarro = new ConsultaCarroView();
-            consultaCarro.setVisible(true);
         }
+        consultaCarro.setVisible(true);
     }//GEN-LAST:event_miConsCarroActionPerformed
 
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
@@ -241,59 +241,59 @@ public final class PrincipalView extends javax.swing.JFrame {
 
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
         if(verificaTelaAberta(relatorio)){
-            relatorio = new RelatorioView();
-            relatorio.setVisible(true);    
+            relatorio = new RelatorioView();    
         }
+        relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
 
     private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
         if(verificaTelaAberta(cadCarro)){
             cadCarro = new CadastroCarroView();
-            cadCarro.setVisible(true);
         }
+        cadCarro.setVisible(true);
     }//GEN-LAST:event_miCadCarroActionPerformed
 
     private void miCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadMotoActionPerformed
         if(verificaTelaAberta(cadMoto)){
             cadMoto = new CadastroMotoView();
-            cadMoto.setVisible(true);
         }
+        cadMoto.setVisible(true);
     }//GEN-LAST:event_miCadMotoActionPerformed
 
     private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
         if(verificaTelaAberta(cadCliente)){
             cadCliente = new CadastroClienteView();
-            cadCliente.setVisible(true);
         }
+        cadCliente.setVisible(true);
     }//GEN-LAST:event_miCadClientesActionPerformed
 
     private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
         if(verificaTelaAberta(consultaCliente)){
             consultaCliente = new ConsultaClientesView();
-            consultaCliente.setVisible(true);
         }
+        consultaCliente.setVisible(true);
     }//GEN-LAST:event_muClientesActionPerformed
 
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
         if(verificaTelaAberta(venda)){
             venda = new VendaView();
-            venda.setVisible(true);
         }
+        venda.setVisible(true);
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
         if(verificaTelaAberta(consultaVenda)){
             consultaVenda = new ConsultaVendaView();
-            consultaVenda.setVisible(true);
         }
+        consultaVenda.setVisible(true);
     }//GEN-LAST:event_muConsultaVendasActionPerformed
 
     private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
         if(verificaTelaAberta(cadFuncionarios)){
             cadFuncionarios = new CadastroFuncionariosView();
-            cadFuncionarios.setVisible(true);
         }
+        cadFuncionarios.setVisible(true);
     }//GEN-LAST:event_miCadFuncionariosActionPerformed
 
     public boolean verificaTelaAberta(Object tela){
