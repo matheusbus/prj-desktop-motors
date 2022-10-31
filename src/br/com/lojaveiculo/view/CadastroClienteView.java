@@ -5,11 +5,8 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import java.awt.Component;
 import static java.awt.image.ImageObserver.HEIGHT;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -440,20 +437,6 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
 
     public boolean verificaCpf(String cpf) {
         return cpf.length() == 11;
-    }
-    
-    @Override
-    public void limparCampos() {
-        for(Component comp : this.getComponents()){
-            if(comp instanceof JTextField jTextField){
-                jTextField.setText("");
-            }
-        }
-    }
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
     }
 
     @Override

@@ -6,6 +6,7 @@ package br.com.lojaveiculo.abstractview;
 
 import java.awt.Component;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -19,15 +20,12 @@ public class TelaBaseCadastroView extends TelaBaseView {
         initComponents();
     }
 
-    //Método para limpar campos
-    public void limparCampos(){
-        
-    }
-
     public boolean verificaCamposNulos(){
         for(Component comp : getComponents()){
             if(comp instanceof JTextField jTextField){
-                // continuar
+                if(((JTextField) comp).getText().equals("")){
+                    return false;
+                }
             }
         }
         return true;

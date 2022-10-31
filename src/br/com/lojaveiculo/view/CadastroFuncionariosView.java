@@ -7,10 +7,6 @@ import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import java.awt.Component;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
 /**
  *
  * @author eduar
@@ -485,20 +481,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         return cpf.length() == 11;
     }
     
-        @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void limparCampos() {
-        for(Component comp : this.getComponents()){
-            if(comp instanceof JTextField jTextField){
-                jTextField.setText("");
-            }
-        }
-    }
-
     @Override
     public void organizaLayout() {
         initComponents();
@@ -518,10 +500,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         }
     }
     
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
     private javax.swing.JButton btnCancela;

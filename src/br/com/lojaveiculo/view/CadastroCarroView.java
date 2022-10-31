@@ -6,9 +6,6 @@ import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import java.awt.Component;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -138,11 +135,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblMarca.setText("Marca");
 
         txtPreco.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecoActionPerformed(evt);
-            }
-        });
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,11 +167,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblTipoCarroceria.setText("Tipo da Carroceria");
 
         txtChassi.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtChassi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtChassiActionPerformed(evt);
-            }
-        });
 
         lblChassi.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblChassi.setForeground(new java.awt.Color(255, 255, 255));
@@ -339,24 +326,16 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-        if (lblTitulo.getText().equals("Alterar Carro")) {
-            alterarCadastro(carro);
-        } else {
+        if (this.carro == null) {
             cadastrarCarro();
+        } else {
+            alterarCadastro(carro);
         }
     }//GEN-LAST:event_btnCadCarroActionPerformed
 
     private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
-
-    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecoActionPerformed
-
-    private void txtChassiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChassiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtChassiActionPerformed
 
     public void cadastrarCarro() {
         if (verificaPlaca(txtPlaca.getText())) {
@@ -435,26 +414,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
 
     @Override
     public boolean verificaPlaca(String placa) {
-        if (placa.length() == 7) {
-            return true;
-        } else {
-            return false;
-        }
+        return placa.length() == 7;
     }
-
-    @Override
-    public void limparCampos() {
-        for(Component comp : this.getComponents()){
-            if(comp instanceof JTextField jTextField){
-                jTextField.setText("");
-            }
-        }
-    }
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;
