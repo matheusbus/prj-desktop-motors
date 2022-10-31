@@ -8,7 +8,7 @@ package br.com.lojaveiculo.model;
  *
  * @author Matheus
  */
-public class Moto extends Veiculo{
+public class Moto extends Veiculo {
 
     protected int cilindrada;
 
@@ -29,9 +29,10 @@ public class Moto extends Veiculo{
     public String toString() {
         return super.toString() + "\n" + "Cilindrada: " + this.cilindrada;
     }
-    
+
     @Override
-    public Object[] obterDados(){
-        return new Object[] {super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
+    public Object[] obterDados() {
+        return new Object[]{super.placa, super.modelo, super.marca.getNome(), super.chassi, super.cor, super.tipoCarroceria, super.ano, super.preco, super.tipoCombustivel, this.cilindrada};
     }
+
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
@@ -10,33 +6,31 @@ import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author eduar
  */
-public final class CadastroMotoView extends TelaBaseCadastroView implements ValidaCadastroVeiculo{
+public final class CadastroMotoView extends TelaBaseCadastroView implements ValidaCadastroVeiculo {
 
     private final VeiculoRepositorio veiculos = new VeiculoDAO();
     private ConsultaMotoView consultaMoto = null;
     private Moto moto;
-  
-    
+
     /**
      * Creates new form CadastroFuncionario
      */
-    public CadastroMotoView(){
+    public CadastroMotoView() {
         organizaLayout();
     }
-    
+
     public CadastroMotoView(ConsultaMotoView consultaMoto) {
         organizaLayout();
         this.consultaMoto = consultaMoto;
     }
-    
+
     // Construtor utilizado ao alterar uma moto.
-    public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto){
+    public CadastroMotoView(ConsultaMotoView consultaMoto, Moto moto) {
         organizaLayout();
         this.txtPlaca.setEditable(false);
         this.consultaMoto = consultaMoto;
@@ -56,13 +50,13 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     }
 
     @Override
-    public void organizaLayout(){
+    public void organizaLayout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,19 +191,18 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                             .addComponent(lblCor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtCor)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtChassi)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtChassi)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cbCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCilindradas)
@@ -217,14 +210,14 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbAno, 0, 94, Short.MAX_VALUE)
+                                .addGap(13, 13, 13)
+                                .addComponent(cbTipoCarroceria, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblAno, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
                                 .addComponent(lblTipoCarroceria, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cbAno, 0, 94, Short.MAX_VALUE)
-                                .addGap(13, 13, 13)
-                                .addComponent(cbTipoCarroceria, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -281,7 +274,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                 .addComponent(lblChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtChassi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         btnCancela.setBackground(new java.awt.Color(75, 83, 101));
@@ -302,7 +295,6 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -319,7 +311,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCadMoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancela, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
@@ -330,40 +322,44 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
-        if(lblTitulo.getText().equals("Alterar Moto")){
+        if (lblTitulo.getText().equals("Alterar Moto")) {
             alterarMoto(moto);
         } else {
             cadastrarMoto();
         }
-        
+
     }//GEN-LAST:event_btnCadMotoActionPerformed
 
     private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    public void cadastrarMoto(){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                String placa = txtPlaca.getText().toUpperCase();
-                String modelo = txtModelo.getText();
-                Marca marca = new Marca(txtMarca.getText());
-                String chassi = txtChassi.getText();
-                String cor = txtCor.getText();
-                String tipoCarroceira = cbTipoCarroceria.getSelectedItem().toString();
-                int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                Double preco = Double.valueOf(txtPreco.getText());
-                String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                int cilindradas = Integer.parseInt(txtCilindradas.getText());
+    public void cadastrarMoto() {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    String placa = txtPlaca.getText().toUpperCase();
+                    String modelo = txtModelo.getText();
+                    Marca marca = new Marca(txtMarca.getText());
+                    String chassi = txtChassi.getText();
+                    String cor = txtCor.getText();
+                    String tipoCarroceira = cbTipoCarroceria.getSelectedItem().toString();
+                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
+                    Double preco = Double.valueOf(txtPreco.getText());
+                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
+                    int cilindradas = Integer.parseInt(txtCilindradas.getText());
 
-                Moto novaMoto = new Moto(placa, modelo, marca, chassi, cor, tipoCarroceira, ano, preco, tipoCombustivel, cilindradas);
-                veiculos.addVeiculo(novaMoto);
-                if(consultaMoto != null){
-                    consultaMoto.limparTabela();
-                    consultaMoto.popularTabela();
+                    Moto novaMoto = new Moto(placa, modelo, marca, chassi, cor, tipoCarroceira, ano, preco, tipoCombustivel, cilindradas);
+                    veiculos.addVeiculo(novaMoto);
+                    if (consultaMoto != null) {
+                        consultaMoto.limparTabela();
+                        consultaMoto.popularTabela();
+                    }
+                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
+                    this.dispose();
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Prencha os campos com valores válidos", "Erro");
                 }
-                apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                this.dispose();
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
@@ -371,38 +367,42 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
             apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
     }
-    
-    public void alterarMoto(Moto moto){
-        if(verificaPlaca(txtPlaca.getText())){
-            if(verificaCamposNulos()){
-                veiculos.removeVeiculo(moto.getPlaca());
-                moto.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
-                moto.setCilindrada(Integer.parseInt(txtCilindradas.getText()));
-                moto.setModelo(txtModelo.getText());
-                moto.setPreco(Double.parseDouble(txtPreco.getText()));
-                moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
-                moto.getMarca().setNome(txtMarca.getText());
-                moto.setChassi(txtChassi.getText());
-                moto.setCor(txtCor.getText());
-                moto.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
-                veiculos.addVeiculo(moto);
-                consultaMoto.popularTabela();
-                
-                apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
-                this.dispose();
+
+    public void alterarMoto(Moto moto) {
+        if (verificaPlaca(txtPlaca.getText())) {
+            if (verificaCamposNulos()) {
+                try {
+                    veiculos.removeVeiculo(moto.getPlaca());
+                    moto.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
+                    moto.setCilindrada(Integer.parseInt(txtCilindradas.getText()));
+                    moto.setModelo(txtModelo.getText());
+                    moto.setPreco(Double.parseDouble(txtPreco.getText()));
+                    moto.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
+                    moto.getMarca().setNome(txtMarca.getText());
+                    moto.setChassi(txtChassi.getText());
+                    moto.setCor(txtCor.getText());
+                    moto.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
+                    veiculos.addVeiculo(moto);
+                    consultaMoto.popularTabela();
+
+                    apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    this.dispose();
+                } catch (NumberFormatException ex) {
+                    apresentaMensagem("Preencha os campos com valores válidos", "Erro");
+                }
             } else {
                 apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
             apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
-        
+
     }
-    
+
     @Override
     public boolean verificaCamposNulos() {
-        if(!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals("")) 
-          || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")))){
+        if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
+                || (txtPreco.getText().trim().equals("")) || (txtCilindradas.getText().trim().equals("")) || (txtChassi.getText().trim().equals("")))) {
             return true;
         } else {
             return false;
@@ -411,11 +411,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
 
     @Override
     public boolean verificaPlaca(String placa) {
-        if(placa.length() == 7){
-            return true;
-        } else {
-            return false;
-        }
+        return placa.length() == 7;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -444,15 +440,5 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
 
 }

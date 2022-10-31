@@ -9,7 +9,6 @@ import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -369,16 +368,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        FlatArcDarkIJTheme.setup();
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaCarroView().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;

@@ -8,33 +8,21 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  *
  * @author Matheus
  */
-public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
+public class PessoaDAO implements PessoaRepositorio {
 
     private static Set<Pessoa> pessoas;
 
-    @Override
-    public int compare(Pessoa o1, Pessoa o2) {
-        //Collections.sort(ordenaOrdemAlfabetica = (Set<Pessoa>) new Comparator<Pessoa>() {  
-        //});
-
-        //return p1.getNome().compareTo(p2.getNome());
-        return 0;
-    }
-
-    //Set<Pessoa> ordenaOrdemAlfabetica = pessoas;
-    //ordenaOrdemAlfabetica.stream()
-    //.sorted(Comparator.comparing(Pessoas: :getNome))
-    //.collect(Collectors.toList())
-    //.forEach(pessoa -> System.out.Println(pessoa));
     public PessoaDAO() {
         if (PessoaDAO.pessoas == null) {
             pessoas = new HashSet<>();
@@ -83,6 +71,8 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         return false;
     }
 
+    
+    // Tirar dúvida com professor - método de filtrar a lista e não de adicionar (o adicionar é na nova lista filtrada)
     @Override
     public Set<Pessoa> getClientes() {
         Set<Pessoa> clientes = new HashSet<>();
@@ -105,4 +95,9 @@ public class PessoaDAO implements PessoaRepositorio, Comparator<Pessoa> {
         return funcionarios;
     }
 
+    @Override
+    public void ordenaNome() {
+        List<Pessoa> sortedList = new ArrayList<>(pessoas);
+        Collections.sort(sortedList);
+    }
 }

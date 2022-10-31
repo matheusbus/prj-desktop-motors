@@ -4,13 +4,11 @@
  */
 package br.com.lojaveiculo.model;
 
-import java.util.Comparator;
-
 /**
  *
  * @author Matheus
  */
-public abstract class Veiculo {//implements Comparator<Veiculo> {
+public abstract class Veiculo {
 
     protected String placa;
     protected String modelo;
@@ -51,7 +49,6 @@ public abstract class Veiculo {//implements Comparator<Veiculo> {
         this.tipoCarroceria = tipoCarroceria;
     }
 
-    
     public String getChassi() {
         return chassi;
     }
@@ -118,9 +115,4 @@ public abstract class Veiculo {//implements Comparator<Veiculo> {
                 + "Combustível: " + this.tipoCombustivel + "\n";
     }
 
-   // @Override
-    //public int compare(Veiculo v1, Veiculo v2) {
-        //return v1.getPreco().compareTo(v2.getPreco());
-    //}
 }
- 

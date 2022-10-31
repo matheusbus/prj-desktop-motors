@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import javax.swing.JOptionPane;
@@ -34,12 +28,10 @@ public final class VendaView extends TelaBaseView {
     protected boolean VendedorSelecionado;
     protected boolean ClienteSelecionado;
     private ConsultaVendaView consultaVenda;
-    private ConsultaCarroView consultaVeiculo;
+    //private ConsultaCarroView consultaVeiculo;
 
     public VendaView() {
         organizaLayout();
-        //vendedor = new Vendedor(0.0, 0.0, "", "", "");
-        //veiculo = new Carro("", "", null, 0, 0, "", 0);
         veiculos = new VeiculoDAO();
         VendedorSelecionado = false;
         VeiculoSelecionado = false;
@@ -47,8 +39,6 @@ public final class VendaView extends TelaBaseView {
 
     public VendaView(ConsultaVendaView consultaVenda) {
         organizaLayout();
-        //vendedor = new Vendedor(0.0, 0.0, "", "", "");
-        //veiculo = new Carro("", "", null, 0, 0, "", 0);
         veiculos = new VeiculoDAO();
         VendedorSelecionado = false;
         VeiculoSelecionado = false;
@@ -211,17 +201,14 @@ public final class VendaView extends TelaBaseView {
 
     private void btnSelecionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVeiculoActionPerformed
         if (cbTipoVeiculo.getSelectedIndex() == 0) {
-            ConsultaCarroView consultaCarro = new ConsultaCarroView(this);
-            consultaCarro.setVisible(true);
+            abreTelaConsultaCarro();
         } else {
-            ConsultaMotoView consultaMoto = new ConsultaMotoView(this);
-            consultaMoto.setVisible(true);
+            abreTelaConsultaMoto();
         }
     }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
 
     private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
-        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView(this);
-        consultaVendedor.setVisible(true);
+        abreTelaConsultaVendedor();
     }//GEN-LAST:event_btnSelecionaVendedorActionPerformed
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
@@ -237,8 +224,7 @@ public final class VendaView extends TelaBaseView {
     }//GEN-LAST:event_formMouseMoved
 
     private void btnSelecionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaClienteActionPerformed
-        ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
-        consultaCliente.setVisible(true);
+        abreTelaConsultaCliente();
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
     private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
@@ -247,7 +233,7 @@ public final class VendaView extends TelaBaseView {
                 apresentaMensagem("Venda efetuada com sucesso", "Suceso");
                 this.dispose();
             }
-        }else {
+        } else {
             apresentaMensagem("Selecione todos os campos", "ERRO");
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed
@@ -269,7 +255,25 @@ public final class VendaView extends TelaBaseView {
     private javax.swing.JTextArea txtaVendedorSelecionado;
     // End of variables declaration//GEN-END:variables
 
+    public void abreTelaConsultaCliente() {
+        ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
+        consultaCliente.setVisible(true);
+    }
 
+    public void abreTelaConsultaCarro() {
+        ConsultaCarroView consultaCarro = new ConsultaCarroView(this);
+        consultaCarro.setVisible(true);
+    }
+
+    public void abreTelaConsultaMoto() {
+        ConsultaMotoView consultaMoto = new ConsultaMotoView(this);
+        consultaMoto.setVisible(true);
+    }
+
+    public void abreTelaConsultaVendedor() {
+        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView(this);
+        consultaVendedor.setVisible(true);
+    }
 
     public boolean efetuarVenda() {
         vendas = new VendaDAO();
@@ -280,17 +284,13 @@ public final class VendaView extends TelaBaseView {
                 consultaVenda.limparTabela();
                 consultaVenda.popularTabela();
                 return true;
+            } else {
+                return true;
             }
-            else {
-            return true;
-            }
-        }
-        else 
-        {
+        } else {
             return false;
         }
     }
-
 
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {

@@ -9,9 +9,7 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import static java.awt.image.ImageObserver.HEIGHT;
-import java.util.Collections;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -287,9 +285,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         if (!(tblClientes.getSelectedRow() != -1)) {
             apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
         } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")){
-            removerDaTabela();
-        }
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o cliente da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
         }
     }//GEN-LAST:event_btnRemoverClienteActionPerformed
 
@@ -385,17 +383,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-
-        FlatArcDarkIJTheme.setup();
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultaClientesView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;

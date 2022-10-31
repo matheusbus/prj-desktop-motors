@@ -126,18 +126,13 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miRelatorios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
+                <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miRelatoriosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
-          </Properties>
         </Menu>
       </SubComponents>
     </Menu>

@@ -12,14 +12,20 @@ import java.util.Set;
  * @author Matheus
  */
 public interface PessoaRepositorio {
-    
-    public Set<Pessoa> getPessoas();
-    public boolean adicionarPessoa(Pessoa p);
-    public boolean removerPessoa(String cpf);
-    public Pessoa buscarPessoaPorNome(String nome);
-    public Pessoa buscarPessoaPorCPF(String cpf);
-    public Set<Pessoa> getClientes();
-    public Set<Pessoa> getFuncionarios();
- 
 
+    public Set<Pessoa> getPessoas();
+
+    public boolean adicionarPessoa(Pessoa p);
+
+    public boolean removerPessoa(String cpf);
+
+    public Pessoa buscarPessoaPorNome(String nome);
+
+    public Pessoa buscarPessoaPorCPF(String cpf);
+
+    public Set<Pessoa> getClientes();
+
+    public Set<Pessoa> getFuncionarios();
+
+    public void ordenaNome();
 }
