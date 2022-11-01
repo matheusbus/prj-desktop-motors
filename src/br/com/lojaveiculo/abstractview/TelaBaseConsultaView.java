@@ -5,7 +5,6 @@
 package br.com.lojaveiculo.abstractview;
 
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
@@ -108,21 +107,7 @@ public class TelaBaseConsultaView extends TelaBaseView {
     public void limparTabela(DefaultTableModel grid){
         grid.setRowCount(0);
     }
-
-    public int criaQuestaoPrgunta(String mensagem, String titulo){
-        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
-    }
-  
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void organizaLayout() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
