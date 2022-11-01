@@ -29,8 +29,8 @@ public final class PrincipalView extends TelaBaseView {
     public PrincipalView() {
         initComponents();
         organizaLayout();
-        // Instancia objetos do sistema
         
+        // Instancia objetos do sistema
         if(0 == criaQuestaoPrgunta("Deseja iniciar o software com objetos instanciados?", "Questão instâncias")){
             FabricaObjetos criaInstancia = new FabricaObjetos();
             criaInstancia.criaClientes();
