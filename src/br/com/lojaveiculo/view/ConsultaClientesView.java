@@ -309,7 +309,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         }
     }
 
-    @Override
     public void buscaNaTabela(String cpf) {
         int incidencia = -1;
         if (cpf.length() == 11) {

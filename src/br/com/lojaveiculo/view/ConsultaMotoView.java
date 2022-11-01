@@ -273,7 +273,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         }
     }
     
-    @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
         if (placa.length() == 7) {

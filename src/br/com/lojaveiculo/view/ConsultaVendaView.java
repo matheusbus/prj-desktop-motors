@@ -272,7 +272,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         //altMoto.setVisible(true);
     }
 
-    @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
         if (placa.length() == 7) {

@@ -163,9 +163,8 @@ public class TelaBaseConsultaView extends TelaBaseView {
 
     // Ver com o professor se faz sentido ter uma sobrecarga de métodos aqui e chamar na tela específica.
     // Como segue o exemplo comentado abaixo.
-    public void buscaNaTabela(String parametro){
-        
-    }
+    /*public void buscaNaTabela(String parametro){
+    }*/
     
     public void limparTabela(DefaultTableModel grid){
         grid.setRowCount(0);
