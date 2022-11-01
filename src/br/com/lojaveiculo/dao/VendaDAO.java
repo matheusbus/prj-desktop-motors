@@ -65,6 +65,5 @@ public class VendaDAO implements VendaRepositorio {
     @Override
     public void ordenaPreco() {
         Collections.sort(vendas, new ComparadorPreçoVenda());
-
     }
 }

@@ -53,7 +53,8 @@ public class FabricaObjetos {
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Rafael", "rafa123"));
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Eduardo", "edu123"));
         repositorioDeUsuarios.adicionarUsuario(new Usuario("Matheus", "math123"));
-        repositorioDeUsuarios.adicionarUsuario(new Usuario("Admin", "admin"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("admin", "admin"));
+        repositorioDeUsuarios.adicionarUsuario(new Usuario("", ""));
     }
 
     //Teste

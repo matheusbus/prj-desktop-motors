@@ -154,7 +154,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             }
         });
 
-        cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Placa", "Preço", " " }));
+        cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Placa", "Preço" }));
 
         javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
         pnlBotoes.setLayout(pnlBotoesLayout);
@@ -263,10 +263,13 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
     private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
-        if (cbOrdena.getSelectedIndex() == 0) {
-            ordenaPlaca();
-        } else {
-            ordenaPreco();
+        switch(cbOrdena.getSelectedIndex()){
+            case 0 -> {
+                ordenaPlaca();   
+            }
+            case 1 -> {
+                ordenaPreco();
+            }
         }
     }//GEN-LAST:event_btnAlterarVenda1ActionPerformed
 
@@ -320,7 +323,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
         }
     }
-
+    
     @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;

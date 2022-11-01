@@ -31,6 +31,7 @@ public class VeiculoDAO implements VeiculoRepositorio {
 
     @Override
     public boolean removeVeiculo(String placa) {
+        // Tirar dúvida com professor - retorno boolean para confirmação.
         for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
             String key = entry.getKey();
             if (key.equals(placa)) {
