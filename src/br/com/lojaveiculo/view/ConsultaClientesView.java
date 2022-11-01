@@ -304,20 +304,8 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela();
+                removerDaTabela(repositorioDePessoas, 0, tblClientes, grid);
             }
-        }
-    }
-    
-    public void removerDaTabela() {
-        if (!(tblClientes.getSelectedRow() == -1)) {
-            String CPF = (String) grid.getValueAt(tblClientes.getSelectedRow(), 1);
-            repositorioDePessoas.removerPessoa(CPF);
-            limparTabela(grid);
-            popularTabela(repositorioDePessoas, 0, tblClientes, grid);
-            apresentaMensagem("Cliente removido!", "Remoção efetuada");
-        } else {
-            apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
         }
     }
 

@@ -14,7 +14,6 @@ import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.Map;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -94,9 +93,73 @@ public class TelaBaseConsultaView extends TelaBaseView {
         }
     }
 
-    /*public void removerDaTabela(JTable tabela, DefaultTableModel grid, int lit){
-
-    }*/
+    public void removerDaTabela(PadraoRepositorio repositorio, int tipoRepositorio, JTable tabela, DefaultTableModel grid){
+        switch (tipoRepositorio){
+            // Case: tabela de clientes
+            case 0 -> {
+                PessoaRepositorio repositorioDePessoa = (PessoaRepositorio) repositorio;
+                if (!(tabela.getSelectedRow() == -1)) {
+                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 1);
+                    repositorioDePessoa.removerPessoa(busca);
+                    limparTabela(grid);
+                    popularTabela(repositorioDePessoa, 0, tabela, grid);
+                    apresentaMensagem("Cliente removido!", "Remoção efetuada");
+                } else {
+                    apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
+                }                
+            }
+            // Case: tabela de carros
+            case 1 -> {
+                VeiculoRepositorio repositorioDeVeiculo = (VeiculoRepositorio) repositorio;
+                if (!(tabela.getSelectedRow() == -1)){
+                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 0);
+                    repositorioDeVeiculo.removeVeiculo(busca);
+                    limparTabela(grid);
+                    popularTabela(repositorioDeVeiculo, 1, tabela, grid);
+                    apresentaMensagem("Veículo removido!", "Remoção efetuada");
+                } else {
+                    apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
+                }
+            }
+            // Case: tabela de motos
+            case 2 -> {
+                VeiculoRepositorio repositorioDeVeiculo = (VeiculoRepositorio) repositorio;
+                if (!(tabela.getSelectedRow() == -1)){
+                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 0);
+                    repositorioDeVeiculo.removeVeiculo(busca);
+                    limparTabela(grid);
+                    popularTabela(repositorioDeVeiculo, 2, tabela, grid);
+                    apresentaMensagem("Veículo removido!", "Remoção efetuada");
+                } else {
+                    apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
+                }
+            }
+            // Case: tabela de funcionários
+            case 3 -> {
+                PessoaRepositorio repositorioDePessoas = (PessoaRepositorio) repositorio;
+                if (!(tabela.getSelectedRow() == -1)) {
+                    String CPF = (String) grid.getValueAt(tabela.getSelectedRow(), 1);
+                    repositorioDePessoas.removerPessoa(CPF);
+                    limparTabela(grid);
+                    popularTabela(repositorioDePessoas, 3, tabela, grid);
+                } else {
+                    apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
+                }                
+            }
+            // Case 4: tabela de vendas
+            case 4 -> {
+                VendaRepositorio repositorioDeVendas = (VendaRepositorio) repositorio;
+                if (!(tabela.getSelectedRow() == -1)) {
+                    int numeroVenda = (int) grid.getValueAt(tabela.getSelectedRow(), 0);
+                    repositorioDeVendas.removeVenda(numeroVenda);
+                    limparTabela(grid);
+                    popularTabela(repositorioDeVendas, 4, tabela, grid);
+                } else {
+                    apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
+                }               
+            }
+        }
+    }
 
     // Ver com o professor se faz sentido ter uma sobrecarga de métodos aqui e chamar na tela específica.
     // Como segue o exemplo comentado abaixo.
