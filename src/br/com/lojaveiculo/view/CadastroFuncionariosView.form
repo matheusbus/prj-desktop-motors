@@ -524,13 +524,15 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="8">
                 <StringItem index="0" value="Itau Unibanco"/>
                 <StringItem index="1" value="Bradesco"/>
                 <StringItem index="2" value="Banco do Brasil"/>
-                <StringItem index="3" value="Santander Brasil"/>
-                <StringItem index="4" value="Banrisul"/>
-                <StringItem index="5" value="Banco Pan"/>
+                <StringItem index="3" value="Santander"/>
+                <StringItem index="4" value="NuBank"/>
+                <StringItem index="5" value="C6 Bank"/>
+                <StringItem index="6" value="Banrisul"/>
+                <StringItem index="7" value="Banco Pan"/>
               </StringArray>
             </Property>
           </Properties>

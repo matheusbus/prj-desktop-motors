@@ -6,10 +6,8 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import java.util.List;
-import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -44,7 +42,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblVendas.getModel();
-        popularTabela();
+        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
     }
 
     @SuppressWarnings("unchecked")
@@ -60,7 +58,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         txtNumeroVenda = new javax.swing.JTextField();
         btnCadastrarVenda = new javax.swing.JButton();
         btnRemoverVenda = new javax.swing.JButton();
-        btnAlterarVenda = new javax.swing.JButton();
         btnAlterarVenda1 = new javax.swing.JButton();
         cbOrdena = new javax.swing.JComboBox<>();
 
@@ -134,16 +131,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             }
         });
 
-        btnAlterarVenda.setBackground(new java.awt.Color(82, 148, 226));
-        btnAlterarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnAlterarVenda.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterarVenda.setText("Alterar");
-        btnAlterarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarVendaActionPerformed(evt);
-            }
-        });
-
         btnAlterarVenda1.setBackground(new java.awt.Color(82, 148, 226));
         btnAlterarVenda1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnAlterarVenda1.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,9 +159,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                 .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(184, 184, 184)
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAlterarVenda1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(cbOrdena, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -188,8 +173,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                     .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlterarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pnlBotoesLayout.createSequentialGroup()
                             .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtNumeroVenda)
@@ -250,17 +234,9 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnRemoverVendaActionPerformed
 
     private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
-        limpaSelecao();
+        limpaSelecao(tblVendas);
         buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVendaActionPerformed
-
-    private void btnAlterarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVendaActionPerformed
-        try {
-            // abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblVendas.getSelectedRow(), 0)));
-        } catch (Exception e) {
-            apresentaMensagem("Selecione um Venda!", "Erro ao alterar Venda");
-        }
-    }//GEN-LAST:event_btnAlterarVendaActionPerformed
 
     private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
         switch(cbOrdena.getSelectedIndex()){
@@ -285,45 +261,17 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         //altMoto.setVisible(true);
     }
 
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void limparTabela() {
-        grid.setRowCount(0);
-    }
-
-    @Override
     public void removerDaTabela() {
         if (!(tblVendas.getSelectedRow() == -1)) {
             int numeroVenda = (int) grid.getValueAt(tblVendas.getSelectedRow(), 0);
             repositorioDeVendas.removeVenda(numeroVenda);
-            limparTabela();
-            popularTabela();
+            limparTabela(grid);
+            popularTabela(repositorioDeVendas, 4, tblVendas, grid);
         } else {
             apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
         }
     }
 
-    @Override
-    public void limpaSelecao() {
-        // Limpar seleção da linha atual na tabela
-        tblVendas.clearSelection();
-    }
-
-    @Override
-    public void popularTabela() {
-        limparTabela();
-        tblVendas.getModel();
-        List<Venda> vendasX = repositorioDeVendas.getVenda();
-        for (Venda v : vendasX) {
-            grid.addRow(v.obterDados());
-
-        }
-    }
-    
     @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
@@ -345,17 +293,31 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     public void ordenaPlaca() {
         repositorioDeVendas.ordenaPlaca();
-        limparTabela();
-        popularTabela();
+        limparTabela(grid);
+        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
     }
 
     public void ordenaPreco() {
         repositorioDeVendas.ordenaPreco();
-        limparTabela();
-        popularTabela();
+        limparTabela(grid);
+        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
     }
+
+    public VendaRepositorio getRepositorioDeVendas() {
+        return repositorioDeVendas;
+    }
+
+    public DefaultTableModel getGrid() {
+        return grid;
+    }
+
+    public JTable getTblVendas() {
+        return tblVendas;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarVenda;
     private javax.swing.JButton btnAlterarVenda1;
     private javax.swing.JButton btnBuscarVenda;
     private javax.swing.JButton btnCadastrarVenda;
@@ -368,10 +330,5 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     private javax.swing.JTable tblVendas;
     private javax.swing.JTextField txtNumeroVenda;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
-    }
 
 }

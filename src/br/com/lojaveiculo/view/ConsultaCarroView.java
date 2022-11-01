@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import java.util.Map;
-import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,7 +22,6 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
-        
     }
     
     // Construtor chamado na tela de venda
@@ -42,13 +35,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     @Override
     public void organizaLayout(){
         initComponents();
-        
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblCarros.getModel();
-        popularTabela();
+        popularTabela(repositorioDeVeiculos, 1, tblCarros, grid);
     }
     
     @SuppressWarnings("unchecked")
@@ -255,13 +247,11 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        if(0 == criaQuestaoPrgunta("Tem certeza que deseja remover o veículo da lista?", "Confirmar remoção")){
-            removerDaTabela();
-        }
+        validaRemocao();
     }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
 
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
-        limpaSelecao();
+        limpaSelecao(tblCarros);
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
     
@@ -284,59 +274,26 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         cadCarro.setVisible(true);        
     }
     
-    @Override
-    public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroCarroView altCarro = new CadastroCarroView(this, (Carro) obj);
-        altCarro.setVisible(true);
+     public void validaRemocao(){
+        if (!(tblCarros.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
+        }
     }
-    
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo){
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-    
-    @Override
-    public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
-    }
-
-    @Override
-    public void limparTabela(){
-        grid.setRowCount(0);
-    }
-    
-    @Override
+     
     public void removerDaTabela() {
         if (!(tblCarros.getSelectedRow() == -1)){
             String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
             repositorioDeVeiculos.removeVeiculo(placa);
-            limparTabela();
-            popularTabela();
+            limparTabela(grid);
+            popularTabela(repositorioDeVeiculos, 1, tblCarros, grid);
             apresentaMensagem("Veículo removido!", "Remoção efetuada");
         } else {
             apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
         }
-    }
-    
-    @Override
-    public void limpaSelecao(){
-        // Limpar seleção da linha atual na tabela
-        tblCarros.clearSelection();
-    }
-    
-    @Override
-    public void popularTabela(){
-       limparTabela();
-        tblCarros.getModel();
-        Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-       for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-            if(entry.getValue() instanceof Carro){
-                Carro carro = (Carro) entry.getValue();
-                grid.addRow(carro.obterDados());
-            }
-        }
-     
     }
     
     @Override
@@ -358,17 +315,29 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
     
+    @Override
+    public void abrirTelaAlterarCadastro(Object obj) {
+        CadastroCarroView altCarro = new CadastroCarroView(this, (Carro) obj);
+        altCarro.setVisible(true);
+    }
     
     public void selecionaItem(String placa){
        venda.veiculo = veiculos.buscarVeiculo(placa); 
        venda.VeiculoSelecionado = true;
        setVisible(false);
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-  
+
+    public DefaultTableModel getGrid() {
+        return grid;
+    }
+
+    public JTable getTblCarros() {
+        return tblCarros;
+    }
+
+    public VeiculoRepositorio getRepositorioDeVeiculos() {
+        return repositorioDeVeiculos;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;

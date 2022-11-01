@@ -1,6 +1,6 @@
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.abstractview.TelaBaseView;
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Pessoa;
@@ -8,13 +8,12 @@ import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author eduar
  */
-public final class VendaView extends TelaBaseView {
+public final class VendaView extends TelaBaseCadastroView {
 
     protected Pessoa vendedor;
     protected Veiculo veiculo;
@@ -238,23 +237,6 @@ public final class VendaView extends TelaBaseView {
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEfetuarVenda;
-    private javax.swing.JButton btnSelecionaCliente;
-    private javax.swing.JButton btnSelecionaVeiculo;
-    private javax.swing.JButton btnSelecionaVendedor;
-    private javax.swing.JComboBox<String> cbTipoVeiculo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblVenderVeiculo;
-    private javax.swing.JTextArea txtaClienteSelecionado;
-    private javax.swing.JTextArea txtaVeiculoSelecionado;
-    private javax.swing.JTextArea txtaVendedorSelecionado;
-    // End of variables declaration//GEN-END:variables
-
     public void abreTelaConsultaCliente() {
         ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
         consultaCliente.setVisible(true);
@@ -281,8 +263,8 @@ public final class VendaView extends TelaBaseView {
         if (vendas.adicionarVenda(venda) == true) {
             veiculos.removeVeiculo(veiculo.getPlaca());
             if (consultaVenda != null) {
-                consultaVenda.limparTabela();
-                consultaVenda.popularTabela();
+                consultaVenda.limparTabela(consultaVenda.getGrid());
+                consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
                 return true;
             } else {
                 return true;
@@ -293,15 +275,26 @@ public final class VendaView extends TelaBaseView {
     }
 
     @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
     public void organizaLayout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(500, 600);
-    }
+    }    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEfetuarVenda;
+    private javax.swing.JButton btnSelecionaCliente;
+    private javax.swing.JButton btnSelecionaVeiculo;
+    private javax.swing.JButton btnSelecionaVendedor;
+    private javax.swing.JComboBox<String> cbTipoVeiculo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblVenderVeiculo;
+    private javax.swing.JTextArea txtaClienteSelecionado;
+    private javax.swing.JTextArea txtaVeiculoSelecionado;
+    private javax.swing.JTextArea txtaVendedorSelecionado;
+    // End of variables declaration//GEN-END:variables
 }

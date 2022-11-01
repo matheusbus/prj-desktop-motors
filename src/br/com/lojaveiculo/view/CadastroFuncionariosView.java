@@ -281,7 +281,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
         cbBanco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cbBanco.setForeground(new java.awt.Color(255, 255, 255));
-        cbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander Brasil", "Banrisul", "Banco Pan" }));
+        cbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander", "NuBank", "C6 Bank", "Banrisul", "Banco Pan" }));
 
         lblAgencia.setText("Agência");
 
@@ -399,7 +399,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncionarioActionPerformed
-        if(this.func != null){
+        if(this.func == null){
             cadastrarFuncionario();
         } else {
             alterarFuncionario(func);
@@ -412,7 +412,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     public void cadastrarFuncionario() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
-            if (verificaCPF(txtCpf.getText())) {
+            if (verificaLengthCpf(txtCpf.getText())) {
                 if (!verificaCamposNulos()) {
                     try {
                         String sNome = txtNome.getText();
@@ -446,8 +446,8 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                             this.dispose();
                         }
                         if (consultaFuncionario != null) {
-                            consultaFuncionario.limparTabela();
-                            consultaFuncionario.popularTabela();
+                            consultaFuncionario.limparTabela(consultaFuncionario.getGrid());
+                            consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
                         }
                     } catch (NumberFormatException ex) {
                         apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
@@ -466,10 +466,29 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     }
 
     public void alterarFuncionario(Funcionario func){
-        if(verificaExistenciaCPF(this.txtCpf.getText())){
-            
+        if (verificaLengthCpf(txtCpf.getText())) {
+            if (verificaCamposNulos()) {
+                pessoas.removerPessoa(func.getCpf());
+                func.setNome(txtNome.getText());
+                func.setCpf(txtCpf.getText());
+                func.setRg(Long.parseLong(txtRg.getText()));
+                func.setCep(txtCep.getText());
+                func.setEndereco(txtEndereco.getText());
+                func.setBairro(txtBairro.getText());
+                func.setCidade(txtCidade.getText());
+                func.setEstado(cbEstado.getSelectedItem().toString());
+                func.setTelefone(txtTelefone.getText());
+                func.setEmail(txtEmail.getText().toLowerCase());
+                pessoas.adicionarPessoa(func);                
+                consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
+
+                apresentaMensagem("Registro alterado com sucesso.", "Alteração realizada");
+                this.dispose();
+            } else {
+                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
+            }
         } else {
-            
+            apresentaMensagem("O CPF digitado é inválido.", "Erro na alteração");
         }
     }
     
@@ -477,7 +496,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         return pessoas.buscarPessoaPorCPF(cpf) == null;
     }
 
-    public boolean verificaCPF(String cpf) {
+    public boolean verificaLengthCpf(String cpf) {
         return cpf.length() == 11;
     }
     

@@ -17,20 +17,15 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     private ConsultaCarroView consultaCarro = null;
     private Carro carro;
 
-    /**
-     * Creates new form CadastroFuncionario
-     *
-     * @param consultaCarro
-     */
-    public CadastroCarroView(ConsultaCarroView consultaCarro) {
-        organizaLayout();
-        this.consultaCarro = consultaCarro;
-    }
-
     public CadastroCarroView() {
         organizaLayout();
     }
 
+    public CadastroCarroView(ConsultaCarroView consultaCarro) {
+        organizaLayout();
+        this.consultaCarro = consultaCarro;
+    }    
+    
     public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
@@ -57,6 +52,9 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
+        this.add(pnlDados);
+        this.add(btnCadCarro);
+        this.add(btnCancela);
     }
 
     @SuppressWarnings("unchecked")
@@ -338,7 +336,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }//GEN-LAST:event_btnCancelaActionPerformed
 
     public void cadastrarCarro() {
-        if (verificaPlaca(txtPlaca.getText())) {
+        if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
                 try {
                     String placa = txtPlaca.getText().toUpperCase();
@@ -355,8 +353,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                     Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
                     veiculos.addVeiculo(novoCarro);
                     if (consultaCarro != null) {
-                        consultaCarro.limparTabela();
-                        consultaCarro.popularTabela();
+                        consultaCarro.limparTabela(consultaCarro.getGrid());
+                        consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
                     }
                     apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
                     this.dispose();
@@ -373,7 +371,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }
 
     public void alterarCadastro(Carro carro) {
-        if (verificaPlaca(txtPlaca.getText())) {
+        if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
                 try {
                     veiculos.removeVeiculo(carro.getPlaca());
@@ -386,7 +384,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                     carro.setCor(txtCor.getText());
                     carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
                     veiculos.addVeiculo(carro);
-                    consultaCarro.popularTabela();
+                    consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
 
                     apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
                     this.dispose();
@@ -413,9 +411,10 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }
 
     @Override
-    public boolean verificaPlaca(String placa) {
+    public boolean verificaLengthPlaca(String placa) {
         return placa.length() == 7;
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCarro;
