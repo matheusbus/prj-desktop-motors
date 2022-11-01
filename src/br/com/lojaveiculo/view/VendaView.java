@@ -1,6 +1,6 @@
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.abstractview.TelaBaseView;
+import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Pessoa;
@@ -8,13 +8,12 @@ import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author eduar
  */
-public final class VendaView extends TelaBaseView {
+public final class VendaView extends TelaBaseCadastroView {
 
     protected Pessoa vendedor;
     protected Veiculo veiculo;
@@ -68,6 +67,7 @@ public final class VendaView extends TelaBaseView {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtaVendedorSelecionado = new javax.swing.JTextArea();
         cbTipoVeiculo = new javax.swing.JComboBox<>();
+        btnCancelarVenda = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +87,7 @@ public final class VendaView extends TelaBaseView {
             }
         });
 
-        btnEfetuarVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnEfetuarVenda.setBackground(new java.awt.Color(0, 153, 102));
         btnEfetuarVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEfetuarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnEfetuarVenda.setText("Efetuar Venda");
@@ -137,30 +137,38 @@ public final class VendaView extends TelaBaseView {
 
         cbTipoVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto" }));
 
+        btnCancelarVenda.setBackground(new java.awt.Color(255, 102, 102));
+        btnCancelarVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelarVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarVenda.setText("Cancelar Venda");
+        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarVendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSelecionaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSelecionaVendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnSelecionaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(16, 16, 16))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
@@ -171,6 +179,10 @@ public final class VendaView extends TelaBaseView {
                         .addGap(18, 18, 18)
                         .addComponent(btnSelecionaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(lblVenderVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,9 +203,11 @@ public final class VendaView extends TelaBaseView {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEfetuarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -238,22 +252,9 @@ public final class VendaView extends TelaBaseView {
         }
     }//GEN-LAST:event_btnEfetuarVendaActionPerformed
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEfetuarVenda;
-    private javax.swing.JButton btnSelecionaCliente;
-    private javax.swing.JButton btnSelecionaVeiculo;
-    private javax.swing.JButton btnSelecionaVendedor;
-    private javax.swing.JComboBox<String> cbTipoVeiculo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblVenderVeiculo;
-    private javax.swing.JTextArea txtaClienteSelecionado;
-    private javax.swing.JTextArea txtaVeiculoSelecionado;
-    private javax.swing.JTextArea txtaVendedorSelecionado;
-    // End of variables declaration//GEN-END:variables
+    private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
     public void abreTelaConsultaCliente() {
         ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
@@ -281,8 +282,8 @@ public final class VendaView extends TelaBaseView {
         if (vendas.adicionarVenda(venda) == true) {
             veiculos.removeVeiculo(veiculo.getPlaca());
             if (consultaVenda != null) {
-                consultaVenda.limparTabela();
-                consultaVenda.popularTabela();
+                consultaVenda.limparTabela(consultaVenda.getGrid());
+                consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
                 return true;
             } else {
                 return true;
@@ -293,15 +294,27 @@ public final class VendaView extends TelaBaseView {
     }
 
     @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
     public void organizaLayout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(500, 600);
-    }
+    }    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelarVenda;
+    private javax.swing.JButton btnEfetuarVenda;
+    private javax.swing.JButton btnSelecionaCliente;
+    private javax.swing.JButton btnSelecionaVeiculo;
+    private javax.swing.JButton btnSelecionaVendedor;
+    private javax.swing.JComboBox<String> cbTipoVeiculo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblVenderVeiculo;
+    private javax.swing.JTextArea txtaClienteSelecionado;
+    private javax.swing.JTextArea txtaVeiculoSelecionado;
+    private javax.swing.JTextArea txtaVendedorSelecionado;
+    // End of variables declaration//GEN-END:variables
 }

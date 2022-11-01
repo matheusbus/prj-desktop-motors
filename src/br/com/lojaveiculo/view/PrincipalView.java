@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.view;
 
+import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
 import javax.swing.ImageIcon;
@@ -11,7 +12,7 @@ import javax.swing.ImageIcon;
  *
  * @author Matheus
  */
-public final class PrincipalView extends javax.swing.JFrame {
+public final class PrincipalView extends TelaBaseView {
 
     private ConsultaFuncionariosView consultaFuncionarios;
     private ConsultaCarroView consultaCarro;
@@ -28,14 +29,18 @@ public final class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         initComponents();
         organizaLayout();
+        
         // Instancia objetos do sistema
-        FabricaObjetos criaInstancia = new FabricaObjetos();
-        criaInstancia.criaClientes();
-        criaInstancia.criaFuncionarios();
-        criaInstancia.criaVeiculos();
-        criaInstancia.criaVendas();
+        if(0 == criaQuestaoPrgunta("Deseja iniciar o software com objetos instanciados?", "Questão instâncias")){
+            FabricaObjetos criaInstancia = new FabricaObjetos();
+            criaInstancia.criaClientes();
+            criaInstancia.criaFuncionarios();
+            criaInstancia.criaVeiculos();
+            criaInstancia.criaVendas();
+        }
     }
 
+    @Override
     public void organizaLayout() {
         PainelImagemFundo painelFundo = new PainelImagemFundo();
         this.add(painelFundo);

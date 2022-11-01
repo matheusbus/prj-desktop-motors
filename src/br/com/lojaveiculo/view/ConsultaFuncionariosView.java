@@ -3,11 +3,8 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Funcionario;
-import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import static java.awt.image.ImageObserver.HEIGHT;
-import java.util.Set;
-import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,16 +18,18 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     private VendaView venda;
     private PessoaRepositorio pessoas;
 
+    // Construtor chamado na tela inicial
+    public ConsultaFuncionariosView() {
+        organizaLayout();
+        this.btnSelecionarFuncionario.setEnabled(false);
+    }    
+    
+    // Construtor chamado na tela de venda
     public ConsultaFuncionariosView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarFuncionario.setEnabled(true);
         this.venda = venda;
         pessoas = new PessoaDAO();
-    }
-
-    public ConsultaFuncionariosView() {
-        organizaLayout();
-        this.btnSelecionarFuncionario.setEnabled(false);
     }
 
     @Override
@@ -42,14 +41,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setResizable(false);
         this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
-        popularTabela();
-
-    }
-
-    public void selecionaItem(String cpf) {
-        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
-        venda.VendedorSelecionado = true;
-        setVisible(false);
+        popularTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
     }
 
     @SuppressWarnings("unchecked")
@@ -252,7 +244,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
-        limpaSelecao();
+        limpaSelecao(tblFuncionarios);
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 
@@ -265,13 +257,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
 
     private void btnRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionarioActionPerformed
-        if (!(tblFuncionarios.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o funcionário da lista?", "Confirmar remoção")) {
-                removerDaTabela();
-            }
-        }
+        validaRemocao();
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
     private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
@@ -286,67 +272,31 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         }
     }//GEN-LAST:event_btnAlterarFuncionarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarFuncionario;
-    private javax.swing.JButton btnBuscarFuncionario;
-    private javax.swing.JButton btnCadastrarFuncionário;
-    private javax.swing.JButton btnRemoverFuncionario;
-    private javax.swing.JButton btnSelecionarFuncionario;
-    private javax.swing.JDesktopPane dkpFundo;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblCPF;
-    private javax.swing.JPanel pnlBotoes;
-    private javax.swing.JTable tblFuncionarios;
-    private javax.swing.JTextField txtCPFBuscado;
-    // End of variables declaration//GEN-END:variables
-
     @Override
     public void abrirTelaCadastro() {
         CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
         cadastroVendedor.setVisible(true);
+    }    
+    
+    public void validaRemocao(){
+        if (!(tblFuncionarios.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+                removerDaTabela();
+            }
+        }
     }
-
-    @Override
-    public void limpaSelecao() {
-        // Limpar seleção da linha atual na tabela
-        tblFuncionarios.clearSelection();
-    }
-
-    @Override
+    
     public void removerDaTabela() {
         if (!(tblFuncionarios.getSelectedRow() == -1)) {
             String CPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
             repositorioDePessoas.removerPessoa(CPF);
-            limparTabela();
-            popularTabela();
+            limparTabela(grid);
+            popularTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
         } else {
             apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
         }
-    }
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void popularTabela() {
-        limparTabela();
-        tblFuncionarios.getModel();
-        //Set<Pessoa> funcionarios = repositorioDePessoas.getFuncionarios();
-
-        for (Pessoa func : repositorioDePessoas.getFuncionarios()) {
-            grid.addRow(func.obterDados());
-        }
-    }
-
-    @Override
-    public void limparTabela() {
-        grid.setRowCount(0);
     }
 
     @Override
@@ -367,16 +317,43 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             apresentaMensagem("Digite um CPF válido!", "CPF inválido");
         }
     }
-
+        
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroFuncionariosView altFunc = new CadastroFuncionariosView(this, (Funcionario)obj);
+        CadastroFuncionariosView altFunc = new CadastroFuncionariosView(this, (Funcionario) obj);
         altFunc.setVisible(true);
     }
-
-    @Override
-    public int criaQuestaoPrgunta(String mensagem, String titulo) {
-        return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
+    
+    public void selecionaItem(String cpf) {
+        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
+        venda.VendedorSelecionado = true;
+        setVisible(false);
     }
+
+    public DefaultTableModel getGrid() {
+        return grid;
+    }
+    
+    public PessoaRepositorio getRepositorioDePessoas() {
+        return repositorioDePessoas;
+    }
+
+    public JTable getTblFuncionarios() {
+        return tblFuncionarios;
+    }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarFuncionario;
+    private javax.swing.JButton btnBuscarFuncionario;
+    private javax.swing.JButton btnCadastrarFuncionário;
+    private javax.swing.JButton btnRemoverFuncionario;
+    private javax.swing.JButton btnSelecionarFuncionario;
+    private javax.swing.JDesktopPane dkpFundo;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCPF;
+    private javax.swing.JPanel pnlBotoes;
+    private javax.swing.JTable tblFuncionarios;
+    private javax.swing.JTextField txtCPFBuscado;
+    // End of variables declaration//GEN-END:variables
 
 }
