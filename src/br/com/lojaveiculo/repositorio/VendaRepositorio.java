@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Rafael
  */
-public interface VendaRepositorio {
+public interface VendaRepositorio extends PadraoRepositorio{
 
     public List<Venda> getVenda();
 

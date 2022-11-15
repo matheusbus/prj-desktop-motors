@@ -11,7 +11,7 @@ import java.util.Set;
  **
  * @author Matheus
  */
-public interface PessoaRepositorio {
+public interface PessoaRepositorio extends PadraoRepositorio{
 
     public Set<Pessoa> getPessoas();
 

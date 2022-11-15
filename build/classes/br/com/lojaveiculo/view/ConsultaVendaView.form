@@ -169,9 +169,7 @@
                       <Component id="btnCadastrarVenda" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnRemoverVenda" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnAlterarVenda" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnAlterarVenda1" pref="160" max="32767" attributes="0"/>
                           <Component id="cbOrdena" max="32767" attributes="0"/>
@@ -189,7 +187,6 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnCadastrarVenda" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                   <Component id="btnRemoverVenda" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                                  <Component id="btnAlterarVenda" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -274,23 +271,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVendaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAlterarVenda">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e2" green="94" red="52" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Roboto" size="14" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Alterar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarVendaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAlterarVenda1">

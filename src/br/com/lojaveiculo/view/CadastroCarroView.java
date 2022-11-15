@@ -2,14 +2,10 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.excecoes.VerificaCamposNulosException;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,20 +17,15 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     private ConsultaCarroView consultaCarro = null;
     private Carro carro;
 
-    /**
-     * Creates new form CadastroFuncionario
-     *
-     * @param consultaCarro
-     */
-    public CadastroCarroView(ConsultaCarroView consultaCarro) {
-        organizaLayout();
-        this.consultaCarro = consultaCarro;
-    }
-
     public CadastroCarroView() {
         organizaLayout();
     }
 
+    public CadastroCarroView(ConsultaCarroView consultaCarro) {
+        organizaLayout();
+        this.consultaCarro = consultaCarro;
+    }    
+    
     public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
@@ -61,6 +52,9 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
+        this.add(pnlDados);
+        this.add(btnCadCarro);
+        this.add(btnCancela);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,7 +87,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCancela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Carro");
+        setTitle("Cadastro de Carros");
 
         btnCadCarro.setBackground(new java.awt.Color(82, 148, 226));
         btnCadCarro.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -139,11 +133,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblMarca.setText("Marca");
 
         txtPreco.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtPreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecoActionPerformed(evt);
-            }
-        });
 
         lblPreco.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPreco.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,11 +165,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         lblTipoCarroceria.setText("Tipo da Carroceria");
 
         txtChassi.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtChassi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtChassiActionPerformed(evt);
-            }
-        });
 
         lblChassi.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblChassi.setForeground(new java.awt.Color(255, 255, 255));
@@ -340,10 +324,10 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-        if (lblTitulo.getText().equals("Alterar Carro")) {
-            alterarCadastro(carro);
-        } else {
+        if (this.carro == null) {
             cadastrarCarro();
+        } else {
+            alterarCadastro(carro);
         }
     }//GEN-LAST:event_btnCadCarroActionPerformed
 
@@ -351,16 +335,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecoActionPerformed
-
-    private void txtChassiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChassiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtChassiActionPerformed
-
     public void cadastrarCarro() {
-        if (verificaPlaca(txtPlaca.getText())) {
+        if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
                 try {
                     String placa = txtPlaca.getText().toUpperCase();
@@ -377,8 +353,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                     Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
                     veiculos.addVeiculo(novoCarro);
                     if (consultaCarro != null) {
-                        consultaCarro.limparTabela();
-                        consultaCarro.popularTabela();
+                        consultaCarro.limparTabela(consultaCarro.getGrid());
+                        consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
                     }
                     apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
                     this.dispose();
@@ -395,7 +371,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }
 
     public void alterarCadastro(Carro carro) {
-        if (verificaPlaca(txtPlaca.getText())) {
+        if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
                 try {
                     veiculos.removeVeiculo(carro.getPlaca());
@@ -408,7 +384,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
                     carro.setCor(txtCor.getText());
                     carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
                     veiculos.addVeiculo(carro);
-                    consultaCarro.popularTabela();
+                    consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
 
                     apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
                     this.dispose();
@@ -435,22 +411,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     }
 
     @Override
-    public boolean verificaPlaca(String placa) {
-        if (placa.length() == 7) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
+    public boolean verificaLengthPlaca(String placa) {
+        return placa.length() == 7;
     }
 
 

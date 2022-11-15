@@ -2,12 +2,11 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author eduar
@@ -15,7 +14,8 @@ import javax.swing.JOptionPane;
 public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     private final PessoaRepositorio pessoas = new PessoaDAO();
-    private ConsultaFuncionariosView consulta;
+    private ConsultaFuncionariosView consultaFuncionario = null;
+    private Funcionario func;
 
     /**
      * Creates new form CadastroFuncionario
@@ -24,11 +24,34 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
      */
     public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncView) {
         organizaLayout();
-        consulta = consultaFuncView;
+        consultaFuncionario = consultaFuncView;
     }
 
     public CadastroFuncionariosView() {
         organizaLayout();
+    }
+    
+    public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncionario, Funcionario func){
+        organizaLayout();
+        this.consultaFuncionario = consultaFuncionario;
+        this.func = func;
+        this.lblTitulo.setText("Alterar funcionário");
+        this.btnCadFuncionario.setText("Alterar");
+        this.cbTipoFuncionario.setEnabled(false);
+        this.txtNome.setText(func.getNome());
+        this.txtCpf.setText(func.getCpf());
+        this.txtRg.setText(Long.toString(func.getRg()));
+        this.txtCep.setText(func.getCep());
+        this.txtBairro.setText(func.getBairro());
+        this.txtCidade.setText(func.getCidade());
+        this.txtEndereco.setText(func.getEndereco());
+        this.cbEstado.setSelectedItem(func.getEstado());
+        this.cbBanco.setSelectedItem(func.getBanco());
+        this.txtAgencia.setText(Integer.toString(func.getAgencia()));
+        this.txtContaCorrente.setText(Integer.toString(func.getContaCorrente()));
+        this.txtEmail.setText(func.getEmail());
+        this.txtSalario.setText(Double.toString(func.getSalario()));
+        this.txtTelefone.setText(func.getTelefone());
     }
 
     @SuppressWarnings("unchecked")
@@ -36,12 +59,8 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     private void initComponents() {
 
         btnCadFuncionario = new javax.swing.JButton();
-        lblCadastrarGerente1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         pnlDadosPessoais = new javax.swing.JPanel();
-        txtCategoriaCnh = new javax.swing.JTextField();
-        lblCategoriaCnh = new javax.swing.JLabel();
-        txtCnh = new javax.swing.JTextField();
-        lblCNH = new javax.swing.JLabel();
         txtRg = new javax.swing.JTextField();
         lblRg = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
@@ -65,8 +84,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         lblTelefone = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtWhatsapp = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         lblBanco = new javax.swing.JLabel();
         cbBanco = new javax.swing.JComboBox<>();
@@ -81,6 +98,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         cbTipoFuncionario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Funcionários");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(82, 148, 226));
 
@@ -94,15 +112,11 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
             }
         });
 
-        lblCadastrarGerente1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        lblCadastrarGerente1.setForeground(new java.awt.Color(255, 255, 255));
-        lblCadastrarGerente1.setText("Cadastrar Funcionário");
+        lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Cadastrar Funcionário");
 
         pnlDadosPessoais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-
-        lblCategoriaCnh.setText("Categoria CNH");
-
-        lblCNH.setText("CNH");
 
         lblRg.setText("RG");
 
@@ -127,43 +141,26 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtRg)
                     .addComponent(lblRg, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCnh)
-                    .addComponent(lblCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblCategoriaCnh, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(txtCategoriaCnh))
-                .addGap(20, 20, 20))
+                .addGap(286, 286, 286))
         );
         pnlDadosPessoaisLayout.setVerticalGroup(
             pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
-                        .addComponent(lblCategoriaCnh, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblRg, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCategoriaCnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
-                            .addComponent(lblCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtCnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
-                            .addComponent(lblRg, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
-                                .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
-                                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -211,16 +208,15 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 .addGroup(pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEnderecoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlEnderecoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(lblCidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(35, 35, 35))))
+                        .addComponent(lblCidade)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlEnderecoLayout.setVerticalGroup(
             pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,8 +244,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
         lblEmail.setText("E-mail");
 
-        jLabel3.setText("Whatsapp");
-
         javax.swing.GroupLayout pnlContatoLayout = new javax.swing.GroupLayout(pnlContato);
         pnlContato.setLayout(pnlContatoLayout);
         pnlContatoLayout.setHorizontalGroup(
@@ -265,13 +259,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlContatoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3)))
-                .addContainerGap())
+                .addGap(202, 202, 202))
         );
         pnlContatoLayout.setVerticalGroup(
             pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,13 +267,11 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmail)
-                    .addComponent(jLabel3))
+                    .addComponent(lblEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -295,7 +281,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
         cbBanco.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cbBanco.setForeground(new java.awt.Color(255, 255, 255));
-        cbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander Brasil", "Banrisul", "Banco Pan" }));
+        cbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itau Unibanco", "Bradesco", "Banco do Brasil", "Santander", "NuBank", "C6 Bank", "Banrisul", "Banco Pan" }));
 
         lblAgencia.setText("Agência");
 
@@ -371,6 +357,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlDadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -380,19 +367,18 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                     .addComponent(pnlEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlContato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCadastrarGerente1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCadastrarGerente1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(pnlDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,16 +399,20 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncionarioActionPerformed
-        cadastrarVendedor();
+        if(this.func == null){
+            cadastrarFuncionario();
+        } else {
+            alterarFuncionario(func);
+        }
     }//GEN-LAST:event_btnCadFuncionarioActionPerformed
 
     private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    public void cadastrarVendedor() {
+    public void cadastrarFuncionario() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
-            if (verificaIntegridadeCPF(txtCpf.getText())) {
+            if (verificaLengthCpf(txtCpf.getText())) {
                 if (!verificaCamposNulos()) {
                     try {
                         String sNome = txtNome.getText();
@@ -432,7 +422,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                         String sComissao = txtComissao.getText();
                         Double dSalario = Double.valueOf(sSalario);
                         Double dComissao = Double.valueOf(sComissao);
-                        long lRg = Long.valueOf(txtRg.getText());
+                        long lRg = Long.parseLong(txtRg.getText());
                         String sCep = txtCep.getText();
                         String sEndereco = txtEndereco.getText();
                         String sBairro = txtBairro.getText();
@@ -441,8 +431,8 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                         String sEmail = txtEmail.getText();
                         String sPisPasep = "";
                         String sBanco = cbBanco.getItemAt(cbBanco.getSelectedIndex());
-                        int iAgencia = Integer.valueOf(txtAgencia.getText());
-                        int iContaCorrente = Integer.valueOf(txtContaCorrente.getText());
+                        int iAgencia = Integer.parseInt(txtAgencia.getText());
+                        int iContaCorrente = Integer.parseInt(txtContaCorrente.getText());
 
                         if (cbTipoFuncionario.getSelectedIndex() == 0) {
                             Pessoa p = new Gerente(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente);
@@ -455,9 +445,9 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
                             apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
                             this.dispose();
                         }
-                        if (consulta != null) {
-                            consulta.limparTabela();
-                            consulta.popularTabela();
+                        if (consultaFuncionario != null) {
+                            consultaFuncionario.limparTabela(consultaFuncionario.getGrid());
+                            consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
                         }
                     } catch (NumberFormatException ex) {
                         apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
@@ -475,87 +465,41 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         }
     }
 
+    public void alterarFuncionario(Funcionario func){
+        if (verificaLengthCpf(txtCpf.getText())) {
+            if (verificaCamposNulos()) {
+                pessoas.removerPessoa(func.getCpf());
+                func.setNome(txtNome.getText());
+                func.setCpf(txtCpf.getText());
+                func.setRg(Long.parseLong(txtRg.getText()));
+                func.setCep(txtCep.getText());
+                func.setEndereco(txtEndereco.getText());
+                func.setBairro(txtBairro.getText());
+                func.setCidade(txtCidade.getText());
+                func.setEstado(cbEstado.getSelectedItem().toString());
+                func.setTelefone(txtTelefone.getText());
+                func.setEmail(txtEmail.getText().toLowerCase());
+                pessoas.adicionarPessoa(func);                
+                consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
+
+                apresentaMensagem("Registro alterado com sucesso.", "Alteração realizada");
+                this.dispose();
+            } else {
+                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
+            }
+        } else {
+            apresentaMensagem("O CPF digitado é inválido.", "Erro na alteração");
+        }
+    }
+    
     public boolean verificaExistenciaCPF(String cpf) {
-        if (pessoas.buscarPessoaPorCPF(cpf) == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return pessoas.buscarPessoaPorCPF(cpf) == null;
     }
 
-    public boolean verificaIntegridadeCPF(String cpf) {
-        if (cpf.length() == 11) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean verificaLengthCpf(String cpf) {
+        return cpf.length() == 11;
     }
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadFuncionario;
-    private javax.swing.JButton btnCancela;
-    private javax.swing.JComboBox<String> cbBanco;
-    private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JComboBox<String> cbTipoFuncionario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAgencia;
-    private javax.swing.JLabel lblBairro;
-    private javax.swing.JLabel lblBanco;
-    private javax.swing.JLabel lblCNH;
-    private javax.swing.JLabel lblCadastrarGerente1;
-    private javax.swing.JLabel lblCargo;
-    private javax.swing.JLabel lblCategoriaCnh;
-    private javax.swing.JLabel lblCep;
-    private javax.swing.JLabel lblCidade;
-    private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblEndereco;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblRg;
-    private javax.swing.JLabel lblSalario;
-    private javax.swing.JLabel lblTelefone;
-    private javax.swing.JPanel pnlContato;
-    private javax.swing.JPanel pnlDadosPessoais;
-    private javax.swing.JPanel pnlEndereco;
-    private javax.swing.JTextField txtAgencia;
-    private javax.swing.JTextField txtBairro;
-    private javax.swing.JTextField txtCategoriaCnh;
-    private javax.swing.JTextField txtCep;
-    private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtCnh;
-    private javax.swing.JTextField txtComissao;
-    private javax.swing.JTextField txtContaCorrente;
-    private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtRg;
-    private javax.swing.JTextField txtSalario;
-    private javax.swing.JTextField txtTelefone;
-    private javax.swing.JTextField txtWhatsapp;
-    // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void apresentaMensagem(String mensagem, String titulo) {
-        JOptionPane.showMessageDialog(rootPane, mensagem, titulo, HEIGHT);
-    }
-
-    @Override
-    public void limparCampos() {
-        txtCpf.setText("");
-        txtNome.setText("");
-        txtTelefone.setText("");
-        txtSalario.setText("");
-        txtComissao.setText("");
-
-    }
-
+    
     @Override
     public void organizaLayout() {
         initComponents();
@@ -567,12 +511,53 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
     @Override
     public boolean verificaCamposNulos() {
         if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals(""))
-                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCategoriaCnh.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
-                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtWhatsapp.getText().trim().equals(""))) {
+                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
+                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))) {
             return true;
         } else {
             return false;
         }
     }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadFuncionario;
+    private javax.swing.JButton btnCancela;
+    private javax.swing.JComboBox<String> cbBanco;
+    private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JComboBox<String> cbTipoFuncionario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAgencia;
+    private javax.swing.JLabel lblBairro;
+    private javax.swing.JLabel lblBanco;
+    private javax.swing.JLabel lblCargo;
+    private javax.swing.JLabel lblCep;
+    private javax.swing.JLabel lblCidade;
+    private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblRg;
+    private javax.swing.JLabel lblSalario;
+    private javax.swing.JLabel lblTelefone;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlContato;
+    private javax.swing.JPanel pnlDadosPessoais;
+    private javax.swing.JPanel pnlEndereco;
+    private javax.swing.JTextField txtAgencia;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtCep;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtComissao;
+    private javax.swing.JTextField txtContaCorrente;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtRg;
+    private javax.swing.JTextField txtSalario;
+    private javax.swing.JTextField txtTelefone;
+    // End of variables declaration//GEN-END:variables
 
 }

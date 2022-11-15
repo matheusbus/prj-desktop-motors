@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @author Matheus
  */
-public interface VeiculoRepositorio {
+public interface VeiculoRepositorio extends PadraoRepositorio{
 
     public boolean addVeiculo(Veiculo vei);
 
