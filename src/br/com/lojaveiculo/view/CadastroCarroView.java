@@ -517,94 +517,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         this.cbTipoCarroceria = cbTipoCarroceria;
     }
 
-    public JLabel getLblAno() {
-        return lblAno;
-    }
-
-    public void setLblAno(JLabel lblAno) {
-        this.lblAno = lblAno;
-    }
-
-    public JLabel getLblChassi() {
-        return lblChassi;
-    }
-
-    public void setLblChassi(JLabel lblChassi) {
-        this.lblChassi = lblChassi;
-    }
-
-    public JLabel getLblCombustivel() {
-        return lblCombustivel;
-    }
-
-    public void setLblCombustivel(JLabel lblCombustivel) {
-        this.lblCombustivel = lblCombustivel;
-    }
-
-    public JLabel getLblCor() {
-        return lblCor;
-    }
-
-    public void setLblCor(JLabel lblCor) {
-        this.lblCor = lblCor;
-    }
-
-    public JLabel getLblMarca() {
-        return lblMarca;
-    }
-
-    public void setLblMarca(JLabel lblMarca) {
-        this.lblMarca = lblMarca;
-    }
-
-    public JLabel getLblModelo() {
-        return lblModelo;
-    }
-
-    public void setLblModelo(JLabel lblModelo) {
-        this.lblModelo = lblModelo;
-    }
-
-    public JLabel getLblPlaca() {
-        return lblPlaca;
-    }
-
-    public void setLblPlaca(JLabel lblPlaca) {
-        this.lblPlaca = lblPlaca;
-    }
-
-    public JLabel getLblPortas() {
-        return lblPortas;
-    }
-
-    public void setLblPortas(JLabel lblPortas) {
-        this.lblPortas = lblPortas;
-    }
-
-    public JLabel getLblPreco() {
-        return lblPreco;
-    }
-
-    public void setLblPreco(JLabel lblPreco) {
-        this.lblPreco = lblPreco;
-    }
-
-    public JLabel getLblTipoCarroceria() {
-        return lblTipoCarroceria;
-    }
-
-    public void setLblTipoCarroceria(JLabel lblTipoCarroceria) {
-        this.lblTipoCarroceria = lblTipoCarroceria;
-    }
-
-    public JLabel getLblTitulo() {
-        return lblTitulo;
-    }
-
-    public void setLblTitulo(JLabel lblTitulo) {
-        this.lblTitulo = lblTitulo;
-    }
-
     public JPanel getPnlDados() {
         return pnlDados;
     }
@@ -660,6 +572,5 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     public void setTxtPreco(JTextField txtPreco) {
         this.txtPreco = txtPreco;
     }
-
     
 }
