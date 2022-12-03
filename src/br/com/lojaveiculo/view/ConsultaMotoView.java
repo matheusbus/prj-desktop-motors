@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
@@ -15,27 +12,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
+
 public final class ConsultaMotoView extends TelaBaseConsultaView {
 
-    private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
-    private VeiculoRepositorio veiculos;
 
+    
     // Construtor chamado na tela inicial
     public ConsultaMotoView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-
-    // Construtor chamado na tela de venda
-    public ConsultaMotoView(VendaView venda) {
-        organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(true);
-        this.venda = venda;
-        this.veiculos = new VeiculoDAO();
-    }
-
+    
+    
     @Override
     public void organizaLayout() {
         initComponents();
@@ -44,7 +33,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblMotos.getModel();
-        popularTabela(repositorioDeVeiculos, 2, tblMotos, grid);
     }
 
     @SuppressWarnings("unchecked")
