@@ -409,12 +409,41 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
             return false;
         }
     }
-    
+
     @Override
     public boolean verificaLengthPlaca(String placa) {
         return placa.length() == 7;
     }
+
+    public String getPlaca() {
+        return txtPlaca.getText();
+    }
+
+    public String getChassi() {
+        return txtChassi.getText();
+    }
+
+    public String getCor() {
+        return txtCor.getText();
+    }
+
+    public String getCilindradas() {
+        return txtCilindradas.getText();
+    }
+
+    public String getMarca() {
+        return txtMarca.getText();
+    }
     
+    public String getModelo(){
+        return txtModelo.getText();
+    }
+    
+    public String getPreco(){
+        return txtPreco.getText();
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadMoto;
     private javax.swing.JButton btnCancela;
