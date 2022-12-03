@@ -18,7 +18,6 @@ public class CadastroMotoController extends BaseCadastroController {
         this.modeloMoto = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
-        inicializaCadastro();
     }
 
     public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
@@ -26,7 +25,7 @@ public class CadastroMotoController extends BaseCadastroController {
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
-        inicializaCadastro();
+
     }
 
     @Override

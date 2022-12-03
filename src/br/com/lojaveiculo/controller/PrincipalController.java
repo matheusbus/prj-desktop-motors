@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
