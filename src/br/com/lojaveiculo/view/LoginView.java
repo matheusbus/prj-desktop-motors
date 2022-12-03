@@ -209,6 +209,7 @@ public final class LoginView extends TelaBaseView {
         }
     }
     
+    
     public static void main(String[] args) {
         
         FlatArcDarkIJTheme.setup();
