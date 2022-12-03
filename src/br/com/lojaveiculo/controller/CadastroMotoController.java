@@ -187,7 +187,6 @@ public class CadastroMotoController extends BaseCadastroController {
         } else {
             apresentarMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
-
     }
 
     public void acaoCancelar() {

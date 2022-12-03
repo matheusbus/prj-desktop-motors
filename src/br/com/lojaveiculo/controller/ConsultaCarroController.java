@@ -83,7 +83,6 @@ public class ConsultaCarroController extends BaseConsultaController {
 
     public void limparTabela() {
         consultaCarroView.limparTabela();
-
     }
 
     public void acaoAlterar() {

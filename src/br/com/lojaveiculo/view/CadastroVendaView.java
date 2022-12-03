@@ -53,8 +53,8 @@ public final class CadastroVendaView extends TelaBaseCadastroView {
         txtaClienteSelecionado.append(cliente);
     }
     
-    public String getTipoVeiculo(){
-        return cbTipoVeiculo.getSelectedItem().toString();
+    public int getTipoVeiculo(){
+        return cbTipoVeiculo.getSelectedIndex();
     }
 
     /**
