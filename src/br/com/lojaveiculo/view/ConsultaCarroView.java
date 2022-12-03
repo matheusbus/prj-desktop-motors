@@ -15,7 +15,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
+    private CadastroVendaView venda;
     private VeiculoRepositorio veiculos;
     
     // Construtor chamado na tela inicial
@@ -25,7 +25,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     }
     
     // Construtor chamado na tela de venda
-    public ConsultaCarroView(VendaView venda) {
+    public ConsultaCarroView(CadastroVendaView venda) {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(true);
         this.venda = venda;

@@ -1,11 +1,6 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
-import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Marca;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
 
 /**
