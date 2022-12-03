@@ -30,9 +30,16 @@ public class CadastroMotoController extends BaseCadastroController {
        cadastroMotoView.exibirTela();
     }
     
+     @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        cadastroMotoView.apresentaMensagem(mensagem, titulo);
+    }
+    
+    
     public void acaoCadastrar(){
         
     }
-    
+
+   
     
 }
