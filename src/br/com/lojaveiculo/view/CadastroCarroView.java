@@ -30,8 +30,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     public CadastroCarroView(ConsultaCarroView consultaCarro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
-    }    
-    
+    }
+
     public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro) {
         organizaLayout();
         this.consultaCarro = consultaCarro;
@@ -319,10 +319,14 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao){
+    public void adicionaAcaoBtnCadastrar(ActionListener acao) {
         btnCadCarro.addActionListener(acao);
     }
-            
+
+    public void adicionaAcaoBtnCancelar(ActionListener acao) {
+        btnCancela.addActionListener(acao);
+    }
+
     public void cadastrarCarro() {
         if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
@@ -435,83 +439,80 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         return txtChassi.getText();
     }
 
-    public void setChassi(JTextField txtChassi) {
-        this.txtChassi = txtChassi;
+    public void setChassi(String chassi) {
+        this.txtChassi.setText(chassi);
     }
 
     public String getCor() {
         return txtCor.getText();
     }
 
-    public void setCor(JTextField txtCor) {
-        this.txtCor = txtCor;
+    public void setCor(String cor) {
+        this.txtCor.setText(cor);
     }
 
     public String getMarca() {
         return txtMarca.getText();
     }
 
-    public void setMarca(JTextField txtMarca) {
-        this.txtMarca = txtMarca;
+    public void setMarca(String marca) {
+        this.txtMarca.setText(marca);
     }
 
     public String getModelo() {
         return txtModelo.getText();
     }
 
-    public void setModelo(JTextField txtModelo) {
-        this.txtModelo = txtModelo;
+    public void setModelo(String modelo) {
+        this.txtModelo.setText(modelo);
     }
 
     public String getPlaca() {
         return txtPlaca.getText();
     }
 
-    public void setPlaca(JTextField txtPlaca) {
-        this.txtPlaca = txtPlaca;
+    public void setPlaca(String placa) {
+        this.txtPlaca.setText(placa);
     }
 
     public String getPreco() {
         return txtPreco.getText();
     }
 
-    public void setPreco(JTextField txtPreco) {
-        this.txtPreco = txtPreco;
-    }   
+    public void setPreco(String preco) {
+        this.txtPreco.setText(preco);
+    }
 
-    public String getCbTipoCarroceria() {
+    public String getTipoCarroceria() {
         return cbTipoCarroceria.getSelectedItem().toString();
     }
 
-    public void setCbTipoCarroceria(String tipoCarroceria) {
+    public void setTipoCarroceria(String tipoCarroceria) {
         this.cbTipoCarroceria.setSelectedItem(tipoCarroceria);
     }
 
-    public String getCbAno() {
+    public String getAno() {
         return cbAno.getSelectedItem().toString();
     }
 
-    public void setCbAno(String ano) {
+    public void setAno(String ano) {
         this.cbAno.setSelectedItem(ano);
     }
 
-    public String getCbCombustivel() {
+    public String getCombustivel() {
         return cbCombustivel.getSelectedItem().toString();
     }
 
-    public void setCbCombustivel(String combustivel) {
+    public void setCombustivel(String combustivel) {
         this.cbCombustivel.setSelectedItem(combustivel);
     }
 
-    public String getCbPorta() {
+    public String getPorta() {
         return cbPorta.getSelectedItem().toString();
     }
 
-    public void setCbPorta(JComboBox<String> cbPorta) {
-        this.cbPorta = cbPorta;
+    public void setPorta(String porta) {
+        this.cbPorta.setSelectedItem(porta);
     }
-    
-    
-    
-    
+
 }
