@@ -1,14 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.lojaveiculo.controller;
+
+import br.com.lojaveiculo.model.Moto;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.view.ConsultaMotoView;
 
 /**
  *
  * @author Rafael
  */
 public class ConsultaMotoController extends BaseConsultaController{
+    
+    private ConsultaMotoView consultaMotoView;
+    private Moto modeloMoto;
+    private VeiculoRepositorio veiculoRepositorio;
 
     @Override
     public void popularTabela() {
