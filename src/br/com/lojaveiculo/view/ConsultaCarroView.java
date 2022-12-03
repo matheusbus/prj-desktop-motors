@@ -230,6 +230,9 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
 
+    public String getFiltro(){
+        return txtPlacaBuscada.getText();
+    }
     public void limparTabela() {
         grid.setRowCount(0);
     }

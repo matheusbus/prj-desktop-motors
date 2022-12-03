@@ -43,28 +43,25 @@ public class ConsultaCarroController extends BaseConsultaController {
 
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
-
         });
-
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoSelecionar();
-
         });
-
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoBuscar();
-
         });
-
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoRemover();
-
         });
     }
 
     public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController();
+        CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
         cadastroCarroController.exibirTela();
+    }
+
+    public void buscarTabela() {
+
     }
 
     public void acaoAlterar() {
@@ -84,7 +81,17 @@ public class ConsultaCarroController extends BaseConsultaController {
     }
 
     public void acaoBuscar() {
-
+        consultaCarroView.limpaSelecao();
+        String sPlaca = consultaCarroView.getFiltro();
+        if (sPlaca.length() == 7) {
+            if (consultaCarroView.BuscaTabela(sPlaca)) {
+                apresentarMensagem("Sucesso", "Sucesso");
+            } else {
+                apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
+            }
+        } else {
+            apresentarMensagem("Digite uma placa válida!", "Placa inválida");
+        }
     }
 
     public void acaoRemover() {
