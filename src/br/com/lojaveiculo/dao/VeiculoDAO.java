@@ -111,4 +111,16 @@ public class VeiculoDAO implements VeiculoRepositorio {
         return motos;
     }
 
+    @Override
+    public Map<String, Carro> getCarros() {
+          Map<String, Carro> carros = new HashMap();
+        for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
+            if (entry.getValue() instanceof Carro carro) {
+                carros.put(entry.getKey(), (Carro) entry.getValue());
+            }
+
+        }
+        return carros; 
+    }
+
 }

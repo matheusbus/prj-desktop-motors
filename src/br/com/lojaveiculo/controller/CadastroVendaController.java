@@ -14,7 +14,6 @@ import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroVendaView;
 import java.awt.event.ActionEvent;
 
-
 public class CadastroVendaController extends BaseCadastroController {
 
     private CadastroVendaView cadastroVendaView;
@@ -53,7 +52,7 @@ public class CadastroVendaController extends BaseCadastroController {
         });
 
         cadastroVendaView.adicionaAcaoAoBtnSelecionarCliente((ActionEvent e) -> {
-            acaoSelecionarVendedor();
+            acaoSelecionarCliente();
         });
 
         cadastroVendaView.adicionaAcaoAoBtnEfetuarVenda((ActionEvent e) -> {
@@ -92,22 +91,23 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void populaListaVendedor() {
-        cadastroVendaView.populaListaCliente(cliente.toString());
+        cadastroVendaView.populaListaVendedor(vendedor.toString());
     }
 
     public void populaListaCliente() {
-        cadastroVendaView.populaListaVendedor(vendedor.toString());
+
+        cadastroVendaView.populaListaCliente(cliente.toString());
     }
 
     public void acaoSelecionarVeiculo() {
         if (cadastroVendaView.getTipoVeiculo().equalsIgnoreCase("Carro")) {
-            ConsultaCarroController consultaCarroController = new ConsultaCarroController();
+            ConsultaCarroController consultaCarroController = new ConsultaCarroController(this);
             consultaCarroController.exibirTela();
         } else {
             ConsultaMotoController consultaMotoController = new ConsultaMotoController(this);
             consultaMotoController.exibirTela();
         }
-       
+
     }
 
     public void acaoSelecionarVendedor() {
@@ -116,25 +116,25 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoSelecionarCliente() {
-        ConsultaClienteController consultaClienteController = new ConsultaClienteController();
+        ConsultaClienteController consultaClienteController = new ConsultaClienteController(this);
         consultaClienteController.exibirTela();
     }
 
     public void acaoEfetuarVenda() {
- //       vendas = new VendaDAO();
- //       venda = new Venda(this.veiculo, this.cliente, this.vendedor);
- //       if (vendas.adicionarVenda(venda) == true) {
- //           veiculos.removeVeiculo(veiculo.getPlaca());
- //           if (consultaVenda != null) {
- //               consultaVenda.limparTabela(consultaVenda.getGrid());
- //               consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
- //               return true;
- //           } else {
+        //       vendas = new VendaDAO();
+        //       venda = new Venda(this.veiculo, this.cliente, this.vendedor);
+        //       if (vendas.adicionarVenda(venda) == true) {
+        //           veiculos.removeVeiculo(veiculo.getPlaca());
+        //           if (consultaVenda != null) {
+        //               consultaVenda.limparTabela(consultaVenda.getGrid());
+        //               consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
+        //               return true;
+        //           } else {
 ///               return true;
- //           }
- //       } else {
- //           return false;
- //       }
+        //           }
+        //       } else {
+        //           return false;
+        //       }
     }
 
     public void acaoCancelarVenda() {
