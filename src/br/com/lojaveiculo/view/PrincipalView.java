@@ -7,6 +7,7 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 /**
  *
@@ -223,6 +224,10 @@ public final class PrincipalView extends TelaBaseView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void adicionarAcaoAoBotaoConsultaFuncionario(ActionListener acao){
+        muConsultaFuncionarios.addActionListener(acao);
+    }
+    
     private void muConsultaFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaFuncionariosActionPerformed
         if(verificaTelaAberta(consultaFuncionarios)){
             consultaFuncionarios = new ConsultaFuncionariosView();
@@ -230,6 +235,10 @@ public final class PrincipalView extends TelaBaseView {
         consultaFuncionarios.setVisible(true);
     }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
 
+    public void adicionarAcaoAoBotaoConsultaCarro(ActionListener acao){
+        miConsCarro.addActionListener(acao);
+    }
+    
     private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
         if(verificaTelaAberta(consultaCarro)){
             consultaCarro = new ConsultaCarroView();
@@ -237,6 +246,10 @@ public final class PrincipalView extends TelaBaseView {
         consultaCarro.setVisible(true);
     }//GEN-LAST:event_miConsCarroActionPerformed
 
+    public void adicionarAcaoAoBotaoConsultaMoto(ActionListener acao){
+        miConsMoto.addActionListener(acao);
+    }
+    
     private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
         if(verificaTelaAberta(consultaMoto)){
             consultaMoto = new ConsultaMotoView();
@@ -244,6 +257,10 @@ public final class PrincipalView extends TelaBaseView {
         }
     }//GEN-LAST:event_miConsMotoActionPerformed
 
+    public void adicionarAcaoAoBotaoRelatorio(ActionListener acao){
+        miRelatorios.addActionListener(acao);
+    }    
+    
     private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
         if(verificaTelaAberta(relatorio)){
             relatorio = new RelatorioView();    
@@ -251,6 +268,10 @@ public final class PrincipalView extends TelaBaseView {
         relatorio.setVisible(true);
     }//GEN-LAST:event_miRelatoriosActionPerformed
 
+    public void adicionarAcaoAoBotaoCadastroCarro(ActionListener acao){
+        miCadCarro.addActionListener(acao);
+    }    
+    
 
     private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
         if(verificaTelaAberta(cadCarro)){
@@ -259,6 +280,10 @@ public final class PrincipalView extends TelaBaseView {
         cadCarro.setVisible(true);
     }//GEN-LAST:event_miCadCarroActionPerformed
 
+    public void adicionarAcaoAoBotaoCadastroMoto(ActionListener acao){
+        miCadMoto.addActionListener(acao);
+    }    
+    
     private void miCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadMotoActionPerformed
         if(verificaTelaAberta(cadMoto)){
             cadMoto = new CadastroMotoView();
@@ -266,13 +291,14 @@ public final class PrincipalView extends TelaBaseView {
         cadMoto.setVisible(true);
     }//GEN-LAST:event_miCadMotoActionPerformed
 
-    private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
-        if(verificaTelaAberta(cadCliente)){
-            cadCliente = new CadastroClienteView();
-        }
-        cadCliente.setVisible(true);
-    }//GEN-LAST:event_miCadClientesActionPerformed
-
+    public void adicionarAcaoAoBotaoCadastroCliente(ActionListener acao){
+        miCadClientes.addActionListener(acao);
+    }    
+    
+    public void adicionarAcaoAoBotaoConsultaCliente(ActionListener acao){
+        muClientes.addActionListener(acao);
+    }    
+    
     private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
         if(verificaTelaAberta(consultaCliente)){
             consultaCliente = new ConsultaClientesView();
@@ -280,6 +306,10 @@ public final class PrincipalView extends TelaBaseView {
         consultaCliente.setVisible(true);
     }//GEN-LAST:event_muClientesActionPerformed
 
+    public void adicionarAcaoAoBotaoCadastroVenda(ActionListener acao){
+        muTelaVenda.addActionListener(acao);
+    }    
+    
     private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
         if(verificaTelaAberta(venda)){
             venda = new VendaView();
@@ -287,6 +317,10 @@ public final class PrincipalView extends TelaBaseView {
         venda.setVisible(true);
     }//GEN-LAST:event_muTelaVendaActionPerformed
 
+    public void adicionarAcaoAoBotaoConsultaVenda(ActionListener acao){
+        muConsultaVendas.addActionListener(acao);
+    }    
+    
     private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
         if(verificaTelaAberta(consultaVenda)){
             consultaVenda = new ConsultaVendaView();
@@ -301,10 +335,21 @@ public final class PrincipalView extends TelaBaseView {
         cadFuncionarios.setVisible(true);
     }//GEN-LAST:event_miCadFuncionariosActionPerformed
 
+    private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
+        if(verificaTelaAberta(cadCliente)){
+            cadCliente = new CadastroClienteView();
+        }
+        cadCliente.setVisible(true);
+    }//GEN-LAST:event_miCadClientesActionPerformed
+
+    public void adicionarAcaoAoBotaoCadastroFuncionario(ActionListener acao){
+        miCadFuncionarios.addActionListener(acao);
+    }    
+    
     public boolean verificaTelaAberta(Object tela){
         return tela == null;
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dkpnlFundo;
     private javax.swing.JMenuBar mbMenuPrincipal;

@@ -5,6 +5,7 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -88,14 +89,14 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         txtBairro = new javax.swing.JTextField();
         lblCidade = new javax.swing.JLabel();
         txtCidade = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
         cbEstado = new javax.swing.JComboBox<>();
         pnlContato = new javax.swing.JPanel();
         txtTelefone = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblWhatsapp = new javax.swing.JLabel();
         txtWhatsapp = new javax.swing.JTextField();
         btnCancela = new javax.swing.JButton();
 
@@ -195,7 +196,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
 
         lblCidade.setText("Cidade");
 
-        jLabel2.setText("Estado");
+        lblEstado.setText("Estado");
 
         cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
@@ -219,16 +220,15 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                 .addGroup(pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEnderecoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlEnderecoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(lblCidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(35, 35, 35))))
+                        .addComponent(lblCidade)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEstado))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlEnderecoLayout.setVerticalGroup(
             pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                     .addComponent(lblEndereco)
                     .addComponent(lblBairro)
                     .addComponent(lblCidade)
-                    .addComponent(jLabel2))
+                    .addComponent(lblEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,7 +256,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
 
         lblEmail.setText("E-mail");
 
-        jLabel3.setText("Whatsapp");
+        lblWhatsapp.setText("Whatsapp");
 
         javax.swing.GroupLayout pnlContatoLayout = new javax.swing.GroupLayout(pnlContato);
         pnlContato.setLayout(pnlContatoLayout);
@@ -278,7 +278,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                     .addComponent(txtWhatsapp, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlContatoLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel3)))
+                        .addComponent(lblWhatsapp)))
                 .addContainerGap())
         );
         pnlContatoLayout.setVerticalGroup(
@@ -288,7 +288,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
                 .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail)
-                    .addComponent(jLabel3))
+                    .addComponent(lblWhatsapp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,11 +301,6 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         btnCancela.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
-        btnCancela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,6 +349,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao){
+        btnCadCliente.addActionListener(acao);
+    }
+    
     private void btnCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadClienteActionPerformed
         if (this.cliente == null) {
             cadastrarCliente();
@@ -362,10 +361,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         }
     }//GEN-LAST:event_btnCadClienteActionPerformed
 
-    private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelaActionPerformed
-
+    public void adicionaAcaoAoBotaoCancelar(ActionListener acao){
+        btnCancela.addActionListener(acao);
+    }    
+    
     public void cadastrarCliente() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
             if (verificaLengthCpf(txtCpf.getText())) {
@@ -456,13 +455,61 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
             return false;
         }
     }
+    
+    public String getBairro(){
+        return txtBairro.getText();
+    }
+    
+    public String getCategoriaCNH(){
+        return txtCategoriaCnh.getText();
+    }
+    
+    public String getCep(){
+        return txtCep.getText();
+    }
+    
+    public String getCidade(){
+        return txtCidade.getText();
+    }
+    
+    public String getCNH(){
+        return txtCnh.getText();
+    }
+    
+    public String getCpf(){
+        return txtCpf.getText();
+    }
+    
+    public String getEmail(){
+        return txtEmail.getText();
+    }
+    
+    public String getEndereco(){
+        return txtEndereco.getText();
+    }
+    
+    public String getNome(){
+        return txtNome.getText();
+    }
+    
+    public String getRg(){
+        return txtRg.getText();
+    }
+    
+    public String getTelefone(){
+        return txtTelefone.getText();
+    }
+    
+    public String getWhatsapp(){
+        return txtWhatsapp.getText();
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCliente;
     private javax.swing.JButton btnCancela;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCNH;
     private javax.swing.JLabel lblCategoriaCnh;
@@ -471,10 +518,12 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblRg;
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblWhatsapp;
     private javax.swing.JPanel pnlContato;
     private javax.swing.JPanel pnlDados;
     private javax.swing.JPanel pnlEndereco;
