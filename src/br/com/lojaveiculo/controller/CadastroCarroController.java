@@ -103,11 +103,11 @@ public class CadastroCarroController extends BaseCadastroController {
                     Marca Marca = new Marca(cadastroCarroView.getMarca());
                     String sChassi = cadastroCarroView.getChassi();
                     String sCor = cadastroCarroView.getCor();
-                    String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
-                    String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
-                    int iAno = Integer.parseInt(cadastroCarroView.getCbAno());
+                    String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
+                    String sTipoCombustivel = cadastroCarroView.getCombustivel();
+                    int iAno = Integer.parseInt(cadastroCarroView.getAno());
                     double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
-                    int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
+                    int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);
                     // modeloCarro.setMarca(marca);
@@ -140,11 +140,11 @@ public class CadastroCarroController extends BaseCadastroController {
         cadastroCarroView.setChassi(modeloCarro.getChassi());
         cadastroCarroView.setCor(modeloCarro.getCor());
         cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
-        cadastroCarroView.setTipoCombustivel(modeloCarro.getTipoCombustivel());
-
+        cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
+        
         cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPorta()));
         cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
-        cadastroCarroView.setAno(String.valueOf(modeloCarro.getIAno()));
+        cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
         }catch(NumberFormatException ex){
             apresentarMensagem("Preencha todos os campos com valores válidos", "Erro");
         }

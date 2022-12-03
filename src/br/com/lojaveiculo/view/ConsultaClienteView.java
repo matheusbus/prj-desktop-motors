@@ -6,7 +6,10 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.awt.event.ActionListener;
+import java.util.Set;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,7 +46,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblClientes.getModel();
-        popularTabela(repositorioDePessoas, 0, tblClientes, grid);
     }
     
     @SuppressWarnings("unchecked")
@@ -148,11 +150,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         btnRemoverCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnRemoverCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoverCliente.setText("Remover");
-        btnRemoverCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverClienteActionPerformed(evt);
-            }
-        });
 
         btnCadastrarCliente.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -267,41 +264,44 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionarAcaoAoBotaoBuscarCliente(){
-        
+    public void popularTabela(Set<Pessoa> clientes){
+        tblClientes.getModel();
+        for (Pessoa cliente : clientes) {
+            grid.addRow(cliente.obterDados());
+        }
+    }
+    
+    public void adicionarAcaoAoBotaoBuscarCliente(ActionListener acao){
+        btnBuscarCliente.addActionListener(acao);
     }
     
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        limpaSelecao(tblClientes);
+        limpaSelecao();
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
-    public void adicionarAcaoAoBotaoCadastrarCliente(){
-        
+    public void adicionarAcaoAoBotaoCadastrarCliente(ActionListener acao){
+        btnCadastrarCliente.addActionListener(acao);
     }
     
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
         abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
-    public void adicionarAcaoAoBotaoRemvoerCliente(){
-        
+    public void adicionarAcaoAoBotaoRemvoerCliente(ActionListener acao){
+        btnRemoverCliente.addActionListener(acao);
     }
     
-    private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-        validaRemocao();
-    }//GEN-LAST:event_btnRemoverClienteActionPerformed
-
-    public void adicionarAcaoAoBotaoSelecionar(){
-        
+    public void adicionarAcaoAoBotaoSelecionar(ActionListener acao){
+        btnSelecionarCliente.addActionListener(acao);
     }
     
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
         selecionaItem((String) grid.getValueAt(tblClientes.getSelectedRow(), 1));
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 
-    public void adicionarAcaoAoBotaoAlterarCliente(){
-        
+    public void adicionarAcaoAoBotaoAlterarCliente(ActionListener acao){
+        btnAlterarCliente.addActionListener(acao);
     }
     
     private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
@@ -314,16 +314,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-    }
-
-    public void validaRemocao(){
-        if (!(tblClientes.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela(repositorioDePessoas, 0, tblClientes, grid);
-            }
-        }
     }
 
     public void buscaNaTabela(String cpf) {
@@ -346,6 +336,7 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
+    
     }
 
     public void selecionaItem(String cpf) {
@@ -365,6 +356,11 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     public PessoaRepositorio getRepositorioDePessoas() {
         return repositorioDePessoas;
     }
+    
+    public String getFiltroPesquisa(){
+        return txtCPFBuscado.getText();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnBuscarCliente;
@@ -378,5 +374,10 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     private javax.swing.JTable tblClientes;
     private javax.swing.JTextField txtCPFBuscado;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void limpaSelecao() {
+        tblClientes.clearSelection();
+    }
 
 }

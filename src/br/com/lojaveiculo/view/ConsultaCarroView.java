@@ -40,7 +40,6 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblCarros.getModel();
-        popularTabela(repositorioDeVeiculos, 1, tblCarros, grid);
     }
     
     @SuppressWarnings("unchecked")
