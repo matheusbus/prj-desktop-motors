@@ -292,7 +292,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCadCarro.setEnabled(false);
         btnCadCarro.setVisible(true);
     }
- 
 
     @Override
     public boolean verificaCamposNulos() {
