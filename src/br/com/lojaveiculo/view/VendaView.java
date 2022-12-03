@@ -257,7 +257,7 @@ public final class VendaView extends TelaBaseCadastroView {
     }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
     public void abreTelaConsultaCliente() {
-        ConsultaClientesView consultaCliente = new ConsultaClientesView(this);
+        ConsultaClienteView consultaCliente = new ConsultaClienteView(this);
         consultaCliente.setVisible(true);
     }
 

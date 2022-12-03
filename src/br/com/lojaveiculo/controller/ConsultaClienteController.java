@@ -4,30 +4,38 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.view.ConsultaClienteView;
+
 /**
  *
  * @author Rafael
  */
 public class ConsultaClienteController extends BaseConsultaController{
 
-    @Override
-    public void popularTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private ConsultaClienteView consultaClienteView;
+    
+    public ConsultaClienteController() {
+        this.consultaClienteView = new ConsultaClienteView();
     }
 
     @Override
     public void inicializarBotoes() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
     @Override
-    public void exibirTela() {
+    public void popularTabela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
+    public void exibirTela() {
+        consultaClienteView.exibirTela();
+    }
+
+    @Override
     public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaClienteView.fecharTela();
     }
     
 }
