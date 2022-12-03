@@ -94,9 +94,10 @@ public final class CadastroClienteController extends BaseCadastroController{
         pessoaRepositorio.adicionarPessoa(modeloCliente);
         
         // 4 - Mensagem
-        cadastroClienteView.apresentaMensagem(sEmail, sEstado);
+        apresentarMensagem("Êxito", "Cliente cadastrado com sucesso.");
         
         // 5 - Limpar tela
+        
         
         
     }
@@ -120,7 +121,7 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
 
     @Override
-    public void apresentarMensagem(String titulo, String mensagem) {
+    public void apresentarMensagem(String mensagem, String titulo) {
         cadastroClienteView.apresentaMensagem(mensagem, titulo);
     }
     
