@@ -45,7 +45,6 @@ public class CadastroCarroController extends BaseCadastroController {
 
             cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
                 acaoCancelar();
-
             });
         //}
     }
@@ -82,8 +81,11 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
                     double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
-                    int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
+                    int iPortas = Integer.parseInt(cadastroCarroView.getPorta());        
+                    
+                    Carro carro = new Carro(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceria, iAno, dPreco, sTipoCombustivel, iPortas);
                     veiculoRepositorio.addVeiculo(modeloCarro);
+                    
                     apresentarMensagem("Veículo Cadastrado com Sucesso", "Cadastro Realizado");
                     fecharTela();
                 } catch (NumberFormatException ex) {
