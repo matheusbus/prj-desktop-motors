@@ -1,12 +1,9 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
 import java.util.Map;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -246,7 +243,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
                 //removerDaTabela();
-                super.removerDaTabela(repositorioDeVeiculos, 1, tblCarros, grid);
+                //super.removerDaTabela(, 1, tblCarros, grid);
             }
         }
     }
@@ -275,8 +272,17 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
 
+    public void setBotaoSelecionar(Boolean bool) {
+        btnSelecionarVeiculo.setEnabled(bool);
+    }
+
     public String getSelecionaItem() {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+    }
+    
+     @Override
+    public void limpaSelecao() {
+        tblCarros.clearSelection();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -292,15 +298,5 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     private javax.swing.JTable tblCarros;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void limpaSelecao() {
-        tblCarros.clearSelection();
-    }
-
-    @Override
-    public void limparTabela() {
-        grid.setRowCount(0);
-    }
 
 }

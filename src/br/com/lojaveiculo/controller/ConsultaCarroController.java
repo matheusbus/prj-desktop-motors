@@ -56,7 +56,7 @@ public class ConsultaCarroController extends BaseConsultaController {
     }
 
     public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
+        CadastroCarroController cadastroCarroController = new CadastroCarroController();
         cadastroCarroController.exibirTela();
     }
 

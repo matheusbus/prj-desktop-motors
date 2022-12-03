@@ -19,7 +19,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         organizaLayout();
      
     }
-
+    
     @Override
     public void organizaLayout() {
         initComponents();
@@ -90,7 +90,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         } else {
             return false;
         }
-
     }
     
      public String getSelecionaItem() {
