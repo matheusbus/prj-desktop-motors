@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.ConsultaClienteView;
 
 /**
@@ -13,6 +15,7 @@ import br.com.lojaveiculo.view.ConsultaClienteView;
 public class ConsultaClienteController extends BaseConsultaController{
 
     private ConsultaClienteView consultaClienteView;
+    private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
     public ConsultaClienteController() {
         this.consultaClienteView = new ConsultaClienteView();
@@ -23,9 +26,39 @@ public class ConsultaClienteController extends BaseConsultaController{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public void acaoBuscar(){
+        
+    }
+    
+    public void acaoAlterar(){
+        
+    }
+    
+    public void acaoCadastrar(){
+        
+    }
+    
+    public void acaoRemover(){
+        
+    }
+    
+    public void acaoSelecionar(){
+        
+    }
+    
+    public void validaRemocao(){
+        if (!(consultaClienteView.getTblClientes().getSelectedRow() != -1)) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == consultaClienteView.criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+                removerDaTabela(pessoaRepositorio, 0, , consultaClienteView.getGrid());
+            }
+        }
+    }
+    
     @Override
     public void popularTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaClienteView.popularTabelaDados();
     }
 
     @Override
