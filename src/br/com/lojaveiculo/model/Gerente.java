@@ -4,13 +4,15 @@
  */
 package br.com.lojaveiculo.model;
 
+import br.com.lojaveiculo.excecoes.PessoaException;
+
 /**
  *
  * @author Rafael
  */
 public class Gerente extends Funcionario {
 
-    public Gerente(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) {
+    public Gerente(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) throws PessoaException {
         super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email, salario, pisPasep, banco, agencia, contaCorrente);
     }
 
