@@ -6,8 +6,8 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rafael
  */
-public final class ConsultaClientesView extends TelaBaseConsultaView {
+public final class ConsultaClienteView extends TelaBaseConsultaView {
 
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
@@ -23,13 +23,13 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     private PessoaRepositorio pessoas;
 
     // Construtor chamado na tela inicial
-    public ConsultaClientesView() {
+    public ConsultaClienteView() {
         organizaLayout();
         this.btnSelecionarCliente.setEnabled(false);
     }
 
     // Construtor chamado na tela de venda
-    public ConsultaClientesView(VendaView venda) {
+    public ConsultaClienteView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarCliente.setEnabled(true);
         this.venda = venda;
@@ -44,9 +44,8 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblClientes.getModel();
-        popularTabela(repositorioDePessoas, 0, tblClientes, grid);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -149,11 +148,6 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         btnRemoverCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnRemoverCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoverCliente.setText("Remover");
-        btnRemoverCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverClienteActionPerformed(evt);
-            }
-        });
 
         btnCadastrarCliente.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -268,23 +262,43 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void popularTabelaDados(){
+        popularTabela(repositorioDePessoas, 0, tblClientes, grid);
+    }
+    
+    public void adicionarAcaoAoBotaoBuscarCliente(ActionListener acao){
+        btnBuscarCliente.addActionListener(acao);
+    }
+    
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         limpaSelecao(tblClientes);
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
+    public void adicionarAcaoAoBotaoCadastrarCliente(ActionListener acao){
+        btnCadastrarCliente.addActionListener(acao);
+    }
+    
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
         abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
-    private void btnRemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverClienteActionPerformed
-        validaRemocao();
-    }//GEN-LAST:event_btnRemoverClienteActionPerformed
-
+    public void adicionarAcaoAoBotaoRemvoerCliente(ActionListener acao){
+        btnRemoverCliente.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoAoBotaoSelecionar(ActionListener acao){
+        btnSelecionarCliente.addActionListener(acao);
+    }
+    
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
         selecionaItem((String) grid.getValueAt(tblClientes.getSelectedRow(), 1));
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 
+    public void adicionarAcaoAoBotaoAlterarCliente(ActionListener acao){
+        btnAlterarCliente.addActionListener(acao);
+    }
+    
     private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
         try {
             abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblClientes.getSelectedRow(), 1)));
@@ -295,19 +309,9 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-        CadastroClienteView cadastroCliente = new CadastroClienteView(this);
-        cadastroCliente.setVisible(true);
     }
 
-    public void validaRemocao(){
-        if (!(tblClientes.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela(repositorioDePessoas, 0, tblClientes, grid);
-            }
-        }
-    }
+
 
     public void buscaNaTabela(String cpf) {
         int incidencia = -1;
@@ -329,8 +333,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroClienteView altCliente = new CadastroClienteView(this, (Cliente) obj);
-        altCliente.setVisible(true);
+    
     }
 
     public void selecionaItem(String cpf) {
@@ -350,6 +353,7 @@ public final class ConsultaClientesView extends TelaBaseConsultaView {
     public PessoaRepositorio getRepositorioDePessoas() {
         return repositorioDePessoas;
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnBuscarCliente;

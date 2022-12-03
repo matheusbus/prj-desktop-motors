@@ -10,6 +10,8 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
 import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +24,7 @@ public final class CadastroClienteController extends BaseCadastroController{
     private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
     public CadastroClienteController() {
-        this.cadastroClienteView = cadastroClienteView;
+        this.cadastroClienteView = new CadastroClienteView();
         this.modeloCliente = null;
         inicializarBotoes();
     }
@@ -39,7 +41,11 @@ public final class CadastroClienteController extends BaseCadastroController{
     public void inicializarBotoes() {
         if(this.modeloCliente == null){
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
-                acaoCadastrar();
+                try {
+                    acaoCadastrar();
+                } catch (ClienteException ex) {
+                    apresentarMensagem(ex.getMessage(), "Erro");
+                }
             });
         } else {
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
@@ -55,47 +61,51 @@ public final class CadastroClienteController extends BaseCadastroController{
         cadastroClienteView.fecharTela();
     }
     
-    public void acaoCadastrar(){
+    public void acaoCadastrar() throws ClienteException{
         // Implementar acao e exceção
         if(verificaCamposNulos()){
             // 1 - Recuperar dados
-            String sNome = cadastroClienteView.getNome();
-            String sCpf = cadastroClienteView.getCpf();
-            long iRg = 0;
             try {
-                iRg = Integer.parseInt(cadastroClienteView.getRg());
-            } catch (NumberFormatException ex){
-                apresentarMensagem("O campo RG deve ser um número inteiro.", "Erro de conversão de valores");
-            }
-            String sCnh = cadastroClienteView.getCNH();
-            String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
-            String sCep = cadastroClienteView.getCep();
-            String sEndereco = cadastroClienteView.getEndereco();
-            String sBairro = cadastroClienteView.getBairro();
-            String sCidade = cadastroClienteView.getCidade();
-            String sEstado = cadastroClienteView.getEstado();
-            String sTelefone = cadastroClienteView.getTelefone();
-            String sEmail = cadastroClienteView.getEmail();
-            String sWhatsapp = cadastroClienteView.getWhatsapp();
-
-            try {
-                // 3 - Verificar existencia cpf
+                String sNome = cadastroClienteView.getNome();
+                String sCpf = cadastroClienteView.getCpf();
+                long iRg = Integer.parseInt(cadastroClienteView.getRg());
+                String sCnh = cadastroClienteView.getCNH();
+                String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
+                String sCep = cadastroClienteView.getCep();
+                String sEndereco = cadastroClienteView.getEndereco();
+                String sBairro = cadastroClienteView.getBairro();
+                String sCidade = cadastroClienteView.getCidade();
+                String sEstado = cadastroClienteView.getEstado();
+                String sTelefone = cadastroClienteView.getTelefone();
+                String sEmail = cadastroClienteView.getEmail();
+                String sWhatsapp = cadastroClienteView.getWhatsapp();
+                
+                // 2 - Verificar existencia cpf
                 verificaExistenciaCPF(sCpf);
-            } catch (ClienteException ex) {
-                apresentarMensagem(ex.getMessage(), "Erro");
+
+                // 3 - Criar o novo cliente
+                this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
+                
+                // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
+                pessoaRepositorio.adicionarPessoa(modeloCliente);
+
+                // 4 - Mensagem
+                apresentarMensagem("Cliente cadastrado com sucesso.", "Êxito");
+
+                // 5 - Fechar tela
+                fecharTela();
+                
+                            
+                // Remover
+                System.out.println(pessoaRepositorio.getClientes());
+            } catch (NumberFormatException ex){
+                apresentarMensagem("Insira um valor inteiro no campo de RG.", "Erro");
+            } catch (ClienteException ex){
+                apresentarMensagem("O CPF já consta no sistema.", "Eroo");
             }
 
-            // 2 - Criar o novo cliente
-            this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
-
-            // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
-            pessoaRepositorio.adicionarPessoa(modeloCliente);
-
-            // 4 - Mensagem
-            apresentarMensagem("Cliente cadastrado com sucesso.", "Êxito");
-            
-            // 5 - Fechar tela
-            fecharTela();
+        } else {
+            throw new ClienteException("Preencha todos os campos.");
         }
  
     }
@@ -155,11 +165,7 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
     
     public boolean verificaExistenciaCPF(String cpf) throws ClienteException{
-        if(pessoaRepositorio.buscarPessoaPorCPF(cpf) == null){
-            return true;
-        } else {
-            throw new ClienteException("CPF já consta no sistema.");
-        }
+        return pessoaRepositorio.buscarPessoaPorCPF(cpf) == null;
     }
     
     public boolean verificaLengthCpf() throws ClienteException{

@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-public class TelaBaseConsultaView extends TelaBaseView {
+public abstract class TelaBaseConsultaView extends TelaBaseView {
 
     public TelaBaseConsultaView() {
         initComponents();
@@ -40,131 +40,6 @@ public class TelaBaseConsultaView extends TelaBaseView {
     public void limpaSelecao(JTable tabela){
         tabela.clearSelection();
     }
-
-    public void popularTabela(PadraoRepositorio repositorio, int tipoRepositorio, JTable tabela, DefaultTableModel grid){
-        limparTabela(grid);
-        switch (tipoRepositorio){
-            // Case: tabela de clientes
-            case 0 -> { 
-                PessoaRepositorio repositorioDePessoas = (PessoaRepositorio) repositorio;
-                tabela.getModel();
-                for (Pessoa client : repositorioDePessoas.getClientes()) {
-                    grid.addRow(client.obterDados());
-                }
-            }
-            // Case: tabela de carros
-            case 1 -> {
-                VeiculoRepositorio repositorioDeVeiculos = (VeiculoRepositorio) repositorio;
-                Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-                for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-                    if(entry.getValue() instanceof Carro carro){
-                        grid.addRow(carro.obterDados());
-                    }
-                }
-            }
-            // Case: tabela de motos
-            case 2 -> {
-                VeiculoRepositorio repositorioDeVeiculos = (VeiculoRepositorio) repositorio;
-                Map<String, Veiculo> veiculos = repositorioDeVeiculos.getVeiculos();
-        
-                for(Map.Entry<String, Veiculo> entry : veiculos.entrySet()){
-                    if(entry.getValue() instanceof Moto moto){
-                        grid.addRow(moto.obterDados());
-                    }
-                }
-            }
-            // Case: tabela de funcionários
-            case 3 -> {
-                PessoaRepositorio repositorioDePessoas = (PessoaRepositorio) repositorio;
-                
-                for (Pessoa func : repositorioDePessoas.getFuncionarios()) {
-                    grid.addRow(func.obterDados());
-                }
-            }
-            // Case 4: tabela de vendas
-            case 4 -> {
-                VendaRepositorio repositorioDeVendas = (VendaRepositorio) repositorio;
-                
-                for (Venda v : repositorioDeVendas.getVenda()) {
-                    grid.addRow(v.obterDados());
-                }
-            }
-        }
-    }
-
-    public void removerDaTabela(PadraoRepositorio repositorio, int tipoRepositorio, JTable tabela, DefaultTableModel grid){
-        switch (tipoRepositorio){
-            // Case: tabela de clientes
-            case 0 -> {
-                PessoaRepositorio repositorioDePessoa = (PessoaRepositorio) repositorio;
-                if (!(tabela.getSelectedRow() == -1)) {
-                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 1);
-                    repositorioDePessoa.removerPessoa(busca);
-                    limparTabela(grid);
-                    popularTabela(repositorioDePessoa, 0, tabela, grid);
-                    apresentaMensagem("Cliente removido!", "Remoção efetuada");
-                } else {
-                    apresentaMensagem("Nenhum cliente foi selecionado.", "Erro de exclusão");
-                }                
-            }
-            // Case: tabela de carros
-            case 1 -> {
-                VeiculoRepositorio repositorioDeVeiculo = (VeiculoRepositorio) repositorio;
-                if (!(tabela.getSelectedRow() == -1)){
-                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 0);
-                    repositorioDeVeiculo.removeVeiculo(busca);
-                    limparTabela(grid);
-                    popularTabela(repositorioDeVeiculo, 1, tabela, grid);
-                    apresentaMensagem("Veículo removido!", "Remoção efetuada");
-                } else {
-                    apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
-                }
-            }
-            // Case: tabela de motos
-            case 2 -> {
-                VeiculoRepositorio repositorioDeVeiculo = (VeiculoRepositorio) repositorio;
-                if (!(tabela.getSelectedRow() == -1)){
-                    String busca = (String) grid.getValueAt(tabela.getSelectedRow(), 0);
-                    repositorioDeVeiculo.removeVeiculo(busca);
-                    limparTabela(grid);
-                    popularTabela(repositorioDeVeiculo, 2, tabela, grid);
-                    apresentaMensagem("Veículo removido!", "Remoção efetuada");
-                } else {
-                    apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
-                }
-            }
-            // Case: tabela de funcionários
-            case 3 -> {
-                PessoaRepositorio repositorioDePessoas = (PessoaRepositorio) repositorio;
-                if (!(tabela.getSelectedRow() == -1)) {
-                    String CPF = (String) grid.getValueAt(tabela.getSelectedRow(), 1);
-                    repositorioDePessoas.removerPessoa(CPF);
-                    limparTabela(grid);
-                    popularTabela(repositorioDePessoas, 3, tabela, grid);
-                } else {
-                    apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
-                }                
-            }
-            // Case 4: tabela de vendas
-            case 4 -> {
-                VendaRepositorio repositorioDeVendas = (VendaRepositorio) repositorio;
-                if (!(tabela.getSelectedRow() == -1)) {
-                    int numeroVenda = (int) grid.getValueAt(tabela.getSelectedRow(), 0);
-                    repositorioDeVendas.removeVenda(numeroVenda);
-                    limparTabela(grid);
-                    popularTabela(repositorioDeVendas, 4, tabela, grid);
-                } else {
-                    apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
-                }               
-            }
-        }
-    }
-
-    // Ver com o professor se faz sentido ter uma sobrecarga de métodos aqui e chamar na tela específica.
-    // Como segue o exemplo comentado abaixo.
-    /*public void buscaNaTabela(String parametro){
-    }*/
     
     public void limparTabela(DefaultTableModel grid){
         grid.setRowCount(0);
