@@ -5,6 +5,7 @@
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.excecoes.ClienteException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
@@ -85,7 +86,14 @@ public final class CadastroClienteController extends BaseCadastroController{
         String sEmail = cadastroClienteView.getEmail();
         String sWhatsapp = cadastroClienteView.getWhatsapp();
 
-        // 2 - Criar o novo cliente (fazer uso de exception)
+        try {
+            // 3 - Verificar existencia cpf
+            verificaExistenciaCPF(sCpf);
+        } catch (ClienteException ex) {
+            apresentarMensagem(ex.getMessage(), "Erro");
+        }
+        
+        // 2 - Criar o novo cliente
         this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
         
         // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
@@ -95,18 +103,29 @@ public final class CadastroClienteController extends BaseCadastroController{
         // 4 - Mensagem
         apresentarMensagem("Êxito", "Cliente cadastrado com sucesso.");
         
-        // 5 - Limpar tela
-        
-        
+        // 5 - Fechar tela
+        fecharTela();
         
     }
     
     public void acaoAlterar(){
         // Implementar acao e exceção
+        
+        
+        
     }
     
     public void popularCamposDoClienteAlterar(){
         
+    }
+    
+    public boolean verificaExistenciaCPF(String cpf) throws ClienteException{
+        PessoaRepositorio pessoaRepositorio = new PessoaDAO();
+        if(pessoaRepositorio.buscarPessoaPorCPF(cpf) == null){
+            return true;
+        } else {
+            throw new ClienteException("CPF já consta no sistema.");
+        }
     }
 
     @Override
@@ -125,8 +144,8 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
 
     @Override
-    public void limparCamposDaTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void fecharTela() {
+        cadastroClienteView.dispose();
     }
     
 }
