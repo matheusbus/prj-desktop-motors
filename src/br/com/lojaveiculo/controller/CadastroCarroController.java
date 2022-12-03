@@ -5,7 +5,7 @@ import br.com.lojaveiculo.view.CadastroCarroView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CadastroCarroController extends BaseCadastroController{
+public class CadastroCarroController extends BaseCadastroController {
 
     private CadastroCarroView cadastroCarroView;
     private Carro modeloCarro;
@@ -20,26 +20,36 @@ public class CadastroCarroController extends BaseCadastroController{
         this.modeloCarro = modeloCarro;
         inicializarBotoes();
     }
-       
+
     @Override
-    public void inicializarBotoes(){
-    if(this.modeloCarro == null){
+    public void inicializarBotoes() {
+        if (this.modeloCarro == null) {
+            cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            });
+        } else {
+            cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            });
+        }
+
         cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                acaoCancelar();
             }
         });
-    }else{
-        cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-           
-            }
-        });
+
     }
-            
-      
+
+    public void acaoCancelar() {
+        cadastroCarroView.dispose();
     }
 
     @Override
@@ -49,11 +59,18 @@ public class CadastroCarroController extends BaseCadastroController{
 
     @Override
     public boolean verificaCamposNulos() {
-    cadastroCarroView.verificaCamposNulos();
+        cadastroCarroView.verificaCamposNulos();
         return true;
     }
-    
-    private void btnCadCarroActionPerformed(){   
-       
+
+    @Override
+    public void apresentarMensagem(String titulo, String mensagem) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public void limparCamposDaTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
