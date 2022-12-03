@@ -21,8 +21,9 @@ public final class CadastroClienteController extends BaseCadastroController{
     private Cliente modeloCliente;
     private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
-    public CadastroClienteController() {
-        this.cadastroClienteView = new CadastroClienteView();
+    public CadastroClienteController(CadastroClienteView cadastroClienteView) {
+        this.cadastroClienteView = cadastroClienteView;
+        this.modeloCliente = null;
         inicializarBotoes();
     }
 

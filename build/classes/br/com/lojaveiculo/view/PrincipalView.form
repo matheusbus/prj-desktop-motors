@@ -13,17 +13,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadClientesActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miCadFuncionarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcionarios"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadFuncionariosActionPerformed"/>
-              </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="muCadVeiculo">
               <Properties>
@@ -34,17 +28,11 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Carro"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadCarroActionPerformed"/>
-                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="miCadMoto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Moto"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miCadMotoActionPerformed"/>
-                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -59,17 +47,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muClientesActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="muConsultaFuncionarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaFuncionariosActionPerformed"/>
-              </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="menuVeiculos">
               <Properties>
@@ -80,17 +62,11 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Carro"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miConsCarroActionPerformed"/>
-                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="miConsMoto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Moto"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miConsMotoActionPerformed"/>
-                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -98,9 +74,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muConsultaVendasActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -113,9 +86,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Efetuar Venda"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muTelaVendaActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -128,9 +98,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miRelatoriosActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
