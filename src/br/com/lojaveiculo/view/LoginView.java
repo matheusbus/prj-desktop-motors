@@ -190,9 +190,6 @@ public final class LoginView extends TelaBaseView {
     }
 
     private void criaTelaPrincipal() {
-        //PrincipalView telaPrincipal = new PrincipalView();
-        //telaPrincipal.setVisible(true);
-        
         PrincipalController principalController = new PrincipalController();
         principalController.exibirTela();
     }

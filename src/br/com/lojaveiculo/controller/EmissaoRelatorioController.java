@@ -39,7 +39,7 @@ public final class EmissaoRelatorioController extends BaseController{
     
     public void acaoEmitirRelatorio(){
         limparRelatorioEmitido();
-        
+        chamaOrdenacaoEImprime();
     }
     
     public void limparRelatorioEmitido(){
@@ -66,7 +66,7 @@ public final class EmissaoRelatorioController extends BaseController{
         Collections.sort(vendaRepositorio.getVenda(), new ComparadorPrecoVenda());
     }    
     
-    public void chamaOrdenacao(){
+    public void chamaOrdenacaoEImprime(){
         switch(emissaoRelatorioView.getTipoRelatorioSelecionado()){
             case 0 -> {
                 ordenaPorNomeCliente();

@@ -7,6 +7,7 @@ import br.com.lojaveiculo.model.Gerente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import java.awt.event.ActionListener;
 /**
  *
  * @author eduar
@@ -29,6 +30,14 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
     public CadastroFuncionariosView() {
         organizaLayout();
+    }
+    
+    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao){
+        btnCadFuncionario.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoAoBotaoCancelar(ActionListener acao){
+        btnCancela.addActionListener(acao);
     }
     
     public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncionario, Funcionario func){
@@ -106,11 +115,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         btnCadFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCadFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         btnCadFuncionario.setText("Cadastrar");
-        btnCadFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadFuncionarioActionPerformed(evt);
-            }
-        });
 
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,11 +172,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         btnCancela.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
-        btnCancela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelaActionPerformed(evt);
-            }
-        });
 
         pnlEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -398,18 +397,6 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadFuncionarioActionPerformed
-        if(this.func == null){
-            cadastrarFuncionario();
-        } else {
-            alterarFuncionario(func);
-        }
-    }//GEN-LAST:event_btnCadFuncionarioActionPerformed
-
-    private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelaActionPerformed
-
     public void cadastrarFuncionario() {
         if (verificaExistenciaCPF(txtCpf.getText())) {
             if (verificaLengthCpf(txtCpf.getText())) {
@@ -518,6 +505,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
             return false;
         }
     }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
