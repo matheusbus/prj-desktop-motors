@@ -255,7 +255,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
                 //removerDaTabela();
-                super.removerDaTabela(repositorioDeVeiculos, 1, tblCarros, grid);
+                //super.removerDaTabela(, 1, tblCarros, grid);
             }
         }
     }
@@ -305,11 +305,6 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     @Override
     public void limpaSelecao() {
         tblCarros.clearSelection();
-    }
-
-    @Override
-    public void limparTabela() {
-        grid.setRowCount(0);
     }
 
 }

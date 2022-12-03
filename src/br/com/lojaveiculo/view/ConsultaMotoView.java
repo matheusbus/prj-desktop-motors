@@ -20,6 +20,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
      
     }
 
+    
+    
     @Override
     public void organizaLayout() {
         initComponents();
