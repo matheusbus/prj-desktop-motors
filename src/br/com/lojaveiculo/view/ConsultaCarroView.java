@@ -1,12 +1,9 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
 import java.util.Map;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,21 +13,11 @@ import javax.swing.table.DefaultTableModel;
 public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     private DefaultTableModel grid;
-    private CadastroVendaView venda;
-    private VeiculoRepositorio veiculos;
 
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
-    }
-
-    // Construtor chamado na tela de venda
-    public ConsultaCarroView(CadastroVendaView venda) {
-        organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(true);
-        this.venda = venda;
-        this.veiculos = new VeiculoDAO();
     }
 
     @Override
@@ -245,6 +232,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         return txtPlacaBuscada.getText();
     }
 
+    @Override
     public void limparTabela() {
         grid.setRowCount(0);
     }
@@ -266,9 +254,8 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
 
-    public void buscaNaTabela(String placa) {
+    public boolean buscaNaTabela(String placa) {
         int incidencia = -1;
-        if (placa.length() == 7) {
             for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
                 if (grid.getValueAt(i, 0).equals(placa)) {
                     incidencia = i;
@@ -276,16 +263,24 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             }
             if (incidencia != -1) {
                 tblCarros.setRowSelectionInterval(incidencia, incidencia);
+                return true;
             } else {
-                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '" + placa + "'.", "Veículo não encontrado");
+               return false;
             }
-        } else {
-            apresentaMensagem("Digite uma placa válida!", "Placa inválida");
-        }
+    }
+    
+
+    public void setBotaoSelecionar(Boolean bool) {
+        btnSelecionarVeiculo.setEnabled(bool);
     }
 
     public String getSelecionaItem() {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+    }
+    
+     @Override
+    public void limpaSelecao() {
+        tblCarros.clearSelection();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -301,10 +296,5 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     private javax.swing.JTable tblCarros;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void limpaSelecao() {
-        tblCarros.clearSelection();
-    }
 
 }

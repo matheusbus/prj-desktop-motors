@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.repositorio;
 
+import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Veiculo;
 import java.util.Map;
@@ -33,4 +34,6 @@ public interface VeiculoRepositorio extends PadraoRepositorio{
     public Veiculo buscarVeiculo(String placa);
 
     public Map<String, Moto> getMotos();
+    
+    public Map<String, Carro> getCarros();
 }
