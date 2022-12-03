@@ -17,20 +17,15 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     }
 
     // Método que é sobrescrito para abrir as telas de cadastro em qualquer tela de consulta
-    public void abrirTelaCadastro(){
-        
-    }
+    public abstract void abrirTelaCadastro();
 
     // Método que é sobrescrito para abrir a tela de cadastro com as informações do item à alterar
-    public void abrirTelaAlterarCadastro(Object obj){   
-    }
+    public abstract void abrirTelaAlterarCadastro(Object obj);
 
     // Métodos comuns para manipulação da tabela na tela de consultas
     public abstract void limpaSelecao();
     
-    public void limparTabela(DefaultTableModel grid){
-        grid.setRowCount(0);
-    }
+    public abstract void limparTabela();
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -53,9 +48,7 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
-    public void organizaLayout() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public abstract void organizaLayout();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
