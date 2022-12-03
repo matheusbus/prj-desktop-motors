@@ -34,8 +34,13 @@ public class TelaBaseView extends javax.swing.JFrame {
     }
     
     public void exibirTela(){
+<<<<<<< HEAD
         setLocationRelativeTo(null);
         setVisible(true);
+=======
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+>>>>>>> a83ef4e22b103ad0e197fe2956495abec0e978d4
     }
 
     @SuppressWarnings("unchecked")

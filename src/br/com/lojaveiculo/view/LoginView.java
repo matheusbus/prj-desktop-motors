@@ -11,6 +11,7 @@ import br.com.lojaveiculo.instancia.FabricaObjetos;
 import br.com.lojaveiculo.model.Usuario;
 import br.com.lojaveiculo.repositorio.UsuarioRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -18,9 +19,14 @@ import javax.swing.JOptionPane;
  *
  * @author Matheus
  */
+/*
+    CONFORME ORIENTAÇÃO DO PROFESSOR DE QUE A PRIMEIRA TELA PODERIA INICIAR SEM O CONTROLLER, NÃO FOI CRIADO UM CONTROLADOR PARA ESSA VIEW.
+*/
+
 public final class LoginView extends TelaBaseView {
 
     private final UsuarioRepositorio repositorioDeUsuarios;
+    
 
     /**
      * Creates new form LoginView
@@ -30,7 +36,7 @@ public final class LoginView extends TelaBaseView {
         organizaLayout();
         repositorioDeUsuarios = new UsuarioDAO();
         FabricaObjetos fab = new FabricaObjetos();
-        fab.criaUsuarios();
+        fab.criaUsuarios();                
     }
 
     @Override
@@ -173,6 +179,10 @@ public final class LoginView extends TelaBaseView {
         validaLogin();
     }//GEN-LAST:event_btnLogarActionPerformed
 
+    private void adicionaAcaoAoBotaoLogar(ActionListener acao){
+        btnLogar.addActionListener(acao);
+    }
+    
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
         JOptionPane.showMessageDialog(null, mensagem, titulo, HEIGHT);
@@ -198,15 +208,15 @@ public final class LoginView extends TelaBaseView {
             }
         }
     }
-
-    public static void main(String args[]) {
-
+    
+    public static void main(String[] args) {
+        
         FlatArcDarkIJTheme.setup();
-
-        // Create and display the form
+        
         java.awt.EventQueue.invokeLater(() -> {
             new LoginView().setVisible(true);
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
