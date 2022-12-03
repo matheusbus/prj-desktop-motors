@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public final class ConsultaClienteController extends BaseConsultaController{
 
     private ConsultaClienteView consultaClienteView;
-    private ConsultaVendaController consultaVendaController;
+    private CadastroVendaController cadastroVendaController;
     private Cliente modeloCliente;
     private final PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
@@ -29,13 +29,11 @@ public final class ConsultaClienteController extends BaseConsultaController{
         setBotaoSelecionar(false);
     }
 
-    public ConsultaClienteController(ConsultaVendaController consultaVendaController) {
-        this.consultaVendaController = consultaVendaController;
+    public ConsultaClienteController(CadastroVendaController cadastroVendaController) {
+        this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
         popularTabela();
     }
-    
-    
 
     @Override
     public void inicializarBotoes() {
@@ -95,7 +93,9 @@ public final class ConsultaClienteController extends BaseConsultaController{
     }
     
     public void acaoSelecionar(){
-        // Implementar
+        cadastroVendaController.setCliente((Cliente) pessoaRepositorio.buscarPessoaPorCPF(consultaClienteView.getCpfClienteSelecionado()));
+        cadastroVendaController.populaListaCliente();
+        fecharTela();
     }
 
     @Override
