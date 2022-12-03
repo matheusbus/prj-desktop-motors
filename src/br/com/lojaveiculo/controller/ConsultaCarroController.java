@@ -28,8 +28,6 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
         setBotaoSelecionar(false);
-        
- 
     }
 
     public ConsultaCarroController(CadastroVendaController cadastroVendaController) {
@@ -38,14 +36,14 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
-        setBotaoSelecionar(false);
+        setBotaoSelecionar(true);
 
     }
 
     @Override
     public void popularTabela() {
-      consultaCarroView.limparTabela();
-        consultaCarroView.popularTabela(veiculoRepositorio.getCarros());  
+        consultaCarroView.limparTabela();
+        consultaCarroView.popularTabela(veiculoRepositorio.getCarros());
     }
 
     @Override
@@ -58,59 +56,14 @@ public class ConsultaCarroController extends BaseConsultaController {
             acaoAlterar();
         });
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
-            acaoSelecionar();
-        });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoBuscar();
         });
         consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
             acaoRemover();
         });
-    }
-
-    public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController();
-        cadastroCarroController.exibirTela();
-    }
-
-    public void acaoAlterar() {
-        try {
-            String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
-            Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
-            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
-            cadastroCarroController.exibirTela();
-        } catch (Exception e) {
-            apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
-        }
-    }
-
-    public void acaoSelecionar() {
-        String sPlaca = consultaCarroView.getSelecionaItem();
-        cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
-    }
-
-    public void acaoBuscar() {
-        consultaCarroView.limpaSelecao();
-        String sPlaca = consultaCarroView.getFiltro();
-        if (sPlaca.length() == 7) {
-            if (consultaCarroView.buscaNaTabela(sPlaca)) {
-                apresentarMensagem("Sucesso", "Sucesso");
-            } else {
-                apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
-            }
-        } else {
-            apresentarMensagem("Digite uma placa válida!", "Placa inválida");
-        }
-    }
-
-    public void acaoRemover() {
-        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
-        limparTabela();
-        popularTabela();
-    }
-
-    public void setBotaoSelecionar(Boolean bool){
-        consultaCarroView.setBotaoSelecionar(bool);
+        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+            acaoSelecionar();
+        });
     }
     
     @Override
@@ -131,6 +84,53 @@ public class ConsultaCarroController extends BaseConsultaController {
     public void limparTabela() {
         consultaCarroView.limparTabela();
 
+    }
+
+    public void acaoAlterar() {
+        try {
+            String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
+            Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
+            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
+            cadastroCarroController.exibirTela();
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
+        }
+    }
+    
+    public void acaoRemover() {
+        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
+        limparTabela();
+        popularTabela();
+    }
+
+    public void acaoCadastrar() {
+        CadastroCarroController cadastroCarroController = new CadastroCarroController();
+        cadastroCarroController.exibirTela();
+    }
+    
+    public void acaoSelecionar() {
+        String sPlaca = consultaCarroView.getSelecionaItem();
+        cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
+        cadastroVendaController.populaListaVeiculo();
+        fecharTela();
+    }
+
+    public void acaoBuscar() {
+        consultaCarroView.limpaSelecao();
+        String sPlaca = consultaCarroView.getFiltro();
+        if (sPlaca.length() == 7) {
+            if (consultaCarroView.buscaNaTabela(sPlaca)) {
+                apresentarMensagem("Sucesso", "Sucesso");
+            } else {
+                apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
+            }
+        } else {
+            apresentarMensagem("Digite uma placa válida!", "Placa inválida");
+        }
+    }
+
+    public void setBotaoSelecionar(Boolean bool) {
+        consultaCarroView.setBotaoSelecionar(bool);
     }
 
 }

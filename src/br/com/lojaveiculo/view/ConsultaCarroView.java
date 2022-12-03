@@ -17,7 +17,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(false);
+        //this.btnSelecionarVeiculo.setEnabled(false);
     }
 
     @Override
@@ -28,6 +28,73 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblCarros.getModel();
+    }
+
+    public void adicionarAcaoBtnCadastrar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionarAcaoBtnAlterar(ActionListener acao) {
+        btnAlterarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionarAcaoBtnRemover(ActionListener acao) {
+        btnRemoverVeiculo.addActionListener(acao);
+    }
+
+    public void adicionarAcaoBtnBuscar(ActionListener acao) {
+        btnBuscarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionarAcaoBtnSelecionar(ActionListener acao) {
+        btnSelecionarVeiculo.addActionListener(acao);
+    }
+
+    public void popularTabela(Map<String, Carro> carros) {
+        for (Map.Entry<String, Carro> entry : carros.entrySet()) {
+            grid.addRow(entry.getValue().obterDados());
+        }
+    }
+
+    public String getPlacaTabelaRegistro() {
+        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+    }
+
+    @Override
+    public void limparTabela() {
+        grid.setRowCount(0);
+    }
+
+    @Override
+    public void limpaSelecao() {
+        tblCarros.clearSelection();
+    }
+
+    public String getFiltro() {
+        return txtPlacaBuscada.getText();
+    }
+
+    public boolean buscaNaTabela(String placa) {
+        int incidencia = -1;
+        for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
+            if (grid.getValueAt(i, 0).equals(placa)) {
+                incidencia = i;
+            }
+        }
+        if (incidencia != -1) {
+            tblCarros.setRowSelectionInterval(incidencia, incidencia);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public String getSelecionaItem() {
+        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
+    }
+    
+    public void setBotaoSelecionar(Boolean bool) {
+        btnSelecionarVeiculo.setEnabled(bool);
     }
 
     @SuppressWarnings("unchecked")
@@ -204,85 +271,16 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionarAcaoBtnCadastrar(ActionListener acao) {
-        btnCadastrarVeiculo.addActionListener(acao);
-    }
-
-    public void adicionarAcaoBtnAlterar(ActionListener acao) {
-        btnAlterarVeiculo.addActionListener(acao);
-    }
-
-    public void adicionarAcaoBtnRemover(ActionListener acao) {
-        btnRemoverVeiculo.addActionListener(acao);
-    }
-
-    public void adicionarAcaoBtnBuscar(ActionListener acao) {
-        btnBuscarVeiculo.addActionListener(acao);
-    }
-
-    public void adicionarAcaoBtnSelecionar(ActionListener acao) {
-        btnSelecionarVeiculo.addActionListener(acao);
-    }
-
-    public String getPlacaTabelaRegistro() {
-        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
-    }
-
-    public String getFiltro() {
-        return txtPlacaBuscada.getText();
-    }
-
-    @Override
-    public void limparTabela() {
-        grid.setRowCount(0);
-    }
-
-    public void validaRemocao() {
-        if (!(tblCarros.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                //removerDaTabela();
-                //super.removerDaTabela(, 1, tblCarros, grid);
-            }
-        }
-    }
-
-    public void popularTabela(Map<String, Carro> carros) {
-        for (Map.Entry<String, Carro> entry : carros.entrySet()) {
-            grid.addRow(entry.getValue().obterDados());
-        }
-    }
-
-    public boolean buscaNaTabela(String placa) {
-        int incidencia = -1;
-            for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
-                if (grid.getValueAt(i, 0).equals(placa)) {
-                    incidencia = i;
-                }
-            }
-            if (incidencia != -1) {
-                tblCarros.setRowSelectionInterval(incidencia, incidencia);
-                return true;
-            } else {
-               return false;
-            }
-    }
-    
-
-    public void setBotaoSelecionar(Boolean bool) {
-        btnSelecionarVeiculo.setEnabled(bool);
-    }
-
-    public String getSelecionaItem() {
-        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
-    }
-    
-     @Override
-    public void limpaSelecao() {
-        tblCarros.clearSelection();
-    }
-
+//    public void validaRemocao() {
+//        if (!(tblCarros.getSelectedRow() != -1)) {
+//            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+//        } else {
+//            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+//                //removerDaTabela();
+//                //super.removerDaTabela(, 1, tblCarros, grid);
+//            }
+//        }
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;
     private javax.swing.JButton btnBuscarVeiculo;
