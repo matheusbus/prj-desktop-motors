@@ -22,8 +22,7 @@ public class CadastroMotoController extends BaseCadastroController {
         inicializaCadastro();
     }
 
-    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto, 
-            ConsultaMotoController consultaMotoController) {
+    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
         this.cadastroMotoView = cadastroMotoView;
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = veiculoRepositorio;

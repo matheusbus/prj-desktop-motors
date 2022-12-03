@@ -1,6 +1,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
+import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
@@ -15,20 +16,15 @@ import javax.swing.table.DefaultTableModel;
 public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     private DefaultTableModel grid;
-<<<<<<< HEAD
     private CadastroVendaView venda;
     private VeiculoRepositorio veiculos;
-    
-=======
 
->>>>>>> f7a26aaf655ab8fb74b499d672ee2a33312df946
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-<<<<<<< HEAD
-    
+
     // Construtor chamado na tela de venda
     public ConsultaCarroView(CadastroVendaView venda) {
         organizaLayout();
@@ -36,10 +32,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         this.venda = venda;
         this.veiculos = new VeiculoDAO();
     }
-      
-=======
 
->>>>>>> f7a26aaf655ab8fb74b499d672ee2a33312df946
     @Override
     public void organizaLayout() {
         initComponents();
@@ -248,9 +241,10 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
 
-    public String getFiltro(){
+    public String getFiltro() {
         return txtPlacaBuscada.getText();
     }
+
     public void limparTabela() {
         grid.setRowCount(0);
     }
