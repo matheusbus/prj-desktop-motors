@@ -26,6 +26,7 @@ public final class CadastroClienteController extends BaseController{
     public CadastroClienteController(CadastroClienteView cadastroClienteView, Cliente modeloCliente) {
         this.cadastroClienteView = cadastroClienteView;
         this.modeloCliente = modeloCliente;
+        popularCamposDoClienteAlterar();
         inicializarBotoes();
     }
     
@@ -71,6 +72,10 @@ public final class CadastroClienteController extends BaseController{
     
     public void acaoAlterar(){
         // Implementar acao e exceção
+    }
+    
+    public void popularCamposDoClienteAlterar(){
+        
     }
 
     @Override

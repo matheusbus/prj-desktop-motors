@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author Matheus
  */
-public class TelaBaseView extends javax.swing.JFrame {
+public abstract class TelaBaseView extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaBaseView
@@ -25,9 +25,7 @@ public class TelaBaseView extends javax.swing.JFrame {
     }
 
     // Método que faz a organização do layout e é chamado no construtor.
-    public void organizaLayout(){
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public abstract void organizaLayout();
     
     public int criaQuestaoPrgunta(String mensagem, String titulo){
         return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
