@@ -4,7 +4,10 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.excecoes.ClienteException;
 import br.com.lojaveiculo.model.Cliente;
+import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,7 +69,12 @@ public final class CadastroClienteController extends BaseCadastroController{
         // 1 - Recuperar dados
         String sNome = cadastroClienteView.getNome();
         String sCpf = cadastroClienteView.getCpf();
-        long iRg = Integer.parseInt(cadastroClienteView.getRg());
+        long iRg = 0;
+        try {
+            iRg = Integer.parseInt(cadastroClienteView.getRg());
+        } catch (NumberFormatException ex){
+            apresentarMensagem("Erro de conversão de valores", "O campo RG deve ser um número inteiro.");
+        }
         String sCnh = cadastroClienteView.getCNH();
         String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
         String sCep = cadastroClienteView.getCep();
@@ -79,9 +87,18 @@ public final class CadastroClienteController extends BaseCadastroController{
         String sWhatsapp = cadastroClienteView.getWhatsapp();
 
         // 2 - Criar o novo cliente (fazer uso de exception)
+        this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
+        
         // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
+        PessoaRepositorio pessoaRepositorio = new PessoaDAO();
+        pessoaRepositorio.adicionarPessoa(modeloCliente);
+        
         // 4 - Mensagem
+        cadastroClienteView.apresentaMensagem(sEmail, sEstado);
+        
         // 5 - Limpar tela
+        
+        
     }
     
     public void acaoAlterar(){
@@ -98,8 +115,13 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
 
     @Override
-    public boolean verificaCamposNulos() {
+    public boolean verificaCamposNulos(){
         return cadastroClienteView.verificaCamposNulos();
+    }
+
+    @Override
+    public void apresentarMensagem(String titulo, String mensagem) {
+        cadastroClienteView.apresentaMensagem(mensagem, titulo);
     }
     
 }
