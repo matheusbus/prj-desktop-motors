@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.model;
 
+import br.com.lojaveiculo.excecoes.PessoaException;
+
 /**
  *
  * @author Rafael
@@ -14,11 +16,15 @@ public class Cliente extends Pessoa {
     private String categoriaCnh;
     private String whatsapp;
 
-    public Cliente(String nome, String cpf, long rg, String cnh, String categoriaCnh, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, String whatsapp) {
+    public Cliente(String nome, String cpf, long rg, String cnh, String categoriaCnh, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, String whatsapp) throws PessoaException {
         super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.cnh = cnh;
         this.categoriaCnh = categoriaCnh;
         this.whatsapp = whatsapp;
+        
+        if(!(this.cpf.length() == 11)){
+            throw new PessoaException("O CPF deve conter 11 números.");
+        }
     }
 
     public String getCnh() {

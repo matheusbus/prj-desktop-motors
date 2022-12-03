@@ -2,7 +2,9 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
+import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -245,15 +247,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     public String getPlacaTabelaRegistro() {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
-    
-    public void limparTabela(){
-         grid.setRowCount(0);
+
+    public String getFiltro(){
+        return txtPlacaBuscada.getText();
     }
-    
-    @Override
-    public void abrirTelaCadastro() {
-        CadastroCarroView cadCarro = new CadastroCarroView(this);
-        cadCarro.setVisible(true);
+    public void limparTabela() {
+        grid.setRowCount(0);
     }
 
     public void validaRemocao() {
@@ -264,6 +263,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
                 //removerDaTabela();
                 super.removerDaTabela(repositorioDeVeiculos, 1, tblCarros, grid);
             }
+        }
+    }
+
+    public void popularTabela(Map<String, Carro> carros) {
+        for (Map.Entry<String, Carro> entry : carros.entrySet()) {
+            grid.addRow(entry.getValue().obterDados());
         }
     }
 
@@ -285,28 +290,8 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
 
-    @Override
-    public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroCarroView altCarro = new CadastroCarroView(this, (Carro) obj);
-        altCarro.setVisible(true);
-    }
-
-    public void selecionaItem(String placa) {
-        venda.veiculo = veiculos.buscarVeiculo(placa);
-        venda.VeiculoSelecionado = true;
-        setVisible(false);
-    }
-
-    public DefaultTableModel getGrid() {
-        return grid;
-    }
-
-    public JTable getTblCarros() {
-        return tblCarros;
-    }
-
-    public VeiculoRepositorio getRepositorioDeVeiculos() {
-        return repositorioDeVeiculos;
+    public String getSelecionaItem() {
+        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -325,12 +310,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     @Override
     public void limpaSelecao() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        tblCarros.clearSelection();
     }
 
     @Override
     public void limparTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        grid.setRowCount(0);
     }
 
 }
