@@ -1,12 +1,9 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
-
-
-
+import java.awt.event.ActionListener;
 
 public final class CadastroMotoView extends TelaBaseCadastroView {
-
 
     public CadastroMotoView() {
         organizaLayout();
@@ -24,7 +21,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadMoto = new javax.swing.JButton();
+        btnAlterarMoto = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txtModelo = new javax.swing.JTextField();
@@ -48,15 +45,16 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
         txtChassi = new javax.swing.JTextField();
         lblChassi = new javax.swing.JLabel();
         btnCancela = new javax.swing.JButton();
+        btnCadMoto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Moto");
         setPreferredSize(new java.awt.Dimension(400, 328));
 
-        btnCadMoto.setBackground(new java.awt.Color(82, 148, 226));
-        btnCadMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnCadMoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadMoto.setText("Cadastrar");
+        btnAlterarMoto.setBackground(new java.awt.Color(82, 148, 226));
+        btnAlterarMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAlterarMoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterarMoto.setText("Alterar");
 
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,6 +233,11 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
 
+        btnCadMoto.setBackground(new java.awt.Color(82, 148, 226));
+        btnCadMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCadMoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadMoto.setText("Cadastrar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,12 +249,18 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(12, 12, 12)
+                                .addComponent(btnAlterarMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(btnCadMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(634, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,28 +269,39 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btnAlterarMoto, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(378, 378, 378)
                     .addComponent(btnCadMoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancela, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
+                    .addGap(25, 25, 25)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionaAcaoAoBtnCadastra() {
+    public void adicionaAcaoAoBtnCadastrar(ActionListener acao) {
+        btnCadMoto.addActionListener(acao);
     }
-    
-    public void adicionaAcaoAoBtnAlterar(){
-        
+
+    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
+        btnAlterarMoto.addActionListener(acao);
     }
-    
-    public void setTitulosTela(){
+
+    public void setTitulosTela() {
         lblTitulo.setText("Alterar Moto");
-        btnCadMoto.setText("Alterar"); 
+        btnAlterarMoto.setVisible(true);
+        btnCadMoto.setVisible(false);
+
     }
-  
 
     @Override
     public boolean verificaCamposNulos() {
@@ -296,8 +316,6 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     public boolean verificaLengthPlaca(String placa) {
         return placa.length() == 7;
     }
-    
-    
 
     public String getPlaca() {
         return txtPlaca.getText();
@@ -318,29 +336,30 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     public String getMarca() {
         return txtMarca.getText();
     }
-    
-    public String getModelo(){
+
+    public String getModelo() {
         return txtModelo.getText();
     }
-    
-    public String getPreco(){
+
+    public String getPreco() {
         return txtPreco.getText();
     }
-    
-    public String getCarroceria(){
+
+    public String getCarroceria() {
         return cbTipoCarroceria.getSelectedItem().toString();
     }
-    
-    public String getAno(){
+
+    public String getAno() {
         return cbAno.getSelectedItem().toString();
     }
-    
-    public String getCombustivel(){
+
+    public String getCombustivel() {
         return cbCombustivel.getSelectedItem().toString();
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarMoto;
     private javax.swing.JButton btnCadMoto;
     private javax.swing.JButton btnCancela;
     private javax.swing.JComboBox<String> cbAno;
