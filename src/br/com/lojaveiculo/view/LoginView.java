@@ -6,6 +6,7 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.componentes.PainelImagemFundo;
+import br.com.lojaveiculo.controller.PrincipalController;
 import br.com.lojaveiculo.dao.UsuarioDAO;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
 import br.com.lojaveiculo.model.Usuario;
@@ -178,10 +179,6 @@ public final class LoginView extends TelaBaseView {
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
         validaLogin();
     }//GEN-LAST:event_btnLogarActionPerformed
-
-    private void adicionaAcaoAoBotaoLogar(ActionListener acao){
-        btnLogar.addActionListener(acao);
-    }
     
     @Override
     public void apresentaMensagem(String mensagem, String titulo) {
@@ -194,8 +191,11 @@ public final class LoginView extends TelaBaseView {
     }
 
     private void criaTelaPrincipal() {
-        PrincipalView telaPrincipal = new PrincipalView();
-        telaPrincipal.setVisible(true);
+        //PrincipalView telaPrincipal = new PrincipalView();
+        //telaPrincipal.setVisible(true);
+        
+        PrincipalController principalController = new PrincipalController();
+        principalController.exibirTela();
     }
 
     public void validaLogin() {

@@ -10,7 +10,6 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *
@@ -38,31 +37,21 @@ public final class CadastroClienteController extends BaseCadastroController{
     @Override
     public void inicializarBotoes() {
         if(this.modeloCliente == null){
-            cadastroClienteView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    acaoCadastrar();
-                }
+            cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
+                acaoCadastrar();
             });
         } else {
-            cadastroClienteView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    acaoAlterar();
-                }            
+            cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
+                acaoAlterar();            
             });                
         }
-        
-        cadastroClienteView.adicionaAcaoAoBotaoCancelar(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                acaoCancelar();
-            }
+        cadastroClienteView.adicionaAcaoAoBotaoCancelar((ActionEvent e) -> {
+            acaoCancelar();
         });
     }
     
     public void acaoCancelar(){
-        cadastroClienteView.dispose();
+        cadastroClienteView.fecharTela();
     }
     
     public void acaoCadastrar(){

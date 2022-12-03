@@ -19,6 +19,7 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
      */
     public CadastroClienteView() {
         organizaLayout();
+        addCampos();
     }
 
     @Override
@@ -35,7 +36,16 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     }
     
     public void addCampos(){
-        
+        campos.add(txtCep);
+        campos.add(txtCidade);
+        campos.add(txtCnh);
+        campos.add(txtCpf);
+        campos.add(txtEmail);
+        campos.add(txtEndereco);
+        campos.add(txtNome);
+        campos.add(txtRg);
+        campos.add(txtTelefone);
+        campos.add(txtWhatsapp);
     }
     
     @SuppressWarnings("unchecked")
@@ -329,15 +339,12 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
 
     @Override
     public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))
-                || txtBairro.getText().trim().equals("") || txtCategoriaCnh.getText().trim().equals("") || txtCep.getText().trim().equals("")
-                || txtCidade.getText().trim().equals("") || txtRg.getText().trim().equals("") || txtCnh.getText().trim().equals("")
-                || txtEndereco.getText().trim().equals("") || cbEstado.getSelectedItem().toString().trim().equals("")
-                || txtWhatsapp.getText().trim().equals(""))) {
-            return true;
-        } else {
-            return false;
+        for(JTextField campo : campos){
+            if(campo.getText().trim().equals("")){
+                return false;
+            }
         }
+        return true;
     }
     
     public void setTitulosTela(String titulo){
@@ -379,6 +386,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     
     public String getEstado(){
         return cbEstado.getSelectedItem().toString();
+    }
+    
+    public void setEstado(String estado){
+        cbEstado.setSelectedItem(estado);
     }
     
     public String getCNH(){
@@ -443,10 +454,6 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     
     public void setWhatsapp(String whatsapp){
         txtWhatsapp.setText(whatsapp);
-    }
-    
-    public void setEstado(String estado){
-        cbEstado.setSelectedItem(estado);
     }
     
 
