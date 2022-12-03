@@ -276,5 +276,4 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
 
-
 }

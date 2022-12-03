@@ -27,6 +27,8 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+        setBotaoSelecionar(false);
+        
  
     }
 
@@ -36,6 +38,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
+        setBotaoSelecionar(false);
 
     }
 
@@ -106,6 +109,10 @@ public class ConsultaCarroController extends BaseConsultaController {
         popularTabela();
     }
 
+    public void setBotaoSelecionar(Boolean bool){
+        consultaCarroView.setBotaoSelecionar(bool);
+    }
+    
     @Override
     public void exibirTela() {
         consultaCarroView.exibirTela();
