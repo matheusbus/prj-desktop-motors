@@ -26,9 +26,7 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     }
 
     // Métodos comuns para manipulação da tabela na tela de consultas
-    public void limpaSelecao(JTable tabela){
-        tabela.clearSelection();
-    }
+    public abstract void limpaSelecao();
     
     public void limparTabela(DefaultTableModel grid){
         grid.setRowCount(0);

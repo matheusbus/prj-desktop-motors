@@ -6,8 +6,10 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.awt.event.ActionListener;
+import java.util.Set;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -262,8 +264,11 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void popularTabelaDados(){
-        popularTabela(repositorioDePessoas, 0, tblClientes, grid);
+    public void popularTabela(Set<Pessoa> clientes){
+        tblClientes.getModel();
+        for (Pessoa cliente : clientes) {
+            grid.addRow(cliente.obterDados());
+        }
     }
     
     public void adicionarAcaoAoBotaoBuscarCliente(ActionListener acao){
@@ -271,7 +276,7 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     }
     
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        limpaSelecao(tblClientes);
+        limpaSelecao();
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
@@ -310,8 +315,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     @Override
     public void abrirTelaCadastro() {
     }
-
-
 
     public void buscaNaTabela(String cpf) {
         int incidencia = -1;
@@ -354,6 +357,10 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         return repositorioDePessoas;
     }
     
+    public String getFiltroPesquisa(){
+        return txtCPFBuscado.getText();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnBuscarCliente;
@@ -367,5 +374,10 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     private javax.swing.JTable tblClientes;
     private javax.swing.JTextField txtCPFBuscado;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void limpaSelecao() {
+        tblClientes.clearSelection();
+    }
 
 }
