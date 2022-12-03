@@ -335,40 +335,9 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         this.dispose();
     }//GEN-LAST:event_btnCancelaActionPerformed
 
-    public void cadastrarMoto() {
-        if (verificaLengthPlaca(txtPlaca.getText())) {
-            if (verificaCamposNulos()) {
-                try {
-                    String placa = txtPlaca.getText().toUpperCase();
-                    String modelo = txtModelo.getText();
-                    Marca marca = new Marca(txtMarca.getText());
-                    String chassi = txtChassi.getText();
-                    String cor = txtCor.getText();
-                    String tipoCarroceira = cbTipoCarroceria.getSelectedItem().toString();
-                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                    Double preco = Double.valueOf(txtPreco.getText());
-                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                    int cilindradas = Integer.parseInt(txtCilindradas.getText());
-
-                    Moto novaMoto = new Moto(placa, modelo, marca, chassi, cor, tipoCarroceira, ano, preco, tipoCombustivel, cilindradas);
-                    veiculos.addVeiculo(novaMoto);
-                    if (consultaMoto != null) {
-                        consultaMoto.limparTabela(consultaMoto.getGrid());
-                        consultaMoto.popularTabela(consultaMoto.getRepositorioDeVeiculos(), 2, consultaMoto.getTblMotos(), consultaMoto.getGrid());
-                    }
-                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                    this.dispose();
-                } catch (NumberFormatException ex) {
-                    apresentaMensagem("Prencha os campos com valores válidos", "Erro");
-                }
-            } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro no cadastro");
-            }
-        } else {
-            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
-        }
+    public void adicionaAcaoAoBtnCadastra() {
     }
-
+    
     public void alterarMoto(Moto moto) {
         if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
@@ -441,6 +410,18 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     
     public String getPreco(){
         return txtPreco.getText();
+    }
+    
+    public String getCarroceria(){
+        return cbTipoCarroceria.getSelectedItem().toString();
+    }
+    
+    public String getAno(){
+        return cbAno.getSelectedItem().toString();
+    }
+    
+    public String getCombustivel(){
+        return cbCombustivel.getSelectedItem().toString();
     }
 
 
