@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.controller;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Matheus
@@ -12,7 +14,11 @@ public abstract class BaseController {
 
     public abstract void inicializarBotoes();
     public abstract void exibirTela();
-    public abstract void apresentarMensagem(String mensagem, String titulo);
+    
+    public void apresentarMensagem(String mensagem, String titulo){
+        JOptionPane.showMessageDialog(null, mensagem, titulo, 0);
+    }
+    
     public abstract void fecharTela();
     
 }
