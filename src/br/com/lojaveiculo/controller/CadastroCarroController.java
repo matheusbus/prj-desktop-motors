@@ -70,20 +70,24 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     public void popularCamposCarroAlterar() {
-
-        String sPlaca = cadastroCarroView.getPlaca();
+        try {
+            String sPlaca = cadastroCarroView.getPlaca();
         String sModelo = cadastroCarroView.getModelo();
         Marca Marca = new Marca(cadastroCarroView.getMarca());
         String sChassi = cadastroCarroView.getChassi();
         String sCor = cadastroCarroView.getCor();
         String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
         String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
-        try {
-            int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
+        int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
             double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
             int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
         } catch (Exception e) {
-            apresentarMensagem(, sCor);
+        }
+        
+        try {
+            
+        } catch (Exception e) {
+            apresentarMensagem(, sCor)
         }
 
         modeloCarro.setModelo(sModelo);
@@ -108,7 +112,6 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public boolean verificaCamposNulos() {
-        cadastroCarroView.verificaCamposNulos();
         return cadastroCarroView.verificaCamposNulos();
     }
 
@@ -123,6 +126,6 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public void fecharTela() {
-
+        cadastroCarroView.fecharTela();
     }
 }
