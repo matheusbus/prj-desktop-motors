@@ -49,12 +49,12 @@ public class CadastroCarroController extends BaseCadastroController {
     }
     
     public void acaoCadastrar(){
-        if(verificarPlaca(cadastroCarroView.getTxtPlaca())){
+        //if(verificarPlaca(cadastroCarroView.getTxtPlaca())){
             if(verificaCamposNulos()){
             String sPlaca = cadastroCarroView.
-                
+            //String 
             } 
-        }
+        //}
            
     }
 
