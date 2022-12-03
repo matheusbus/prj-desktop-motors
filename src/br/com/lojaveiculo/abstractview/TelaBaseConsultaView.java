@@ -3,17 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.lojaveiculo.abstractview;
-
-import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Moto;
-import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Veiculo;
-import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.repositorio.PadraoRepositorio;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
