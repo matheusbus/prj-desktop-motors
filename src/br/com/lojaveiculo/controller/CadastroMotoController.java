@@ -1,4 +1,4 @@
-//package br.com.lojaveiculo.controller;
+package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Marca;

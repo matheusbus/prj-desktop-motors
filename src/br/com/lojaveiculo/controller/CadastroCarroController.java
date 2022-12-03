@@ -69,7 +69,7 @@ public class CadastroCarroController extends BaseCadastroController {
         }
     }
 
-    public void popularCamposCarro() {
+    public void popularCamposCarroAlterar() {
 
         String sPlaca = cadastroCarroView.getPlaca();
         String sModelo = cadastroCarroView.getModelo();
@@ -77,11 +77,15 @@ public class CadastroCarroController extends BaseCadastroController {
         String sChassi = cadastroCarroView.getChassi();
         String sCor = cadastroCarroView.getCor();
         String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
-        int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
-        double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
         String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
-        int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
-        
+        try {
+            int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
+            double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+            int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
+        } catch (Exception e) {
+            apresentarMensagem(, sCor);
+        }
+
         modeloCarro.setModelo(sModelo);
         modeloCarro.setMarca(Marca);
         modeloCarro.setChassi(sChassi);
@@ -90,8 +94,7 @@ public class CadastroCarroController extends BaseCadastroController {
         modeloCarro.setAno(iAno);
         modeloCarro.setPreco(dPreco);
         modeloCarro.setTipoCombustivel(sTipoCombustivel);
-                
-        
+
     }
 
     public void acaoCancelar() {
