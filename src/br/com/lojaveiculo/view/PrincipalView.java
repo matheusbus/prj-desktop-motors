@@ -15,17 +15,6 @@ import javax.swing.ImageIcon;
  */
 public final class PrincipalView extends TelaBaseView {
 
-    private ConsultaFuncionariosView consultaFuncionarios;
-    private ConsultaCarroView consultaCarro;
-    private ConsultaMotoView consultaMoto;
-    private RelatorioView relatorio;
-    private CadastroCarroView cadCarro;
-    private CadastroMotoView cadMoto;
-    private CadastroClienteView cadCliente;
-    private ConsultaClientesView consultaCliente;
-    private VendaView venda;
-    private ConsultaVendaView consultaVenda;
-    private CadastroFuncionariosView cadFuncionarios;
     
     public PrincipalView() {
         initComponents();
