@@ -279,24 +279,13 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela();
+                //removerDaTabela();
+                super.removerDaTabela(repositorioDeVeiculos, 1, tblCarros, grid);
             }
         }
     }
-     
-    public void removerDaTabela() {
-        if (!(tblCarros.getSelectedRow() == -1)){
-            String placa = (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
-            repositorioDeVeiculos.removeVeiculo(placa);
-            limparTabela(grid);
-            popularTabela(repositorioDeVeiculos, 1, tblCarros, grid);
-            apresentaMensagem("Veículo removido!", "Remoção efetuada");
-        } else {
-            apresentaMensagem("Nenhum veículo foi selecionado.", "Erro de exclusão");
-        }
-    }
-    
-    @Override
+
+
     public void buscaNaTabela(String placa){
         int incidencia = -1;
         if(placa.length() == 7){

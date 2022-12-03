@@ -230,7 +230,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnCadastrarVendaActionPerformed
 
     private void btnRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVendaActionPerformed
-        removerDaTabela();
+        validaRemocao();
     }//GEN-LAST:event_btnRemoverVendaActionPerformed
 
     private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
@@ -255,24 +255,23 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         cadVenda.setVisible(true);
     }
 
+    public void validaRemocao(){
+        if (!(tblVendas.getSelectedRow() != -1)) {
+            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+        } else {
+            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+                removerDaTabela(repositorioDeVendas, 4, tblVendas, grid);
+            }
+        }
+    }
+    
+    
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
         //CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
         //altMoto.setVisible(true);
     }
 
-    public void removerDaTabela() {
-        if (!(tblVendas.getSelectedRow() == -1)) {
-            int numeroVenda = (int) grid.getValueAt(tblVendas.getSelectedRow(), 0);
-            repositorioDeVendas.removeVenda(numeroVenda);
-            limparTabela(grid);
-            popularTabela(repositorioDeVendas, 4, tblVendas, grid);
-        } else {
-            apresentaMensagem("Nenhuma Venda foi selecionado.", "Erro de exclusão");
-        }
-    }
-
-    @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
         if (placa.length() == 7) {

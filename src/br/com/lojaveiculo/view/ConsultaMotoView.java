@@ -268,23 +268,11 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela();
+                super.removerDaTabela(repositorioDeVeiculos, 2, tblMotos, grid);
             }
         }
     }
-
-    public void removerDaTabela() {
-        if (!(tblMotos.getSelectedRow() == -1)) {
-            String placa = (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
-            repositorioDeVeiculos.removeVeiculo(placa);
-            limparTabela(grid);
-            popularTabela(repositorioDeVeiculos, 2, tblMotos, grid);
-        } else {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        }
-    }
     
-    @Override
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
         if (placa.length() == 7) {

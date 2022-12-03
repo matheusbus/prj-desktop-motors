@@ -283,23 +283,11 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela();
+                removerDaTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
             }
         }
     }
     
-    public void removerDaTabela() {
-        if (!(tblFuncionarios.getSelectedRow() == -1)) {
-            String CPF = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
-            repositorioDePessoas.removerPessoa(CPF);
-            limparTabela(grid);
-            popularTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
-        } else {
-            apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro de exclusão");
-        }
-    }
-
-    @Override
     public void buscaNaTabela(String cpf) {
         int incidencia = -1;
         if (cpf.length() == 11) {
