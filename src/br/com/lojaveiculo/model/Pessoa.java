@@ -4,10 +4,7 @@
  */
 package br.com.lojaveiculo.model;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d82039dd1837c814ff38cb44dcb33b645267e276
 /**
  *
  * @author Matheus
