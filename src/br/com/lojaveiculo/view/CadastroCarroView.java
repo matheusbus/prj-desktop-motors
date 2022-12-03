@@ -99,11 +99,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCadCarro.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadCarro.setForeground(new java.awt.Color(255, 255, 255));
         btnCadCarro.setText("Cadastrar");
-        btnCadCarro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadCarroActionPerformed(evt);
-            }
-        });
 
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,11 +281,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCancela.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
-        btnCancela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,18 +323,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCadCarro.addActionListener(acao);
     }
             
-    private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
-        if (this.carro == null) {
-            cadastrarCarro();
-        } else {
-            alterarCadastro(carro);
-        }
-    }//GEN-LAST:event_btnCadCarroActionPerformed
-
-    private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelaActionPerformed
-
     public void cadastrarCarro() {
         if (verificaLengthPlaca(txtPlaca.getText())) {
             if (verificaCamposNulos()) {
@@ -453,213 +431,87 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 
-    public ConsultaCarroView getConsultaCarro() {
-        return consultaCarro;
+    public String getChassi() {
+        return txtChassi.getText();
     }
 
-    public void setConsultaCarro(ConsultaCarroView consultaCarro) {
-        this.consultaCarro = consultaCarro;
+    public void setChassi(JTextField txtChassi) {
+        this.txtChassi = txtChassi;
     }
 
-    public Carro getCarro() {
-        return carro;
+    public String getCor() {
+        return txtCor.getText();
     }
 
-    public void setCarro(Carro carro) {
-        this.carro = carro;
+    public void setCor(JTextField txtCor) {
+        this.txtCor = txtCor;
     }
 
-    public JButton getBtnCadCarro() {
-        return btnCadCarro;
+    public String getMarca() {
+        return txtMarca.getText();
     }
 
-    public void setBtnCadCarro(JButton btnCadCarro) {
-        this.btnCadCarro = btnCadCarro;
+    public void setMarca(JTextField txtMarca) {
+        this.txtMarca = txtMarca;
     }
 
-    public JButton getBtnCancela() {
-        return btnCancela;
+    public String getModelo() {
+        return txtModelo.getText();
     }
 
-    public void setBtnCancela(JButton btnCancela) {
-        this.btnCancela = btnCancela;
+    public void setModelo(JTextField txtModelo) {
+        this.txtModelo = txtModelo;
     }
 
-    public JComboBox<String> getCbAno() {
-        return cbAno;
+    public String getPlaca() {
+        return txtPlaca.getText();
     }
 
-    public void setCbAno(JComboBox<String> cbAno) {
-        this.cbAno = cbAno;
+    public void setPlaca(JTextField txtPlaca) {
+        this.txtPlaca = txtPlaca;
     }
 
-    public JComboBox<String> getCbCombustivel() {
-        return cbCombustivel;
+    public String getPreco() {
+        return txtPreco.getText();
     }
 
-    public void setCbCombustivel(JComboBox<String> cbCombustivel) {
-        this.cbCombustivel = cbCombustivel;
+    public void setPreco(JTextField txtPreco) {
+        this.txtPreco = txtPreco;
+    }   
+
+    public String getCbTipoCarroceria() {
+        return cbTipoCarroceria.getSelectedItem().toString();
     }
 
-    public JComboBox<String> getCbPorta() {
-        return cbPorta;
+    public void setCbTipoCarroceria(String tipoCarroceria) {
+        this.cbTipoCarroceria.setSelectedItem(tipoCarroceria);
+    }
+
+    public String getCbAno() {
+        return cbAno.getSelectedItem().toString();
+    }
+
+    public void setCbAno(String ano) {
+        this.cbAno.setSelectedItem(ano);
+    }
+
+    public String getCbCombustivel() {
+        return cbCombustivel.getSelectedItem().toString();
+    }
+
+    public void setCbCombustivel(String combustivel) {
+        this.cbCombustivel.setSelectedItem(combustivel);
+    }
+
+    public String getCbPorta() {
+        return cbPorta.getSelectedItem().toString();
     }
 
     public void setCbPorta(JComboBox<String> cbPorta) {
         this.cbPorta = cbPorta;
     }
-
-    public JComboBox<String> getCbTipoCarroceria() {
-        return cbTipoCarroceria;
-    }
-
-    public void setCbTipoCarroceria(JComboBox<String> cbTipoCarroceria) {
-        this.cbTipoCarroceria = cbTipoCarroceria;
-    }
-
-    public JLabel getLblAno() {
-        return lblAno;
-    }
-
-    public void setLblAno(JLabel lblAno) {
-        this.lblAno = lblAno;
-    }
-
-    public JLabel getLblChassi() {
-        return lblChassi;
-    }
-
-    public void setLblChassi(JLabel lblChassi) {
-        this.lblChassi = lblChassi;
-    }
-
-    public JLabel getLblCombustivel() {
-        return lblCombustivel;
-    }
-
-    public void setLblCombustivel(JLabel lblCombustivel) {
-        this.lblCombustivel = lblCombustivel;
-    }
-
-    public JLabel getLblCor() {
-        return lblCor;
-    }
-
-    public void setLblCor(JLabel lblCor) {
-        this.lblCor = lblCor;
-    }
-
-    public JLabel getLblMarca() {
-        return lblMarca;
-    }
-
-    public void setLblMarca(JLabel lblMarca) {
-        this.lblMarca = lblMarca;
-    }
-
-    public JLabel getLblModelo() {
-        return lblModelo;
-    }
-
-    public void setLblModelo(JLabel lblModelo) {
-        this.lblModelo = lblModelo;
-    }
-
-    public JLabel getLblPlaca() {
-        return lblPlaca;
-    }
-
-    public void setLblPlaca(JLabel lblPlaca) {
-        this.lblPlaca = lblPlaca;
-    }
-
-    public JLabel getLblPortas() {
-        return lblPortas;
-    }
-
-    public void setLblPortas(JLabel lblPortas) {
-        this.lblPortas = lblPortas;
-    }
-
-    public JLabel getLblPreco() {
-        return lblPreco;
-    }
-
-    public void setLblPreco(JLabel lblPreco) {
-        this.lblPreco = lblPreco;
-    }
-
-    public JLabel getLblTipoCarroceria() {
-        return lblTipoCarroceria;
-    }
-
-    public void setLblTipoCarroceria(JLabel lblTipoCarroceria) {
-        this.lblTipoCarroceria = lblTipoCarroceria;
-    }
-
-    public JLabel getLblTitulo() {
-        return lblTitulo;
-    }
-
-    public void setLblTitulo(JLabel lblTitulo) {
-        this.lblTitulo = lblTitulo;
-    }
-
-    public JPanel getPnlDados() {
-        return pnlDados;
-    }
-
-    public void setPnlDados(JPanel pnlDados) {
-        this.pnlDados = pnlDados;
-    }
-
-    public JTextField getTxtChassi() {
-        return txtChassi;
-    }
-
-    public void setTxtChassi(JTextField txtChassi) {
-        this.txtChassi = txtChassi;
-    }
-
-    public JTextField getTxtCor() {
-        return txtCor;
-    }
-
-    public void setTxtCor(JTextField txtCor) {
-        this.txtCor = txtCor;
-    }
-
-    public JTextField getTxtMarca() {
-        return txtMarca;
-    }
-
-    public void setTxtMarca(JTextField txtMarca) {
-        this.txtMarca = txtMarca;
-    }
-
-    public JTextField getTxtModelo() {
-        return txtModelo;
-    }
-
-    public void setTxtModelo(JTextField txtModelo) {
-        this.txtModelo = txtModelo;
-    }
-
-    public JTextField getTxtPlaca() {
-        return txtPlaca;
-    }
-
-    public void setTxtPlaca(JTextField txtPlaca) {
-        this.txtPlaca = txtPlaca;
-    }
-
-    public JTextField getTxtPreco() {
-        return txtPreco;
-    }
-
-    public void setTxtPreco(JTextField txtPreco) {
-        this.txtPreco = txtPreco;
-    }
-
+    
+    
+    
     
 }
