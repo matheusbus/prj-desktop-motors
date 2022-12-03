@@ -6,6 +6,7 @@ import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -328,6 +329,10 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao){
+        btnCadCarro.addActionListener(acao);
+    }
+            
     private void btnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCarroActionPerformed
         if (this.carro == null) {
             cadastrarCarro();
