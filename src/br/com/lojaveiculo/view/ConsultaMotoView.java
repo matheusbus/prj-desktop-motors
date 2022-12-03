@@ -1,11 +1,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Moto;
-import br.com.lojaveiculo.model.Veiculo;
-import br.com.lojaveiculo.repositorio.PadraoRepositorio;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
 import java.util.Map;
 import javax.swing.JTable;
@@ -55,20 +51,21 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         btnBuscarVeiculo.addActionListener(acao);
     }
 
-    public void popularTabela(VeiculoRepositorio veiculoRepositorio) {
+    public void popularTabela(Map<String, Moto> motos) {
 
-        Map<String, Veiculo> veiculos = veiculoRepositorio.getVeiculos();
+        for (Map.Entry<String, Moto> entry : motos.entrySet()) {
 
-        for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
-            if (entry.getValue() instanceof Moto moto) {
-                grid.addRow(moto.obterDados());
+            grid.addRow(entry.getValue().obterDados());
 
-            }
         }
     }
 
     public String getPlacaTabelaRegistro() {
         return (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
+    }
+    
+    public void limparTabela(){
+         grid.setRowCount(0);
     }
 
     @SuppressWarnings("unchecked")

@@ -2,10 +2,12 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Moto;
+import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.ConsultaMotoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
 
 /**
  *
@@ -33,7 +35,8 @@ public class ConsultaMotoController extends BaseConsultaController {
 
     @Override
     public void popularTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaMotoView.popularTabela(veiculoRepositorio.getMotos());
+
     }
 
     @Override
@@ -62,6 +65,7 @@ public class ConsultaMotoController extends BaseConsultaController {
     @Override
     public void exibirTela() {
         consultaMotoView.exibirTela();
+        popularTabela();
     }
 
     @Override
@@ -74,11 +78,18 @@ public class ConsultaMotoController extends BaseConsultaController {
         consultaMotoView.apresentaMensagem(mensagem, titulo);
     }
 
+    public void limparTabela() {
+        consultaMotoView.limparTabela();
+    }
+
     public void acaoAlterar() {
 
     }
 
     public void acaoRemover() {
+        veiculoRepositorio.removeVeiculo(consultaMotoView.getPlacaTabelaRegistro());
+        limparTabela();
+        popularTabela();
     }
 
     public void acaoCadastrar() {
@@ -94,8 +105,4 @@ public class ConsultaMotoController extends BaseConsultaController {
 
     }
 
-    public void RemoverRegistro() {
-        veiculoRepositorio.removeVeiculo(consultaMotoView.getPlacaTabelaRegistro());
-
-    }
 }
