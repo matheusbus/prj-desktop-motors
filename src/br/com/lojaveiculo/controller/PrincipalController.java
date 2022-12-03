@@ -4,15 +4,7 @@
  */
 package br.com.lojaveiculo.controller;
 
-
-import br.com.lojaveiculo.view.CadastroMotoView;
-import br.com.lojaveiculo.view.CadastroClienteView;
 import br.com.lojaveiculo.view.PrincipalView;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionEvent;
 
 /**
@@ -30,27 +22,27 @@ public final class PrincipalController extends BaseController {
 
     @Override
     public void inicializarBotoes() {
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
             acaoBotaoConsultaFuncionario();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoConsultaCarro((ActionEvent e) -> {
             acaoBotaoConsultaCarro();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoConsultaMoto((ActionEvent e) -> {
             acaoBotaoConsultaMoto();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoRelatorio((ActionEvent e) -> {
             acaoBotaoRelatorio();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroCarro((ActionEvent e) -> {
             acaoBotaoCadastroCarro();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroMoto((ActionEvent e) -> {
             acaoBotaoCadastroMoto();
         });
 
@@ -58,23 +50,23 @@ public final class PrincipalController extends BaseController {
             acaoBotaoCadastroCliente();
         });
 
-        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoConsultaCliente((ActionEvent e) -> {
             acaoBotaoConsultaCliente();
         });
         
-          principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroVenda((ActionEvent e) -> {
             acaoBotaoCadastroVenda();
         });
           
-            principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoConsultaVenda((ActionEvent e) -> {
             acaoBotaoConsultaVenda();
         });
             
-              principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
             acaoBotaoCadastroFuncionario();
         });
               
-                principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
             acaoBotaoCadastroFuncionario();
         });
 
