@@ -3,8 +3,11 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Moto;
+import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.repositorio.PadraoRepositorio;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
+import java.util.Map;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,19 +40,35 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     }
 
     public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
-        btnCadastrarVeiculo.addActionListener(acao);
+        btnAlterarVeiculo.addActionListener(acao);
     }
 
     public void adicionaAcaoAoBtnRemover(ActionListener acao) {
-        btnCadastrarVeiculo.addActionListener(acao);
+        btnRemoverVeiculo.addActionListener(acao);
     }
 
     public void adicionaAcaoAoBtnSelecionar(ActionListener acao) {
-        btnCadastrarVeiculo.addActionListener(acao);
+        btnSelecionarVeiculo.addActionListener(acao);
     }
-    
-     public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
-        btnCadastrarVeiculo.addActionListener(acao);
+
+    public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
+        btnBuscarVeiculo.addActionListener(acao);
+    }
+
+    public void popularTabela(VeiculoRepositorio veiculoRepositorio) {
+
+        Map<String, Veiculo> veiculos = veiculoRepositorio.getVeiculos();
+
+        for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
+            if (entry.getValue() instanceof Moto moto) {
+                grid.addRow(moto.obterDados());
+
+            }
+        }
+    }
+
+    public String getPlacaTabelaRegistro() {
+        return (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
     }
 
     @SuppressWarnings("unchecked")
@@ -122,21 +141,11 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         btnCadastrarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarVeiculo.setText("Cadastrar");
-        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVeiculoActionPerformed(evt);
-            }
-        });
 
         btnRemoverVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnRemoverVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnRemoverVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoverVeiculo.setText("Remover");
-        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverVeiculoActionPerformed(evt);
-            }
-        });
 
         btnSelecionarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnSelecionarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -237,14 +246,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
-        abrirTelaCadastro();
-    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
-
-    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        validaRemocao();
-    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
-
     private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
         limpaSelecao(tblMotos);
         buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
@@ -255,27 +256,17 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
 
     private void btnAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVeiculoActionPerformed
-        try {
-            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
-        } catch (Exception e) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
-        }
+        //     try {
+        //        abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblMotos.getSelectedRow(), 0)));
+        //     } catch (Exception e) {
+        //         apresentaMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
+        //     }
     }//GEN-LAST:event_btnAlterarVeiculoActionPerformed
 
     @Override
     public void abrirTelaCadastro() {
         // CadastroMotoView cadMoto = new CadastroMotoView(this);
         // cadMoto.setVisible(true);
-    }
-
-    public void validaRemocao() {
-        if (!(tblMotos.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                super.removerDaTabela(repositorioDeVeiculos, 2, tblMotos, grid);
-            }
-        }
     }
 
     public void buscaNaTabela(String placa) {
@@ -303,19 +294,18 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     }
 
     public void selecionaItem(String placa) {
-        venda.veiculo = veiculos.buscarVeiculo(placa);
-        venda.VeiculoSelecionado = true;
-        setVisible(false);
+        //  venda.veiculo = veiculos.buscarVeiculo(placa);
+        //  venda.VeiculoSelecionado = true;
+        //  setVisible(false);
     }
 
     public DefaultTableModel getGrid() {
         return grid;
     }
 
-    public VeiculoRepositorio getRepositorioDeVeiculos() {
-        return repositorioDeVeiculos;
-    }
-
+    //public VeiculoRepositorio getRepositorioDeVeiculos() {
+    // return repositorioDeVeiculos;
+    //}
     public JTable getTblMotos() {
         return tblMotos;
     }
