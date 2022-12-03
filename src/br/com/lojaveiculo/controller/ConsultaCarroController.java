@@ -22,6 +22,7 @@ public class ConsultaCarroController extends BaseConsultaController {
     private ConsultaCarroView consultaCarroView;
     private Carro modeloCarro;
     private VeiculoRepositorio veiculoRepositorio;
+    private CadastroVendaController cadastroVendaController;
 
     public ConsultaCarroController() {
         this.consultaCarroView = new ConsultaCarroView();
@@ -30,6 +31,17 @@ public class ConsultaCarroController extends BaseConsultaController {
         inicializarBotoes();
     }
 
+    public ConsultaCarroController(CadastroVendaController cadastroVendaController) {
+        this.consultaCarroView = new ConsultaCarroView();
+        this.modeloCarro = null;
+        this.veiculoRepositorio = new VeiculoDAO();
+        this.cadastroVendaController = cadastroVendaController;
+        inicializarBotoes();
+    }
+
+    
+    
+    
     @Override
     public void popularTabela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -56,7 +68,7 @@ public class ConsultaCarroController extends BaseConsultaController {
     }
 
     public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
+        CadastroCarroController cadastroCarroController = new CadastroCarroController();
         cadastroCarroController.exibirTela();
     }
 
@@ -68,7 +80,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         try {
             String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
             Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
-            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
+            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
             cadastroCarroController.exibirTela();
         } catch (Exception e) {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
@@ -84,7 +96,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         consultaCarroView.limpaSelecao();
         String sPlaca = consultaCarroView.getFiltro();
         if (sPlaca.length() == 7) {
-            if (consultaCarroView.BuscaTabela(sPlaca)) {
+            if (consultaCarroView.buscaNaTabela(sPlaca)) {
                 apresentarMensagem("Sucesso", "Sucesso");
             } else {
                 apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
