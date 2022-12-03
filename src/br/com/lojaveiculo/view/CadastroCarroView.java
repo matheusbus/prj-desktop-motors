@@ -7,49 +7,15 @@ import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
  * @author eduar
  */
-public final class CadastroCarroView extends TelaBaseCadastroView implements ValidaCadastroVeiculo {
-
-    private final VeiculoRepositorio veiculos = new VeiculoDAO();
-    private ConsultaCarroView consultaCarro = null;
-    private Carro carro;
+public final class CadastroCarroView extends TelaBaseCadastroView {
 
     public CadastroCarroView() {
         organizaLayout();
-    }
-
-    public CadastroCarroView(ConsultaCarroView consultaCarro) {
-        organizaLayout();
-        this.consultaCarro = consultaCarro;
-    }
-
-    public CadastroCarroView(ConsultaCarroView consultaCarro, Carro carro) {
-        organizaLayout();
-        this.consultaCarro = consultaCarro;
-        this.txtPlaca.setEditable(false);
-        this.carro = carro;
-        lblTitulo.setText("Alterar Carro");
-        btnCadCarro.setText("Alterar");
-        txtPlaca.setText(carro.getPlaca());
-        txtModelo.setText(carro.getModelo());
-        txtMarca.setText(carro.getMarca().getNome());
-        txtChassi.setText(carro.getChassi());
-        txtCor.setText(carro.getCor());
-        cbTipoCarroceria.setSelectedItem(carro.getTipoCarroceria());
-        cbAno.setSelectedItem(Integer.toString(carro.getAno()));
-        txtPreco.setText(Double.toString(carro.getPreco()));
-        cbPorta.setSelectedItem(Integer.toString(carro.getPortas()));
-        cbCombustivel.setSelectedItem((String) carro.getTipoCombustivel());
-
     }
 
     @Override
@@ -327,70 +293,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         btnCancela.addActionListener(acao);
     }
 
-    public void cadastrarCarro() {
-        if (verificaLengthPlaca(txtPlaca.getText())) {
-            if (verificaCamposNulos()) {
-                try {
-                    String placa = txtPlaca.getText().toUpperCase();
-                    String modelo = txtModelo.getText();
-                    Marca marca = new Marca(txtMarca.getText());
-                    String chassi = txtChassi.getText();
-                    String cor = txtCor.getText();
-                    String tipoCarroceria = cbTipoCarroceria.getSelectedItem().toString();
-                    int ano = Integer.parseInt(cbAno.getSelectedItem().toString());
-                    Double preco = Double.valueOf(txtPreco.getText());
-                    String tipoCombustivel = cbCombustivel.getItemAt(cbCombustivel.getSelectedIndex());
-                    int portas = Integer.parseInt(cbPorta.getSelectedItem().toString());
-
-                    Carro novoCarro = new Carro(placa, modelo, marca, chassi, cor, tipoCarroceria, ano, preco, tipoCombustivel, portas);
-                    veiculos.addVeiculo(novoCarro);
-                    if (consultaCarro != null) {
-                        consultaCarro.limparTabela(consultaCarro.getGrid());
-                        consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
-                    }
-                    apresentaMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
-                    this.dispose();
-                } catch (NumberFormatException ex) {
-                    apresentaMensagem("Preencha os campos com valores válidos", "Erro");
-                }
-            } else {
-                apresentaMensagem("Preencha todos os campos", "Erro");
-            }
-
-        } else {
-            apresentaMensagem("A placa digitada é invalida!", "Erro no cadastro");
-        }
+    public void inicializarCadastro(){
+        btnCadCarro.setEnabled(false);
+        btnCadCarro.setVisible(true);
     }
-
-    public void alterarCadastro(Carro carro) {
-        if (verificaLengthPlaca(txtPlaca.getText())) {
-            if (verificaCamposNulos()) {
-                try {
-                    veiculos.removeVeiculo(carro.getPlaca());
-                    carro.setAno(Integer.parseInt(cbAno.getSelectedItem().toString()));
-                    carro.setModelo(txtModelo.getText());
-                    carro.setPortas(Integer.parseInt(cbPorta.getSelectedItem().toString()));
-                    carro.setPreco(Double.parseDouble(txtPreco.getText()));
-                    carro.setTipoCombustivel(cbCombustivel.getSelectedItem().toString());
-                    carro.setChassi(carro.getChassi());
-                    carro.setCor(txtCor.getText());
-                    carro.setTipoCarroceria(cbTipoCarroceria.getSelectedItem().toString());
-                    veiculos.addVeiculo(carro);
-                    consultaCarro.popularTabela(consultaCarro.getRepositorioDeVeiculos(), 1, consultaCarro.getTblCarros(), consultaCarro.getGrid());
-
-                    apresentaMensagem("Veículo alterado com sucesso.", "Alteração realizada");
-                    this.dispose();
-
-                } catch (NumberFormatException ex) {
-                    apresentaMensagem("Preencha os campos com valores válidos.", "Erro");
-                }
-            } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
-            }
-        } else {
-            apresentaMensagem("A placa digitada é invalida!", "Erro na alteração");
-        }
-    }
+ 
 
     @Override
     public boolean verificaCamposNulos() {
@@ -402,40 +309,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         }
     }
 
-    @Override
     public boolean verificaLengthPlaca(String placa) {
         return placa.length() == 7;
     }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadCarro;
-    private javax.swing.JButton btnCancela;
-    private javax.swing.JComboBox<String> cbAno;
-    private javax.swing.JComboBox<String> cbCombustivel;
-    private javax.swing.JComboBox<String> cbPorta;
-    private javax.swing.JComboBox<String> cbTipoCarroceria;
-    private javax.swing.JLabel lblAno;
-    private javax.swing.JLabel lblChassi;
-    private javax.swing.JLabel lblCombustivel;
-    private javax.swing.JLabel lblCor;
-    private javax.swing.JLabel lblMarca;
-    private javax.swing.JLabel lblModelo;
-    private javax.swing.JLabel lblPlaca;
-    private javax.swing.JLabel lblPortas;
-    private javax.swing.JLabel lblPreco;
-    private javax.swing.JLabel lblTipoCarroceria;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel pnlDados;
-    private javax.swing.JTextField txtChassi;
-    private javax.swing.JTextField txtCor;
-    private javax.swing.JTextField txtMarca;
-    private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtPlaca;
-    private javax.swing.JTextField txtPreco;
-    // End of variables declaration//GEN-END:variables
-
-    public String getChassi() {
+       public String getChassi() {
         return txtChassi.getText();
     }
 
@@ -514,5 +392,33 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     public void setPorta(String porta) {
         this.cbPorta.setSelectedItem(porta);
     }
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadCarro;
+    private javax.swing.JButton btnCancela;
+    private javax.swing.JComboBox<String> cbAno;
+    private javax.swing.JComboBox<String> cbCombustivel;
+    private javax.swing.JComboBox<String> cbPorta;
+    private javax.swing.JComboBox<String> cbTipoCarroceria;
+    private javax.swing.JLabel lblAno;
+    private javax.swing.JLabel lblChassi;
+    private javax.swing.JLabel lblCombustivel;
+    private javax.swing.JLabel lblCor;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblPlaca;
+    private javax.swing.JLabel lblPortas;
+    private javax.swing.JLabel lblPreco;
+    private javax.swing.JLabel lblTipoCarroceria;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnlDados;
+    private javax.swing.JTextField txtChassi;
+    private javax.swing.JTextField txtCor;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtPreco;
+    // End of variables declaration//GEN-END:variables
 
 }
