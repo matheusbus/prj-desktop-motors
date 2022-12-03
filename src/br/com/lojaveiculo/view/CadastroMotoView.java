@@ -3,7 +3,6 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
-import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 
@@ -17,9 +16,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
     private ConsultaMotoView consultaMoto = null;
     private Moto moto;
 
-    /**
-     * Creates new form CadastroFuncionario
-     */
+
     public CadastroMotoView() {
         organizaLayout();
     }
@@ -99,11 +96,6 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         btnCadMoto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadMoto.setForeground(new java.awt.Color(255, 255, 255));
         btnCadMoto.setText("Cadastrar");
-        btnCadMoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadMotoActionPerformed(evt);
-            }
-        });
 
         lblTitulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,11 +273,6 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
         btnCancela.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
-        btnCancela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -321,19 +308,6 @@ public final class CadastroMotoView extends TelaBaseCadastroView implements Vali
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMotoActionPerformed
-        if (this.moto == null) {
-            cadastrarMoto();
-        } else {
-            alterarMoto(moto);
-        }
-
-    }//GEN-LAST:event_btnCadMotoActionPerformed
-
-    private void btnCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelaActionPerformed
 
     public void adicionaAcaoAoBtnCadastra() {
     }

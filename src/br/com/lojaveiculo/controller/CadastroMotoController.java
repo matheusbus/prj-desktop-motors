@@ -47,6 +47,12 @@ public class CadastroMotoController extends BaseCadastroController {
         cadastroMotoView.apresentaMensagem(mensagem, titulo);
     }
     
+     @Override
+    public void fecharTela() {
+      
+    }
+
+    
     public boolean verificaPlaca(String placa){
         return cadastroMotoView.verificaLengthPlaca(placa);
     }
@@ -88,6 +94,7 @@ public class CadastroMotoController extends BaseCadastroController {
         
     }
 
+   
     
 
    

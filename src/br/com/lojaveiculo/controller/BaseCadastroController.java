@@ -11,6 +11,5 @@ package br.com.lojaveiculo.controller;
 public abstract class BaseCadastroController extends BaseController{
     
     public abstract boolean verificaCamposNulos();
-    public abstract void limparCamposDaTela();
     
 }
