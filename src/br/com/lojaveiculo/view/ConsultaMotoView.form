@@ -264,9 +264,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRemoverVeiculo">
               <Properties>
@@ -281,9 +278,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSelecionarVeiculo">
               <Properties>
