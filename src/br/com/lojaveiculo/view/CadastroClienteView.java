@@ -456,6 +456,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         }
     }
     
+    public void setTituloTela(String titulo){
+        lblTitulo.setText(titulo);
+    }
+    
     public String getBairro(){
         return txtBairro.getText();
     }
@@ -486,6 +490,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     
     public void setCidade(String cidade){
         txtCidade.setText(cidade);
+    }
+    
+    public String getEstado(){
+        return cbEstado.getSelectedItem().toString();
     }
     
     public String getCNH(){
