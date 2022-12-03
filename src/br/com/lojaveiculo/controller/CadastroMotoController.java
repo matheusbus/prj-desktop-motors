@@ -12,6 +12,7 @@ public class CadastroMotoController extends BaseCadastroController {
     private CadastroMotoView cadastroMotoView;
     private Moto modeloMoto;
     private VeiculoRepositorio veiculoRepositorio;
+    private ConsultaMotoController consultaMotoController;
 
     public CadastroMotoController() {
         this.cadastroMotoView = new CadastroMotoView();
@@ -21,20 +22,22 @@ public class CadastroMotoController extends BaseCadastroController {
         inicializaCadastro();
     }
 
-    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
+    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto, 
+            ConsultaMotoController consultaMotoController) {
         this.cadastroMotoView = cadastroMotoView;
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = veiculoRepositorio;
+        this.consultaMotoController = consultaMotoController;
         inicializarBotoes();
         inicializaAlteracao();
+        popularCamposMotoAlterar();
 
     }
 
-    @Override
-    public boolean verificaCamposNulos() {
-        return cadastroMotoView.verificaCamposNulos();
-    }
-
+    /**
+     *
+     * @return
+     */
     @Override
     public void inicializarBotoes() {
         cadastroMotoView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
@@ -68,7 +71,26 @@ public class CadastroMotoController extends BaseCadastroController {
     }
 
     public boolean verificaPlaca(String placa) {
-        return cadastroMotoView.verificaLengthPlaca(placa);
+        return cadastroMotoView.getPlaca().length() == 7;
+    }
+
+    @Override
+    public boolean verificaCamposNulos() {
+        String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
+        String sModelo = cadastroMotoView.getModelo();
+        String sMarca = cadastroMotoView.getMarca();
+        String sChassi = cadastroMotoView.getChassi();
+        String sCor = cadastroMotoView.getCor();
+        String sPreco = cadastroMotoView.getPreco();
+        String sCilindradas = cadastroMotoView.getCilindradas();
+
+        if (!((sPlaca.equals("")) || (sModelo.equals("")) || (sChassi.equals(""))
+                || (sCor.equals("")) || (sPreco.equals(""))
+                || (sCilindradas.equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void inicializaCadastro() {
@@ -155,6 +177,7 @@ public class CadastroMotoController extends BaseCadastroController {
                     modeloMoto.setCilindrada(iCilindradas);
 
                     apresentarMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    consultaMotoController.popularTabela();
                     fecharTela();
                 } catch (NumberFormatException ex) {
                     apresentarMensagem("Preencha os campos com valores válidos", "Erro");
