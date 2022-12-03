@@ -1,6 +1,6 @@
 package br.com.lojaveiculo.dao;
 
-import br.com.lojaveiculo.comparator.ComparadorPreçoVenda;
+import br.com.lojaveiculo.comparator.ComparadorPrecoVenda;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import java.util.ArrayList;
@@ -64,6 +64,6 @@ public class VendaDAO implements VendaRepositorio {
 
     @Override
     public void ordenaPreco() {
-        Collections.sort(vendas, new ComparadorPreçoVenda());
+        Collections.sort(vendas, new ComparadorPrecoVenda());
     }
 }
