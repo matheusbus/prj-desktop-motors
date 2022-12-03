@@ -40,7 +40,6 @@ public class ConsultaMotoController extends BaseConsultaController {
     public void popularTabela() {
         consultaMotoView.limparTabela();
         consultaMotoView.popularTabela(veiculoRepositorio.getMotos());
-
     }
 
     @Override

@@ -288,7 +288,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCancela.addActionListener(acao);
     }
 
-    public void inicializarCadastro(){
+    public void inicializaCadastro(){
         btnCadCarro.setEnabled(false);
         btnCadCarro.setVisible(true);
     }

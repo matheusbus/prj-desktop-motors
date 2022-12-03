@@ -12,19 +12,23 @@ public class CadastroCarroController extends BaseCadastroController {
     private CadastroCarroView cadastroCarroView;
     private Carro modeloCarro;
     private VeiculoRepositorio veiculoRepositorio;
+    private ConsultaCarroController consultaCarroController;
 
     public CadastroCarroController() {
         this.cadastroCarroView = new CadastroCarroView();
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+        
     }
 
     public CadastroCarroController(CadastroCarroView cadastroCarroView, Carro modeloCarro) {
         this.cadastroCarroView = cadastroCarroView;
         this.modeloCarro = modeloCarro;
         this.veiculoRepositorio = veiculoRepositorio;
+        this.consultaCarroController = consultaCarroController;
         inicializarBotoes();
+        popularCamposCarroAlterar();
     }
 
     @Override
@@ -34,7 +38,7 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public void inicializarBotoes() {
-        if (this.modeloCarro == null) {
+        //if (this.modeloCarro == null) {
             cadastroCarroView.adicionaAcaoBtnCadastrar((ActionEvent e) -> {
                 acaoCadastrar();
             });
@@ -43,7 +47,7 @@ public class CadastroCarroController extends BaseCadastroController {
                 acaoCancelar();
 
             });
-        }
+        //}
     }
 
     @Override
@@ -79,7 +83,6 @@ public class CadastroCarroController extends BaseCadastroController {
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
                     double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
-
                     veiculoRepositorio.addVeiculo(modeloCarro);
                     apresentarMensagem("Veículo Cadastrado com Sucesso", "Cadastro Realizado");
                     fecharTela();
@@ -92,7 +95,6 @@ public class CadastroCarroController extends BaseCadastroController {
         } else {
             apresentarMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
-
     }
 
     private void acaoAlterar() {
@@ -111,7 +113,6 @@ public class CadastroCarroController extends BaseCadastroController {
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);
-                    //modeloCarro.setMarca(marca);
                     modeloCarro.setChassi(sChassi);
                     modeloCarro.setCor(sCor);
                     modeloCarro.setTipoCarroceria(sTipoCarroceria);
@@ -131,13 +132,12 @@ public class CadastroCarroController extends BaseCadastroController {
         } else {
             apresentarMensagem("A placa digitada é inválida!", "Erro no cadastro");
         }
-
     }
 
     public void popularCamposCarroAlterar() {
         try {
             cadastroCarroView.setModelo(modeloCarro.getModelo());
-            //cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
+            cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
             cadastroCarroView.setChassi(modeloCarro.getChassi());
             cadastroCarroView.setCor(modeloCarro.getCor());
             cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
