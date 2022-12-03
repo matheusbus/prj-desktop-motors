@@ -7,8 +7,6 @@ package br.com.lojaveiculo.view;
 import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.model.Venda;
 import java.awt.event.ActionListener;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**

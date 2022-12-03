@@ -4,15 +4,31 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.model.Venda;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
+import br.com.lojaveiculo.view.ConsultaVendaView;
+
 /**
  *
  * @author Rafael
  */
-public class ConsultaVendaController extends BaseConsultaController{
+public class ConsultaVendaController extends BaseConsultaController {
+
+    private ConsultaVendaView consultaVendaView;
+    private VendaRepositorio vendaRepositorio;
+    private Venda venda;
+
+    public ConsultaVendaController() {
+        this.consultaVendaView = new ConsultaVendaView();
+        this.vendaRepositorio = new VendaDAO();
+        this.venda = null;
+        popularTabela();
+    }
 
     @Override
     public void popularTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      consultaVendaView.popularTabela(vendaRepositorio.getVenda());
     }
 
     @Override
@@ -22,12 +38,28 @@ public class ConsultaVendaController extends BaseConsultaController{
 
     @Override
     public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      consultaVendaView.exibirTela();
     }
 
     @Override
     public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      consultaVendaView.fecharTela();
     }
     
+    public void limparTabela(){
+        consultaVendaView.limparTabela();
+    }
+
+    public void ordenaPlaca() {
+        vendaRepositorio.ordenaPlaca();
+        limparTabela();
+        popularTabela();
+    }
+
+    public void ordenaPreco() {
+        vendaRepositorio.ordenaPreco();
+        limparTabela();
+        popularTabela();
+    }
+
 }

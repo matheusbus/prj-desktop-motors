@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class VendaDAO implements VendaRepositorio {
 
-    private static List<Venda> vendas = new ArrayList<>();
+    private static List<Venda> vendas;
 
     public VendaDAO() {
         if (vendas == null) {

@@ -4,7 +4,7 @@
  */
 package br.com.lojaveiculo.controller;
 
-import br.com.lojaveiculo.view.CadastroCarroView;
+
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 
@@ -90,8 +90,8 @@ public final class PrincipalController extends BaseController {
     }
 
     public void acaoBotaoRelatorio() {
-        RelatorioController relatorioController = new RelatorioController();
-        relatorioController.exibirTela();
+        EmissaoRelatorioController emissaoRelatorioController= new EmissaoRelatorioController();
+        emissaoRelatorioController.exibirTela();
     }
 
     public void acaoBotaoCadastroCarro() {
@@ -135,8 +135,6 @@ public final class PrincipalController extends BaseController {
     }
 
     @Override
-    public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void fecharTela() {}
 
 }

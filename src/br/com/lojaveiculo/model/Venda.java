@@ -27,6 +27,7 @@ public class Venda implements Comparable<Venda> {
         this.vendedor = vendedor;
     }
 
+
     public LocalDate getDataVenda() {
         return dataVenda;
     }
