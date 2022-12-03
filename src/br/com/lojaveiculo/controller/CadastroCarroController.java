@@ -144,8 +144,7 @@ public class CadastroCarroController extends BaseCadastroController {
             cadastroCarroView.setCor(modeloCarro.getCor());
             cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
             cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
-
-            //cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPorta()));
+            cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPortas()));
             cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
             cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
         } catch (NumberFormatException ex) {
