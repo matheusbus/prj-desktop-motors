@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  *
  * @author Matheus
  */
-public final class PrincipalController extends BaseController{
+public final class PrincipalController extends BaseController {
 
     private PrincipalView principalView;
 
@@ -33,74 +33,59 @@ public final class PrincipalController extends BaseController{
     }
 
     // Inicializar Controladores
-    public void acaoBotaoConsultaFuncionario(){
-        
+    public void acaoBotaoConsultaFuncionario() {
+
     }
 
-    public void acaoBotaoConsultaCarro(){
-        
+    public void acaoBotaoConsultaCarro() {
+
     }
 
-    public void acaoBotaoConsultaMoto(){
-        
+    public void acaoBotaoConsultaMoto() {
+
     }
 
-    public void acaoBotaoRelatorio(){
-        
+    public void acaoBotaoRelatorio() {
+
     }
 
-    public void acaoBotaoCadastroCarro(){
-        
+    public void acaoBotaoCadastroCarro() {
+
     }
 
-    public void acaoBotaoCadastroMoto(){
-        
+    public void acaoBotaoCadastroMoto() {
+
     }
 
-    public void acaoBotaoCadastroCliente(){
+    public void acaoBotaoCadastroCliente() {
         CadastroClienteController cadastroClienteController = new CadastroClienteController();
         cadastroClienteController.exibirTela();
     }
 
-    public void acaoBotaoConsultaCliente(){
-        
+    public void acaoBotaoConsultaCliente() {
+
     }
 
-    public void acaoBotaoCadastroVenda(){
-        
+    public void acaoBotaoCadastroVenda() {
+
     }
 
-    public void acaoBotaoConsultaVenda(){
-        
+    public void acaoBotaoConsultaVenda() {
+
     }
 
-    public void acaoBotaoCadastroFuncionario(){
-        
+    public void acaoBotaoCadastroFuncionario() {
+
     }
 
-    
     @Override
     public void exibirTela() {
         principalView.exibirTela();
     }
-    
-    public boolean verificaTelaAberta(Object tela){
-        return tela == null;
-    }
 
     @Override
-    public void apresentarMensagem(String mensagem, String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
-    }
-
-    @Override
-
     public void fecharTela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
-    
-    
+
 }
