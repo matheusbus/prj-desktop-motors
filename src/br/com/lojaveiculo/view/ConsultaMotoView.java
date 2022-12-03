@@ -1,10 +1,10 @@
-
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,18 +12,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Matheus
  */
-
 public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     private DefaultTableModel grid;
 
-    
     // Construtor chamado na tela inicial
     public ConsultaMotoView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-       
+
     @Override
     public void organizaLayout() {
         initComponents();
@@ -32,6 +30,26 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblMotos.getModel();
+    }
+
+    public void adicionaAcaoAoBtnCadastrar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnRemover(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnSelecionar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
+    
+     public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
     }
 
     @SuppressWarnings("unchecked")
@@ -246,11 +264,11 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-       // CadastroMotoView cadMoto = new CadastroMotoView(this);
-       // cadMoto.setVisible(true);
+        // CadastroMotoView cadMoto = new CadastroMotoView(this);
+        // cadMoto.setVisible(true);
     }
 
-    public void validaRemocao(){
+    public void validaRemocao() {
         if (!(tblMotos.getSelectedRow() != -1)) {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
@@ -259,7 +277,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
             }
         }
     }
-    
+
     public void buscaNaTabela(String placa) {
         int incidencia = -1;
         if (placa.length() == 7) {
@@ -281,9 +299,9 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
         //CadastroMotoView altMoto = new CadastroMotoView(this, (Moto) obj);
-       // altMoto.setVisible(true);
+        // altMoto.setVisible(true);
     }
-    
+
     public void selecionaItem(String placa) {
         venda.veiculo = veiculos.buscarVeiculo(placa);
         venda.VeiculoSelecionado = true;
@@ -298,7 +316,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         return repositorioDeVeiculos;
     }
 
-    
     public JTable getTblMotos() {
         return tblMotos;
     }
