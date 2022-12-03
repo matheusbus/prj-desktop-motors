@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.dao;
 
+import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import java.util.HashMap;
@@ -95,6 +97,18 @@ public class VeiculoDAO implements VeiculoRepositorio {
     @Override
     public Veiculo buscarVeiculo(String placa) {
         return veiculos.get(placa);
+    }
+
+    @Override
+    public Map<String, Moto> getMotos() {
+        Map<String, Moto> motos = new HashMap();
+        for (Map.Entry<String, Veiculo> entry : veiculos.entrySet()) {
+            if (entry.getValue() instanceof Moto moto) {
+                motos.put(entry.getKey(), (Moto) entry.getValue());
+            }
+
+        }
+        return motos;
     }
 
 }
