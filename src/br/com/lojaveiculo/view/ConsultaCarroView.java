@@ -254,9 +254,8 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
 
-    public void buscaNaTabela(String placa) {
+    public boolean buscaNaTabela(String placa) {
         int incidencia = -1;
-        if (placa.length() == 7) {
             for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
                 if (grid.getValueAt(i, 0).equals(placa)) {
                     incidencia = i;
@@ -264,13 +263,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             }
             if (incidencia != -1) {
                 tblCarros.setRowSelectionInterval(incidencia, incidencia);
+                return true;
             } else {
-                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '" + placa + "'.", "Veículo não encontrado");
+               return false;
             }
-        } else {
-            apresentaMensagem("Digite uma placa válida!", "Placa inválida");
-        }
     }
+    
 
     public void setBotaoSelecionar(Boolean bool) {
         btnSelecionarVeiculo.setEnabled(bool);
