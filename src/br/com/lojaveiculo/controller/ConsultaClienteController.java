@@ -5,7 +5,6 @@
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.excecoes.ClienteException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
@@ -18,7 +17,8 @@ import java.awt.event.ActionEvent;
  */
 public final class ConsultaClienteController extends BaseConsultaController{
 
-    private final ConsultaClienteView consultaClienteView;
+    private ConsultaClienteView consultaClienteView;
+    private ConsultaVendaController consultaVendaController;
     private Cliente modeloCliente;
     private final PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
@@ -26,7 +26,16 @@ public final class ConsultaClienteController extends BaseConsultaController{
         this.consultaClienteView = new ConsultaClienteView();
         inicializarBotoes();
         popularTabela();
+        setBotaoSelecionar(false);
     }
+
+    public ConsultaClienteController(ConsultaVendaController consultaVendaController) {
+        this.consultaVendaController = consultaVendaController;
+        inicializarBotoes();
+        popularTabela();
+    }
+    
+    
 
     @Override
     public void inicializarBotoes() {
@@ -37,11 +46,7 @@ public final class ConsultaClienteController extends BaseConsultaController{
             acaoCadastrar();
         });
         consultaClienteView.adicionarAcaoAoBotaoRemvoerCliente((ActionEvent e) -> {
-            try {
-                acaoRemover();
-            } catch (ClienteException ex) {
-                apresentarMensagem(ex.getMessage(), "Erro");
-            }
+            acaoRemover();
         });
         consultaClienteView.adicionarAcaoAoBotaoAlterarCliente((ActionEvent e) -> {
             acaoAlterar();
@@ -57,37 +62,36 @@ public final class ConsultaClienteController extends BaseConsultaController{
     }
    
     public void acaoAlterar(){
-        if(getClienteSelecionado() != null){
+        try {
             CadastroClienteController cadastroClienteController = new CadastroClienteController(this, new CadastroClienteView(), getClienteSelecionado());
             cadastroClienteController.exibirTela();
             consultaClienteView.limparTabela();
             consultaClienteView.popularTabela(pessoaRepositorio.getClientes());
-        } else {
-            apresentarMensagem("Nenhum cliente selecionado.", "Erro");
+        } catch (Exception e){
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
         }
     }
     
     public void acaoCadastrar(){
-        CadastroClienteController cadastroClienteController = new CadastroClienteController();
+        CadastroClienteController cadastroClienteController = new CadastroClienteController(this);
         cadastroClienteController.exibirTela();
     }
     
-    public void acaoRemover() throws ClienteException{
-        if(getClienteSelecionado() != null){
+    public void acaoRemover(){
+        try {
             if(0 == consultaClienteView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")){
-                // Pegar o registro que está na tabela
-                modeloCliente = getClienteSelecionado();
-                // Remover da tabela
-                pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
-                // Atualizar a tabela com o popula
-                consultaClienteView.limparTabela();
-                popularTabela();
-            }
-            consultaClienteView.limpaSelecao();
-        } else {
-            throw new ClienteException("Nenhum cliente foi selecionado.");
+                   // Pegar o registro que está na tabela
+                   modeloCliente = getClienteSelecionado();
+                   // Remover da tabela
+                   pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
+                   // Atualizar a tabela com o popula
+                   consultaClienteView.limparTabela();
+                   popularTabela();
+               }
+               consultaClienteView.limpaSelecao();           
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
         }
-
     }
     
     public void acaoSelecionar(){
@@ -125,6 +129,8 @@ public final class ConsultaClienteController extends BaseConsultaController{
         return pessoaRepositorio;
     }
     
-    
+    public void setBotaoSelecionar(boolean bool){
+        consultaClienteView.setBotaoSelecionar(bool);
+    }
     
 }

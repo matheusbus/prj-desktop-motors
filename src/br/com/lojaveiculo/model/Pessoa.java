@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.model;
 
+import br.com.lojaveiculo.excecoes.PessoaException;
+
 /**
  *
  * @author Matheus
@@ -21,7 +23,7 @@ public abstract class Pessoa implements Comparable<Pessoa> {
     protected String telefone;
     protected String email;
 
-    public Pessoa(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email) {
+    public Pessoa(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email) throws PessoaException {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -32,6 +34,10 @@ public abstract class Pessoa implements Comparable<Pessoa> {
         this.estado = estado;
         this.telefone = telefone;
         this.email = email;
+        
+        if(!(this.cpf.length() == 11)){
+            throw new PessoaException("O CPF deve conter 11 números.");
+        }
     }
 
     public void setRg(long rg) {

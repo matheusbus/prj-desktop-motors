@@ -6,6 +6,7 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.excecoes.ClienteException;
+import br.com.lojaveiculo.excecoes.PessoaException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
@@ -22,12 +23,21 @@ public final class CadastroClienteController extends BaseCadastroController{
     private Cliente modeloCliente;
     private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
+    // Rotina de cadastro chamado na tela principal
     public CadastroClienteController() {
         this.cadastroClienteView = new CadastroClienteView();
         this.modeloCliente = null;
         inicializarBotoes();
     }
+
+    public CadastroClienteController(ConsultaClienteController consultaClienteController) {
+        this.consultaClienteController = consultaClienteController;
+        this.cadastroClienteView = new CadastroClienteView();
+        inicializarBotoes();
+    }
+
     
+    // Rotina de alterar chamado na tela de consulta de clientes
     public CadastroClienteController(ConsultaClienteController consultaClienteController, CadastroClienteView cadastroClienteView, Cliente modeloCliente) {
         this.consultaClienteController = consultaClienteController;
         this.cadastroClienteView = cadastroClienteView;
@@ -43,7 +53,7 @@ public final class CadastroClienteController extends BaseCadastroController{
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
                 try {
                     acaoCadastrar();
-                } catch (ClienteException ex) {
+                } catch (ClienteException | PessoaException ex) {
                     apresentarMensagem(ex.getMessage(), "Erro");
                 }
             });
@@ -61,7 +71,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         cadastroClienteView.fecharTela();
     }
     
-    public void acaoCadastrar() throws ClienteException{
+    public void acaoCadastrar() throws ClienteException, PessoaException{
         // Implementar acao e exceção
         if(verificaCamposNulos()){
             // 1 - Recuperar dados
@@ -95,18 +105,17 @@ public final class CadastroClienteController extends BaseCadastroController{
                 // 5 - Fechar tela
                 fecharTela();
                 
-                            
-                // Remover
-                System.out.println(pessoaRepositorio.getClientes());
             } catch (NumberFormatException ex){
                 apresentarMensagem("Insira um valor inteiro no campo de RG.", "Erro");
             } catch (ClienteException ex){
-                apresentarMensagem("O CPF já consta no sistema.", "Eroo");
+                apresentarMensagem("O CPF já consta no sistema.", "Erro");
             }
 
         } else {
             throw new ClienteException("Preencha todos os campos.");
         }
+            consultaClienteController.getConsultaClienteView().limparTabela();
+            consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
  
     }
     
