@@ -99,37 +99,17 @@ public final class PrincipalView extends TelaBaseView {
         muCadastros.setText("Cadastros");
 
         miCadClientes.setText("Clientes");
-        miCadClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadClientesActionPerformed(evt);
-            }
-        });
         muCadastros.add(miCadClientes);
 
         miCadFuncionarios.setText("Funcionarios");
-        miCadFuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadFuncionariosActionPerformed(evt);
-            }
-        });
         muCadastros.add(miCadFuncionarios);
 
         muCadVeiculo.setText("Veículos");
 
         miCadCarro.setText("Carro");
-        miCadCarro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadCarroActionPerformed(evt);
-            }
-        });
         muCadVeiculo.add(miCadCarro);
 
         miCadMoto.setText("Moto");
-        miCadMoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadMotoActionPerformed(evt);
-            }
-        });
         muCadVeiculo.add(miCadMoto);
 
         muCadastros.add(muCadVeiculo);
@@ -139,47 +119,22 @@ public final class PrincipalView extends TelaBaseView {
         muConsultas.setText("Consultas");
 
         muClientes.setText("Clientes");
-        muClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muClientesActionPerformed(evt);
-            }
-        });
         muConsultas.add(muClientes);
 
         muConsultaFuncionarios.setText("Funcionários");
-        muConsultaFuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultaFuncionariosActionPerformed(evt);
-            }
-        });
         muConsultas.add(muConsultaFuncionarios);
 
         menuVeiculos.setText("Veículos");
 
         miConsCarro.setText("Carro");
-        miConsCarro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsCarroActionPerformed(evt);
-            }
-        });
         menuVeiculos.add(miConsCarro);
 
         miConsMoto.setText("Moto");
-        miConsMoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miConsMotoActionPerformed(evt);
-            }
-        });
         menuVeiculos.add(miConsMoto);
 
         muConsultas.add(menuVeiculos);
 
         muConsultaVendas.setText("Vendas");
-        muConsultaVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muConsultaVendasActionPerformed(evt);
-            }
-        });
         muConsultas.add(muConsultaVendas);
 
         mbMenuPrincipal.add(muConsultas);
@@ -187,11 +142,6 @@ public final class PrincipalView extends TelaBaseView {
         muVendas.setText("Vendas");
 
         muTelaVenda.setText("Efetuar Venda");
-        muTelaVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                muTelaVendaActionPerformed(evt);
-            }
-        });
         muVendas.add(muTelaVenda);
 
         mbMenuPrincipal.add(muVendas);
@@ -199,11 +149,6 @@ public final class PrincipalView extends TelaBaseView {
         muRelatorios.setText("Relatórios");
 
         miRelatorios.setText("Vendas");
-        miRelatorios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miRelatoriosActionPerformed(evt);
-            }
-        });
         muRelatorios.add(miRelatorios);
 
         mbMenuPrincipal.add(muRelatorios);
@@ -230,69 +175,27 @@ public final class PrincipalView extends TelaBaseView {
         muConsultaFuncionarios.addActionListener(acao);
     }
     
-    private void muConsultaFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaFuncionariosActionPerformed
-        if(verificaTelaAberta(consultaFuncionarios)){
-            consultaFuncionarios = new ConsultaFuncionariosView();
-        }
-        consultaFuncionarios.setVisible(true);
-    }//GEN-LAST:event_muConsultaFuncionariosActionPerformed
-
     public void adicionarAcaoAoBotaoConsultaCarro(ActionListener acao){
         miConsCarro.addActionListener(acao);
     }
     
-    private void miConsCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsCarroActionPerformed
-        if(verificaTelaAberta(consultaCarro)){
-            consultaCarro = new ConsultaCarroView();
-        }
-        consultaCarro.setVisible(true);
-    }//GEN-LAST:event_miConsCarroActionPerformed
-
     public void adicionarAcaoAoBotaoConsultaMoto(ActionListener acao){
         miConsMoto.addActionListener(acao);
     }
     
-    private void miConsMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsMotoActionPerformed
-        if(verificaTelaAberta(consultaMoto)){
-            consultaMoto = new ConsultaMotoView();
-            consultaMoto.setVisible(true);
-        }
-    }//GEN-LAST:event_miConsMotoActionPerformed
-
     public void adicionarAcaoAoBotaoRelatorio(ActionListener acao){
         miRelatorios.addActionListener(acao);
     }    
     
-    private void miRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRelatoriosActionPerformed
-        if(verificaTelaAberta(relatorio)){
-            relatorio = new RelatorioView();    
-        }
-        relatorio.setVisible(true);
-    }//GEN-LAST:event_miRelatoriosActionPerformed
-
     public void adicionarAcaoAoBotaoCadastroCarro(ActionListener acao){
         miCadCarro.addActionListener(acao);
     }    
     
 
-    private void miCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadCarroActionPerformed
-        if(verificaTelaAberta(cadCarro)){
-            cadCarro = new CadastroCarroView();
-        }
-        cadCarro.setVisible(true);
-    }//GEN-LAST:event_miCadCarroActionPerformed
-
     public void adicionarAcaoAoBotaoCadastroMoto(ActionListener acao){
         miCadMoto.addActionListener(acao);
     }    
     
-    private void miCadMotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadMotoActionPerformed
-        if(verificaTelaAberta(cadMoto)){
-            cadMoto = new CadastroMotoView();
-        }
-        cadMoto.setVisible(true);
-    }//GEN-LAST:event_miCadMotoActionPerformed
-
     public void adicionarAcaoAoBotaoCadastroCliente(ActionListener acao){
         miCadClientes.addActionListener(acao);
     }    
@@ -301,49 +204,14 @@ public final class PrincipalView extends TelaBaseView {
         muClientes.addActionListener(acao);
     }    
     
-    private void muClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muClientesActionPerformed
-        if(verificaTelaAberta(consultaCliente)){
-            consultaCliente = new ConsultaClientesView();
-        }
-        consultaCliente.setVisible(true);
-    }//GEN-LAST:event_muClientesActionPerformed
-
     public void adicionarAcaoAoBotaoCadastroVenda(ActionListener acao){
         muTelaVenda.addActionListener(acao);
     }    
     
-    private void muTelaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muTelaVendaActionPerformed
-        if(verificaTelaAberta(venda)){
-            venda = new VendaView();
-        }
-        venda.setVisible(true);
-    }//GEN-LAST:event_muTelaVendaActionPerformed
-
     public void adicionarAcaoAoBotaoConsultaVenda(ActionListener acao){
         muConsultaVendas.addActionListener(acao);
     }    
     
-    private void muConsultaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muConsultaVendasActionPerformed
-        if(verificaTelaAberta(consultaVenda)){
-            consultaVenda = new ConsultaVendaView();
-        }
-        consultaVenda.setVisible(true);
-    }//GEN-LAST:event_muConsultaVendasActionPerformed
-
-    private void miCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadFuncionariosActionPerformed
-        if(verificaTelaAberta(cadFuncionarios)){
-            cadFuncionarios = new CadastroFuncionariosView();
-        }
-        cadFuncionarios.setVisible(true);
-    }//GEN-LAST:event_miCadFuncionariosActionPerformed
-
-    private void miCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadClientesActionPerformed
-        if(verificaTelaAberta(cadCliente)){
-            cadCliente = new CadastroClienteView();
-        }
-        cadCliente.setVisible(true);
-    }//GEN-LAST:event_miCadClientesActionPerformed
-
     public void adicionarAcaoAoBotaoCadastroFuncionario(ActionListener acao){
         miCadFuncionarios.addActionListener(acao);
     }    

@@ -4,6 +4,7 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.view.CadastroClienteView;
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,7 +59,7 @@ public final class PrincipalController extends BaseController{
     }
 
     public void acaoBotaoCadastroCliente(){
-        CadastroClienteController cadastroClienteController = new CadastroClienteController();
+        CadastroClienteController cadastroClienteController = new CadastroClienteController(new CadastroClienteView());
         cadastroClienteController.exibirTela();
     }
 
