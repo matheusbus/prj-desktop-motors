@@ -5,9 +5,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.awt.event.ActionListener;
 import java.util.Set;
 import javax.swing.JTable;
@@ -19,11 +17,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class ConsultaClienteView extends TelaBaseConsultaView {
 
-    private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
-    private PessoaRepositorio pessoas;
-
+    
     // Construtor chamado na tela inicial
     public ConsultaClienteView() {
         organizaLayout();
@@ -34,8 +29,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     public ConsultaClienteView(VendaView venda) {
         organizaLayout();
         this.btnSelecionarCliente.setEnabled(true);
-        this.venda = venda;
-        pessoas = new PessoaDAO();
     }
 
     @Override
@@ -265,7 +258,7 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     }
     
     public void popularTabela(Set<Pessoa> clientes){
-        tblClientes.getModel();
+        grid.setRowCount(0);
         for (Pessoa cliente : clientes) {
             grid.addRow(cliente.obterDados());
         }
@@ -289,17 +282,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         }
     }
 
-    @Override
-    public void abrirTelaAlterarCadastro(Object obj) {
-    
-    }
-
-    public void selecionaItem(String cpf) {
-        venda.cliente = pessoas.buscarPessoaPorCPF(cpf);
-        venda.ClienteSelecionado = true;
-        setVisible(false);
-    }
-
     public DefaultTableModel getGrid() {
         return grid;
     }
@@ -308,12 +290,12 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         return tblClientes;
     }
     
-    public PessoaRepositorio getRepositorioDePessoas() {
-        return repositorioDePessoas;
-    }
-    
     public String getFiltroPesquisa(){
         return txtCPFBuscado.getText().toUpperCase();
+    }
+    
+    public String getCpfClienteSelecionado(){
+        return (String) grid.getValueAt(tblClientes.getSelectedRow(), 1);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

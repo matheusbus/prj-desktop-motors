@@ -10,8 +10,6 @@ import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
 import java.awt.event.ActionEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +18,7 @@ import java.util.logging.Logger;
 public final class CadastroClienteController extends BaseCadastroController{
 
     private CadastroClienteView cadastroClienteView;
+    private ConsultaClienteController consultaClienteController;
     private Cliente modeloCliente;
     private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
@@ -28,8 +27,9 @@ public final class CadastroClienteController extends BaseCadastroController{
         this.modeloCliente = null;
         inicializarBotoes();
     }
-
-    public CadastroClienteController(CadastroClienteView cadastroClienteView, Cliente modeloCliente) {
+    
+    public CadastroClienteController(ConsultaClienteController consultaClienteController, CadastroClienteView cadastroClienteView, Cliente modeloCliente) {
+        this.consultaClienteController = consultaClienteController;
         this.cadastroClienteView = cadastroClienteView;
         this.modeloCliente = modeloCliente;
         this.cadastroClienteView.setTitulosTela("Alterar");
@@ -144,6 +144,13 @@ public final class CadastroClienteController extends BaseCadastroController{
             
             // chamar o método de popula do controlador de consulta de cliente
             apresentarMensagem("Cliente alterado com sucesso.", "Alteração realizada");
+            
+            // Fechar a tela
+            fecharTela();
+            
+            // Atualizar tabela
+            consultaClienteController.getConsultaClienteView().limparTabela();
+            consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
         }
         
     }
