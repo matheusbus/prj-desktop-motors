@@ -8,7 +8,6 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.ConsultaClienteView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *

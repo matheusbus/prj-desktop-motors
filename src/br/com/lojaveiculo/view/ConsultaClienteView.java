@@ -140,11 +140,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         btnSelecionarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnSelecionarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnSelecionarCliente.setText("Selecionar");
-        btnSelecionarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarClienteActionPerformed(evt);
-            }
-        });
 
         btnRemoverCliente.setBackground(new java.awt.Color(82, 148, 226));
         btnRemoverCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -155,21 +150,11 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         btnCadastrarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarCliente.setText("Cadastrar ");
-        btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarClienteActionPerformed(evt);
-            }
-        });
 
         btnBuscarCliente.setBackground(new java.awt.Color(82, 148, 226));
         btnBuscarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnBuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarCliente.setText("Buscar");
-        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarClienteActionPerformed(evt);
-            }
-        });
 
         lblCPFCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblCPFCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,11 +164,6 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         btnAlterarCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnAlterarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterarCliente.setText("Alterar");
-        btnAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -263,31 +243,15 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void popularTabela(Set<Pessoa> clientes){
-        tblClientes.getModel();
-        for (Pessoa cliente : clientes) {
-            grid.addRow(cliente.obterDados());
-        }
-    }
     
     public void adicionarAcaoAoBotaoBuscarCliente(ActionListener acao){
         btnBuscarCliente.addActionListener(acao);
     }
     
-    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        limpaSelecao();
-        buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
-    }//GEN-LAST:event_btnBuscarClienteActionPerformed
-
     public void adicionarAcaoAoBotaoCadastrarCliente(ActionListener acao){
         btnCadastrarCliente.addActionListener(acao);
     }
     
-    private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-        abrirTelaCadastro();
-    }//GEN-LAST:event_btnCadastrarClienteActionPerformed
-
     public void adicionarAcaoAoBotaoRemvoerCliente(ActionListener acao){
         btnRemoverCliente.addActionListener(acao);
     }
@@ -296,24 +260,15 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         btnSelecionarCliente.addActionListener(acao);
     }
     
-    private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
-        selecionaItem((String) grid.getValueAt(tblClientes.getSelectedRow(), 1));
-    }//GEN-LAST:event_btnSelecionarClienteActionPerformed
-
     public void adicionarAcaoAoBotaoAlterarCliente(ActionListener acao){
         btnAlterarCliente.addActionListener(acao);
     }
     
-    private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
-        try {
-            abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblClientes.getSelectedRow(), 1)));
-        } catch (Exception e) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
+    public void popularTabela(Set<Pessoa> clientes){
+        tblClientes.getModel();
+        for (Pessoa cliente : clientes) {
+            grid.addRow(cliente.obterDados());
         }
-    }//GEN-LAST:event_btnAlterarClienteActionPerformed
-
-    @Override
-    public void abrirTelaCadastro() {
     }
 
     public void buscaNaTabela(String cpf) {
@@ -358,7 +313,7 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     }
     
     public String getFiltroPesquisa(){
-        return txtCPFBuscado.getText();
+        return txtCPFBuscado.getText().toUpperCase();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -378,6 +333,11 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     @Override
     public void limpaSelecao() {
         tblClientes.clearSelection();
+    }
+
+    @Override
+    public void limparTabela() {
+        grid.setRowCount(0);
     }
 
 }

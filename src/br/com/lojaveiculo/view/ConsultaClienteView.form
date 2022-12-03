@@ -252,9 +252,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Selecionar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarClienteActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRemoverCliente">
               <Properties>
@@ -283,9 +280,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar "/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarClienteActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarCliente">
               <Properties>
@@ -300,9 +294,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarClienteActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCPFBuscado">
             </Component>
@@ -330,9 +321,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarClienteActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

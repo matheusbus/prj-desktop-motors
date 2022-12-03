@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.lojaveiculo.abstractview;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -15,12 +14,6 @@ public abstract class TelaBaseConsultaView extends TelaBaseView {
     public TelaBaseConsultaView() {
         initComponents();
     }
-
-    // Método que é sobrescrito para abrir as telas de cadastro em qualquer tela de consulta
-    public abstract void abrirTelaCadastro();
-
-    // Método que é sobrescrito para abrir a tela de cadastro com as informações do item à alterar
-    public abstract void abrirTelaAlterarCadastro(Object obj);
 
     // Métodos comuns para manipulação da tabela na tela de consultas
     public abstract void limpaSelecao();
