@@ -234,9 +234,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPlaca">
               <Properties>
@@ -292,9 +289,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Selecionar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAlterarVeiculo">
               <Properties>
@@ -309,9 +303,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarVeiculoActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
