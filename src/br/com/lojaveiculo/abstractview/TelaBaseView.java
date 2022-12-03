@@ -32,6 +32,11 @@ public class TelaBaseView extends javax.swing.JFrame {
     public int criaQuestaoPrgunta(String mensagem, String titulo){
         return JOptionPane.showConfirmDialog(rootPane, mensagem, titulo, WIDTH);
     }
+    
+    public void exibirTela(){
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
