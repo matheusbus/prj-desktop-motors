@@ -190,6 +190,11 @@ public class TelaBaseConsultaView extends TelaBaseView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @Override
+    public void organizaLayout() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

@@ -460,48 +460,96 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         return txtBairro.getText();
     }
     
+    public void setBairro(String bairro){
+        txtBairro.setText(bairro);
+    }
+    
     public String getCategoriaCNH(){
         return txtCategoriaCnh.getText();
+    }
+    
+    public void setCategoriaCNH(String categoria){
+        txtCategoriaCnh.setText(categoria);
     }
     
     public String getCep(){
         return txtCep.getText();
     }
     
+    public void setCep(String cep){
+        txtCep.setText(cep);
+    }
+    
     public String getCidade(){
         return txtCidade.getText();
+    }
+    
+    public void setCidade(String cidade){
+        txtCidade.setText(cidade);
     }
     
     public String getCNH(){
         return txtCnh.getText();
     }
     
+    public void setCNH(String cnh){
+        txtCnh.setText(cnh);
+    }
+    
     public String getCpf(){
         return txtCpf.getText();
     }
     
+    public void setCpf(String cpf){
+        txtCpf.setText(cpf);
+    }    
+    
     public String getEmail(){
         return txtEmail.getText();
+    }
+    
+    public void setEmail(String email){
+        txtEmail.setText(email);
     }
     
     public String getEndereco(){
         return txtEndereco.getText();
     }
     
+    public void setEndereco(String endereco){
+        txtEndereco.setText(endereco);
+    }
+    
     public String getNome(){
         return txtNome.getText();
+    }
+    
+    public void setNome(String nome){
+        txtNome.setText(nome);
     }
     
     public String getRg(){
         return txtRg.getText();
     }
     
+    public void setRg(String rg){
+        txtRg.setText(rg);
+    }
+    
     public String getTelefone(){
         return txtTelefone.getText();
     }
     
+    public void setTelefone(String telefone){
+        txtTelefone.setText(telefone);
+    }
+    
     public String getWhatsapp(){
         return txtWhatsapp.getText();
+    }
+    
+    public void setWhatsapp(String whatsapp){
+        txtWhatsapp.setText(whatsapp);
     }
     
     
