@@ -1,6 +1,7 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
+import br.com.lojaveiculo.model.Moto;
 import java.awt.event.ActionListener;
 
 public final class CadastroMotoView extends TelaBaseCadastroView {
@@ -290,11 +291,15 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
         btnAlterarMoto.addActionListener(acao);
     }
 
+    public void adicionaAcaoAoBtnCancelar(ActionListener acao) {
+        btnCancela.addActionListener(acao);
+    }
+
     public void inicializaCadastro() {
         btnAlterarMoto.setEnabled(false);
         btnAlterarMoto.setVisible(false);
     }
-    
+
     public void inicializaAlteracao() {
         btnCadMoto.setEnabled(false);
         btnCadMoto.setVisible(false);
@@ -302,10 +307,8 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
 
     @Override
     public void exibirTela() {
-        super.exibirTela(); 
+        super.exibirTela();
     }
-    
-    
 
     @Override
     public boolean verificaCamposNulos() {
@@ -359,6 +362,46 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
 
     public String getCombustivel() {
         return cbCombustivel.getSelectedItem().toString();
+    }
+    
+     public void setPlaca(String placa) {
+        txtPlaca.setText(placa);
+    }
+
+    public void setChassi(String chassi) {
+        txtChassi.setText(chassi);
+    }
+
+    public void setCor(String cor) {
+       txtCor.setText(cor);
+    }
+
+    public void setCilindradas(String cilindradas) {
+        txtCilindradas.setText(cilindradas);
+    }
+
+    public void setMarca(String marca) {
+       txtMarca.setText(marca);
+    }
+
+    public void setModelo(String modelo) {
+        txtModelo.setText(modelo);
+    }
+
+    public void setPreco(String preco) {
+        txtPreco.setText(preco);
+    }
+
+    public void setCarroceria(String carroceria) {
+        cbTipoCarroceria.setSelectedItem(carroceria);
+    }
+
+    public void setAno(String ano) {
+        cbAno.setSelectedItem(ano);
+    }
+
+    public void setCombustivel(String combustivel) {
+        cbCombustivel.setSelectedItem(combustivel);
     }
 
 
