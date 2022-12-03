@@ -6,7 +6,6 @@ import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroMotoView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CadastroMotoController extends BaseCadastroController {
 
@@ -26,6 +25,7 @@ public class CadastroMotoController extends BaseCadastroController {
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = veiculoRepositorio;
         inicializarBotoes();
+
     }
 
     @Override
@@ -47,6 +47,7 @@ public class CadastroMotoController extends BaseCadastroController {
     @Override
     public void exibirTela() {
         cadastroMotoView.exibirTela();
+
     }
 
     @Override
@@ -61,6 +62,14 @@ public class CadastroMotoController extends BaseCadastroController {
 
     public boolean verificaPlaca(String placa) {
         return cadastroMotoView.verificaLengthPlaca(placa);
+    }
+
+    public void inicializaCadastro() {
+        cadastroMotoView.inicializaCadastro();
+    }
+
+    public void inicializaAlteracao() {
+        cadastroMotoView.inicializaAlteracao();
     }
 
     public void popularCamposMotoAlterar() {

@@ -4,16 +4,22 @@
  */
 package br.com.lojaveiculo.controller;
 
+
+import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.CadastroClienteView;
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Matheus
  */
-public final class PrincipalController extends BaseController{
+public final class PrincipalController extends BaseController {
 
     private PrincipalView principalView;
 
@@ -24,77 +30,120 @@ public final class PrincipalController extends BaseController{
 
     @Override
     public void inicializarBotoes() {
-        principalView.adicionarAcaoAoBotaoCadastroCliente(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                acaoBotaoCadastroCliente();
-            }
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoConsultaFuncionario();
         });
-        // Chamar todas as funções
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoConsultaCarro();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoConsultaMoto();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoRelatorio();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroCarro();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroMoto();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroCliente();
+        });
+
+        principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoConsultaCliente();
+        });
+        
+          principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroVenda();
+        });
+          
+            principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoConsultaVenda();
+        });
+            
+              principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroFuncionario();
+        });
+              
+                principalView.adicionarAcaoAoBotaoCadastroCliente((ActionEvent e) -> {
+            acaoBotaoCadastroFuncionario();
+        });
+
     }
 
     // Inicializar Controladores
-    public void acaoBotaoConsultaFuncionario(){
-        
+    public void acaoBotaoConsultaFuncionario() {
+        ConsultaFuncionarioController consultaFuncionarioController = new ConsultaFuncionarioController();
+        consultaFuncionarioController.exibirTela();
     }
 
-    public void acaoBotaoConsultaCarro(){
-        
+    public void acaoBotaoConsultaCarro() {
+        ConsultaCarroController consultaCarroControler = new ConsultaCarroController();
+        consultaCarroControler.exibirTela();
     }
 
-    public void acaoBotaoConsultaMoto(){
-        
+    public void acaoBotaoConsultaMoto() {
+        ConsultaMotoController consultaMotoController = new ConsultaMotoController();
+        consultaMotoController.exibirTela();
     }
 
-    public void acaoBotaoRelatorio(){
-        
+    public void acaoBotaoRelatorio() {
+        RelatorioController relatorioController = new RelatorioController();
+        relatorioController.exibirTela();
     }
 
-    public void acaoBotaoCadastroCarro(){
-        
+    public void acaoBotaoCadastroCarro() {
+        CadastroCarroController cadastroCarroControler = new CadastroCarroController();
+        cadastroCarroControler.exibirTela();
     }
 
-    public void acaoBotaoCadastroMoto(){
-        
+    public void acaoBotaoCadastroMoto() {
+        CadastroMotoController cadastroMotoController = new CadastroMotoController();
+        cadastroMotoController.exibirTela();
     }
 
-    public void acaoBotaoCadastroCliente(){
-        CadastroClienteController cadastroClienteController = new CadastroClienteController(new CadastroClienteView());
+    public void acaoBotaoCadastroCliente() {
+        CadastroClienteController cadastroClienteController = new CadastroClienteController();
         cadastroClienteController.exibirTela();
     }
 
-    public void acaoBotaoConsultaCliente(){
-        
+    public void acaoBotaoConsultaCliente() {
+        ConsultaClienteController consultaClienteController = new ConsultaClienteController();
+        consultaClienteController.exibirTela();
     }
 
-    public void acaoBotaoCadastroVenda(){
-        
+    public void acaoBotaoCadastroVenda() {
+        CadastroVendaController cadastroVendaController = new CadastroVendaController();
+        cadastroVendaController.exibirTela();
     }
 
-    public void acaoBotaoConsultaVenda(){
-        
+    public void acaoBotaoConsultaVenda() {
+        ConsultaVendaController consultaVendaController = new ConsultaVendaController();
+        consultaVendaController.exibirTela();
     }
 
-    public void acaoBotaoCadastroFuncionario(){
-        
+    public void acaoBotaoCadastroFuncionario() {
+        CadastroFuncionarioController cadastroFuncionarioController = new CadastroFuncionarioController();
+        cadastroFuncionarioController.exibirTela();
     }
 
-    
     @Override
     public void exibirTela() {
         principalView.exibirTela();
-    }
-    
-    public boolean verificaTelaAberta(Object tela){
-        return tela == null;
     }
 
     @Override
     public void fecharTela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
-    
-    
+
 }

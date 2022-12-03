@@ -31,28 +31,21 @@ public class CadastroCarroController extends BaseCadastroController {
     @Override
     public void inicializarBotoes() {
         if (this.modeloCarro == null) {
-            cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
+            cadastroCarroView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
+                acaoCadastrar();
             });
         } else {
-            cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                }
+            cadastroCarroView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
+                acaoCancelar();
             });
         }
 
-        cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                acaoCancelar();
-            }
-        });
-
+//        cadastroCarroView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                acaoCancelar();
+//            }
+//        });
     }
 
     public void acaoCadastrar() {
@@ -64,11 +57,26 @@ public class CadastroCarroController extends BaseCadastroController {
                 String sChassi = cadastroCarroView.getChassi();
                 String sCor = cadastroCarroView.getCor();
                 String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
-                String sAno = cadastroCarroView.getCbTipoCarroceria();
-                String sPreco = cadastroCarroView.getPreco();
+                int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
+                double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
                 String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
+                int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
             }
         }
+    }
+
+    public void popularCamposCarro() {
+        
+        String sPlaca = cadastroCarroView.getPlaca();
+        String sModelo = cadastroCarroView.getModelo();
+        Marca Marca = new Marca(cadastroCarroView.getMarca());
+        String sChassi = cadastroCarroView.getChassi();
+        String sCor = cadastroCarroView.getCor();
+        String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
+        int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
+        double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+        String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
+        int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
     }
 
     public void acaoCancelar() {
@@ -77,7 +85,7 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public void exibirTela() {
-        cadastroCarroView.setVisible(true);
+        cadastroCarroView.exibirTela();
     }
 
     @Override
@@ -88,7 +96,7 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public void apresentarMensagem(String titulo, String mensagem) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        cadastroCarroView.apresentaMensagem(mensagem, titulo);
     }
 
     public boolean verificarPlaca(String placa) {
