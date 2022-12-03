@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  *
  * @author Matheus
  */
-public final class CadastroClienteController extends BaseController{
+public final class CadastroClienteController extends BaseCadastroController{
 
     private CadastroClienteView cadastroClienteView;
     private Cliente modeloCliente;
@@ -64,7 +64,21 @@ public final class CadastroClienteController extends BaseController{
         // Implementar acao e exceção
         
         // 1 - Recuperar dados
-        // 2 - Criar o novo usuário (fazer uso de exception)
+        String sNome = cadastroClienteView.getNome();
+        String sCpf = cadastroClienteView.getCpf();
+        long iRg = Integer.parseInt(cadastroClienteView.getRg());
+        String sCnh = cadastroClienteView.getCNH();
+        String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
+        String sCep = cadastroClienteView.getCep();
+        String sEndereco = cadastroClienteView.getEndereco();
+        String sBairro = cadastroClienteView.getBairro();
+        String sCidade = cadastroClienteView.getCidade();
+        String sEstado = cadastroClienteView.getEstado();
+        String sTelefone = cadastroClienteView.getTelefone();
+        String sEmail = cadastroClienteView.getEmail();
+        String sWhatsapp = cadastroClienteView.getWhatsapp();
+
+        // 2 - Criar o novo cliente (fazer uso de exception)
         // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
         // 4 - Mensagem
         // 5 - Limpar tela
@@ -81,6 +95,11 @@ public final class CadastroClienteController extends BaseController{
     @Override
     public void exibirTela() {
         cadastroClienteView.exibirTela();
+    }
+
+    @Override
+    public boolean verificaCamposNulos() {
+        return cadastroClienteView.verificaCamposNulos();
     }
     
 }
