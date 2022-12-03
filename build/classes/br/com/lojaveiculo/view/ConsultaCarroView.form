@@ -238,9 +238,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Selecionar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRemoverVeiculo">
               <Properties>
@@ -255,9 +252,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCadastrarVeiculo">
               <Properties>
@@ -272,9 +266,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarVeiculo">
               <Properties>
@@ -289,9 +280,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtPlacaBuscada">
             </Component>
@@ -319,9 +307,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarVeiculoActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

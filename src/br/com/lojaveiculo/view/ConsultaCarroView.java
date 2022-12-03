@@ -1,9 +1,8 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,27 +12,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class ConsultaCarroView extends TelaBaseConsultaView {
 
-    private final VeiculoRepositorio repositorioDeVeiculos = new VeiculoDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
-    private VeiculoRepositorio veiculos;
-    
+
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-    
-    // Construtor chamado na tela de venda
-    public ConsultaCarroView(VendaView venda) {
-        organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(true);
-        this.venda = venda;
-        this.veiculos = new VeiculoDAO();
-    }
-      
+
     @Override
-    public void organizaLayout(){
+    public void organizaLayout() {
         initComponents();
         // Adicionar painel ao fundo
         this.setContentPane(dkpFundo);
@@ -41,7 +29,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         this.setResizable(false);
         grid = (DefaultTableModel) tblCarros.getModel();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -108,41 +96,21 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         btnSelecionarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnSelecionarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnSelecionarVeiculo.setText("Selecionar");
-        btnSelecionarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarVeiculoActionPerformed(evt);
-            }
-        });
 
         btnRemoverVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnRemoverVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnRemoverVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoverVeiculo.setText("Remover");
-        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverVeiculoActionPerformed(evt);
-            }
-        });
 
         btnCadastrarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnCadastrarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarVeiculo.setText("Cadastrar");
-        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVeiculoActionPerformed(evt);
-            }
-        });
 
         btnBuscarVeiculo.setBackground(new java.awt.Color(82, 148, 226));
         btnBuscarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnBuscarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarVeiculo.setText("Buscar");
-        btnBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarVeiculoActionPerformed(evt);
-            }
-        });
 
         lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,11 +120,6 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         btnAlterarVeiculo.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnAlterarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterarVeiculo.setText("Alterar");
-        btnAlterarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarVeiculoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
         pnlBotoes.setLayout(pnlBotoesLayout);
@@ -241,39 +204,41 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
-        abrirTelaCadastro();
-    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
+    public void adicionarAcaoBtnCadastrar(ActionListener acao) {
+        btnCadastrarVeiculo.addActionListener(acao);
+    }
 
-    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
-        validaRemocao();
-    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
+    public void adicionarAcaoBtnAlterar(ActionListener acao) {
+        btnAlterarVeiculo.addActionListener(acao);
+    }
 
-    private void btnBuscarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVeiculoActionPerformed
-        limpaSelecao(tblCarros);
-        buscaNaTabela(txtPlacaBuscada.getText().toUpperCase());
-    }//GEN-LAST:event_btnBuscarVeiculoActionPerformed
-    
-    private void btnSelecionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarVeiculoActionPerformed
-        selecionaItem((String) grid.getValueAt(tblCarros.getSelectedRow(), 0));
-    }//GEN-LAST:event_btnSelecionarVeiculoActionPerformed
+    public void adicionarAcaoBtnRemover(ActionListener acao) {
+        btnRemoverVeiculo.addActionListener(acao);
+    }
 
-    private void btnAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVeiculoActionPerformed
-        try {
-            abrirTelaAlterarCadastro(repositorioDeVeiculos.buscarVeiculo((String) grid.getValueAt(tblCarros.getSelectedRow(), 0)));
-        } catch (Exception e){
-            apresentaMensagem("Selecione um veículo!", "Erro ao alterar");
-        }
-        
-    }//GEN-LAST:event_btnAlterarVeiculoActionPerformed
+    public void adicionarAcaoBtnBuscar(ActionListener acao) {
+        btnBuscarVeiculo.addActionListener(acao);
+    }
 
-    @Override
-    public void abrirTelaCadastro(){
-        CadastroCarroView cadCarro = new CadastroCarroView(this);
-        cadCarro.setVisible(true);        
+    public void adicionarAcaoBtnSelecionar(ActionListener acao) {
+        btnSelecionarVeiculo.addActionListener(acao);
+    }
+
+    public String getPlacaTabelaRegistro() {
+        return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
     
-     public void validaRemocao(){
+    public void limparTabela(){
+         grid.setRowCount(0);
+    }
+    
+    @Override
+    public void abrirTelaCadastro() {
+        CadastroCarroView cadCarro = new CadastroCarroView(this);
+        cadCarro.setVisible(true);
+    }
+
+    public void validaRemocao() {
         if (!(tblCarros.getSelectedRow() != -1)) {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
@@ -284,35 +249,34 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         }
     }
 
-
-    public void buscaNaTabela(String placa){
+    public void buscaNaTabela(String placa) {
         int incidencia = -1;
-        if(placa.length() == 7){
-            for(int i = 0; i <= tblCarros.getRowCount()-1; i++){
-                if(grid.getValueAt(i, 0).equals(placa)){
+        if (placa.length() == 7) {
+            for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
+                if (grid.getValueAt(i, 0).equals(placa)) {
                     incidencia = i;
                 }
             }
-            if(incidencia != -1){
-            tblCarros.setRowSelectionInterval(incidencia, incidencia);
+            if (incidencia != -1) {
+                tblCarros.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '"+placa+"'.", "Veículo não encontrado");
+                apresentaMensagem("Não foi encontrado nenhum veículo com a placa '" + placa + "'.", "Veículo não encontrado");
             }
         } else {
             apresentaMensagem("Digite uma placa válida!", "Placa inválida");
         }
     }
-    
+
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
         CadastroCarroView altCarro = new CadastroCarroView(this, (Carro) obj);
         altCarro.setVisible(true);
     }
-    
-    public void selecionaItem(String placa){
-       venda.veiculo = veiculos.buscarVeiculo(placa); 
-       venda.VeiculoSelecionado = true;
-       setVisible(false);
+
+    public void selecionaItem(String placa) {
+        venda.veiculo = veiculos.buscarVeiculo(placa);
+        venda.VeiculoSelecionado = true;
+        setVisible(false);
     }
 
     public DefaultTableModel getGrid() {
@@ -340,5 +304,15 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     private javax.swing.JTable tblCarros;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
-   
+
+    @Override
+    public void limpaSelecao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void limparTabela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
