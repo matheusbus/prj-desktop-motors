@@ -35,6 +35,10 @@ public abstract class TelaBaseView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+    
+    public void fecharTela(){
+        dispose();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -47,24 +47,24 @@ public class CadastroCarroController extends BaseCadastroController {
         });
 
     }
-
-    public void acaoCancelar() {
-        cadastroCarroView.dispose();
+    
+    public void cadastrarCarro(){
+        if(cadastroCarroView.verificaLengthPlaca())
     }
 
-    public void cancelar(){
+    public void acaoCancelar() {
         fecharTela();
     }
     
     @Override
     public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    cadastroCarroView.setVisible(true);
     }
 
     @Override
     public boolean verificaCamposNulos() {
         cadastroCarroView.verificaCamposNulos();
-        return true;
+        return cadastroCarroView.verificaCamposNulos();
     }
 
     @Override
@@ -74,7 +74,7 @@ public class CadastroCarroController extends BaseCadastroController {
 
     @Override
     public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
     
     public boolean verificarPlaca(String placa){
