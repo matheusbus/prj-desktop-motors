@@ -6,7 +6,10 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.view.CadastroCarroView;
+import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.ConsultaCarroView;
 import java.awt.event.ActionEvent;
 
@@ -65,11 +68,19 @@ public class ConsultaCarroController extends BaseConsultaController {
     }
 
     public void acaoAlterar() {
-
+        try {
+            String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
+            Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
+            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
+            cadastroCarroController.exibirTela();
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
+        }
     }
 
     public void acaoSelecionar() {
-
+        String sPlaca = consultaCarroView.getSelecionaItem();
+        cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
     }
 
     public void acaoBuscar() {
