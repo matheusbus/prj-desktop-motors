@@ -20,6 +20,7 @@ public final class CadastroClienteController extends BaseCadastroController{
 
     private CadastroClienteView cadastroClienteView;
     private Cliente modeloCliente;
+    private PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
     public CadastroClienteController() {
         this.cadastroClienteView = new CadastroClienteView();
@@ -39,14 +40,14 @@ public final class CadastroClienteController extends BaseCadastroController{
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Ação cadastrar
+                    acaoCadastrar();
                 }
             });
         } else {
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Ação alterar
+                    acaoAlterar();
                 }            
             });                
         }
@@ -65,62 +66,104 @@ public final class CadastroClienteController extends BaseCadastroController{
     
     public void acaoCadastrar(){
         // Implementar acao e exceção
-        
-        // 1 - Recuperar dados
-        String sNome = cadastroClienteView.getNome();
-        String sCpf = cadastroClienteView.getCpf();
-        long iRg = 0;
-        try {
-            iRg = Integer.parseInt(cadastroClienteView.getRg());
-        } catch (NumberFormatException ex){
-            apresentarMensagem("Erro de conversão de valores", "O campo RG deve ser um número inteiro.");
-        }
-        String sCnh = cadastroClienteView.getCNH();
-        String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
-        String sCep = cadastroClienteView.getCep();
-        String sEndereco = cadastroClienteView.getEndereco();
-        String sBairro = cadastroClienteView.getBairro();
-        String sCidade = cadastroClienteView.getCidade();
-        String sEstado = cadastroClienteView.getEstado();
-        String sTelefone = cadastroClienteView.getTelefone();
-        String sEmail = cadastroClienteView.getEmail();
-        String sWhatsapp = cadastroClienteView.getWhatsapp();
+        if(verificaCamposNulos()){
+            // 1 - Recuperar dados
+            String sNome = cadastroClienteView.getNome();
+            String sCpf = cadastroClienteView.getCpf();
+            long iRg = 0;
+            try {
+                iRg = Integer.parseInt(cadastroClienteView.getRg());
+            } catch (NumberFormatException ex){
+                apresentarMensagem("O campo RG deve ser um número inteiro.", "Erro de conversão de valores");
+            }
+            String sCnh = cadastroClienteView.getCNH();
+            String sCatCnh = cadastroClienteView.getCategoriaCNH().toUpperCase();
+            String sCep = cadastroClienteView.getCep();
+            String sEndereco = cadastroClienteView.getEndereco();
+            String sBairro = cadastroClienteView.getBairro();
+            String sCidade = cadastroClienteView.getCidade();
+            String sEstado = cadastroClienteView.getEstado();
+            String sTelefone = cadastroClienteView.getTelefone();
+            String sEmail = cadastroClienteView.getEmail();
+            String sWhatsapp = cadastroClienteView.getWhatsapp();
 
-        try {
-            // 3 - Verificar existencia cpf
-            verificaExistenciaCPF(sCpf);
-        } catch (ClienteException ex) {
-            apresentarMensagem(ex.getMessage(), "Erro");
+            try {
+                // 3 - Verificar existencia cpf
+                verificaExistenciaCPF(sCpf);
+            } catch (ClienteException ex) {
+                apresentarMensagem(ex.getMessage(), "Erro");
+            }
+
+            // 2 - Criar o novo cliente
+            this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
+
+            // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
+            pessoaRepositorio.adicionarPessoa(modeloCliente);
+
+            // 4 - Mensagem
+            apresentarMensagem("Cliente cadastrado com sucesso.", "Êxito");
+            
+            // 5 - Fechar tela
+            fecharTela();
         }
-        
-        // 2 - Criar o novo cliente
-        this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
-        
-        // 3 - Recuperar BD de clientes e adicionar novo cliente ao BD
-        PessoaRepositorio pessoaRepositorio = new PessoaDAO();
-        pessoaRepositorio.adicionarPessoa(modeloCliente);
-        
-        // 4 - Mensagem
-        apresentarMensagem("Êxito", "Cliente cadastrado com sucesso.");
-        
-        // 5 - Fechar tela
-        fecharTela();
-        
+ 
     }
     
     public void acaoAlterar(){
         // Implementar acao e exceção
         
-        
+        if(verificaCamposNulos()){
+            try {
+                verificaExistenciaCPF(modeloCliente.getCpf());
+            } catch (ClienteException ex) {
+                apresentarMensagem(ex.getMessage(), "Erro");
+            }
+            
+            pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
+            modeloCliente.setNome(cadastroClienteView.getNome());
+            modeloCliente.setCpf(cadastroClienteView.getCpf());
+            
+            try {
+                modeloCliente.setRg(Long.parseLong(cadastroClienteView.getRg()));
+            } catch (NumberFormatException ex){
+                apresentarMensagem("O campo RG deve ser um número inteiro.", "Erro de conversão de valores");
+            }
+            
+            modeloCliente.setCnh(cadastroClienteView.getCNH());
+            modeloCliente.setCategoriaCnh(cadastroClienteView.getCategoriaCNH().toUpperCase());
+            modeloCliente.setCep(cadastroClienteView.getCep());
+            modeloCliente.setEndereco(cadastroClienteView.getEndereco());
+            modeloCliente.setBairro(cadastroClienteView.getBairro());
+            modeloCliente.setCidade(cadastroClienteView.getCidade());
+            modeloCliente.setEstado(cadastroClienteView.getEstado());
+            modeloCliente.setTelefone(cadastroClienteView.getTelefone());
+            modeloCliente.setEmail(cadastroClienteView.getEmail());
+            pessoaRepositorio.adicionarPessoa(modeloCliente);
+            
+            // chamar o método de popula do controlador de consulta de cliente
+            
+            apresentarMensagem("Cliente alterado com sucesso.", "Alteração realizada");
+        }
         
     }
     
     public void popularCamposDoClienteAlterar(){
-        
+            cadastroClienteView.setNome(modeloCliente.getNome());
+            cadastroClienteView.setCpf(modeloCliente.getCpf());
+            cadastroClienteView.setRg(String.valueOf(modeloCliente.getRg()));
+            cadastroClienteView.setCNH(modeloCliente.getCnh());
+            cadastroClienteView.setCategoriaCNH(modeloCliente.getCnh());
+            cadastroClienteView.setCep(modeloCliente.getCep());
+            cadastroClienteView.setEndereco(modeloCliente.getEndereco());
+            cadastroClienteView.setBairro(modeloCliente.getBairro());
+            cadastroClienteView.setCidade(modeloCliente.getCidade());
+            cadastroClienteView.setEstado(modeloCliente.getEstado());
+            cadastroClienteView.setTelefone(modeloCliente.getTelefone());
+            cadastroClienteView.setEmail(modeloCliente.getEmail());
+            cadastroClienteView.setWhatsapp(modeloCliente.getWhatsapp());
     }
     
     public boolean verificaExistenciaCPF(String cpf) throws ClienteException{
-        PessoaRepositorio pessoaRepositorio = new PessoaDAO();
         if(pessoaRepositorio.buscarPessoaPorCPF(cpf) == null){
             return true;
         } else {
@@ -145,7 +188,7 @@ public final class CadastroClienteController extends BaseCadastroController{
 
     @Override
     public void fecharTela() {
-        cadastroClienteView.dispose();
+        cadastroClienteView.fecharTela();
     }
     
 }
