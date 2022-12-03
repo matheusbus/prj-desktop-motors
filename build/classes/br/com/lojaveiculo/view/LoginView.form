@@ -24,7 +24,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlPrincipal" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlPrincipal" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -45,7 +45,7 @@
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtSenha" max="32767" attributes="0"/>
-                              <Component id="txtLogin" pref="308" max="32767" attributes="0"/>
+                              <Component id="txtLogin" max="32767" attributes="0"/>
                               <Component id="lblSenha" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="lblLogin" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="btnLogar" pref="308" max="32767" attributes="0"/>
@@ -62,7 +62,7 @@
                           <Component id="lblBemVindo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="57" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

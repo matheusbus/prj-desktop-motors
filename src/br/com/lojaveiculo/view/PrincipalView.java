@@ -92,7 +92,7 @@ public final class PrincipalView extends TelaBaseView {
         );
         dkpnlFundoLayout.setVerticalGroup(
             dkpnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         muCadastros.setText("Cadastros");
@@ -217,7 +217,9 @@ public final class PrincipalView extends TelaBaseView {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dkpnlFundo)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dkpnlFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
