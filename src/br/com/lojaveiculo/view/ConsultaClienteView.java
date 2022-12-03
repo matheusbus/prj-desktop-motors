@@ -298,6 +298,10 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         return (String) grid.getValueAt(tblClientes.getSelectedRow(), 1);
     }
     
+    public void setBotaoSelecionar(boolean bool){
+        btnSelecionarCliente.setEnabled(bool);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnBuscarCliente;
