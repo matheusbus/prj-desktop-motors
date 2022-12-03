@@ -5,7 +5,10 @@
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.excecoes.ClienteException;
+import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
+import br.com.lojaveiculo.view.CadastroClienteView;
 import br.com.lojaveiculo.view.ConsultaClienteView;
 import java.awt.event.ActionEvent;
 
@@ -16,11 +19,13 @@ import java.awt.event.ActionEvent;
 public final class ConsultaClienteController extends BaseConsultaController{
 
     private final ConsultaClienteView consultaClienteView;
+    private Cliente modeloCliente;
     private final PessoaRepositorio pessoaRepositorio = new PessoaDAO();
     
     public ConsultaClienteController() {
         this.consultaClienteView = new ConsultaClienteView();
         inicializarBotoes();
+        popularTabela();
     }
 
     @Override
@@ -32,7 +37,11 @@ public final class ConsultaClienteController extends BaseConsultaController{
             acaoCadastrar();
         });
         consultaClienteView.adicionarAcaoAoBotaoRemvoerCliente((ActionEvent e) -> {
-            acaoRemover();
+            try {
+                acaoRemover();
+            } catch (ClienteException ex) {
+                apresentarMensagem(ex.getMessage(), "Erro");
+            }
         });
         consultaClienteView.adicionarAcaoAoBotaoAlterarCliente((ActionEvent e) -> {
             acaoAlterar();
@@ -44,34 +53,46 @@ public final class ConsultaClienteController extends BaseConsultaController{
     
     public void acaoBuscar(){
         consultaClienteView.limpaSelecao();
-        consultaClienteView.buscaNaTabela(consultaClienteView.getFiltroPesquisa());
+        consultaClienteView.buscaNaTabela(consultaClienteView.getFiltroPesquisa()); 
     }
    
     public void acaoAlterar(){
-        
+        if(getClienteSelecionado() != null){
+            CadastroClienteController cadastroClienteController = new CadastroClienteController(this, new CadastroClienteView(), getClienteSelecionado());
+            cadastroClienteController.exibirTela();
+            consultaClienteView.limparTabela();
+            consultaClienteView.popularTabela(pessoaRepositorio.getClientes());
+        } else {
+            apresentarMensagem("Nenhum cliente selecionado.", "Erro");
+        }
     }
     
     public void acaoCadastrar(){
-        
+        CadastroClienteController cadastroClienteController = new CadastroClienteController();
+        cadastroClienteController.exibirTela();
     }
     
-    public void acaoRemover(){
-        
+    public void acaoRemover() throws ClienteException{
+        if(getClienteSelecionado() != null){
+            if(0 == consultaClienteView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")){
+                // Pegar o registro que está na tabela
+                modeloCliente = getClienteSelecionado();
+                // Remover da tabela
+                pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
+                // Atualizar a tabela com o popula
+                consultaClienteView.limparTabela();
+                popularTabela();
+            }
+            consultaClienteView.limpaSelecao();
+        } else {
+            throw new ClienteException("Nenhum cliente foi selecionado.");
+        }
+
     }
     
     public void acaoSelecionar(){
-        
+        // Implementar
     }
-    
-    /*public void validaRemocao(){
-        if (!(consultaClienteView.getTblClientes().getSelectedRow() != -1)) {
-            apresentarMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == consultaClienteView.criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela(pessoaRepositorio, 0, , consultaClienteView.getGrid());
-            }
-        }
-    }*/
 
     @Override
     public void exibirTela() {
@@ -87,5 +108,23 @@ public final class ConsultaClienteController extends BaseConsultaController{
     public void popularTabela() {
         consultaClienteView.popularTabela(pessoaRepositorio.getClientes());
     }
+    
+    public Cliente getClienteSelecionado(){
+        return (Cliente) pessoaRepositorio.buscarPessoaPorCPF(consultaClienteView.getCpfClienteSelecionado());
+    }
+
+    public ConsultaClienteView getConsultaClienteView() {
+        return consultaClienteView;
+    }
+
+    public Cliente getModeloCliente() {
+        return modeloCliente;
+    }
+
+    public PessoaRepositorio getPessoaRepositorio() {
+        return pessoaRepositorio;
+    }
+    
+    
     
 }

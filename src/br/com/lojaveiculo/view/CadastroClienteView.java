@@ -12,7 +12,7 @@ import javax.swing.JTextField;
  */
 public final class CadastroClienteView extends TelaBaseCadastroView {
 
-    private List<JTextField> campos = new ArrayList<>();
+    private final List<JTextField> campos = new ArrayList<>();
     
     /**
      * Creates new form CadastroClienteView
