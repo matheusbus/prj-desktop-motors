@@ -7,10 +7,12 @@ package br.com.lojaveiculo.controller;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Cliente;
+import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import br.com.lojaveiculo.view.CadastroVendaView;
 import java.awt.event.ActionEvent;
 
@@ -21,6 +23,8 @@ public class CadastroVendaController extends BaseCadastroController {
     private Cliente cliente;
     private Vendedor vendedor;
     private VeiculoRepositorio veiculoRepositorio;
+    private VendaRepositorio vendaRepositorio;
+    private ConsultaVendaController consultaVendaController;
 
     public CadastroVendaController() {
         this.cadastroVendaView = new CadastroVendaView();
@@ -28,6 +32,8 @@ public class CadastroVendaController extends BaseCadastroController {
         this.cliente = null;
         this.vendedor = null;
         this.veiculoRepositorio = new VeiculoDAO();
+        this.vendaRepositorio = new VendaDAO();
+        this.consultaVendaController = new ConsultaVendaController();
         inicializarBotoes();
     }
 
@@ -121,20 +127,16 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoEfetuarVenda() {
-        //       vendas = new VendaDAO();
-        //       venda = new Venda(this.veiculo, this.cliente, this.vendedor);
-        //       if (vendas.adicionarVenda(venda) == true) {
-        //           veiculos.removeVeiculo(veiculo.getPlaca());
-        //           if (consultaVenda != null) {
-        //               consultaVenda.limparTabela(consultaVenda.getGrid());
-        //               consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
-        //               return true;
-        //           } else {
-///               return true;
-        //           }
-        //       } else {
-        //           return false;
-        //       }
+
+        if (verificaCamposNulos()) {       
+            Venda venda = new Venda(this.veiculo, this.cliente, this.vendedor);
+            if (vendaRepositorio.adicionarVenda(venda) == true) {
+                veiculoRepositorio.removeVeiculo(veiculo.getPlaca());
+               // consultaVendaController.limparTabela();
+               // consultaVendaController.popularTabela();
+            }
+        }
+
     }
 
     public void acaoCancelarVenda() {

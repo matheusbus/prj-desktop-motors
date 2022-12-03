@@ -6,7 +6,11 @@ package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
 import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,11 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class ConsultaVendaView extends TelaBaseConsultaView {
 
-    private final VendaRepositorio repositorioDeVendas = new VendaDAO();
     private DefaultTableModel grid;
-    private CadastroVendaView venda;
-    private VendaRepositorio vendas;
-    private int numeroVenda;
+
 
     // Construtor chamado na tela inicial
     public ConsultaVendaView() {
@@ -30,8 +31,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     // Construtor chamado na tela de venda
     public ConsultaVendaView(CadastroVendaView venda) {
         organizaLayout();
-        this.venda = venda;
-        this.vendas = new VendaDAO();
+
     }
 
     @Override
@@ -42,9 +42,32 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         grid = (DefaultTableModel) tblVendas.getModel();
-        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
     }
-
+    
+    public void adicionaAcaoAoBtnCadastrar(ActionListener acao){
+        btnCadastrarVenda.addActionListener(acao);
+    }
+    
+    public void adicionaAcaoAoBtnBuscar(ActionListener acao){
+       btnBuscarVenda.addActionListener(acao);
+    }
+    
+    public void adicionaAcaoAoBtnOrdenar(ActionListener acao){
+        btnOrdenaVenda.addActionListener(acao);
+    }
+    
+    public void adicionaAcaoAoBtnRemover(ActionListener acao){
+        btnRemoverVenda.addActionListener(acao);
+    }
+    
+    public void popularTabela(List<Venda> vendas){
+        for(Venda vend : vendas){
+          grid.addRow(vend.obterDados());
+        }
+        
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,7 +81,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         txtNumeroVenda = new javax.swing.JTextField();
         btnCadastrarVenda = new javax.swing.JButton();
         btnRemoverVenda = new javax.swing.JButton();
-        btnAlterarVenda1 = new javax.swing.JButton();
+        btnOrdenaVenda = new javax.swing.JButton();
         cbOrdena = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -131,13 +154,13 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             }
         });
 
-        btnAlterarVenda1.setBackground(new java.awt.Color(82, 148, 226));
-        btnAlterarVenda1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnAlterarVenda1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterarVenda1.setText("Ordena");
-        btnAlterarVenda1.addActionListener(new java.awt.event.ActionListener() {
+        btnOrdenaVenda.setBackground(new java.awt.Color(82, 148, 226));
+        btnOrdenaVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnOrdenaVenda.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrdenaVenda.setText("Ordena");
+        btnOrdenaVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarVenda1ActionPerformed(evt);
+                btnOrdenaVendaActionPerformed(evt);
             }
         });
 
@@ -159,11 +182,11 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                 .addComponent(btnCadastrarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRemoverVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
+                .addGap(37, 37, 37)
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAlterarVenda1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(cbOrdena, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(90, Short.MAX_VALUE))
+                    .addComponent(btnOrdenaVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbOrdena, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +204,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnBuscarVenda)))
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
-                        .addComponent(btnAlterarVenda1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOrdenaVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbOrdena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
@@ -226,47 +249,35 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendaActionPerformed
-        abrirTelaCadastro();
+        //abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarVendaActionPerformed
 
     private void btnRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVendaActionPerformed
-        validaRemocao();
+     //   validaRemocao();
     }//GEN-LAST:event_btnRemoverVendaActionPerformed
 
     private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
-        limpaSelecao(tblVendas);
+       // limpaSelecao(tblVendas);
         buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarVendaActionPerformed
 
-    private void btnAlterarVenda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarVenda1ActionPerformed
-        switch(cbOrdena.getSelectedIndex()){
-            case 0 -> {
-                ordenaPlaca();   
-            }
-            case 1 -> {
-                ordenaPreco();
-            }
-        }
-    }//GEN-LAST:event_btnAlterarVenda1ActionPerformed
+    private void btnOrdenaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenaVendaActionPerformed
+     
+    }//GEN-LAST:event_btnOrdenaVendaActionPerformed
 
-    @Override
-    public void abrirTelaCadastro() {
-        CadastroVendaView cadVenda = new CadastroVendaView(this);
-        cadVenda.setVisible(true);
-    }
 
-    public void validaRemocao(){
-        if (!(tblVendas.getSelectedRow() != -1)) {
-            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-        } else {
-            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela(repositorioDeVendas, 4, tblVendas, grid);
-            }
-        }
-    }
+   // public void validaRemocao(){
+      //  if (!(tblVendas.getSelectedRow() != -1)) {
+    //        apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
+      //  } else {
+      //      if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
+      //          removerDaTabela(repositorioDeVendas, 4, tblVendas, grid);
+      //      }
+     //   }
+ //   }
     
     
-    @Override
+    //@Override
     public void abrirTelaAlterarCadastro(Object obj) {
         //CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
         //altMoto.setVisible(true);
@@ -283,28 +294,18 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
             if (incidencia != -1) {
                 tblVendas.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhuma venda com o número'" + numeroVenda + "'.", "Venda não encontrado");
+        //        apresentaMensagem("Não foi encontrado nenhuma venda com o número'" + numeroVenda + "'.", "Venda não encontrado");
             }
         } else {
             apresentaMensagem("Digite uma placa válida!", "Placa inválida");
         }
     }
 
-    public void ordenaPlaca() {
-        repositorioDeVendas.ordenaPlaca();
-        limparTabela(grid);
-        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
-    }
 
-    public void ordenaPreco() {
-        repositorioDeVendas.ordenaPreco();
-        limparTabela(grid);
-        popularTabela(repositorioDeVendas, 4, tblVendas, grid);
-    }
 
-    public VendaRepositorio getRepositorioDeVendas() {
-        return repositorioDeVendas;
-    }
+   // public VendaRepositorio getRepositorioDeVendas() {
+      //  return repositorioDeVendas;
+   // }
 
     public DefaultTableModel getGrid() {
         return grid;
@@ -317,9 +318,9 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterarVenda1;
     private javax.swing.JButton btnBuscarVenda;
     private javax.swing.JButton btnCadastrarVenda;
+    private javax.swing.JButton btnOrdenaVenda;
     private javax.swing.JButton btnRemoverVenda;
     private javax.swing.JComboBox<String> cbOrdena;
     private javax.swing.JDesktopPane dkpFundo;
