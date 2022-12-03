@@ -25,16 +25,19 @@ public final class ConsultaClienteController extends BaseConsultaController{
     public ConsultaClienteController() {
         this.consultaClienteView = new ConsultaClienteView();
         inicializarBotoes();
-        popularTabela();
+         popularTabela();
         setBotaoSelecionar(false);
     }
 
     public ConsultaClienteController(CadastroVendaController cadastroVendaController) {
+        this.consultaClienteView = new ConsultaClienteView();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
         popularTabela();
+        setBotaoSelecionar(true);
     }
-
+    
+   
     @Override
     public void inicializarBotoes() {
         consultaClienteView.adicionarAcaoAoBotaoBuscarCliente((ActionEvent e) -> {
