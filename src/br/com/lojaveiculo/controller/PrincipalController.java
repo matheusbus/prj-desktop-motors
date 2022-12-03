@@ -109,13 +109,12 @@ public final class PrincipalController extends BaseController {
         cadastroMotoController.exibirTela();
     }
 
-<<<<<<< HEAD
     public void acaoBotaoCadastroCliente() {
         CadastroClienteController cadastroClienteController = new CadastroClienteController();
-=======
+        cadastroClienteController.exibirTela();
+
     public void acaoBotaoCadastroCliente(){
         CadastroClienteController cadastroClienteController = new CadastroClienteController(new CadastroClienteView());
->>>>>>> 9dfb60d65f36f2c3e996e4b5436fd837e6b7b797
         cadastroClienteController.exibirTela();
     }
 
