@@ -57,16 +57,20 @@ public class CadastroCarroController extends BaseCadastroController {
                 String sChassi = cadastroCarroView.getChassi();
                 String sCor = cadastroCarroView.getCor();
                 String sTipoCarroceria = cadastroCarroView.getCbTipoCarroceria();
-                int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
-                double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
                 String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
-                int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
+                try {
+                    int iAno = Integer.parseInt(cadastroCarroView.getCbTipoCarroceria());
+                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+                    int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
+                } catch (NumberFormatException ex) {
+                    apresentarMensagem("Preecha os campos com valores válidos", "Erro");
+                }
             }
         }
     }
 
     public void popularCamposCarro() {
-        
+
         String sPlaca = cadastroCarroView.getPlaca();
         String sModelo = cadastroCarroView.getModelo();
         Marca Marca = new Marca(cadastroCarroView.getMarca());
@@ -77,6 +81,17 @@ public class CadastroCarroController extends BaseCadastroController {
         double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
         String sTipoCombustivel = cadastroCarroView.getCbCombustivel();
         int iPortas = Integer.parseInt(cadastroCarroView.getCbPorta());
+        
+        modeloCarro.setModelo(sModelo);
+        modeloCarro.setMarca(Marca);
+        modeloCarro.setChassi(sChassi);
+        modeloCarro.setCor(sCor);
+        modeloCarro.setTipoCarroceria(sTipoCarroceria);
+        modeloCarro.setAno(iAno);
+        modeloCarro.setPreco(dPreco);
+        modeloCarro.setTipoCombustivel(sTipoCombustivel);
+                
+        
     }
 
     public void acaoCancelar() {

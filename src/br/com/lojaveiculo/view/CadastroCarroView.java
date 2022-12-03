@@ -483,24 +483,24 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
         return cbTipoCarroceria.getSelectedItem().toString();
     }
 
-    public void setCbTipoCarroceria(JComboBox<String> cbTipoCarroceria) {
-        this.cbTipoCarroceria = cbTipoCarroceria;
+    public void setCbTipoCarroceria(String tipoCarroceria) {
+        this.cbTipoCarroceria.setSelectedItem(tipoCarroceria);
     }
 
     public String getCbAno() {
         return cbAno.getSelectedItem().toString();
     }
 
-    public void setCbAno(JComboBox<String> cbAno) {
-        this.cbAno = cbAno;
+    public void setCbAno(String ano) {
+        this.cbAno.setSelectedItem(ano);
     }
 
     public String getCbCombustivel() {
         return cbCombustivel.getSelectedItem().toString();
     }
 
-    public void setCbCombustivel(JComboBox<String> cbCombustivel) {
-        this.cbCombustivel = cbCombustivel;
+    public void setCbCombustivel(String combustivel) {
+        this.cbCombustivel.setSelectedItem(combustivel);
     }
 
     public String getCbPorta() {
