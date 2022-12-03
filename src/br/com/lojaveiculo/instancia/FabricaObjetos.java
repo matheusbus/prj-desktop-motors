@@ -8,6 +8,7 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.UsuarioDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.excecoes.PessoaException;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Gerente;

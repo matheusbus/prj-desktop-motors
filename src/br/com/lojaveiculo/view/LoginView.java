@@ -12,7 +12,6 @@ import br.com.lojaveiculo.instancia.FabricaObjetos;
 import br.com.lojaveiculo.model.Usuario;
 import br.com.lojaveiculo.repositorio.UsuarioRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
-import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
