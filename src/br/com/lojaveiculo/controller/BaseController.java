@@ -12,5 +12,6 @@ public abstract class BaseController {
 
     public abstract void inicializarBotoes();
     public abstract void exibirTela();
+    public abstract void apresentarMensagem(String mensagem, String titulo);
     
 }
