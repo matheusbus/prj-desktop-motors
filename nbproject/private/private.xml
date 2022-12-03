@@ -2,34 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/abstractview/TelaBaseConsultaView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/00.Backup%2018-06-22/Faculdade/Aulas/3°%20%20Semestre/001%20-%2035PRO2%20-%20Programação%20II/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroClienteView.java</file>
-            <file>file:/D:/00.Backup%2018-06-22/Faculdade/Aulas/3°%20%20Semestre/001%20-%2035PRO2%20-%20Programação%20II/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/PrincipalView.java</file>
-            <file>file:/D:/00.Backup%2018-06-22/Faculdade/Aulas/3°%20%20Semestre/001%20-%2035PRO2%20-%20Programação%20II/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroFuncionariosView.java</file>
-            <file>file:/D:/00.Backup%2018-06-22/Faculdade/Aulas/3°%20%20Semestre/001%20-%2035PRO2%20-%20Programação%20II/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaFuncionariosView.java</file>
-            <file>file:/D:/00.Backup%2018-06-22/Faculdade/Aulas/3°%20%20Semestre/001%20-%2035PRO2%20-%20Programação%20II/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/LoginView.java</file>
-=======
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/RelatorioView.java</file>
->>>>>>> 36a7f13f9df52b4e6da38f9f03accd15a65b845e
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/LoginView.java</file>
->>>>>>> 4f456a779279486a84ef87152b23fc05203e53ba
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroCarroView.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/PrincipalController.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/CadastroCarroController.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/ConsultaCarroController.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaCarroView.java</file>
+            <file>file:/C:/Users/eduar/Desktop/1UDESC/Fase%203%20-%2015.08.22/35PRO2%20-%20Programação%202/Entregas/DestktopMotors-Prog2_Essa/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
         </group>
->>>>>>> 24e8e4306636036ce8e5da453dcc4d03006061ff
->>>>>>> a83ef4e22b103ad0e197fe2956495abec0e978d4
->>>>>>> 89b366ac2b16978bed877e6b3e62a60086d66f4b
     </open-files>
 </project-private>
