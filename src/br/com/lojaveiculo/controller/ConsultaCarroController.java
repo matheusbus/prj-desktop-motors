@@ -6,10 +6,8 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroCarroView;
-import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.ConsultaCarroView;
 import java.awt.event.ActionEvent;
 
@@ -43,7 +41,8 @@ public class ConsultaCarroController extends BaseConsultaController {
 
     @Override
     public void popularTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      consultaCarroView.limparTabela();
+        consultaCarroView.popularTabela(veiculoRepositorio.getCarros());  
     }
 
     @Override
@@ -69,10 +68,6 @@ public class ConsultaCarroController extends BaseConsultaController {
     public void acaoCadastrar() {
         CadastroCarroController cadastroCarroController = new CadastroCarroController();
         cadastroCarroController.exibirTela();
-    }
-
-    public void buscarTabela() {
-
     }
 
     public void acaoAlterar() {
