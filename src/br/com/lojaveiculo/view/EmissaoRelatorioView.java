@@ -4,10 +4,9 @@
  */
 package br.com.lojaveiculo.view;
 
-import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.abstractview.TelaBaseView;
 import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.repositorio.VendaRepositorio;
-import java.util.ArrayList;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -16,72 +15,33 @@ import java.util.List;
  *
  * @author Matheus
  */
-public class RelatorioView extends javax.swing.JFrame {
-
-    private final VendaRepositorio RepositorioDeVendas;
-    private static List<Venda> vendas = new ArrayList<>();
+public final class EmissaoRelatorioView extends TelaBaseView {
 
     /**
      * Creates new form RelatorioView
      */
-    public RelatorioView() {
+    public EmissaoRelatorioView() {
         initComponents();
+        organizaLayout();
+    }
+    
+    @Override
+    public void organizaLayout() {
         setContentPane(pblFundo);
         setSize(800, 700);
         setLocationRelativeTo(null);
-        RepositorioDeVendas = new VendaDAO();
-        vendas = RepositorioDeVendas.getVenda();
     }
     
-    
-    public void ordenaPorVendedor(){
-        txtDados.setText("");
-        Collections.sort(vendas, new Comparator<Venda>() {
-            @Override
-            public int compare(Venda v1, Venda v2) {
-                return v1.getVendedor().getNome().compareTo(v2.getVendedor().getNome());
-            }
-        });        
+    public void adicionaAcaoAoBotaoEmitir(ActionListener acao){
+        btnEmitirRelatorio.addActionListener(acao);
     }
     
-    public void ordenaPorNomeCliente(){
-        txtDados.setText("");
-        Collections.sort(vendas, new Comparator<Venda>(){
-            @Override
-            public int compare(Venda v1, Venda v2){
-                return v1.getCliente().getNome().compareTo(v2.getCliente().getNome());
-            }
-        });
+    public void adicionaAcaoAoBotaoLimpar(ActionListener acao){
+        btnLimpar.addActionListener(acao);
     }
     
-    public void ordenaPorPlaca(){
-        txtDados.setText("");
-        Collections.sort(vendas, new Comparator<Venda>(){
-            @Override
-            public int compare(Venda v1, Venda v2){
-                return v1.getVeiculo().getPlaca().compareTo(v2.getVeiculo().getPlaca());
-            }
-        });
-    }
-    
-    public void ordenaPorModelo(){
-        txtDados.setText("");
-        Collections.sort(vendas, new Comparator<Venda>(){
-            @Override
-            public int compare(Venda v1, Venda v2){
-                return v1.getVeiculo().getModelo().compareTo(v2.getVeiculo().getModelo());
-            }
-        });
-    }
-
-    public void ordenaPorPreco(){
-        txtDados.setText("");
-        RepositorioDeVendas.ordenaPreco();
-        vendas = RepositorioDeVendas.getVenda();
-    }
-    
-    public void imprimeDados(){
-        for (Venda v : RepositorioDeVendas.getVenda()) {
+    public void imprimeDados(List<Venda> vendas){
+        for (Venda v : vendas) {
             txtDados.append("ID Venda: " + v.getIdVenda() + "\n");
             txtDados.append("Nome do Vendedor: " + v.getVendedor().getNome() + "\n");
             txtDados.append("Cliente: " + v.getCliente().getNome() + "\n");
@@ -94,29 +54,12 @@ public class RelatorioView extends javax.swing.JFrame {
         txtDados.append("Quantidade de Vendas: " + vendas.stream().count());
     }
     
-    public void chamaOrdenacao(){
-        switch(cbOrdenacao.getSelectedIndex()){
-            case 0 -> {
-                ordenaPorNomeCliente();
-                imprimeDados();
-            }
-            case 1 -> {
-                ordenaPorVendedor();
-                imprimeDados();
-            }
-            case 2 -> {
-                ordenaPorPlaca();
-                imprimeDados();
-            }
-            case 3 -> {
-                ordenaPorModelo();
-                imprimeDados();
-            }
-            case 4 -> {
-                ordenaPorPreco();
-                imprimeDados();
-            }
-        }
+    public void limparDadosEmitidos(){
+        this.txtDados.setText(null);
+    }
+    
+    public int getTipoRelatorioSelecionado(){
+        return cbOrdenacao.getSelectedIndex();
     }
     
     /**
@@ -134,7 +77,7 @@ public class RelatorioView extends javax.swing.JFrame {
         lblOrdenacao = new javax.swing.JLabel();
         cbOrdenacao = new javax.swing.JComboBox<>();
         btnEmitirRelatorio = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnLimpar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
@@ -155,18 +98,8 @@ public class RelatorioView extends javax.swing.JFrame {
         btnEmitirRelatorio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnEmitirRelatorio.setForeground(new java.awt.Color(255, 255, 255));
         btnEmitirRelatorio.setText("Emitir");
-        btnEmitirRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmitirRelatorioActionPerformed(evt);
-            }
-        });
 
-        jToggleButton1.setText("Limpar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
+        btnLimpar.setText("Limpar");
 
         javax.swing.GroupLayout pblFundoLayout = new javax.swing.GroupLayout(pblFundo);
         pblFundo.setLayout(pblFundoLayout);
@@ -183,7 +116,7 @@ public class RelatorioView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnEmitirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -197,7 +130,7 @@ public class RelatorioView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnEmitirRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -217,21 +150,14 @@ public class RelatorioView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEmitirRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitirRelatorioActionPerformed
-        chamaOrdenacao();
-    }//GEN-LAST:event_btnEmitirRelatorioActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        this.txtDados.setText("");
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmitirRelatorio;
+    private javax.swing.JToggleButton btnLimpar;
     private javax.swing.JComboBox<String> cbOrdenacao;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblOrdenacao;
     private javax.swing.JPanel pblFundo;
     private javax.swing.JTextArea txtDados;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -7,7 +7,7 @@ import java.util.Comparator;
  *
  * @author Rafael
  */
-public class ComparadorPreçoVenda implements Comparator<Venda> {
+public class ComparadorPrecoVenda implements Comparator<Venda> {
 
     @Override
     public int compare(Venda v1, Venda v2) {
