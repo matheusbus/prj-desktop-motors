@@ -8,7 +8,6 @@ import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.dao.UsuarioDAO;
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.excecoes.PessoaException;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Gerente;
@@ -78,7 +77,7 @@ public class FabricaObjetos {
     }
 
     //Teste
-    public void criaClientes() throws PessoaException {
+    public void criaClientes() {
         repositorioDePessoas.adicionarPessoa(new Cliente("Celso Valente Anastacio", "44777726967", 448687823, "18960466861", "B", "88139-038", "Rua 1457", "Passagem", "Palhoça", "SC", "(47) 2344-7973", "celso.anastacio@gmail.com.br", "(47) 97958-5521"));
         repositorioDePessoas.adicionarPessoa(new Cliente("Otavio Bilé Pires", "33682388508", 364831364, "82576355780", "E", "49032-100", "Rua Manoel Vicente de Brito", "Farolândia", "Aracaju", "SE", "(79) 2018-2811", "otavio.pires@gmail.com.br", "(79) 98426-1367"));
         repositorioDePessoas.adicionarPessoa(new Cliente("Martin Coimbra da Cunha", "22411697309", 195496139, "65162622491", "E", "64607-705", "Travessa Cícero Duarte", "Junco", "Picos", "PI", "(86) 96911-8388", "martin.cunha@gmail.com.br", "(86) 3118-7575"));
