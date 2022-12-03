@@ -42,10 +42,6 @@ public class CadastroCarroController extends BaseCadastroController{
       
     }
 
-    @Override
-    public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public boolean verificaCamposNulos() {
@@ -55,5 +51,15 @@ public class CadastroCarroController extends BaseCadastroController{
     
     private void btnCadCarroActionPerformed(){   
        
+    }
+
+    @Override
+    public void exibirTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void fecharTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
