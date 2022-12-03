@@ -4,7 +4,11 @@
  */
 package br.com.lojaveiculo.controller;
 
+<<<<<<< HEAD
 import br.com.lojaveiculo.view.CadastroMotoView;
+=======
+import br.com.lojaveiculo.view.CadastroClienteView;
+>>>>>>> 9dfb60d65f36f2c3e996e4b5436fd837e6b7b797
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -105,8 +109,13 @@ public final class PrincipalController extends BaseController {
         cadastroMotoController.exibirTela();
     }
 
+<<<<<<< HEAD
     public void acaoBotaoCadastroCliente() {
         CadastroClienteController cadastroClienteController = new CadastroClienteController();
+=======
+    public void acaoBotaoCadastroCliente(){
+        CadastroClienteController cadastroClienteController = new CadastroClienteController(new CadastroClienteView());
+>>>>>>> 9dfb60d65f36f2c3e996e4b5436fd837e6b7b797
         cadastroClienteController.exibirTela();
     }
 
