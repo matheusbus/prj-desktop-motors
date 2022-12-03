@@ -52,6 +52,10 @@ public class CadastroCarroController extends BaseCadastroController {
         cadastroCarroView.dispose();
     }
 
+    public void cancelar(){
+        fecharTela();
+    }
+    
     @Override
     public void exibirTela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -69,8 +73,14 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     @Override
-    public void limparCamposDaTela() {
+    public void fecharTela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
+    public boolean verificarPlaca(String placa){
+        return cadastroCarroView.verificaLengthPlaca(placa);
+    }
+    
+    
+    
 }

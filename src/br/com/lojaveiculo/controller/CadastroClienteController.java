@@ -5,7 +5,6 @@
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.excecoes.ClienteException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
@@ -123,6 +122,11 @@ public final class CadastroClienteController extends BaseCadastroController{
     @Override
     public void apresentarMensagem(String mensagem, String titulo) {
         cadastroClienteView.apresentaMensagem(mensagem, titulo);
+    }
+
+    @Override
+    public void limparCamposDaTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
