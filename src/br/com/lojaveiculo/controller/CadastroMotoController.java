@@ -18,6 +18,7 @@ public class CadastroMotoController extends BaseCadastroController {
         this.modeloMoto = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+        inicializaCadastro();
     }
 
     public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
@@ -25,6 +26,7 @@ public class CadastroMotoController extends BaseCadastroController {
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+        inicializaAlteracao();
 
     }
 
@@ -42,6 +44,11 @@ public class CadastroMotoController extends BaseCadastroController {
         cadastroMotoView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
+
+        cadastroMotoView.adicionaAcaoAoBtnCancelar((ActionEvent e) -> {
+            acaoCancelar();
+        });
+
     }
 
     @Override
@@ -73,35 +80,38 @@ public class CadastroMotoController extends BaseCadastroController {
     }
 
     public void popularCamposMotoAlterar() {
-        String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
-        String sModelo = cadastroMotoView.getModelo();
-        Marca Marca = new Marca(cadastroMotoView.getMarca());
-        String sChassi = cadastroMotoView.getChassi();
-        String sCor = cadastroMotoView.getCor();
-        String sTipoCarroceira = cadastroMotoView.getCarroceria();
-        int iAno = Integer.parseInt(cadastroMotoView.getAno());
-        Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
-        String sTipoCombustivel = cadastroMotoView.getCombustivel();
-        int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
+        try {
+            cadastroMotoView.setAno(String.valueOf(modeloMoto.getAno()));
+            cadastroMotoView.setCarroceria(modeloMoto.getTipoCarroceria());
+            cadastroMotoView.setChassi(modeloMoto.getChassi());
+            cadastroMotoView.setCilindradas(String.valueOf(modeloMoto.getCilindrada()));
+            cadastroMotoView.setCombustivel(modeloMoto.getTipoCombustivel());
+            cadastroMotoView.setCor(modeloMoto.getCor());
+            cadastroMotoView.setPlaca(modeloMoto.getPlaca());
+            cadastroMotoView.setPreco(String.valueOf(modeloMoto.getPreco()));
+            cadastroMotoView.setMarca(modeloMoto.getMarca().toString());
+            cadastroMotoView.setModelo(modeloMoto.getModelo());
+        } catch (NumberFormatException ex) {
+            apresentarMensagem("Prencha os campos com valores válidos", "Erro");
+        }
 
     }
 
     public void acaoCadastrar() {
 
-        String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
-        String sModelo = cadastroMotoView.getModelo();
-        Marca Marca = new Marca(cadastroMotoView.getMarca());
-        String sChassi = cadastroMotoView.getChassi();
-        String sCor = cadastroMotoView.getCor();
-        String sTipoCarroceira = cadastroMotoView.getCarroceria();
-        int iAno = Integer.parseInt(cadastroMotoView.getAno());
-        Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
-        String sTipoCombustivel = cadastroMotoView.getCombustivel();
-        int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
-
-        if (verificaPlaca(sPlaca)) {
+        if (verificaPlaca(cadastroMotoView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
+                    String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
+                    String sModelo = cadastroMotoView.getModelo();
+                    Marca Marca = new Marca(cadastroMotoView.getMarca());
+                    String sChassi = cadastroMotoView.getChassi();
+                    String sCor = cadastroMotoView.getCor();
+                    String sTipoCarroceira = cadastroMotoView.getCarroceria();
+                    int iAno = Integer.parseInt(cadastroMotoView.getAno());
+                    Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
+                    String sTipoCombustivel = cadastroMotoView.getCombustivel();
+                    int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
                     Moto novaMoto = new Moto(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceira, iAno, dPreco, sTipoCombustivel, iCilindradas);
 
                     veiculoRepositorio.addVeiculo(novaMoto);
@@ -121,20 +131,20 @@ public class CadastroMotoController extends BaseCadastroController {
 
     public void acaoAlterar() {
 
-        String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
-        String sModelo = cadastroMotoView.getModelo();
-        Marca Marca = new Marca(cadastroMotoView.getMarca());
-        String sChassi = cadastroMotoView.getChassi();
-        String sCor = cadastroMotoView.getCor();
-        String sTipoCarroceira = cadastroMotoView.getCarroceria();
-        int iAno = Integer.parseInt(cadastroMotoView.getAno());
-        Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
-        String sTipoCombustivel = cadastroMotoView.getCombustivel();
-        int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
-
-        if (verificaPlaca(sPlaca)) {
+        if (verificaPlaca(cadastroMotoView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
+                    String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
+                    String sModelo = cadastroMotoView.getModelo();
+                    Marca Marca = new Marca(cadastroMotoView.getMarca());
+                    String sChassi = cadastroMotoView.getChassi();
+                    String sCor = cadastroMotoView.getCor();
+                    String sTipoCarroceira = cadastroMotoView.getCarroceria();
+                    int iAno = Integer.parseInt(cadastroMotoView.getAno());
+                    Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
+                    String sTipoCombustivel = cadastroMotoView.getCombustivel();
+                    int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
+
                     modeloMoto.setModelo(sModelo);
                     modeloMoto.setChassi(sChassi);
                     modeloMoto.setCor(sCor);
@@ -156,5 +166,9 @@ public class CadastroMotoController extends BaseCadastroController {
             apresentarMensagem("A placa digitada é invalida!", "Erro no cadastro");
         }
 
+    }
+
+    public void acaoCancelar() {
+        fecharTela();
     }
 }

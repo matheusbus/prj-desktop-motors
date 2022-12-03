@@ -23,8 +23,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
-    
-    
+       
     @Override
     public void organizaLayout() {
         initComponents();
