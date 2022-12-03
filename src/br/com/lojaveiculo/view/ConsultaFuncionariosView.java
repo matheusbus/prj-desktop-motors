@@ -344,4 +344,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     private javax.swing.JTextField txtCPFBuscado;
     // End of variables declaration//GEN-END:variables
 
+    @Override
+    public void limpaSelecao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void limparTabela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

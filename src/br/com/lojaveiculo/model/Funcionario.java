@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.model;
 
-import br.com.lojaveiculo.excecoes.PessoaException;
 import java.time.LocalDate;
 
 /**
@@ -20,17 +19,13 @@ public abstract class Funcionario extends Pessoa {
     protected int agencia;
     protected int contaCorrente;
 
-    public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) throws PessoaException {
+    public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) {
         super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.salario = salario;
         this.dataAdmissao = LocalDate.now();
         this.banco = banco;
         this.agencia = agencia;
         this.contaCorrente = contaCorrente;
-        
-        if(!(this.cpf.length() == 11)){
-            throw new PessoaException("O CPF deve conter 11 números.");
-        }        
     }
 
     public String getBanco() {

@@ -4,6 +4,8 @@
  */
 package br.com.lojaveiculo.model;
 
+
+
 /**
  *
  * @author Rafael
