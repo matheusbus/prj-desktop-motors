@@ -87,6 +87,16 @@ public final class PrincipalController extends BaseController{
     public boolean verificaTelaAberta(Object tela){
         return tela == null;
     }
+
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void fecharTela() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
