@@ -2,13 +2,11 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Moto;
-import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.ConsultaMotoView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Map;
+
 
 /**
  *
@@ -26,6 +24,7 @@ public class ConsultaMotoController extends BaseConsultaController {
         this.modeloMoto = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+        setBotaoSelecionar(false);
     }
 
     public ConsultaMotoController(CadastroVendaController cadastroVendaController) {
@@ -34,6 +33,7 @@ public class ConsultaMotoController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
+        setBotaoSelecionar(true);
     }
 
     @Override
@@ -111,6 +111,8 @@ public class ConsultaMotoController extends BaseConsultaController {
     public void acaoSelecionar() {
         String sPlaca = consultaMotoView.getSelecionaItem();
         cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
+        cadastroVendaController.populaListaVeiculo();
+        fecharTela();
     }
 
     public void acaoBuscar() {
@@ -125,6 +127,10 @@ public class ConsultaMotoController extends BaseConsultaController {
         } else {
             apresentarMensagem("Digite uma placa válida!", "Placa inválida");
         }
+    }
+    
+    public void setBotaoSelecionar(Boolean bool){
+        consultaMotoView.setBotaoSelecionar(bool);
     }
 
 }

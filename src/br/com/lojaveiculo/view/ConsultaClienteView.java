@@ -26,7 +26,7 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
     }
 
     // Construtor chamado na tela de venda
-    public ConsultaClienteView(VendaView venda) {
+    public ConsultaClienteView(CadastroVendaView venda) {
         organizaLayout();
         this.btnSelecionarCliente.setEnabled(true);
     }

@@ -17,7 +17,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     // Construtor chamado na tela inicial
     public ConsultaMotoView() {
         organizaLayout();
-        this.btnSelecionarVeiculo.setEnabled(false);
+     
     }
 
     @Override
@@ -96,6 +96,10 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
      public String getSelecionaItem() {
         return (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
     }
+     
+     public void setBotaoSelecionar(Boolean bool){
+         btnSelecionarVeiculo.setEnabled(bool);
+     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

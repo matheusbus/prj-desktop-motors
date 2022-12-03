@@ -38,11 +38,12 @@ public class CadastroCarroController extends BaseCadastroController {
             cadastroCarroView.adicionaAcaoBtnCadastrar((ActionEvent e) -> {
                 acaoCadastrar();
             });
-        }
-        cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
-            acaoCancelar();
 
-        });
+            cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
+                acaoCancelar();
+
+            });
+        }
     }
 
     @Override
@@ -110,7 +111,7 @@ public class CadastroCarroController extends BaseCadastroController {
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);
-                    // modeloCarro.setMarca(marca);
+                    //modeloCarro.setMarca(marca);
                     modeloCarro.setChassi(sChassi);
                     modeloCarro.setCor(sCor);
                     modeloCarro.setTipoCarroceria(sTipoCarroceria);
@@ -134,18 +135,18 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     public void popularCamposCarroAlterar() {
-        try{
-        cadastroCarroView.setModelo(modeloCarro.getModelo());
-        //cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
-        cadastroCarroView.setChassi(modeloCarro.getChassi());
-        cadastroCarroView.setCor(modeloCarro.getCor());
-        cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
-        cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
-        
-        cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPorta()));
-        cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
-        cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
-        }catch(NumberFormatException ex){
+        try {
+            cadastroCarroView.setModelo(modeloCarro.getModelo());
+            //cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
+            cadastroCarroView.setChassi(modeloCarro.getChassi());
+            cadastroCarroView.setCor(modeloCarro.getCor());
+            cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
+            cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
+
+            //cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPorta()));
+            cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
+            cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
+        } catch (NumberFormatException ex) {
             apresentarMensagem("Preencha todos os campos com valores válidos", "Erro");
         }
     }

@@ -15,7 +15,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
 
     private final PessoaRepositorio repositorioDePessoas = new PessoaDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
+    private CadastroVendaView venda;
     private PessoaRepositorio pessoas;
 
     // Construtor chamado na tela inicial
@@ -25,7 +25,7 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }    
     
     // Construtor chamado na tela de venda
-    public ConsultaFuncionariosView(VendaView venda) {
+    public ConsultaFuncionariosView(CadastroVendaView venda) {
         organizaLayout();
         this.btnSelecionarFuncionario.setEnabled(true);
         this.venda = venda;

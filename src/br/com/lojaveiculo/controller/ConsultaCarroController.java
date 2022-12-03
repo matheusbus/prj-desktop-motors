@@ -4,11 +4,28 @@
  */
 package br.com.lojaveiculo.controller;
 
+import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.model.Carro;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.view.ConsultaCarroView;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Rafael
  */
-public class ConsultaCarroController extends BaseConsultaController{
+public class ConsultaCarroController extends BaseConsultaController {
+
+    private ConsultaCarroView consultaCarroView;
+    private Carro modeloCarro;
+    private VeiculoRepositorio veiculoRepositorio;
+
+    public ConsultaCarroController() {
+        this.consultaCarroView = new ConsultaCarroView();
+        this.modeloCarro = null;
+        this.veiculoRepositorio = new VeiculoDAO();
+        inicializarBotoes();
+    }
 
     @Override
     public void popularTabela() {
@@ -17,17 +34,71 @@ public class ConsultaCarroController extends BaseConsultaController{
 
     @Override
     public void inicializarBotoes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaCarroView.adicionarAcaoBtnCadastrar((ActionEvent e) -> {
+            acaoCadastrar();
+        });
+
+        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+            acaoAlterar();
+
+        });
+
+        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+            acaoSelecionar();
+
+        });
+
+        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+            acaoBuscar();
+
+        });
+
+        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+            acaoRemover();
+
+        });
+    }
+
+    public void acaoCadastrar() {
+        CadastroCarroController cadastroCarroController = new CadastroCarroController();
+        cadastroCarroController.exibirTela();
+    }
+
+    public void acaoAlterar() {
+
+    }
+
+    public void acaoSelecionar() {
+
+    }
+
+    public void acaoBuscar() {
+
+    }
+
+    public void acaoRemover() {
+        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
+        limparTabela();
+        popularTabela();
     }
 
     @Override
     public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaCarroView.exibirTela();
     }
 
     @Override
     public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        consultaCarroView.fecharTela();
     }
-    
+
+    public void apresentaMensagem(String mensagem, String titulo) {
+        consultaCarroView.apresentaMensagem(mensagem, titulo);
+    }
+
+    public void limparTabela() {
+        consultaCarroView.limparTabela();
+
+    }
+
 }
