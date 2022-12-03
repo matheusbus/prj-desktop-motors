@@ -6,6 +6,11 @@ import br.com.lojaveiculo.interfaces.ValidaCadastroVeiculo;
 import br.com.lojaveiculo.model.Carro;
 import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -443,4 +448,213 @@ public final class CadastroCarroView extends TelaBaseCadastroView implements Val
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 
+    public ConsultaCarroView getConsultaCarro() {
+        return consultaCarro;
+    }
+
+    public void setConsultaCarro(ConsultaCarroView consultaCarro) {
+        this.consultaCarro = consultaCarro;
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
+    }
+
+    public JButton getBtnCadCarro() {
+        return btnCadCarro;
+    }
+
+    public void setBtnCadCarro(JButton btnCadCarro) {
+        this.btnCadCarro = btnCadCarro;
+    }
+
+    public JButton getBtnCancela() {
+        return btnCancela;
+    }
+
+    public void setBtnCancela(JButton btnCancela) {
+        this.btnCancela = btnCancela;
+    }
+
+    public JComboBox<String> getCbAno() {
+        return cbAno;
+    }
+
+    public void setCbAno(JComboBox<String> cbAno) {
+        this.cbAno = cbAno;
+    }
+
+    public JComboBox<String> getCbCombustivel() {
+        return cbCombustivel;
+    }
+
+    public void setCbCombustivel(JComboBox<String> cbCombustivel) {
+        this.cbCombustivel = cbCombustivel;
+    }
+
+    public JComboBox<String> getCbPorta() {
+        return cbPorta;
+    }
+
+    public void setCbPorta(JComboBox<String> cbPorta) {
+        this.cbPorta = cbPorta;
+    }
+
+    public JComboBox<String> getCbTipoCarroceria() {
+        return cbTipoCarroceria;
+    }
+
+    public void setCbTipoCarroceria(JComboBox<String> cbTipoCarroceria) {
+        this.cbTipoCarroceria = cbTipoCarroceria;
+    }
+
+    public JLabel getLblAno() {
+        return lblAno;
+    }
+
+    public void setLblAno(JLabel lblAno) {
+        this.lblAno = lblAno;
+    }
+
+    public JLabel getLblChassi() {
+        return lblChassi;
+    }
+
+    public void setLblChassi(JLabel lblChassi) {
+        this.lblChassi = lblChassi;
+    }
+
+    public JLabel getLblCombustivel() {
+        return lblCombustivel;
+    }
+
+    public void setLblCombustivel(JLabel lblCombustivel) {
+        this.lblCombustivel = lblCombustivel;
+    }
+
+    public JLabel getLblCor() {
+        return lblCor;
+    }
+
+    public void setLblCor(JLabel lblCor) {
+        this.lblCor = lblCor;
+    }
+
+    public JLabel getLblMarca() {
+        return lblMarca;
+    }
+
+    public void setLblMarca(JLabel lblMarca) {
+        this.lblMarca = lblMarca;
+    }
+
+    public JLabel getLblModelo() {
+        return lblModelo;
+    }
+
+    public void setLblModelo(JLabel lblModelo) {
+        this.lblModelo = lblModelo;
+    }
+
+    public JLabel getLblPlaca() {
+        return lblPlaca;
+    }
+
+    public void setLblPlaca(JLabel lblPlaca) {
+        this.lblPlaca = lblPlaca;
+    }
+
+    public JLabel getLblPortas() {
+        return lblPortas;
+    }
+
+    public void setLblPortas(JLabel lblPortas) {
+        this.lblPortas = lblPortas;
+    }
+
+    public JLabel getLblPreco() {
+        return lblPreco;
+    }
+
+    public void setLblPreco(JLabel lblPreco) {
+        this.lblPreco = lblPreco;
+    }
+
+    public JLabel getLblTipoCarroceria() {
+        return lblTipoCarroceria;
+    }
+
+    public void setLblTipoCarroceria(JLabel lblTipoCarroceria) {
+        this.lblTipoCarroceria = lblTipoCarroceria;
+    }
+
+    public JLabel getLblTitulo() {
+        return lblTitulo;
+    }
+
+    public void setLblTitulo(JLabel lblTitulo) {
+        this.lblTitulo = lblTitulo;
+    }
+
+    public JPanel getPnlDados() {
+        return pnlDados;
+    }
+
+    public void setPnlDados(JPanel pnlDados) {
+        this.pnlDados = pnlDados;
+    }
+
+    public JTextField getTxtChassi() {
+        return txtChassi;
+    }
+
+    public void setTxtChassi(JTextField txtChassi) {
+        this.txtChassi = txtChassi;
+    }
+
+    public JTextField getTxtCor() {
+        return txtCor;
+    }
+
+    public void setTxtCor(JTextField txtCor) {
+        this.txtCor = txtCor;
+    }
+
+    public JTextField getTxtMarca() {
+        return txtMarca;
+    }
+
+    public void setTxtMarca(JTextField txtMarca) {
+        this.txtMarca = txtMarca;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public void setTxtModelo(JTextField txtModelo) {
+        this.txtModelo = txtModelo;
+    }
+
+    public JTextField getTxtPlaca() {
+        return txtPlaca;
+    }
+
+    public void setTxtPlaca(JTextField txtPlaca) {
+        this.txtPlaca = txtPlaca;
+    }
+
+    public JTextField getTxtPreco() {
+        return txtPreco;
+    }
+
+    public void setTxtPreco(JTextField txtPreco) {
+        this.txtPreco = txtPreco;
+    }
+
+    
 }
