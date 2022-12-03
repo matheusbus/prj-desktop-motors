@@ -21,9 +21,6 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
-  <Events>
-    <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="formMouseMoved"/>
-  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -121,9 +118,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Selecionar Ve&#xed;culo"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionaVeiculoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEfetuarVenda">
       <Properties>
@@ -138,9 +132,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Efetuar Venda"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEfetuarVendaActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -162,9 +153,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Selecionar Vendedor"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionaVendedorActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVenderVeiculo">
       <Properties>
@@ -181,9 +169,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Selecionar Cliente"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionaClienteActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <Properties>
@@ -252,9 +237,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar Venda"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarVendaActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

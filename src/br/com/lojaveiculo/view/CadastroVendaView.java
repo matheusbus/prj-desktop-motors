@@ -1,48 +1,60 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
-import br.com.lojaveiculo.dao.VeiculoDAO;
-import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Veiculo;
-import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
-import br.com.lojaveiculo.repositorio.VendaRepositorio;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author eduar
  */
-public final class VendaView extends TelaBaseCadastroView {
+public final class CadastroVendaView extends TelaBaseCadastroView {
 
-    protected Pessoa vendedor;
-    protected Veiculo veiculo;
-    protected Pessoa cliente;
-    protected Venda venda;
-    protected boolean selecionado;
-    private VeiculoRepositorio veiculos;
-    private VendaRepositorio vendas;
-    protected String sCpf;
-    protected boolean VeiculoSelecionado;
-    protected boolean VendedorSelecionado;
-    protected boolean ClienteSelecionado;
-    private ConsultaVendaView consultaVenda;
-    //private ConsultaCarroView consultaVeiculo;
-
-    public VendaView() {
+    public CadastroVendaView() {
         organizaLayout();
-        veiculos = new VeiculoDAO();
-        VendedorSelecionado = false;
-        VeiculoSelecionado = false;
     }
 
-    public VendaView(ConsultaVendaView consultaVenda) {
-        organizaLayout();
-        veiculos = new VeiculoDAO();
-        VendedorSelecionado = false;
-        VeiculoSelecionado = false;
-        ClienteSelecionado = false;
-        this.consultaVenda = consultaVenda;
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(500, 600);
+    }
+
+    public void adicionaAcaoAoBtnSelecionarVeiculo(ActionListener acao) {
+        btnSelecionaVeiculo.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnSelecionarCliente(ActionListener acao) {
+        btnSelecionaCliente.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnSelecionarVendedor(ActionListener acao) {
+        btnSelecionaVendedor.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnEfetuarVenda(ActionListener acao) {
+        btnEfetuarVenda.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnCancelarVenda(ActionListener acao) {
+        btnCancelarVenda.addActionListener(acao);
+    }
+
+    public void populaListaVeiculo(String veiculo) {
+        txtaVeiculoSelecionado.append(veiculo);
+    }
+
+    public void populaListaVendedor(String vendedor) {
+        txtaVendedorSelecionado.append(vendedor);
+    }
+
+    public void populaListaCliente(String cliente) {
+        txtaClienteSelecionado.append(cliente);
+    }
+    
+    public String getTipoVeiculo(){
+        return cbTipoVeiculo.getSelectedItem().toString();
     }
 
     /**
@@ -74,28 +86,13 @@ public final class VendaView extends TelaBaseCadastroView {
         jLabel1.setText("Cadastrar Carro");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
-        });
 
         btnSelecionaVeiculo.setText("Selecionar Veículo");
-        btnSelecionaVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionaVeiculoActionPerformed(evt);
-            }
-        });
 
         btnEfetuarVenda.setBackground(new java.awt.Color(0, 153, 102));
         btnEfetuarVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEfetuarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnEfetuarVenda.setText("Efetuar Venda");
-        btnEfetuarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEfetuarVendaActionPerformed(evt);
-            }
-        });
 
         txtaVeiculoSelecionado.setEditable(false);
         txtaVeiculoSelecionado.setColumns(20);
@@ -103,22 +100,12 @@ public final class VendaView extends TelaBaseCadastroView {
         jScrollPane1.setViewportView(txtaVeiculoSelecionado);
 
         btnSelecionaVendedor.setText("Selecionar Vendedor");
-        btnSelecionaVendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionaVendedorActionPerformed(evt);
-            }
-        });
 
         lblVenderVeiculo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lblVenderVeiculo.setForeground(new java.awt.Color(255, 255, 255));
         lblVenderVeiculo.setText("Vender Veiculo");
 
         btnSelecionaCliente.setText("Selecionar Cliente");
-        btnSelecionaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionaClienteActionPerformed(evt);
-            }
-        });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -141,11 +128,6 @@ public final class VendaView extends TelaBaseCadastroView {
         btnCancelarVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelarVenda.setText("Cancelar Venda");
-        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarVendaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,93 +195,6 @@ public final class VendaView extends TelaBaseCadastroView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSelecionaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVeiculoActionPerformed
-        if (cbTipoVeiculo.getSelectedIndex() == 0) {
-            abreTelaConsultaCarro();
-        } else {
-            abreTelaConsultaMoto();
-        }
-    }//GEN-LAST:event_btnSelecionaVeiculoActionPerformed
-
-    private void btnSelecionaVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaVendedorActionPerformed
-        abreTelaConsultaVendedor();
-    }//GEN-LAST:event_btnSelecionaVendedorActionPerformed
-
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-        if (VendedorSelecionado) {
-            txtaVendedorSelecionado.setText(vendedor.toString());
-        }
-        if (VeiculoSelecionado) {
-            txtaVeiculoSelecionado.setText(veiculo.toString());
-        }
-        if (ClienteSelecionado) {
-            txtaClienteSelecionado.setText(cliente.toString());
-        }
-    }//GEN-LAST:event_formMouseMoved
-
-    private void btnSelecionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaClienteActionPerformed
-        abreTelaConsultaCliente();
-    }//GEN-LAST:event_btnSelecionaClienteActionPerformed
-
-    private void btnEfetuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarVendaActionPerformed
-        if ((ClienteSelecionado) && (VeiculoSelecionado) && (VendedorSelecionado)) {
-            if (efetuarVenda()) {
-                apresentaMensagem("Venda efetuada com sucesso", "Suceso");
-                this.dispose();
-            }
-        } else {
-            apresentaMensagem("Selecione todos os campos", "ERRO");
-        }
-    }//GEN-LAST:event_btnEfetuarVendaActionPerformed
-
-    private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarVendaActionPerformed
-
-    public void abreTelaConsultaCliente() {
-        ConsultaClienteView consultaCliente = new ConsultaClienteView(this);
-        consultaCliente.setVisible(true);
-    }
-
-    public void abreTelaConsultaCarro() {
-        ConsultaCarroView consultaCarro = new ConsultaCarroView(this);
-        consultaCarro.setVisible(true);
-    }
-
-    public void abreTelaConsultaMoto() {
-        ConsultaMotoView consultaMoto = new ConsultaMotoView(this);
-        consultaMoto.setVisible(true);
-    }
-
-    public void abreTelaConsultaVendedor() {
-        ConsultaFuncionariosView consultaVendedor = new ConsultaFuncionariosView(this);
-        consultaVendedor.setVisible(true);
-    }
-
-    public boolean efetuarVenda() {
-        vendas = new VendaDAO();
-        venda = new Venda(this.veiculo, this.cliente, this.vendedor);
-        if (vendas.adicionarVenda(venda) == true) {
-            veiculos.removeVeiculo(veiculo.getPlaca());
-            if (consultaVenda != null) {
-                consultaVenda.limparTabela(consultaVenda.getGrid());
-                consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
-                return true;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public void organizaLayout() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setSize(500, 600);
-    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarVenda;

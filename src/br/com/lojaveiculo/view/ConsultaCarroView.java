@@ -15,13 +15,31 @@ import javax.swing.table.DefaultTableModel;
 public final class ConsultaCarroView extends TelaBaseConsultaView {
 
     private DefaultTableModel grid;
+<<<<<<< HEAD
+    private CadastroVendaView venda;
+    private VeiculoRepositorio veiculos;
+    
+=======
 
+>>>>>>> f7a26aaf655ab8fb74b499d672ee2a33312df946
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
         this.btnSelecionarVeiculo.setEnabled(false);
     }
+<<<<<<< HEAD
+    
+    // Construtor chamado na tela de venda
+    public ConsultaCarroView(CadastroVendaView venda) {
+        organizaLayout();
+        this.btnSelecionarVeiculo.setEnabled(true);
+        this.venda = venda;
+        this.veiculos = new VeiculoDAO();
+    }
+      
+=======
 
+>>>>>>> f7a26aaf655ab8fb74b499d672ee2a33312df946
     @Override
     public void organizaLayout() {
         initComponents();

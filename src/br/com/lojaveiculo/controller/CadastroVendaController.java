@@ -4,39 +4,141 @@
  */
 package br.com.lojaveiculo.controller;
 
-
+import br.com.lojaveiculo.dao.VeiculoDAO;
+import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Veiculo;
+import br.com.lojaveiculo.model.Venda;
+import br.com.lojaveiculo.model.Vendedor;
+import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
+import br.com.lojaveiculo.view.CadastroVendaView;
+import java.awt.event.ActionEvent;
 
-/**
- *
- * @author Rafael
- */
-public class CadastroVendaController extends BaseCadastroController{
-    
+
+public class CadastroVendaController extends BaseCadastroController {
+
+    private CadastroVendaView cadastroVendaView;
     private Veiculo veiculo;
+    private Cliente cliente;
+    private Vendedor vendedor;
+    private VeiculoRepositorio veiculoRepositorio;
+
+    public CadastroVendaController() {
+        this.cadastroVendaView = new CadastroVendaView();
+        this.veiculo = null;
+        this.cliente = null;
+        this.vendedor = null;
+        this.veiculoRepositorio = new VeiculoDAO();
+        inicializarBotoes();
+    }
 
     @Override
     public boolean verificaCamposNulos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (!((this.veiculo == null || (this.cliente == null) || (this.vendedor == null)))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void inicializarBotoes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        cadastroVendaView.adicionaAcaoAoBtnSelecionarVeiculo((ActionEvent e) -> {
+            acaoSelecionarVeiculo();
+        });
+
+        cadastroVendaView.adicionaAcaoAoBtnSelecionarVendedor((ActionEvent e) -> {
+            acaoSelecionarVendedor();
+        });
+
+        cadastroVendaView.adicionaAcaoAoBtnSelecionarCliente((ActionEvent e) -> {
+            acaoSelecionarVendedor();
+        });
+
+        cadastroVendaView.adicionaAcaoAoBtnEfetuarVenda((ActionEvent e) -> {
+            acaoEfetuarVenda();
+        });
+
+        cadastroVendaView.adicionaAcaoAoBtnCancelarVenda((ActionEvent e) -> {
+            acaoCancelarVenda();
+        });
     }
 
     @Override
     public void exibirTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        cadastroVendaView.exibirTela();
     }
 
     @Override
     public void fecharTela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        cadastroVendaView.fecharTela();
     }
- 
-    
-    public void setVeiculo(Veiculo veic){
+
+    public void setVeiculo(Veiculo veic) {
         this.veiculo = veic;
     }
+
+    public void setVendedor(Vendedor vend) {
+        this.vendedor = vend;
+    }
+
+    public void setCliente(Cliente clien) {
+        this.cliente = clien;
+    }
+
+    public void populaListaVeiculo() {
+        cadastroVendaView.populaListaVeiculo(veiculo.toString());
+    }
+
+    public void populaListaVendedor() {
+        cadastroVendaView.populaListaCliente(cliente.toString());
+    }
+
+    public void populaListaCliente() {
+        cadastroVendaView.populaListaVendedor(vendedor.toString());
+    }
+
+    public void acaoSelecionarVeiculo() {
+        if (cadastroVendaView.getTipoVeiculo().equalsIgnoreCase("Carro")) {
+            ConsultaCarroController consultaCarroController = new ConsultaCarroController();
+            consultaCarroController.exibirTela();
+        } else {
+            ConsultaMotoController consultaMotoController = new ConsultaMotoController(this);
+            consultaMotoController.exibirTela();
+        }
+       
+    }
+
+    public void acaoSelecionarVendedor() {
+        ConsultaFuncionarioController consultaFuncionarioController = new ConsultaFuncionarioController();
+        consultaFuncionarioController.exibirTela();
+    }
+
+    public void acaoSelecionarCliente() {
+        ConsultaClienteController consultaClienteController = new ConsultaClienteController();
+        consultaClienteController.exibirTela();
+    }
+
+    public void acaoEfetuarVenda() {
+ //       vendas = new VendaDAO();
+ //       venda = new Venda(this.veiculo, this.cliente, this.vendedor);
+ //       if (vendas.adicionarVenda(venda) == true) {
+ //           veiculos.removeVeiculo(veiculo.getPlaca());
+ //           if (consultaVenda != null) {
+ //               consultaVenda.limparTabela(consultaVenda.getGrid());
+ //               consultaVenda.popularTabela(consultaVenda.getRepositorioDeVendas(), 4, consultaVenda.getTblVendas(), consultaVenda.getGrid());
+ //               return true;
+ //           } else {
+///               return true;
+ //           }
+ //       } else {
+ //           return false;
+ //       }
+    }
+
+    public void acaoCancelarVenda() {
+
+    }
+
 }

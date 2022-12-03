@@ -18,7 +18,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     private final VendaRepositorio repositorioDeVendas = new VendaDAO();
     private DefaultTableModel grid;
-    private VendaView venda;
+    private CadastroVendaView venda;
     private VendaRepositorio vendas;
     private int numeroVenda;
 
@@ -28,7 +28,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     }
 
     // Construtor chamado na tela de venda
-    public ConsultaVendaView(VendaView venda) {
+    public ConsultaVendaView(CadastroVendaView venda) {
         organizaLayout();
         this.venda = venda;
         this.vendas = new VendaDAO();
@@ -251,7 +251,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-        VendaView cadVenda = new VendaView(this);
+        CadastroVendaView cadVenda = new CadastroVendaView(this);
         cadVenda.setVisible(true);
     }
 
