@@ -56,7 +56,7 @@ public class ConsultaCarroController extends BaseConsultaController {
     }
 
     public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
+        CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
         cadastroCarroController.exibirTela();
     }
 
@@ -68,7 +68,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         try {
             String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
             Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
-            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
+            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
             cadastroCarroController.exibirTela();
         } catch (Exception e) {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
