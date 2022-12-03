@@ -456,8 +456,9 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         }
     }
     
-    public void setTituloTela(String titulo){
+    public void setTitulosTela(String titulo){
         lblTitulo.setText(titulo);
+        btnCadCliente.setText(titulo);
     }
     
     public String getBairro(){
@@ -560,6 +561,9 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         txtWhatsapp.setText(whatsapp);
     }
     
+    public void setEstado(String estado){
+        cbEstado.setSelectedItem(estado);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
