@@ -259,8 +259,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaCadastro() {
-        CadastroMotoView cadMoto = new CadastroMotoView(this);
-        cadMoto.setVisible(true);
+       // CadastroMotoView cadMoto = new CadastroMotoView(this);
+       // cadMoto.setVisible(true);
     }
 
     public void validaRemocao(){
@@ -293,8 +293,8 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     @Override
     public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroMotoView altMoto = new CadastroMotoView(this, (Moto) obj);
-        altMoto.setVisible(true);
+        //CadastroMotoView altMoto = new CadastroMotoView(this, (Moto) obj);
+       // altMoto.setVisible(true);
     }
     
     public void selecionaItem(String placa) {

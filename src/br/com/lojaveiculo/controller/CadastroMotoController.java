@@ -5,6 +5,8 @@ import br.com.lojaveiculo.model.Marca;
 import br.com.lojaveiculo.model.Moto;
 import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroMotoView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CadastroMotoController extends BaseCadastroController {
 
@@ -16,12 +18,14 @@ public class CadastroMotoController extends BaseCadastroController {
         this.cadastroMotoView = new CadastroMotoView();
         this.modeloMoto = null;
         this.veiculoRepositorio = new VeiculoDAO();
+        inicializarBotoes();
     }
 
     public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
         this.cadastroMotoView = cadastroMotoView;
         this.modeloMoto = modeloMoto;
-        this.veiculoRepositorio = new VeiculoDAO();
+        this.veiculoRepositorio = veiculoRepositorio;
+        inicializarBotoes();
     }
 
     @Override
@@ -31,7 +35,13 @@ public class CadastroMotoController extends BaseCadastroController {
 
     @Override
     public void inicializarBotoes() {
+        cadastroMotoView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
+            acaoCadastrar();
+        });
 
+        cadastroMotoView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+            acaoAlterar();
+        });
     }
 
     @Override
@@ -101,7 +111,7 @@ public class CadastroMotoController extends BaseCadastroController {
     }
 
     public void acaoAlterar() {
-        
+
         String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
         String sModelo = cadastroMotoView.getModelo();
         Marca Marca = new Marca(cadastroMotoView.getMarca());
@@ -113,7 +123,7 @@ public class CadastroMotoController extends BaseCadastroController {
         String sTipoCombustivel = cadastroMotoView.getCombustivel();
         int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
 
-        if (verificaPlaca(sPlaca))  {
+        if (verificaPlaca(sPlaca)) {
             if (verificaCamposNulos()) {
                 try {
                     modeloMoto.setModelo(sModelo);
