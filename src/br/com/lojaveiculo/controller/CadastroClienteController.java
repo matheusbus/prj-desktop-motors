@@ -30,6 +30,7 @@ public final class CadastroClienteController extends BaseCadastroController{
     public CadastroClienteController(CadastroClienteView cadastroClienteView, Cliente modeloCliente) {
         this.cadastroClienteView = cadastroClienteView;
         this.modeloCliente = modeloCliente;
+        this.cadastroClienteView.setTitulosTela("Alterar");
         popularCamposDoClienteAlterar();
         inicializarBotoes();
     }
@@ -115,6 +116,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         if(verificaCamposNulos()){
             try {
                 verificaExistenciaCPF(modeloCliente.getCpf());
+                verificaLengthCpf();
             } catch (ClienteException ex) {
                 apresentarMensagem(ex.getMessage(), "Erro");
             }
@@ -141,26 +143,25 @@ public final class CadastroClienteController extends BaseCadastroController{
             pessoaRepositorio.adicionarPessoa(modeloCliente);
             
             // chamar o método de popula do controlador de consulta de cliente
-            
             apresentarMensagem("Cliente alterado com sucesso.", "Alteração realizada");
         }
         
     }
     
     public void popularCamposDoClienteAlterar(){
-            cadastroClienteView.setNome(modeloCliente.getNome());
-            cadastroClienteView.setCpf(modeloCliente.getCpf());
-            cadastroClienteView.setRg(String.valueOf(modeloCliente.getRg()));
-            cadastroClienteView.setCNH(modeloCliente.getCnh());
-            cadastroClienteView.setCategoriaCNH(modeloCliente.getCnh());
-            cadastroClienteView.setCep(modeloCliente.getCep());
-            cadastroClienteView.setEndereco(modeloCliente.getEndereco());
-            cadastroClienteView.setBairro(modeloCliente.getBairro());
-            cadastroClienteView.setCidade(modeloCliente.getCidade());
-            cadastroClienteView.setEstado(modeloCliente.getEstado());
-            cadastroClienteView.setTelefone(modeloCliente.getTelefone());
-            cadastroClienteView.setEmail(modeloCliente.getEmail());
-            cadastroClienteView.setWhatsapp(modeloCliente.getWhatsapp());
+        cadastroClienteView.setNome(modeloCliente.getNome());
+        cadastroClienteView.setCpf(modeloCliente.getCpf());
+        cadastroClienteView.setRg(String.valueOf(modeloCliente.getRg()));
+        cadastroClienteView.setCNH(modeloCliente.getCnh());
+        cadastroClienteView.setCategoriaCNH(modeloCliente.getCnh());
+        cadastroClienteView.setCep(modeloCliente.getCep());
+        cadastroClienteView.setEndereco(modeloCliente.getEndereco());
+        cadastroClienteView.setBairro(modeloCliente.getBairro());
+        cadastroClienteView.setCidade(modeloCliente.getCidade());
+        cadastroClienteView.setEstado(modeloCliente.getEstado());
+        cadastroClienteView.setTelefone(modeloCliente.getTelefone());
+        cadastroClienteView.setEmail(modeloCliente.getEmail());
+        cadastroClienteView.setWhatsapp(modeloCliente.getWhatsapp());
     }
     
     public boolean verificaExistenciaCPF(String cpf) throws ClienteException{
@@ -170,7 +171,15 @@ public final class CadastroClienteController extends BaseCadastroController{
             throw new ClienteException("CPF já consta no sistema.");
         }
     }
-
+    
+    public boolean verificaLengthCpf() throws ClienteException{
+        if(cadastroClienteView.getCpf().length() == 11){
+            return true;
+        } else {
+            throw new ClienteException("O CPF deve conter 11 dígitos.");
+        }
+    }
+    
     @Override
     public void exibirTela() {
         cadastroClienteView.exibirTela();
