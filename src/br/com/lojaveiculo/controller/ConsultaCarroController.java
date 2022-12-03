@@ -29,6 +29,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
+ 
     }
 
     public ConsultaCarroController(CadastroVendaController cadastroVendaController) {
@@ -37,11 +38,9 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
+
     }
 
-    
-    
-    
     @Override
     public void popularTabela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -115,6 +114,7 @@ public class ConsultaCarroController extends BaseConsultaController {
     @Override
     public void exibirTela() {
         consultaCarroView.exibirTela();
+        popularTabela();
     }
 
     @Override
