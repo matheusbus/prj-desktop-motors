@@ -6,7 +6,6 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.excecoes.ClienteException;
-import br.com.lojaveiculo.excecoes.PessoaException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.CadastroClienteView;
@@ -51,11 +50,7 @@ public final class CadastroClienteController extends BaseCadastroController{
     public void inicializarBotoes() {
         if(this.modeloCliente == null){
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
-                try {
-                    acaoCadastrar();
-                } catch (ClienteException | PessoaException ex) {
-                    apresentarMensagem(ex.getMessage(), "Erro");
-                }
+                acaoCadastrar();
             });
         } else {
             cadastroClienteView.adicionaAcaoAoBotaoCadastrar((ActionEvent e) -> {
@@ -71,7 +66,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         cadastroClienteView.fecharTela();
     }
     
-    public void acaoCadastrar() throws ClienteException, PessoaException{
+    public void acaoCadastrar() {
         // Implementar acao e exceção
         if(verificaCamposNulos()){
             // 1 - Recuperar dados
@@ -111,8 +106,6 @@ public final class CadastroClienteController extends BaseCadastroController{
                 apresentarMensagem("O CPF já consta no sistema.", "Erro");
             }
 
-        } else {
-            throw new ClienteException("Preencha todos os campos.");
         }
             consultaClienteController.getConsultaClienteView().limparTabela();
             consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
