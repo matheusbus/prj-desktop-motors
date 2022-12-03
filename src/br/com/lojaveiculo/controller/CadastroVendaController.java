@@ -4,8 +4,7 @@
  */
 package br.com.lojaveiculo.controller;
 
-import br.com.lojaveiculo.model.Carro;
-import br.com.lojaveiculo.model.Moto;
+
 import br.com.lojaveiculo.model.Veiculo;
 
 /**
@@ -14,8 +13,7 @@ import br.com.lojaveiculo.model.Veiculo;
  */
 public class CadastroVendaController extends BaseCadastroController{
     
-    private Moto moto;
-    private Carro carro;
+    private Veiculo veiculo;
 
     @Override
     public boolean verificaCamposNulos() {
@@ -36,12 +34,9 @@ public class CadastroVendaController extends BaseCadastroController{
     public void fecharTela() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+ 
     
-    public void setMoto(Moto moto){
-        this.moto = moto;
-    }
-    
-    public void setCarro(Carro carro){
-        this.carro = carro;
+    public void setVeiculo(Veiculo veic){
+        this.veiculo = veic;
     }
 }

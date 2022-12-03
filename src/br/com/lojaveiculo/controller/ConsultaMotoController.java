@@ -110,7 +110,7 @@ public class ConsultaMotoController extends BaseConsultaController {
 
     public void acaoSelecionar() {
         String sPlaca = consultaMotoView.getSelecionaItem();
-        cadastroVendaController.setMoto((Moto) veiculoRepositorio.buscarVeiculo(sPlaca));
+        cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
     }
 
     public void acaoBuscar() {
