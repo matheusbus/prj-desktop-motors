@@ -1,11 +1,10 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
-import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.model.Cliente;
-import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,41 +12,14 @@ import java.awt.event.ActionListener;
  */
 public final class CadastroClienteView extends TelaBaseCadastroView {
 
-    private final PessoaRepositorio pessoas = new PessoaDAO();
-    private ConsultaClientesView consultaCliente = null;
-    private Cliente cliente;
-
+    private List<JTextField> campos = new ArrayList<>();
+    
     /**
      * Creates new form CadastroClienteView
      */
     public CadastroClienteView() {
         organizaLayout();
-    }
-
-    public CadastroClienteView(ConsultaClientesView consultaCliente) {
-        organizaLayout();
-        this.consultaCliente = consultaCliente;
-    }
-
-    public CadastroClienteView(ConsultaClientesView consultaCliente, Cliente cliente) {
-        organizaLayout();
-        this.consultaCliente = consultaCliente;
-        this.cliente = cliente;
-        this.lblTitulo.setText("Alterar Cliente");
-        this.btnCadCliente.setText("Alterar");
-        this.txtNome.setText(cliente.getNome());
-        this.txtCpf.setText(cliente.getCpf());
-        this.txtRg.setText(Long.toString(cliente.getRg()));
-        this.txtCnh.setText(cliente.getCnh());
-        this.txtCategoriaCnh.setText(cliente.getCategoriaCnh());
-        this.txtCep.setText(cliente.getCep());
-        this.txtEndereco.setText(cliente.getEndereco());
-        this.txtBairro.setText(cliente.getBairro());
-        this.txtCidade.setText(cliente.getCidade());
-        this.cbEstado.setSelectedItem(cliente.getEstado());
-        this.txtTelefone.setText(cliente.getTelefone());
-        this.txtEmail.setText(cliente.getEmail());
-        this.txtWhatsapp.setText(cliente.getWhatsapp());
+        addCampos();
     }
 
     @Override
@@ -61,6 +33,19 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         this.add(pnlEndereco);
         this.add(btnCadCliente);
         this.add(btnCancela);
+    }
+    
+    public void addCampos(){
+        campos.add(txtCep);
+        campos.add(txtCidade);
+        campos.add(txtCnh);
+        campos.add(txtCpf);
+        campos.add(txtEmail);
+        campos.add(txtEndereco);
+        campos.add(txtNome);
+        campos.add(txtRg);
+        campos.add(txtTelefone);
+        campos.add(txtWhatsapp);
     }
     
     @SuppressWarnings("unchecked")
@@ -111,11 +96,6 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         btnCadCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCadCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCadCliente.setText("Cadastrar");
-        btnCadCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadClienteActionPerformed(evt);
-            }
-        });
 
         pnlDados.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
@@ -353,107 +333,18 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
         btnCadCliente.addActionListener(acao);
     }
     
-    private void btnCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadClienteActionPerformed
-        if (this.cliente == null) {
-            cadastrarCliente();
-        } else {
-            alterarCliente(cliente);
-        }
-    }//GEN-LAST:event_btnCadClienteActionPerformed
-
     public void adicionaAcaoAoBotaoCancelar(ActionListener acao){
         btnCancela.addActionListener(acao);
-    }    
-    
-    public void cadastrarCliente() {
-        if (verificaExistenciaCPF(txtCpf.getText())) {
-            if (verificaLengthCpf(txtCpf.getText())) {
-                if (verificaCamposNulos()) {
-                    try {
-                        String sNome = txtNome.getText();
-                        String sCpf = txtCpf.getText();
-                        long sRg = Integer.parseInt(txtRg.getText());
-                        String sCnh = txtCnh.getText();
-                        String sCatCnh = txtCategoriaCnh.getText().toUpperCase();
-                        String sCep = txtCep.getText();
-                        String sEndereco = txtEndereco.getText();
-                        String sBairro = txtBairro.getText();
-                        String sCidade = txtCidade.getText();
-                        String sEstado = cbEstado.getSelectedItem().toString();
-                        String sTelefone = txtTelefone.getText();
-                        String sEmail = txtEmail.getText().toLowerCase();
-                        String sWhatsapp = txtWhatsapp.getText();
-
-                        Pessoa p = new Cliente(sNome, sCpf, sRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
-                        pessoas.adicionarPessoa(p);
-                        if (consultaCliente != null) {
-                            consultaCliente.limparTabela(consultaCliente.getGrid());
-                            consultaCliente.popularTabela(consultaCliente.getRepositorioDePessoas(), 0, consultaCliente.getTblClientes(), consultaCliente.getGrid());
-                        }
-                        apresentaMensagem("Cliente cadastrado com sucesso", "Sucesso");
-                        this.dispose();
-                    } catch (NumberFormatException ex) {
-                        apresentaMensagem("Preencha os campos valores válidos", "Erro");
-                    }
-                } else {
-                    apresentaMensagem("Preencha todos os campos", "Erro");
-                }
-            } else {
-                apresentaMensagem("CPF inválido, digite novamente", "Erro");
-            }
-        } else {
-            apresentaMensagem("CPF já consta no sistema", "Erro");
-        }
-    }
-
-    public void alterarCliente(Cliente cliente) {
-        if (verificaLengthCpf(txtCpf.getText())) {
-            if (verificaCamposNulos()) {
-                pessoas.removerPessoa(cliente.getCpf());
-                cliente.setNome(txtNome.getText());
-                cliente.setCpf(txtCpf.getText());
-                cliente.setRg(Long.parseLong(txtRg.getText()));
-                cliente.setCnh(txtCnh.getText());
-                cliente.setCategoriaCnh(txtCategoriaCnh.getText().toUpperCase());
-                cliente.setCep(txtCep.getText());
-                cliente.setEndereco(txtEndereco.getText());
-                cliente.setBairro(txtBairro.getText());
-                cliente.setCidade(txtCidade.getText());
-                cliente.setEstado(cbEstado.getSelectedItem().toString());
-                cliente.setTelefone(txtTelefone.getText());
-                cliente.setEmail(txtEmail.getText().toLowerCase());
-                pessoas.adicionarPessoa(cliente);
-                consultaCliente.popularTabela(consultaCliente.getRepositorioDePessoas(), 0, consultaCliente.getTblClientes(), consultaCliente.getGrid());
-
-                apresentaMensagem("Cliente alterado com sucesso.", "Alteração realizada");
-                this.dispose();
-            } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
-            }
-        } else {
-            apresentaMensagem("O CPF digitado é inválido.", "Erro na alteração");
-        }
-    }
-
-    public boolean verificaExistenciaCPF(String cpf) {
-        return pessoas.buscarPessoaPorCPF(cpf) == null;
-    }
-
-    public boolean verificaLengthCpf(String cpf) {
-        return cpf.length() == 11;
     }
 
     @Override
     public boolean verificaCamposNulos() {
-        if (!((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))
-                || txtBairro.getText().trim().equals("") || txtCategoriaCnh.getText().trim().equals("") || txtCep.getText().trim().equals("")
-                || txtCidade.getText().trim().equals("") || txtRg.getText().trim().equals("") || txtCnh.getText().trim().equals("")
-                || txtEndereco.getText().trim().equals("") || cbEstado.getSelectedItem().toString().trim().equals("")
-                || txtWhatsapp.getText().trim().equals(""))) {
-            return true;
-        } else {
-            return false;
+        for(JTextField campo : campos){
+            if(campo.getText().trim().equals("")){
+                return false;
+            }
         }
+        return true;
     }
     
     public void setTitulosTela(String titulo){
@@ -495,6 +386,10 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     
     public String getEstado(){
         return cbEstado.getSelectedItem().toString();
+    }
+    
+    public void setEstado(String estado){
+        cbEstado.setSelectedItem(estado);
     }
     
     public String getCNH(){
@@ -559,10 +454,6 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     
     public void setWhatsapp(String whatsapp){
         txtWhatsapp.setText(whatsapp);
-    }
-    
-    public void setEstado(String estado){
-        cbEstado.setSelectedItem(estado);
     }
     
 
