@@ -22,7 +22,7 @@ public class CadastroMotoController extends BaseCadastroController {
         inicializaCadastro();
     }
 
-    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto) {
+    public CadastroMotoController(CadastroMotoView cadastroMotoView, Moto modeloMoto, ConsultaMotoController consultaMotoController) {
         this.cadastroMotoView = cadastroMotoView;
         this.modeloMoto = modeloMoto;
         this.veiculoRepositorio = veiculoRepositorio;
@@ -33,10 +33,6 @@ public class CadastroMotoController extends BaseCadastroController {
 
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public void inicializarBotoes() {
         cadastroMotoView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
@@ -70,27 +66,13 @@ public class CadastroMotoController extends BaseCadastroController {
     }
 
     public boolean verificaPlaca(String placa) {
-        return cadastroMotoView.getPlaca().length() == 7;
+        return cadastroMotoView.verificaLengthPlaca(placa);
     }
 
     @Override
     public boolean verificaCamposNulos() {
-        String sPlaca = cadastroMotoView.getPlaca().toUpperCase();
-        String sModelo = cadastroMotoView.getModelo();
-        String sMarca = cadastroMotoView.getMarca();
-        String sChassi = cadastroMotoView.getChassi();
-        String sCor = cadastroMotoView.getCor();
-        String sPreco = cadastroMotoView.getPreco();
-        String sCilindradas = cadastroMotoView.getCilindradas();
-
-        if (!((sPlaca.equals("")) || (sModelo.equals("")) || (sChassi.equals(""))
-                || (sCor.equals("")) || (sPreco.equals(""))
-                || (sCilindradas.equals("")))) {
-            return true;
-        } else {
-            return false;
+            return cadastroMotoView.verificaCamposNulos();
         }
-    }
 
     public void inicializaCadastro() {
         cadastroMotoView.inicializaCadastro();

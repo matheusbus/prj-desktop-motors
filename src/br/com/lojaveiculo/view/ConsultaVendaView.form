@@ -222,9 +222,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarVendaActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPlaca">
               <Properties>
@@ -252,9 +249,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarVendaActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRemoverVenda">
               <Properties>
@@ -269,9 +263,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverVendaActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnOrdenaVenda">
               <Properties>
@@ -286,9 +277,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ordena"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrdenaVendaActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbOrdena">
               <Properties>
