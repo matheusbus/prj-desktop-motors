@@ -1,4 +1,4 @@
-    package br.com.lojaveiculo.view;
+package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import java.awt.event.ActionListener;
@@ -19,9 +19,6 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setSize(860, 475);
-        this.add(pnlDados);
-        this.add(btnCadCarro);
-        this.add(btnCancela);
     }
 
     @SuppressWarnings("unchecked")
@@ -310,6 +307,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
     public void inicializaAlteracao() {
         btnCadCarro.setEnabled(false);
         btnCadCarro.setVisible(false);
+    }
+    
+    @Override
+    public void exibirTela() {
+        super.exibirTela();
     }
     
     @Override
