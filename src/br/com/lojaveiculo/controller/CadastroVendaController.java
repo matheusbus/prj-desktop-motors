@@ -135,8 +135,6 @@ public class CadastroVendaController extends BaseCadastroController {
                 consultaVendaController.limparTabela();
                 consultaVendaController.popularTabela();
                 apresentarMensagem("Venda Efetuada", "Sucesso");
-                fecharTela();
-                consultaVendaController.exibirTela();
                 
             }
         }
