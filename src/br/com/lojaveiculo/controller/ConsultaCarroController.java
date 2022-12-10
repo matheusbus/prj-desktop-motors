@@ -54,15 +54,15 @@ public class ConsultaCarroController extends BaseConsultaController {
             acaoAlterar();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnBuscar((ActionEvent e) -> {
             acaoBuscar();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnRemover((ActionEvent e) -> {
             acaoRemover();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnSelecionar((ActionEvent e) -> {
             acaoSelecionar();
         });
     }
