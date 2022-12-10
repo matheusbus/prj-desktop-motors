@@ -7,11 +7,6 @@ import br.com.lojaveiculo.view.CadastroMotoView;
 import br.com.lojaveiculo.view.ConsultaMotoView;
 import java.awt.event.ActionEvent;
 
-
-/**
- *
- * @author Rafael
- */
 public class ConsultaMotoController extends BaseConsultaController {
 
     private ConsultaMotoView consultaMotoView;
@@ -127,8 +122,8 @@ public class ConsultaMotoController extends BaseConsultaController {
             apresentarMensagem("Digite uma placa válida!", "Placa inválida");
         }
     }
-    
-    public void setBotaoSelecionar(Boolean bool){
+
+    public void setBotaoSelecionar(Boolean bool) {
         consultaMotoView.setBotaoSelecionar(bool);
     }
 

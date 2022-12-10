@@ -103,7 +103,7 @@ public class CadastroFuncionarioController extends BaseCadastroController {
                             fecharTela();
                         }
                         if (consultaFuncionarioController != null) {
-                            //consultaFuncionarioController.limparTabela();
+                            consultaFuncionarioController.limparTabela();
                             consultaFuncionarioController.popularTabela();
                         }
                     } catch (NumberFormatException ex) {
