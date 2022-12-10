@@ -17,7 +17,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
     // Construtor chamado na tela inicial
     public ConsultaCarroView() {
         organizaLayout();
-        //this.btnSelecionarVeiculo.setEnabled(false);
+
     }
 
     @Override
@@ -42,12 +42,12 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         btnRemoverVeiculo.addActionListener(acao);
     }
 
-    public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
-        btnBuscarVeiculo.addActionListener(acao);
-    }
-
     public void adicionaAcaoAoBtnSelecionar(ActionListener acao) {
         btnSelecionarVeiculo.addActionListener(acao);
+    }
+
+    public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
+        btnBuscarVeiculo.addActionListener(acao);
     }
 
     public void popularTabela(Map<String, Carro> carros) {
@@ -74,7 +74,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         return txtPlacaBuscada.getText();
     }
 
-    public boolean buscaNaTabela(String placa) {
+    public boolean BuscaTabela(String placa) {
         int incidencia = -1;
         for (int i = 0; i <= tblCarros.getRowCount() - 1; i++) {
             if (grid.getValueAt(i, 0).equals(placa)) {
@@ -88,11 +88,11 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
             return false;
         }
     }
-    
+
     public String getSelecionaItem() {
         return (String) grid.getValueAt(tblCarros.getSelectedRow(), 0);
     }
-    
+
     public void setBotaoSelecionar(Boolean bool) {
         btnSelecionarVeiculo.setEnabled(bool);
     }
@@ -271,7 +271,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;
     private javax.swing.JButton btnBuscarVeiculo;

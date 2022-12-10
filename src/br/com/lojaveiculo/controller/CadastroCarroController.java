@@ -22,7 +22,7 @@ public class CadastroCarroController extends BaseCadastroController {
         inicializaCadastro();
     }
 
-    public CadastroCarroController(CadastroCarroView cadastroCarroView, Carro modeloCarro) {
+    public CadastroCarroController(CadastroCarroView cadastroCarroView, Carro modeloCarro, ConsultaCarroController consultaCarroController) {
         this.cadastroCarroView = cadastroCarroView;
         this.modeloCarro = modeloCarro;
         this.veiculoRepositorio = veiculoRepositorio;
@@ -53,7 +53,7 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     @Override
-    public void apresentarMensagem(String titulo, String mensagem) {
+    public void apresentarMensagem(String mensagem, String titulo) {
         cadastroCarroView.apresentaMensagem(mensagem, titulo);
     }
 
@@ -87,6 +87,7 @@ public class CadastroCarroController extends BaseCadastroController {
             cadastroCarroView.setCor(modeloCarro.getCor());
             cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
             cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
+            cadastroCarroView.setPlaca(modeloCarro.getPlaca());
             cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPortas()));
             cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
             cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
