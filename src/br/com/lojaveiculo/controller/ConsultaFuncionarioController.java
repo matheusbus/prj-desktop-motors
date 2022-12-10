@@ -6,7 +6,6 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.excecoes.VendaException;
-import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.ConsultaFuncionariosView;

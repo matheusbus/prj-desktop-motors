@@ -5,7 +5,6 @@ import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import br.com.lojaveiculo.view.ConsultaVendaView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *
