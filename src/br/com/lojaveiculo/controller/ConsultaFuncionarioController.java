@@ -5,6 +5,7 @@
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
+import br.com.lojaveiculo.excecoes.VendaException;
 import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
@@ -91,11 +92,18 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
     }
 
     public void acaoSelecionar() {
-        String sCPF = ConsultaFuncionariosView.getSelecionaItem();
-        cadastroVendaController.setVendedor((Vendedor) pessoasRepositorio.buscarPessoaPorCPF(sCPF));
-        cadastroVendaController.populaListaVendedor();
-        fecharTela();
+        try {
+            verificaVendedorSelecionado();
+            String sCPF = ConsultaFuncionariosView.getSelecionaItem();
+            cadastroVendaController.setVendedor((Vendedor) pessoasRepositorio.buscarPessoaPorCPF(sCPF));
+            cadastroVendaController.populaListaVendedor();
+            fecharTela();
+        } catch (VendaException ex) {
+            apresentarMensagem(ex.getMessage(), "Erro");
+        }
+
     }
+    
 
     public void acaoBuscar() {
         ConsultaFuncionariosView.limpaSelecao();
@@ -113,6 +121,15 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
 
     public void setBotaoSelecionar(Boolean bool) {
         ConsultaFuncionariosView.setBotaoSelecionar(bool);
+    }
+
+    public boolean verificaVendedorSelecionado() throws VendaException {
+        if (pessoasRepositorio.buscarPessoaPorCPF(ConsultaFuncionariosView.getCPFTabelaRegistro()) instanceof Vendedor) {
+            return true;
+        } else {
+            throw new VendaException("Selecione um vendedor");
+        }
+
     }
 
 }

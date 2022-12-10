@@ -20,6 +20,7 @@ public final class CadastroVendaView extends TelaBaseCadastroView {
         this.setResizable(false);
         this.setSize(500, 600);
     }
+   
 
     public void adicionaAcaoAoBtnSelecionarVeiculo(ActionListener acao) {
         btnSelecionaVeiculo.addActionListener(acao);
@@ -55,6 +56,12 @@ public final class CadastroVendaView extends TelaBaseCadastroView {
     
     public int getTipoVeiculo(){
         return cbTipoVeiculo.getSelectedIndex();
+    }
+    
+    public void limparCampos(){
+        txtaClienteSelecionado.setText("");
+        txtaVendedorSelecionado.setText("");
+        txtaVeiculoSelecionado.setText("");
     }
 
     /**
