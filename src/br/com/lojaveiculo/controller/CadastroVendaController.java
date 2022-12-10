@@ -106,7 +106,7 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoSelecionarVeiculo() {
-        if (cadastroVendaView.getTipoVeiculo().equalsIgnoreCase("Carro")) {
+        if (cadastroVendaView.getTipoVeiculo()== 0){//equalsIgnoreCase("Carro")) {
             ConsultaCarroController consultaCarroController = new ConsultaCarroController(this);
             consultaCarroController.exibirTela();
         } else {

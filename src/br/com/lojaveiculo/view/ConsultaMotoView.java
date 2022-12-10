@@ -17,9 +17,9 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     // Construtor chamado na tela inicial
     public ConsultaMotoView() {
         organizaLayout();
-     
+
     }
-    
+
     @Override
     public void organizaLayout() {
         initComponents();
@@ -51,9 +51,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     }
 
     public void popularTabela(Map<String, Moto> motos) {
-
         for (Map.Entry<String, Moto> entry : motos.entrySet()) {
-
             grid.addRow(entry.getValue().obterDados());
 
         }
@@ -70,7 +68,7 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
 
     @Override
     public void limpaSelecao() {
-      tblMotos.clearSelection();
+        tblMotos.clearSelection();
     }
 
     public String getFiltro() {
@@ -91,14 +89,14 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
             return false;
         }
     }
-    
-     public String getSelecionaItem() {
+
+    public String getSelecionaItem() {
         return (String) grid.getValueAt(tblMotos.getSelectedRow(), 0);
     }
-     
-     public void setBotaoSelecionar(Boolean bool){
-         btnSelecionarVeiculo.setEnabled(bool);
-     }
+
+    public void setBotaoSelecionar(Boolean bool) {
+        btnSelecionarVeiculo.setEnabled(bool);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -260,7 +258,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;
@@ -275,6 +272,5 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     private javax.swing.JTable tblMotos;
     private javax.swing.JTextField txtPlacaBuscada;
     // End of variables declaration//GEN-END:variables
-
 
 }

@@ -5,13 +5,13 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseConsultaView;
-import br.com.lojaveiculo.dao.VendaDAO;
+
 import br.com.lojaveiculo.model.Venda;
-import br.com.lojaveiculo.repositorio.VendaRepositorio;
+
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.util.List;
-import javax.swing.JTable;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,7 +21,6 @@ import javax.swing.table.DefaultTableModel;
 public final class ConsultaVendaView extends TelaBaseConsultaView {
 
     private DefaultTableModel grid;
-
 
     // Construtor chamado na tela inicial
     public ConsultaVendaView() {
@@ -43,31 +42,69 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         this.setResizable(false);
         grid = (DefaultTableModel) tblVendas.getModel();
     }
-    
-    public void adicionaAcaoAoBtnCadastrar(ActionListener acao){
+
+    public void adicionaAcaoAoBtnCadastrar(ActionListener acao) {
         btnCadastrarVenda.addActionListener(acao);
     }
-    
-    public void adicionaAcaoAoBtnBuscar(ActionListener acao){
-       btnBuscarVenda.addActionListener(acao);
+
+    public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
+        btnBuscarVenda.addActionListener(acao);
     }
-    
-    public void adicionaAcaoAoBtnOrdenar(ActionListener acao){
+
+    public void adicionaAcaoAoBtnOrdenar(ActionListener acao) {
         btnOrdenaVenda.addActionListener(acao);
     }
-    
-    public void adicionaAcaoAoBtnRemover(ActionListener acao){
+
+    public void adicionaAcaoAoBtnRemover(ActionListener acao) {
         btnRemoverVenda.addActionListener(acao);
     }
-    
-    public void popularTabela(List<Venda> vendas){
-        for(Venda vend : vendas){
-          grid.addRow(vend.obterDados());
+
+    public void popularTabela(List<Venda> vendas) {
+        for (Venda vend : vendas) {
+            grid.addRow(vend.obterDados());
         }
+
+    }
+
+    public int getIDTabelaRegistro() {
+        return (Integer) grid.getValueAt(tblVendas.getSelectedRow(), 0);
+    }
+
+    public String getFiltro() {
+        return txtNumeroVenda.getText();
         
     }
     
+    public String getOrdena(){
+        return cbOrdena.getSelectedItem().toString();
+    }
+
+    public boolean BuscaTabela(int idVenda) {
+        int incidencia = -1;
+        for (int i = 0; i <= tblVendas.getRowCount() - 1; i++) {
+            if (grid.getValueAt(i, 0).equals(idVenda)) {
+                incidencia = i;
+            }
+        }
+        if (incidencia != -1) {
+            tblVendas.setRowSelectionInterval(incidencia, incidencia);
+            return true;
+        } else {
+            return false;
+        }
+    }
     
+      @Override
+    public void limpaSelecao() {
+       tblVendas.clearSelection();
+    }
+
+    @Override
+    public void limparTabela() {
+      grid.setRowCount(0);
+    }
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,11 +161,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         btnBuscarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnBuscarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarVenda.setText("Buscar");
-        btnBuscarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarVendaActionPerformed(evt);
-            }
-        });
 
         lblPlaca.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblPlaca.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,31 +170,16 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         btnCadastrarVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnCadastrarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarVenda.setText("Cadastrar");
-        btnCadastrarVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVendaActionPerformed(evt);
-            }
-        });
 
         btnRemoverVenda.setBackground(new java.awt.Color(82, 148, 226));
         btnRemoverVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnRemoverVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoverVenda.setText("Remover");
-        btnRemoverVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverVendaActionPerformed(evt);
-            }
-        });
 
         btnOrdenaVenda.setBackground(new java.awt.Color(82, 148, 226));
         btnOrdenaVenda.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnOrdenaVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnOrdenaVenda.setText("Ordena");
-        btnOrdenaVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrdenaVendaActionPerformed(evt);
-            }
-        });
 
         cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Placa", "Preço" }));
 
@@ -248,75 +265,7 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastrarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVendaActionPerformed
-        //abrirTelaCadastro();
-    }//GEN-LAST:event_btnCadastrarVendaActionPerformed
 
-    private void btnRemoverVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVendaActionPerformed
-     //   validaRemocao();
-    }//GEN-LAST:event_btnRemoverVendaActionPerformed
-
-    private void btnBuscarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVendaActionPerformed
-       // limpaSelecao(tblVendas);
-        buscaNaTabela(txtNumeroVenda.getText().toUpperCase());
-    }//GEN-LAST:event_btnBuscarVendaActionPerformed
-
-    private void btnOrdenaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenaVendaActionPerformed
-     
-    }//GEN-LAST:event_btnOrdenaVendaActionPerformed
-
-
-   // public void validaRemocao(){
-      //  if (!(tblVendas.getSelectedRow() != -1)) {
-    //        apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-      //  } else {
-      //      if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-      //          removerDaTabela(repositorioDeVendas, 4, tblVendas, grid);
-      //      }
-     //   }
- //   }
-    
-    
-    //@Override
-    public void abrirTelaAlterarCadastro(Object obj) {
-        //CadastroMotoView altMoto = new CadastroMotoView((Moto) obj);
-        //altMoto.setVisible(true);
-    }
-
-    public void buscaNaTabela(String placa) {
-        int incidencia = -1;
-        if (placa.length() == 7) {
-            for (int i = 0; i <= tblVendas.getRowCount() - 1; i++) {
-                if (grid.getValueAt(i, 0).equals(placa)) {
-                    incidencia = i;
-                }
-            }
-            if (incidencia != -1) {
-                tblVendas.setRowSelectionInterval(incidencia, incidencia);
-            } else {
-        //        apresentaMensagem("Não foi encontrado nenhuma venda com o número'" + numeroVenda + "'.", "Venda não encontrado");
-            }
-        } else {
-            apresentaMensagem("Digite uma placa válida!", "Placa inválida");
-        }
-    }
-
-
-
-   // public VendaRepositorio getRepositorioDeVendas() {
-      //  return repositorioDeVendas;
-   // }
-
-    public DefaultTableModel getGrid() {
-        return grid;
-    }
-
-    public JTable getTblVendas() {
-        return tblVendas;
-    }
-    
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarVenda;
     private javax.swing.JButton btnCadastrarVenda;
@@ -331,14 +280,6 @@ public final class ConsultaVendaView extends TelaBaseConsultaView {
     private javax.swing.JTextField txtNumeroVenda;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void limpaSelecao() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    @Override
-    public void limparTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
 }

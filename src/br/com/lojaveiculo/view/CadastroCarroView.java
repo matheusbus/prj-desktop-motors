@@ -52,6 +52,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         lblChassi = new javax.swing.JLabel();
         cbTipoCarroceria = new javax.swing.JComboBox<>();
         btnCancela = new javax.swing.JButton();
+        btnAlterarCarro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Carros");
@@ -243,6 +244,11 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCancela.setForeground(new java.awt.Color(255, 255, 255));
         btnCancela.setText("Cancelar");
 
+        btnAlterarCarro.setBackground(new java.awt.Color(82, 148, 226));
+        btnAlterarCarro.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAlterarCarro.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterarCarro.setText("Alterar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,15 +256,18 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(pnlDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAlterarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -271,7 +280,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancela, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterarCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
 
@@ -284,15 +294,24 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCadCarro.addActionListener(acao);
     }
 
+    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
+        btnAlterarCarro.addActionListener(acao);
+    }
+
     public void adicionaAcaoBtnCancelar(ActionListener acao) {
         btnCancela.addActionListener(acao);
     }
 
-    public void inicializaCadastro(){
-        btnCadCarro.setEnabled(false);
-        btnCadCarro.setVisible(true);
+    public void inicializaCadastro() {
+        btnAlterarCarro.setEnabled(false);
+        btnAlterarCarro.setVisible(false);
     }
 
+    public void inicializaAlteracao() {
+        btnCadCarro.setEnabled(false);
+        btnCadCarro.setVisible(false);
+    }
+    
     @Override
     public boolean verificaCamposNulos() {
         if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
@@ -307,7 +326,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         return placa.length() == 7;
     }
 
-       public String getChassi() {
+    public String getChassi() {
         return txtChassi.getText();
     }
 
@@ -389,6 +408,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarCarro;
     private javax.swing.JButton btnCadCarro;
     private javax.swing.JButton btnCancela;
     private javax.swing.JComboBox<String> cbAno;

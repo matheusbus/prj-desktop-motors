@@ -19,7 +19,7 @@ public class CadastroCarroController extends BaseCadastroController {
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
-        
+        inicializaCadastro();
     }
 
     public CadastroCarroController(CadastroCarroView cadastroCarroView, Carro modeloCarro) {
@@ -28,25 +28,23 @@ public class CadastroCarroController extends BaseCadastroController {
         this.veiculoRepositorio = veiculoRepositorio;
         this.consultaCarroController = consultaCarroController;
         inicializarBotoes();
+        inicializaAlteracao();
         popularCamposCarroAlterar();
     }
 
     @Override
-    public boolean verificaCamposNulos() {
-        return cadastroCarroView.verificaCamposNulos();
-    }
-
-    @Override
     public void inicializarBotoes() {
-        //if (this.modeloCarro == null) {
-            cadastroCarroView.adicionaAcaoBtnCadastrar((ActionEvent e) -> {
-                acaoCadastrar();
-            });
-
-            cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
-                acaoCancelar();
-            });
-        //}
+        cadastroCarroView.adicionaAcaoBtnCadastrar((ActionEvent e) -> {
+            acaoCadastrar();
+        });
+        
+        cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
+            acaoAlterar();
+        });
+        
+        cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
+            acaoCancelar();
+        });
     }
 
     @Override
@@ -64,12 +62,42 @@ public class CadastroCarroController extends BaseCadastroController {
         cadastroCarroView.fecharTela();
     }
 
-    public boolean verificarPlaca(String placa) {
+    public boolean verificaPlaca(String placa) {
         return cadastroCarroView.verificaLengthPlaca(placa);
     }
 
+    @Override
+    public boolean verificaCamposNulos() {
+        return cadastroCarroView.verificaCamposNulos();
+    }
+
+    public void inicializaCadastro() {
+        cadastroCarroView.inicializaCadastro();
+    }
+
+    public void inicializaAlteracao() {
+        cadastroCarroView.inicializaAlteracao();
+    }
+
+    public void popularCamposCarroAlterar() {
+        try {
+            cadastroCarroView.setModelo(modeloCarro.getModelo());
+            cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
+            cadastroCarroView.setChassi(modeloCarro.getChassi());
+            cadastroCarroView.setCor(modeloCarro.getCor());
+            cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
+            cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
+            cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPortas()));
+            cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
+            cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
+        } catch (NumberFormatException ex) {
+            apresentarMensagem("Preencha os campos com valores válidos", "Erro");
+        }
+    }
+
     public void acaoCadastrar() {
-        if (verificarPlaca(cadastroCarroView.getPlaca())) {
+        
+        if (verificaPlaca(cadastroCarroView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
                     String sPlaca = cadastroCarroView.getPlaca();
@@ -80,12 +108,12 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
-                    int iPortas = Integer.parseInt(cadastroCarroView.getPorta());        
-                    
+                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
+                    int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
+
                     Carro carro = new Carro(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceria, iAno, dPreco, sTipoCombustivel, iPortas);
-                    veiculoRepositorio.addVeiculo(modeloCarro);
-                    
+                    veiculoRepositorio.addVeiculo(carro);
+
                     apresentarMensagem("Veículo Cadastrado com Sucesso", "Cadastro Realizado");
                     fecharTela();
                 } catch (NumberFormatException ex) {
@@ -100,7 +128,8 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     private void acaoAlterar() {
-        if (verificarPlaca(cadastroCarroView.getPlaca())) {
+        
+        if (verificaPlaca(cadastroCarroView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
                     String sPlaca = cadastroCarroView.getPlaca();
@@ -111,7 +140,7 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);
@@ -133,22 +162,6 @@ public class CadastroCarroController extends BaseCadastroController {
             }
         } else {
             apresentarMensagem("A placa digitada é inválida!", "Erro no cadastro");
-        }
-    }
-
-    public void popularCamposCarroAlterar() {
-        try {
-            cadastroCarroView.setModelo(modeloCarro.getModelo());
-            cadastroCarroView.setMarca(modeloCarro.getMarca().toString());
-            cadastroCarroView.setChassi(modeloCarro.getChassi());
-            cadastroCarroView.setCor(modeloCarro.getCor());
-            cadastroCarroView.setTipoCarroceria(modeloCarro.getTipoCarroceria());
-            cadastroCarroView.setCombustivel(modeloCarro.getTipoCombustivel());
-            cadastroCarroView.setPorta(String.valueOf(modeloCarro.getPortas()));
-            cadastroCarroView.setPreco(String.valueOf(modeloCarro.getPreco()));
-            cadastroCarroView.setAno(String.valueOf(modeloCarro.getAno()));
-        } catch (NumberFormatException ex) {
-            apresentarMensagem("Preencha todos os campos com valores válidos", "Erro");
         }
     }
 

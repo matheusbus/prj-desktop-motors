@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
@@ -10,6 +6,7 @@ import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroCarroView;
 import br.com.lojaveiculo.view.ConsultaCarroView;
 import java.awt.event.ActionEvent;
+
 
 /**
  *
@@ -27,7 +24,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
- 
+        setBotaoSelecionar(false);
     }
 
     public ConsultaCarroController(CadastroVendaController cadastroVendaController) {
@@ -36,38 +33,56 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
-
+        setBotaoSelecionar(true);
     }
 
     @Override
     public void popularTabela() {
-      consultaCarroView.limparTabela();
-        consultaCarroView.popularTabela(veiculoRepositorio.getCarros());  
+        consultaCarroView.limparTabela();
+        consultaCarroView.popularTabela(veiculoRepositorio.getCarros());
     }
 
     @Override
     public void inicializarBotoes() {
-        consultaCarroView.adicionarAcaoBtnCadastrar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
             acaoCadastrar();
         });
 
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
-            acaoSelecionar();
-        });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoBuscar();
         });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoRemover();
         });
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+            acaoSelecionar();
+        });
+    }
+    
+    @Override
+    public void exibirTela() {
+        consultaCarroView.exibirTela();
+        popularTabela();
     }
 
-    public void acaoCadastrar() {
-        CadastroCarroController cadastroCarroController = new CadastroCarroController();
-        cadastroCarroController.exibirTela();
+    @Override
+    public void fecharTela() {
+        consultaCarroView.fecharTela();
+    }
+
+    
+    public void apresentaMensagem(String mensagem, String titulo) {
+        consultaCarroView.apresentaMensagem(mensagem, titulo);
+    }
+
+    public void limparTabela() {
+        consultaCarroView.limparTabela();
     }
 
     public void acaoAlterar() {
@@ -80,10 +95,23 @@ public class ConsultaCarroController extends BaseConsultaController {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
         }
     }
+    
+    public void acaoRemover() {
+        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
+        limparTabela();
+        popularTabela();
+    }
 
+    public void acaoCadastrar() {
+        CadastroCarroController cadastroCarroController = new CadastroCarroController();
+        cadastroCarroController.exibirTela();
+    }
+    
     public void acaoSelecionar() {
         String sPlaca = consultaCarroView.getSelecionaItem();
         cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
+        cadastroVendaController.populaListaVeiculo();
+        fecharTela();
     }
 
     public void acaoBuscar() {
@@ -100,30 +128,8 @@ public class ConsultaCarroController extends BaseConsultaController {
         }
     }
 
-    public void acaoRemover() {
-        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
-        limparTabela();
-        popularTabela();
-    }
-
-    @Override
-    public void exibirTela() {
-        consultaCarroView.exibirTela();
-        popularTabela();
-    }
-
-    @Override
-    public void fecharTela() {
-        consultaCarroView.fecharTela();
-    }
-
-    public void apresentaMensagem(String mensagem, String titulo) {
-        consultaCarroView.apresentaMensagem(mensagem, titulo);
-    }
-
-    public void limparTabela() {
-        consultaCarroView.limparTabela();
-
+    public void setBotaoSelecionar(Boolean bool) {
+        consultaCarroView.setBotaoSelecionar(bool);
     }
 
 }
