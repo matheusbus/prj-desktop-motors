@@ -6,6 +6,7 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.dao.VendaDAO;
+import br.com.lojaveiculo.excecoes.VendaException;
 import br.com.lojaveiculo.model.Cliente;
 import br.com.lojaveiculo.model.Pessoa;
 import br.com.lojaveiculo.model.Veiculo;
@@ -106,7 +107,7 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoSelecionarVeiculo() {
-        if (cadastroVendaView.getTipoVeiculo()== 0){//equalsIgnoreCase("Carro")) {
+        if (cadastroVendaView.getTipoVeiculo() == 0) {
             ConsultaCarroController consultaCarroController = new ConsultaCarroController(this);
             consultaCarroController.exibirTela();
         } else {
@@ -127,21 +128,24 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoEfetuarVenda() {
-
-        if (verificaCamposNulos()) {       
+        if (verificaCamposNulos()) {
             Venda venda = new Venda(this.veiculo, this.cliente, this.vendedor);
             if (vendaRepositorio.adicionarVenda(venda) == true) {
                 veiculoRepositorio.removeVeiculo(veiculo.getPlaca());
                 consultaVendaController.popularTabela();
                 apresentarMensagem("Venda Efetuada", "Sucesso");
-                
+                cadastroVendaView.limparCampos();
+
             }
         }
 
     }
 
     public void acaoCancelarVenda() {
-
+        apresentarMensagem("Venda Cancelada", "");
+        fecharTela();
     }
+
+ 
 
 }
