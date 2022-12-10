@@ -30,23 +30,23 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         grid = (DefaultTableModel) tblCarros.getModel();
     }
 
-    public void adicionarAcaoBtnCadastrar(ActionListener acao) {
+    public void adicionaAcaoAoBtnCadastrar(ActionListener acao) {
         btnCadastrarVeiculo.addActionListener(acao);
     }
 
-    public void adicionarAcaoBtnAlterar(ActionListener acao) {
+    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
         btnAlterarVeiculo.addActionListener(acao);
     }
 
-    public void adicionarAcaoBtnRemover(ActionListener acao) {
+    public void adicionaAcaoAoBtnRemover(ActionListener acao) {
         btnRemoverVeiculo.addActionListener(acao);
     }
 
-    public void adicionarAcaoBtnBuscar(ActionListener acao) {
+    public void adicionaAcaoAoBtnBuscar(ActionListener acao) {
         btnBuscarVeiculo.addActionListener(acao);
     }
 
-    public void adicionarAcaoBtnSelecionar(ActionListener acao) {
+    public void adicionaAcaoAoBtnSelecionar(ActionListener acao) {
         btnSelecionarVeiculo.addActionListener(acao);
     }
 
@@ -271,16 +271,7 @@ public final class ConsultaCarroView extends TelaBaseConsultaView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//    public void validaRemocao() {
-//        if (!(tblCarros.getSelectedRow() != -1)) {
-//            apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
-//        } else {
-//            if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-//                //removerDaTabela();
-//                //super.removerDaTabela(, 1, tblCarros, grid);
-//            }
-//        }
-//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarVeiculo;
     private javax.swing.JButton btnBuscarVeiculo;
