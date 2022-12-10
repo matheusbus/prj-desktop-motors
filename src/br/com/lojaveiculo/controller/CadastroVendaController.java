@@ -117,7 +117,7 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoSelecionarVendedor() {
-        ConsultaFuncionarioController consultaFuncionarioController = new ConsultaFuncionarioController();
+        ConsultaFuncionarioController consultaFuncionarioController = new ConsultaFuncionarioController(this);
         consultaFuncionarioController.exibirTela();
     }
 
@@ -132,8 +132,12 @@ public class CadastroVendaController extends BaseCadastroController {
             Venda venda = new Venda(this.veiculo, this.cliente, this.vendedor);
             if (vendaRepositorio.adicionarVenda(venda) == true) {
                 veiculoRepositorio.removeVeiculo(veiculo.getPlaca());
-               // consultaVendaController.limparTabela();
-               // consultaVendaController.popularTabela();
+                consultaVendaController.limparTabela();
+                consultaVendaController.popularTabela();
+                apresentarMensagem("Venda Efetuada", "Sucesso");
+                fecharTela();
+                consultaVendaController.exibirTela();
+                
             }
         }
 
