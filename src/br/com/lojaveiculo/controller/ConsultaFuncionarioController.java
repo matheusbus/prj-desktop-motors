@@ -80,9 +80,16 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
     }
 
     public void acaoRemover() {
-        pessoasRepositorio.removerPessoa(ConsultaFuncionariosView.getCPFTabelaRegistro());
-        limparTabela();
-        popularTabela();
+        try {
+            if (0 == ConsultaFuncionariosView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")) {
+                pessoasRepositorio.removerPessoa(ConsultaFuncionariosView.getCPFTabelaRegistro());
+                limparTabela();
+                popularTabela();
+                apresentarMensagem("Registro removido com sucesso", "Êxito");
+            }
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
+        }
     }
 
     public void acaoCadastrar() {
@@ -102,7 +109,6 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
         }
 
     }
-    
 
     public void acaoBuscar() {
         ConsultaFuncionariosView.limpaSelecao();

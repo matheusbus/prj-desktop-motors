@@ -77,9 +77,16 @@ public class ConsultaVendaController extends BaseConsultaController {
     }
 
     public void acaoRemover() {
-        vendaRepositorio.removeVenda(consultaVendaView.getIDTabelaRegistro());
-        limparTabela();
-        popularTabela();
+        try {
+            if (0 == consultaVendaView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")) {
+                vendaRepositorio.removeVenda(consultaVendaView.getIDTabelaRegistro());
+                limparTabela();
+                popularTabela();
+                apresentarMensagem("Registro removido com sucesso", "Êxito");
+            }
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
+        }
     }
 
     public void acaoOrdenar() {
