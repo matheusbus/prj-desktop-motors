@@ -20,6 +20,7 @@ public class ConsultaMotoController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
         setBotaoSelecionar(false);
+        popularTabela();
     }
 
     public ConsultaMotoController(CadastroVendaController cadastroVendaController) {
@@ -29,6 +30,7 @@ public class ConsultaMotoController extends BaseConsultaController {
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
         setBotaoSelecionar(true);
+        popularTabela();
     }
 
     @Override
