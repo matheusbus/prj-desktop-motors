@@ -1,4 +1,4 @@
-package br.com.lojaveiculo.view;
+    package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
 import java.awt.event.ActionListener;
@@ -157,7 +157,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
                             .addComponent(lblPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlDadosLayout.createSequentialGroup()
                         .addGroup(pnlDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                            .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
                             .addGroup(pnlDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDadosLayout.createSequentialGroup()
@@ -184,7 +184,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
                                     .addComponent(lblCor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTipoCarroceria, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cbTipoCarroceria, 0, 243, Short.MAX_VALUE)))
+                            .addComponent(cbTipoCarroceria, 0, 244, Short.MAX_VALUE)))
                     .addGroup(pnlDadosLayout.createSequentialGroup()
                         .addGroup(pnlDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)

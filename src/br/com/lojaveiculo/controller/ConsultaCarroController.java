@@ -76,8 +76,8 @@ public class ConsultaCarroController extends BaseConsultaController {
         consultaCarroView.fecharTela();
     }
 
-    
-    public void apresentaMensagem(String mensagem, String titulo) {
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
         consultaCarroView.apresentaMensagem(mensagem, titulo);
     }
 
@@ -89,7 +89,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         try {
             String sPlaca = consultaCarroView.getPlacaTabelaRegistro();
             Carro carro = (Carro) veiculoRepositorio.buscarVeiculo(sPlaca);
-            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro);
+            CadastroCarroController cadastroCarroController = new CadastroCarroController(new CadastroCarroView(), carro, this);
             cadastroCarroController.exibirTela();
         } catch (Exception e) {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
@@ -118,7 +118,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         consultaCarroView.limpaSelecao();
         String sPlaca = consultaCarroView.getFiltro();
         if (sPlaca.length() == 7) {
-            if (consultaCarroView.buscaNaTabela(sPlaca)) {
+            if (consultaCarroView.BuscaTabela(sPlaca)) {
                 apresentarMensagem("Sucesso", "Sucesso");
             } else {
                 apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");

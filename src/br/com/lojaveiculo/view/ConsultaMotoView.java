@@ -53,7 +53,6 @@ public final class ConsultaMotoView extends TelaBaseConsultaView {
     public void popularTabela(Map<String, Moto> motos) {
         for (Map.Entry<String, Moto> entry : motos.entrySet()) {
             grid.addRow(entry.getValue().obterDados());
-
         }
     }
 
