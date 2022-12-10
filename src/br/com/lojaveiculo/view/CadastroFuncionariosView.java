@@ -1,68 +1,115 @@
 package br.com.lojaveiculo.view;
 
 import br.com.lojaveiculo.abstractview.TelaBaseCadastroView;
-import br.com.lojaveiculo.dao.PessoaDAO;
-import br.com.lojaveiculo.model.Funcionario;
-import br.com.lojaveiculo.model.Gerente;
-import br.com.lojaveiculo.model.Pessoa;
-import br.com.lojaveiculo.model.Vendedor;
-import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import java.awt.event.ActionListener;
+
 /**
  *
  * @author eduar
  */
 public final class CadastroFuncionariosView extends TelaBaseCadastroView {
 
-    private final PessoaRepositorio pessoas = new PessoaDAO();
-    private ConsultaFuncionariosView consultaFuncionario = null;
-    private Funcionario func;
-
-    /**
-     * Creates new form CadastroFuncionario
-     *
-     * @param consultaFuncView
-     */
-    public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncView) {
-        organizaLayout();
-        consultaFuncionario = consultaFuncView;
-    }
+ 
 
     public CadastroFuncionariosView() {
         organizaLayout();
     }
-    
-    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao){
-        btnCadFuncionario.addActionListener(acao);
-    }
-    
-    public void adicionarAcaoAoBotaoCancelar(ActionListener acao){
-        btnCancela.addActionListener(acao);
-    }
-    
-    public CadastroFuncionariosView(ConsultaFuncionariosView consultaFuncionario, Funcionario func){
-        organizaLayout();
-        this.consultaFuncionario = consultaFuncionario;
-        this.func = func;
-        this.lblTitulo.setText("Alterar funcionário");
-        this.btnCadFuncionario.setText("Alterar");
-        this.cbTipoFuncionario.setEnabled(false);
-        this.txtNome.setText(func.getNome());
-        this.txtCpf.setText(func.getCpf());
-        this.txtRg.setText(Long.toString(func.getRg()));
-        this.txtCep.setText(func.getCep());
-        this.txtBairro.setText(func.getBairro());
-        this.txtCidade.setText(func.getCidade());
-        this.txtEndereco.setText(func.getEndereco());
-        this.cbEstado.setSelectedItem(func.getEstado());
-        this.cbBanco.setSelectedItem(func.getBanco());
-        this.txtAgencia.setText(Integer.toString(func.getAgencia()));
-        this.txtContaCorrente.setText(Integer.toString(func.getContaCorrente()));
-        this.txtEmail.setText(func.getEmail());
-        this.txtSalario.setText(Double.toString(func.getSalario()));
-        this.txtTelefone.setText(func.getTelefone());
+
+    @Override
+    public void organizaLayout() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setSize(900, 550);
     }
 
+    @Override
+    public boolean verificaCamposNulos() {
+        if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals(""))
+                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
+                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void adicionaAcaoAoBotaoCadastrar(ActionListener acao) {
+        btnCadFuncionario.addActionListener(acao);
+    }
+
+    public void adicionarAcaoAoBotaoCancelar(ActionListener acao) {
+        btnCancela.addActionListener(acao);
+    }
+
+    public boolean verificaLengthCpf(String cpf) {
+        return cpf.length() == 11;
+    }
+
+    public String getNome() {
+        return txtNome.getText();
+    }
+
+    public String getCPF() {
+        return txtCpf.getText();
+    }
+
+    public String getRG() {
+        return txtRg.getText();
+    }
+
+    public String getCEP() {
+        return txtCep.getText();
+    }
+
+    public String getEndereco() {
+        return txtEndereco.getText();
+    }
+
+    public String getBairro() {
+        return txtBairro.getText();
+    }
+
+    public String getCidade() {
+        return txtCidade.getText();
+    }
+
+    public String getEstado() {
+        return cbEstado.getSelectedItem().toString();
+    }
+
+    public String getTelefone() {
+        return txtTelefone.getText();
+    }
+
+    public String getEmail() {
+        return txtEmail.getText();
+    }
+
+    public String getBanco() {
+        return cbBanco.getSelectedItem().toString();
+    }
+
+    public String getAgencia() {
+        return txtAgencia.getText();
+    }
+
+    public String getContaCorrente() {
+        return txtContaCorrente.getText();
+    }
+
+    public String getSalario() {
+        return txtSalario.getText();
+    }
+
+    public String getComissao() {
+        return txtComissao.getText();
+    }
+
+    public int getTipoFuncionario() {
+        return cbTipoFuncionario.getSelectedIndex();
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -397,116 +444,7 @@ public final class CadastroFuncionariosView extends TelaBaseCadastroView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void cadastrarFuncionario() {
-        if (verificaExistenciaCPF(txtCpf.getText())) {
-            if (verificaLengthCpf(txtCpf.getText())) {
-                if (!verificaCamposNulos()) {
-                    try {
-                        String sNome = txtNome.getText();
-                        String sCpf = txtCpf.getText();
-                        String sTelefone = txtTelefone.getText();
-                        String sSalario = txtSalario.getText();
-                        String sComissao = txtComissao.getText();
-                        Double dSalario = Double.valueOf(sSalario);
-                        Double dComissao = Double.valueOf(sComissao);
-                        long lRg = Long.parseLong(txtRg.getText());
-                        String sCep = txtCep.getText();
-                        String sEndereco = txtEndereco.getText();
-                        String sBairro = txtBairro.getText();
-                        String sCidade = txtCidade.getText();
-                        String sEstado = cbEstado.getItemAt(cbEstado.getSelectedIndex());
-                        String sEmail = txtEmail.getText();
-                        String sPisPasep = "";
-                        String sBanco = cbBanco.getItemAt(cbBanco.getSelectedIndex());
-                        int iAgencia = Integer.parseInt(txtAgencia.getText());
-                        int iContaCorrente = Integer.parseInt(txtContaCorrente.getText());
 
-                        if (cbTipoFuncionario.getSelectedIndex() == 0) {
-                            Pessoa p = new Gerente(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente);
-                            pessoas.adicionarPessoa(p);
-                            apresentaMensagem("Gerente cadastrado com sucesso", "Sucesso");
-                            this.dispose();
-                        } else {
-                            Pessoa p = new Vendedor(sNome, sCpf, lRg, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, dSalario, sPisPasep, sBanco, iAgencia, iContaCorrente, dComissao);
-                            pessoas.adicionarPessoa(p);
-                            apresentaMensagem("Vendedor cadastrado com sucesso", "Sucesso");
-                            this.dispose();
-                        }
-                        if (consultaFuncionario != null) {
-                            consultaFuncionario.limparTabela(consultaFuncionario.getGrid());
-                            consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
-                        }
-                    } catch (NumberFormatException ex) {
-                        apresentaMensagem("Algum campo está com formato diferente do solicitado.", "Erro");
-                    }
-
-                } else {
-                    //verificar, não está aparecendo erro na tela
-                    apresentaMensagem("Preencha todos os campos", "Erro");
-                }
-            } else {
-                apresentaMensagem("CPF inválido, digite novamente", "Erro");
-            }
-        } else {
-            apresentaMensagem("CPF já consta no sistema", "Erro");
-        }
-    }
-
-    public void alterarFuncionario(Funcionario func){
-        if (verificaLengthCpf(txtCpf.getText())) {
-            if (verificaCamposNulos()) {
-                pessoas.removerPessoa(func.getCpf());
-                func.setNome(txtNome.getText());
-                func.setCpf(txtCpf.getText());
-                func.setRg(Long.parseLong(txtRg.getText()));
-                func.setCep(txtCep.getText());
-                func.setEndereco(txtEndereco.getText());
-                func.setBairro(txtBairro.getText());
-                func.setCidade(txtCidade.getText());
-                func.setEstado(cbEstado.getSelectedItem().toString());
-                func.setTelefone(txtTelefone.getText());
-                func.setEmail(txtEmail.getText().toLowerCase());
-                pessoas.adicionarPessoa(func);                
-                consultaFuncionario.popularTabela(consultaFuncionario.getRepositorioDePessoas(), 3, consultaFuncionario.getTblFuncionarios(), consultaFuncionario.getGrid());
-
-                apresentaMensagem("Registro alterado com sucesso.", "Alteração realizada");
-                this.dispose();
-            } else {
-                apresentaMensagem("Preencha todos os campos!", "Erro na alteração");
-            }
-        } else {
-            apresentaMensagem("O CPF digitado é inválido.", "Erro na alteração");
-        }
-    }
-    
-    public boolean verificaExistenciaCPF(String cpf) {
-        return pessoas.buscarPessoaPorCPF(cpf) == null;
-    }
-
-    public boolean verificaLengthCpf(String cpf) {
-        return cpf.length() == 11;
-    }
-    
-    @Override
-    public void organizaLayout() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setSize(900, 550);
-    }
-
-    @Override
-    public boolean verificaCamposNulos() {
-        if (((txtCpf.getText().trim().equals("")) || (txtNome.getText().trim().equals("")) || (txtTelefone.getText().trim().equals("")) || (txtSalario.getText().trim().equals("")) || (txtComissao.getText().trim().equals(""))
-                || txtAgencia.getText().trim().equals("")) || (txtBairro.getText().trim().equals("")) || (txtCep.getText().trim().equals("")) || (txtCidade.getText().trim().equals(""))
-                || (txtContaCorrente.getText().trim().equals("")) || (txtEndereco.getText().trim().equals("")) || (txtRg.getText().trim().equals("")) || (txtTelefone.getText().trim().equals(""))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadFuncionario;
     private javax.swing.JButton btnCancela;

@@ -14,12 +14,11 @@ public abstract class Funcionario extends Pessoa {
 
     protected double salario;
     protected LocalDate dataAdmissao;
-    protected String pisPasep;
     protected String banco;
     protected int agencia;
     protected int contaCorrente;
 
-    public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente) {
+    public Funcionario(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String banco, int agencia, int contaCorrente) {
         super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email);
         this.salario = salario;
         this.dataAdmissao = LocalDate.now();
@@ -52,14 +51,6 @@ public abstract class Funcionario extends Pessoa {
         this.contaCorrente = contaCorrente;
     }
 
-    public String getPisPasep() {
-        return this.pisPasep;
-    }
-
-    public void setPisPasep(String pisPasep) {
-        this.pisPasep = pisPasep;
-    }
-
     public double getSalario() {
         return salario;
     }
@@ -81,7 +72,6 @@ public abstract class Funcionario extends Pessoa {
         return super.toString()
                 + "Salário: R$" + this.salario + "\n"
                 + "Admissão: " + this.dataAdmissao + "\n"
-                + "Pis/Pasep: " + this.pisPasep + "\n"
                 + "Banco: " + this.banco + "\n"
                 + "Agência: " + this.agencia + "\n"
                 + "Conta Corrente: " + this.contaCorrente + "\n";

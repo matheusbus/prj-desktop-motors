@@ -41,7 +41,6 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         this.setResizable(false);
         this.setSize(1500, 700);
         grid = (DefaultTableModel) tblFuncionarios.getModel();
-        popularTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
     }
 
     @SuppressWarnings("unchecked")
@@ -244,14 +243,14 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
-        limpaSelecao(tblFuncionarios);
+       // limpaSelecao(tblFuncionarios);
         buscaNaTabela(txtCPFBuscado.getText().toUpperCase());
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 
     private void btnSelecionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarFuncionarioActionPerformed
         if (grid.getValueAt(tblFuncionarios.getSelectedRow(), 15).equals("Vendedor")) {
             String cpf = (String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1);
-            selecionaItem(cpf);
+         //   selecionaItem(cpf);
         } else
             apresentaMensagem("Selecione um vendedor", "ERRO");
     }//GEN-LAST:event_btnSelecionarFuncionarioActionPerformed
@@ -261,29 +260,24 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
     }//GEN-LAST:event_btnRemoverFuncionarioActionPerformed
 
     private void btnCadastrarFuncionárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFuncionárioActionPerformed
-        abrirTelaCadastro();
+       // abrirTelaCadastro();
     }//GEN-LAST:event_btnCadastrarFuncionárioActionPerformed
 
     private void btnAlterarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFuncionarioActionPerformed
         try {
-            abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1)));
+           // abrirTelaAlterarCadastro(repositorioDePessoas.buscarPessoaPorCPF((String) grid.getValueAt(tblFuncionarios.getSelectedRow(), 1)));
         } catch (Exception ex){
             apresentaMensagem("Nenhum funcionário foi selecionado.", "Erro ao alterar");
         }
     }//GEN-LAST:event_btnAlterarFuncionarioActionPerformed
 
-    @Override
-    public void abrirTelaCadastro() {
-        CadastroFuncionariosView cadastroVendedor = new CadastroFuncionariosView(this);
-        cadastroVendedor.setVisible(true);
-    }    
-    
+  
     public void validaRemocao(){
         if (!(tblFuncionarios.getSelectedRow() != -1)) {
             apresentaMensagem("Nenhum registro foi selecionado.", "Erro de exclusão");
         } else {
             if (0 == criaQuestaoPrgunta("Tem certeza que deseja excluir o registro da lista?", "Confirmar remoção")) {
-                removerDaTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
+           //     removerDaTabela(repositorioDePessoas, 3, tblFuncionarios, grid);
             }
         }
     }
@@ -306,17 +300,12 @@ public final class ConsultaFuncionariosView extends TelaBaseConsultaView {
         }
     }
         
-    @Override
-    public void abrirTelaAlterarCadastro(Object obj) {
-        CadastroFuncionariosView altFunc = new CadastroFuncionariosView(this, (Funcionario) obj);
-        altFunc.setVisible(true);
-    }
     
-    public void selecionaItem(String cpf) {
-        venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
-        venda.VendedorSelecionado = true;
-        setVisible(false);
-    }
+   // public void selecionaItem(String cpf) {
+     //   venda.vendedor = pessoas.buscarPessoaPorCPF(cpf);
+     //   venda.VendedorSelecionado = true;
+    ///    setVisible(false);
+    //}
 
     public DefaultTableModel getGrid() {
         return grid;
