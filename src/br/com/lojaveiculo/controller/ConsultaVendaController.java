@@ -100,15 +100,19 @@ public class ConsultaVendaController extends BaseConsultaController {
     }
 
     public void acaoBuscar() {
-        consultaVendaView.limpaSelecao();
-        if (consultaVendaView.getFiltro().equals("")) {
-            apresentarMensagem("Digite um ID valído", "Erro");
-        } else {
-            int idVenda = Integer.parseInt(consultaVendaView.getFiltro());
-            if (consultaVendaView.BuscaTabela(idVenda)) {
+        try {
+            consultaVendaView.limpaSelecao();
+            if (consultaVendaView.getFiltro().equals("")) {
+                apresentarMensagem("Digite um ID valído", "Erro");
             } else {
-                apresentarMensagem("Não foi encontrado nenhuma venda com esse ID", "Venda não encontrada");
+                int idVenda = Integer.parseInt(consultaVendaView.getFiltro());
+                if (consultaVendaView.BuscaTabela(idVenda)) {
+                } else {
+                    apresentarMensagem("Não foi encontrado nenhuma venda com esse ID", "Venda não encontrada");
+                }
             }
+        } catch (Exception e) {
+            apresentarMensagem("ID inválido", "Erro");
         }
     }
 }
