@@ -15,8 +15,8 @@ public class Vendedor extends Funcionario {
 
     private double comissao;
 
-    public Vendedor(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String pisPasep, String banco, int agencia, int contaCorrente, double commissao)  {
-        super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email, salario, pisPasep, banco, agencia, contaCorrente);
+    public Vendedor(String nome, String cpf, long rg, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, double salario, String banco, int agencia, int contaCorrente, double commissao)  {
+        super(nome, cpf, rg, cep, endereco, bairro, cidade, estado, telefone, email, salario, banco, agencia, contaCorrente);
         this.comissao = commissao;
     }
 

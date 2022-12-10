@@ -105,11 +105,13 @@ public final class CadastroClienteController extends BaseCadastroController{
             } catch (ClienteException ex){
                 apresentarMensagem("O CPF já consta no sistema.", "Erro");
             }
-
+            if(consultaClienteController != null){
+                consultaClienteController.getConsultaClienteView().limparTabela();
+                consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
+            }
+        } else {
+            apresentarMensagem("Há campos nulos.", "Erro");
         }
-            consultaClienteController.getConsultaClienteView().limparTabela();
-            consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
- 
     }
     
     public void acaoAlterar(){
@@ -151,8 +153,12 @@ public final class CadastroClienteController extends BaseCadastroController{
             fecharTela();
             
             // Atualizar tabela
-            consultaClienteController.getConsultaClienteView().limparTabela();
-            consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
+            if(consultaClienteController != null){
+                consultaClienteController.getConsultaClienteView().limparTabela();
+                consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
+            }
+        } else {
+            apresentarMensagem("Há campos nulos", "Erro");
         }
         
     }
