@@ -5,12 +5,7 @@ import br.com.lojaveiculo.model.Venda;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import br.com.lojaveiculo.view.ConsultaVendaView;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-/**
- *
- * @author Rafael
- */
 public class ConsultaVendaController extends BaseConsultaController {
 
     private ConsultaVendaView consultaVendaView;
@@ -88,25 +83,25 @@ public class ConsultaVendaController extends BaseConsultaController {
     }
 
     public void acaoOrdenar() {
-     if(consultaVendaView.getOrdena().equalsIgnoreCase("Placa")){
-         vendaRepositorio.ordenaPlaca();
-         popularTabela();
-     }
-     else {
-         vendaRepositorio.ordenaPreco();
-         popularTabela();
-     }
+        if (consultaVendaView.getOrdena().equalsIgnoreCase("Placa")) {
+            vendaRepositorio.ordenaPlaca();
+            popularTabela();
+        } else {
+            vendaRepositorio.ordenaPreco();
+            popularTabela();
+        }
     }
 
     public void acaoBuscar() {
-          consultaVendaView.limpaSelecao();
-        int idVenda = Integer.parseInt(consultaVendaView.getFiltro());
+        consultaVendaView.limpaSelecao();
+        if (consultaVendaView.getFiltro().equals("")) {
+            apresentarMensagem("Digite um ID valído", "Erro");
+        } else {
+            int idVenda = Integer.parseInt(consultaVendaView.getFiltro());
             if (consultaVendaView.BuscaTabela(idVenda)) {
             } else {
                 apresentarMensagem("Não foi encontrado nenhuma venda com esse ID", "Venda não encontrada");
             }
+        }
     }
-    }
-
-
-    
+}
