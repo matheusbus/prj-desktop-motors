@@ -71,6 +71,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         if(verificaCamposNulos()){
             // 1 - Recuperar dados
             try {
+
                 String sNome = cadastroClienteView.getNome();
                 String sCpf = cadastroClienteView.getCpf();
                 long iRg = Integer.parseInt(cadastroClienteView.getRg());
@@ -87,7 +88,10 @@ public final class CadastroClienteController extends BaseCadastroController{
                 
                 // 2 - Verificar existencia cpf
                 verificaExistenciaCPF(sCpf);
-
+                
+                // 2.1 - Verificar se o CPF é válido
+                verificaLengthCpf();
+                
                 // 3 - Criar o novo cliente
                 this.modeloCliente = new Cliente(sNome, sCpf, iRg, sCnh, sCatCnh, sCep, sEndereco, sBairro, sCidade, sEstado, sTelefone, sEmail, sWhatsapp);
                 
@@ -103,14 +107,14 @@ public final class CadastroClienteController extends BaseCadastroController{
             } catch (NumberFormatException ex){
                 apresentarMensagem("Insira um valor inteiro no campo de RG.", "Erro");
             } catch (ClienteException ex){
-                apresentarMensagem("O CPF já consta no sistema.", "Erro");
+                apresentarMensagem(ex.getMessage(), "Erro");
             }
             if(consultaClienteController != null){
                 consultaClienteController.getConsultaClienteView().limparTabela();
                 consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
             }
         } else {
-            apresentarMensagem("Há campos nulos.", "Erro");
+            apresentarMensagem("Preencha todos os campos.", "Erro");
         }
     }
     
@@ -119,46 +123,46 @@ public final class CadastroClienteController extends BaseCadastroController{
         
         if(verificaCamposNulos()){
             try {
-                verificaExistenciaCPF(modeloCliente.getCpf());
-                verificaLengthCpf();
-            } catch (ClienteException ex) {
-                apresentarMensagem(ex.getMessage(), "Erro");
-            }
-            
-            pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
-            modeloCliente.setNome(cadastroClienteView.getNome());
-            modeloCliente.setCpf(cadastroClienteView.getCpf());
-            
-            try {
+                pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
+                modeloCliente.setNome(cadastroClienteView.getNome());
+                modeloCliente.setCpf(cadastroClienteView.getCpf());
                 modeloCliente.setRg(Long.parseLong(cadastroClienteView.getRg()));
-            } catch (NumberFormatException ex){
-                apresentarMensagem("O campo RG deve ser um número inteiro.", "Erro de conversão de valores");
-            }
+                modeloCliente.setCnh(cadastroClienteView.getCNH());
+                modeloCliente.setCategoriaCnh(cadastroClienteView.getCategoriaCNH().toUpperCase());
+                modeloCliente.setCep(cadastroClienteView.getCep());
+                modeloCliente.setEndereco(cadastroClienteView.getEndereco());
+                modeloCliente.setBairro(cadastroClienteView.getBairro());
+                modeloCliente.setCidade(cadastroClienteView.getCidade());
+                modeloCliente.setEstado(cadastroClienteView.getEstado());
+                modeloCliente.setTelefone(cadastroClienteView.getTelefone());
+                modeloCliente.setEmail(cadastroClienteView.getEmail());
+
+                // 2 - Verificar existencia cpf
+                verificaExistenciaCPF(modeloCliente.getCpf());
+                
+                // 2.1 - Verificar se o CPF é válido
+                verificaLengthCpf();
+
+
+                pessoaRepositorio.adicionarPessoa(modeloCliente);
+                // chamar o método de popula do controlador de consulta de cliente
+                apresentarMensagem("Cliente alterado com sucesso.", "Alteração realizada");
             
-            modeloCliente.setCnh(cadastroClienteView.getCNH());
-            modeloCliente.setCategoriaCnh(cadastroClienteView.getCategoriaCNH().toUpperCase());
-            modeloCliente.setCep(cadastroClienteView.getCep());
-            modeloCliente.setEndereco(cadastroClienteView.getEndereco());
-            modeloCliente.setBairro(cadastroClienteView.getBairro());
-            modeloCliente.setCidade(cadastroClienteView.getCidade());
-            modeloCliente.setEstado(cadastroClienteView.getEstado());
-            modeloCliente.setTelefone(cadastroClienteView.getTelefone());
-            modeloCliente.setEmail(cadastroClienteView.getEmail());
-            pessoaRepositorio.adicionarPessoa(modeloCliente);
+                // Fechar a tela
+                fecharTela();
             
-            // chamar o método de popula do controlador de consulta de cliente
-            apresentarMensagem("Cliente alterado com sucesso.", "Alteração realizada");
-            
-            // Fechar a tela
-            fecharTela();
-            
-            // Atualizar tabela
-            if(consultaClienteController != null){
-                consultaClienteController.getConsultaClienteView().limparTabela();
-                consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
+                // Atualizar tabela
+                if(consultaClienteController != null){
+                    consultaClienteController.getConsultaClienteView().limparTabela();
+                    consultaClienteController.getConsultaClienteView().popularTabela(pessoaRepositorio.getClientes());
+                }
+                } catch (NumberFormatException ex){
+                    apresentarMensagem("Insira um valor inteiro no campo de RG.", "Erro");
+                } catch (ClienteException ex) {
+                    apresentarMensagem(ex.getMessage(), "Erro");
             }
         } else {
-            apresentarMensagem("Há campos nulos", "Erro");
+            apresentarMensagem("Preencha todos os campos.", "Erro");
         }
         
     }
@@ -180,7 +184,11 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
     
     public boolean verificaExistenciaCPF(String cpf) throws ClienteException{
-        return pessoaRepositorio.buscarPessoaPorCPF(cpf) == null;
+        if(pessoaRepositorio.buscarPessoaPorCPF(cpf) == null) {
+            return true;
+        } else {
+            throw  new ClienteException("O CPF já consta no sistema.");
+        }
     }
     
     public boolean verificaLengthCpf() throws ClienteException{
