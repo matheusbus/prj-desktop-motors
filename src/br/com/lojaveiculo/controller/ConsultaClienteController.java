@@ -88,6 +88,7 @@ public final class ConsultaClienteController extends BaseConsultaController{
                    // Atualizar a tabela com o popula
                    consultaClienteView.limparTabela();
                    popularTabela();
+                   apresentarMensagem("Registro removido com sucesso", "Êxito");
                }
                consultaClienteView.limpaSelecao();           
         } catch (Exception e) {
