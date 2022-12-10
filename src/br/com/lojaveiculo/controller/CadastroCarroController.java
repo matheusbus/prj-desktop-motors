@@ -108,7 +108,7 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     Carro carro = new Carro(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceria, iAno, dPreco, sTipoCombustivel, iPortas);
@@ -140,7 +140,7 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
+                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);

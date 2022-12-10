@@ -113,8 +113,8 @@ public class CadastroMotoController extends BaseCadastroController {
                     Double dPreco = Double.valueOf(cadastroMotoView.getPreco());
                     String sTipoCombustivel = cadastroMotoView.getCombustivel();
                     int iCilindradas = Integer.parseInt(cadastroMotoView.getCilindradas());
+                    
                     Moto novaMoto = new Moto(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceira, iAno, dPreco, sTipoCombustivel, iCilindradas);
-
                     veiculoRepositorio.addVeiculo(novaMoto);
 
                     apresentarMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
