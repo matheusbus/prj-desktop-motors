@@ -303,8 +303,8 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
     }
 
     public void inicializaCadastro() {
-        btnCadCarro.setEnabled(false);
-        btnCadCarro.setVisible(true);
+        btnAlterarCarro.setEnabled(false);
+        btnAlterarCarro.setVisible(false);
     }
 
     public void inicializaAlteracao() {

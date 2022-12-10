@@ -19,7 +19,7 @@ public class CadastroCarroController extends BaseCadastroController {
         this.modeloCarro = null;
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
-
+        inicializaCadastro();
     }
 
     public CadastroCarroController(CadastroCarroView cadastroCarroView, Carro modeloCarro) {
@@ -28,6 +28,7 @@ public class CadastroCarroController extends BaseCadastroController {
         this.veiculoRepositorio = veiculoRepositorio;
         this.consultaCarroController = consultaCarroController;
         inicializarBotoes();
+        inicializaAlteracao();
         popularCamposCarroAlterar();
     }
 
@@ -61,7 +62,7 @@ public class CadastroCarroController extends BaseCadastroController {
         cadastroCarroView.fecharTela();
     }
 
-    public boolean verificarPlaca(String placa) {
+    public boolean verificaPlaca(String placa) {
         return cadastroCarroView.verificaLengthPlaca(placa);
     }
 
@@ -95,7 +96,8 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     public void acaoCadastrar() {
-        if (verificarPlaca(cadastroCarroView.getPlaca())) {
+        
+        if (verificaPlaca(cadastroCarroView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
                     String sPlaca = cadastroCarroView.getPlaca();
@@ -126,7 +128,8 @@ public class CadastroCarroController extends BaseCadastroController {
     }
 
     private void acaoAlterar() {
-        if (verificarPlaca(cadastroCarroView.getPlaca())) {
+        
+        if (verificaPlaca(cadastroCarroView.getPlaca())) {
             if (verificaCamposNulos()) {
                 try {
                     String sPlaca = cadastroCarroView.getPlaca();

@@ -303,6 +303,23 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     public void exibirTela() {
         super.exibirTela();
     }
+    
+    @Override
+    public boolean verificaCamposNulos(){
+          if (!((txtPlaca.getText().trim().equals("")) || (txtModelo.getText().trim().equals("")) || (txtChassi.getText().trim().equals(""))
+                || (txtCor.getText().trim().equals("")) || (txtPreco.getText().trim().equals(""))
+                || (txtCilindradas.getText().trim().equals("")))) {
+              return true;
+          }
+          else {
+              return false;
+          }
+    }
+    
+    
+    public boolean verificaLengthPlaca(String placa) {
+        return placa.length() == 7;
+    }
 
 
     public String getPlaca() {

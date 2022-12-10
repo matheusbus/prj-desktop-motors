@@ -89,7 +89,7 @@ public class ConsultaMotoController extends BaseConsultaController {
         try {
             String sPlaca = consultaMotoView.getPlacaTabelaRegistro();
             Moto moto = (Moto) veiculoRepositorio.buscarVeiculo(sPlaca);
-            CadastroMotoController cadastroMotoController = new CadastroMotoController(new CadastroMotoView(), moto);
+            CadastroMotoController cadastroMotoController = new CadastroMotoController(new CadastroMotoView(), moto, this);
             cadastroMotoController.exibirTela();
         } catch (Exception e) {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");

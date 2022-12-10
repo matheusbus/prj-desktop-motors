@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
@@ -10,6 +6,7 @@ import br.com.lojaveiculo.repositorio.VeiculoRepositorio;
 import br.com.lojaveiculo.view.CadastroCarroView;
 import br.com.lojaveiculo.view.ConsultaCarroView;
 import java.awt.event.ActionEvent;
+
 
 /**
  *
@@ -37,7 +34,6 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
         setBotaoSelecionar(true);
-
     }
 
     @Override
@@ -48,20 +44,23 @@ public class ConsultaCarroController extends BaseConsultaController {
 
     @Override
     public void inicializarBotoes() {
-        consultaCarroView.adicionarAcaoBtnCadastrar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
             acaoCadastrar();
         });
 
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoBuscar();
         });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoRemover();
         });
-        consultaCarroView.adicionarAcaoBtnAlterar((ActionEvent e) -> {
+        
+        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoSelecionar();
         });
     }
@@ -77,6 +76,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         consultaCarroView.fecharTela();
     }
 
+    
     public void apresentaMensagem(String mensagem, String titulo) {
         consultaCarroView.apresentaMensagem(mensagem, titulo);
     }
