@@ -36,15 +36,17 @@ public final class CadastroClienteView extends TelaBaseCadastroView {
     }
     
     public void addCampos(){
-        campos.add(txtCep);
-        campos.add(txtCidade);
-        campos.add(txtCnh);
-        campos.add(txtCpf);
-        campos.add(txtEmail);
-        campos.add(txtEndereco);
         campos.add(txtNome);
+        campos.add(txtCpf);
         campos.add(txtRg);
+        campos.add(txtCnh);
+        campos.add(txtCategoriaCnh);
+        campos.add(txtCep);
+        campos.add(txtEndereco);
+        campos.add(txtBairro);
+        campos.add(txtCidade);
         campos.add(txtTelefone);
+        campos.add(txtEmail);
         campos.add(txtWhatsapp);
     }
     

@@ -119,8 +119,6 @@ public final class CadastroClienteController extends BaseCadastroController{
     }
     
     public void acaoAlterar(){
-        // Implementar acao e exceção
-        
         if(verificaCamposNulos()){
             try {
                 pessoaRepositorio.removerPessoa(modeloCliente.getCpf());
@@ -172,7 +170,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         cadastroClienteView.setCpf(modeloCliente.getCpf());
         cadastroClienteView.setRg(String.valueOf(modeloCliente.getRg()));
         cadastroClienteView.setCNH(modeloCliente.getCnh());
-        cadastroClienteView.setCategoriaCNH(modeloCliente.getCnh());
+        cadastroClienteView.setCategoriaCNH(modeloCliente.getCategoriaCnh());
         cadastroClienteView.setCep(modeloCliente.getCep());
         cadastroClienteView.setEndereco(modeloCliente.getEndereco());
         cadastroClienteView.setBairro(modeloCliente.getBairro());
@@ -187,7 +185,7 @@ public final class CadastroClienteController extends BaseCadastroController{
         if(pessoaRepositorio.buscarPessoaPorCPF(cpf) == null) {
             return true;
         } else {
-            throw  new ClienteException("O CPF já consta no sistema.");
+            throw new ClienteException("O CPF já consta no sistema.");
         }
     }
     
