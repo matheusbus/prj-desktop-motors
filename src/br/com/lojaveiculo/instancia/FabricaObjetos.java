@@ -59,10 +59,10 @@ public class FabricaObjetos {
 
     //Teste
     public void criaFuncionarios() {
-        repositorioDePessoas.adicionarPessoa(new Vendedor("Rafael", "12876163993", 1212121, "89163232", "Rua Valmor Pasqualine", "Canta Galo", "Rio do Sul", "SC", "(98) 3357-4626", "rdalmarco@yahoo.com.br", 10.0, "", "Santander", 0, 0, 0.0));
-        repositorioDePessoas.adicionarPessoa(new Vendedor("Matheus", "18376412983", 1313131, "89161424", "Rua dos vereadores", "Centro", "Ibirama", "SC", "(79) 3256-9225", "buschermoehle@gmail.com", 8.0, "", "Itaú", 0, 0, 0.0));
-        repositorioDePessoas.adicionarPessoa(new Vendedor("Eduardo", "11077688804", 1414141, "89161464", "Rua José Pinheiro", "Bela Aliança", "Rio do Sul", "SC", "(47) 9999-0000", "sangaletti@gmail.com", 6.0, "", "Nubank", 0, 0, 0.0));
-        repositorioDePessoas.adicionarPessoa(new Gerente("Admin", "44444444444", 2424242, "89160444", "Rua Jardim primavera", "Centro", "Rodeio", "SC", "(47) 4949-2424", "paolao@gmail.com", 10000.0, "99999", "Banco Pan", 234, 123456));
+        repositorioDePessoas.adicionarPessoa(new Vendedor("Rafael", "12876163993", 1212121, "89163232", "Rua Valmor Pasqualine", "Canta Galo", "Rio do Sul", "SC", "(98) 3357-4626", "rdalmarco@yahoo.com.br", 10.0, "Santander", 0, 0, 0.0));
+        repositorioDePessoas.adicionarPessoa(new Vendedor("Matheus", "18376412983", 1313131, "89161424", "Rua dos vereadores", "Centro", "Ibirama", "SC", "(79) 3256-9225", "buschermoehle@gmail.com", 8.0, "Itaú", 0, 0, 0.0));
+        repositorioDePessoas.adicionarPessoa(new Vendedor("Eduardo", "11077688804", 1414141, "89161464", "Rua José Pinheiro", "Bela Aliança", "Rio do Sul", "SC", "(47) 9999-0000", "sangaletti@gmail.com", 6.0, "Nubank", 0, 0, 0.0));
+        repositorioDePessoas.adicionarPessoa(new Gerente("Admin", "44444444444", 2424242, "89160444", "Rua Jardim primavera", "Centro", "Rodeio", "SC", "(47) 4949-2424", "paolao@gmail.com", 10000.0, "Banco Pan", 234, 123456));
         //repositorioDePessoas.adicionarPessoa(new Vendedor(13.5, 6000, "Nicollas Nepomuceno Pinto Alentejo", "25516297648", "(63) 3233-4798"));
         //repositorioDePessoas.adicionarPessoa(new Gerente(7000.00, "Yago Garbelini Teixeira Vaz", "14332847156", "(95) 2936-7851", "Administrativo"));
         //repositorioDePessoas.adicionarPessoa(new Vendedor(15.0, 1600, "Lucas Felipe Figueiras Alfradique Carino", "69148632880", "(67) 3326-0230"));

@@ -4,7 +4,6 @@
  */
 package br.com.lojaveiculo.controller;
 
-
 import br.com.lojaveiculo.view.PrincipalView;
 import java.awt.event.ActionEvent;
 
@@ -23,7 +22,7 @@ public final class PrincipalController extends BaseController {
 
     @Override
     public void inicializarBotoes() {
-        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
+        principalView.adicionarAcaoAoBotaoConsultaFuncionario((ActionEvent e) -> {
             acaoBotaoConsultaFuncionario();
         });
 
@@ -54,23 +53,18 @@ public final class PrincipalController extends BaseController {
         principalView.adicionarAcaoAoBotaoConsultaCliente((ActionEvent e) -> {
             acaoBotaoConsultaCliente();
         });
-        
+
         principalView.adicionarAcaoAoBotaoCadastroVenda((ActionEvent e) -> {
             acaoBotaoCadastroVenda();
         });
-          
+
         principalView.adicionarAcaoAoBotaoConsultaVenda((ActionEvent e) -> {
             acaoBotaoConsultaVenda();
         });
-            
-        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
-            acaoBotaoCadastroFuncionario();
-        });
-              
-        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
-            acaoBotaoCadastroFuncionario();
-        });
 
+        principalView.adicionarAcaoAoBotaoCadastroFuncionario((ActionEvent e) -> {
+            acaoBotaoCadastroFuncionario();
+        });
     }
 
     // Inicializar Controladores
@@ -90,7 +84,7 @@ public final class PrincipalController extends BaseController {
     }
 
     public void acaoBotaoRelatorio() {
-        EmissaoRelatorioController emissaoRelatorioController= new EmissaoRelatorioController();
+        EmissaoRelatorioController emissaoRelatorioController = new EmissaoRelatorioController();
         emissaoRelatorioController.exibirTela();
     }
 
@@ -135,6 +129,7 @@ public final class PrincipalController extends BaseController {
     }
 
     @Override
-    public void fecharTela() {}
+    public void fecharTela() {
+    }
 
 }
