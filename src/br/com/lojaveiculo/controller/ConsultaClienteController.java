@@ -59,7 +59,7 @@ public final class ConsultaClienteController extends BaseConsultaController{
     
     public void acaoBuscar(){
         consultaClienteView.limpaSelecao();
-        consultaClienteView.buscaNaTabela(consultaClienteView.getFiltroPesquisa()); 
+        consultaClienteView.buscaNaTabela(); 
     }
    
     public void acaoAlterar(){

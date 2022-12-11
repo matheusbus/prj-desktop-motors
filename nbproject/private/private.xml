@@ -2,21 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/CadastroFuncionarioController.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroFuncionariosView.java</file>
-=======
-            <file>file:/C:/Users/Rafael/Desktop/xzxxxx/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaMotoView.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/xzxxxx/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaVendaView.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/xzxxxx/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/ConsultaVendaController.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/xzxxxx/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/ConsultaMotoController.java</file>
-            <file>file:/C:/Users/Rafael/Desktop/xzxxxx/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/VIEW_PUSH_RAFAEL.java</file>
->>>>>>> d9b4a977a4251cfbb16ab9df2be606b165b71463
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/CadastroCarroController.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaClienteView.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/CadastroCarroView.java</file>
         </group>
-=======
-        <group/>
->>>>>>> d5d120f8e1fe68bf4de3692730a5367706113885
     </open-files>
 </project-private>
