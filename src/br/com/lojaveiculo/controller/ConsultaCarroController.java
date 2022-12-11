@@ -25,6 +25,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.veiculoRepositorio = new VeiculoDAO();
         inicializarBotoes();
         setBotaoSelecionar(false);
+        popularTabela();
     }
 
     public ConsultaCarroController(CadastroVendaController cadastroVendaController) {
@@ -34,6 +35,7 @@ public class ConsultaCarroController extends BaseConsultaController {
         this.cadastroVendaController = cadastroVendaController;
         inicializarBotoes();
         setBotaoSelecionar(true);
+        popularTabela();
     }
 
     @Override
@@ -52,15 +54,15 @@ public class ConsultaCarroController extends BaseConsultaController {
             acaoAlterar();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnBuscar((ActionEvent e) -> {
             acaoBuscar();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnRemover((ActionEvent e) -> {
             acaoRemover();
         });
         
-        consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        consultaCarroView.adicionaAcaoAoBtnSelecionar((ActionEvent e) -> {
             acaoSelecionar();
         });
     }

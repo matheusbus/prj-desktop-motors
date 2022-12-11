@@ -94,9 +94,16 @@ public class ConsultaMotoController extends BaseConsultaController {
     }
 
     public void acaoRemover() {
-        veiculoRepositorio.removeVeiculo(consultaMotoView.getPlacaTabelaRegistro());
-        limparTabela();
-        popularTabela();
+        try {
+            if (0 == consultaMotoView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")) {
+                veiculoRepositorio.removeVeiculo(consultaMotoView.getPlacaTabelaRegistro());
+                limparTabela();
+                popularTabela();
+                apresentarMensagem("Registro removido com sucesso", "Êxito");
+            }
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
+        }
     }
 
     public void acaoCadastrar() {

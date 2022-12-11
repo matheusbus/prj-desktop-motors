@@ -6,7 +6,6 @@ package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.PessoaDAO;
 import br.com.lojaveiculo.excecoes.VendaException;
-import br.com.lojaveiculo.model.Funcionario;
 import br.com.lojaveiculo.model.Vendedor;
 import br.com.lojaveiculo.repositorio.PessoaRepositorio;
 import br.com.lojaveiculo.view.ConsultaFuncionariosView;
@@ -81,9 +80,16 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
     }
 
     public void acaoRemover() {
-        pessoasRepositorio.removerPessoa(ConsultaFuncionariosView.getCPFTabelaRegistro());
-        limparTabela();
-        popularTabela();
+        try {
+            if (0 == ConsultaFuncionariosView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")) {
+                pessoasRepositorio.removerPessoa(ConsultaFuncionariosView.getCPFTabelaRegistro());
+                limparTabela();
+                popularTabela();
+                apresentarMensagem("Registro removido com sucesso", "Êxito");
+            }
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
+        }
     }
 
     public void acaoCadastrar() {
@@ -103,7 +109,6 @@ public class ConsultaFuncionarioController extends BaseConsultaController {
         }
 
     }
-    
 
     public void acaoBuscar() {
         ConsultaFuncionariosView.limpaSelecao();
