@@ -291,7 +291,7 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCadCarro.addActionListener(acao);
     }
 
-    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
+    public void adicionaAcaoBtnAlterar(ActionListener acao) {
         btnAlterarCarro.addActionListener(acao);
     }
 
@@ -308,16 +308,20 @@ public final class CadastroCarroView extends TelaBaseCadastroView {
         btnCadCarro.setEnabled(false);
         btnCadCarro.setVisible(false);
     }
-    
+
     @Override
     public void exibirTela() {
         super.exibirTela();
     }
-    
+
     @Override
     public boolean verificaCamposNulos() {
-        if (!((txtModelo.getText().trim().equals("")) || (txtMarca.getText().trim().equals("")) || (txtPlaca.getText().trim().equals(""))
-                || (txtPreco.getText().trim().equals("")) || (txtChassi.getText().trim().equals("")))) {
+        if (!((txtModelo.getText().trim().equals(""))
+                || (txtPlaca.getText().trim().equals(""))
+                || (txtMarca.getText().trim().equals(""))
+                || (txtCor.getText().trim().equals(""))
+                || (txtPreco.getText().trim().equals(""))
+                || (txtChassi.getText().trim().equals("")))) {
             return true;
         } else {
             return false;

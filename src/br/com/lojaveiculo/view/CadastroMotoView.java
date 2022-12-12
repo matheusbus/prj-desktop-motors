@@ -277,15 +277,15 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void adicionaAcaoAoBtnCadastrar(ActionListener acao) {
+    public void adicionaAcaoBtnCadastrar(ActionListener acao) {
         btnCadMoto.addActionListener(acao);
     }
 
-    public void adicionaAcaoAoBtnAlterar(ActionListener acao) {
+    public void adicionaAcaoBtnAlterar(ActionListener acao) {
         btnAlterarMoto.addActionListener(acao);
     }
 
-    public void adicionaAcaoAoBtnCancelar(ActionListener acao) {
+    public void adicionaAcaoBtnCancelar(ActionListener acao) {
         btnCancela.addActionListener(acao);
     }
 
@@ -303,24 +303,25 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     public void exibirTela() {
         super.exibirTela();
     }
-    
+
     @Override
-    public boolean verificaCamposNulos(){
-          if (!((txtPlaca.getText().trim().equals("")) || (txtModelo.getText().trim().equals("")) || (txtChassi.getText().trim().equals(""))
-                || (txtCor.getText().trim().equals("")) || (txtPreco.getText().trim().equals(""))
-                || (txtCilindradas.getText().trim().equals("")))) {
-              return true;
-          }
-          else {
-              return false;
-          }
+    public boolean verificaCamposNulos() {
+        if (!((txtModelo.getText().trim().equals(""))
+                || (txtPlaca.getText().trim().equals(""))
+                || (txtMarca.getText().trim().equals(""))
+                || (txtCor.getText().trim().equals(""))
+                || (txtPreco.getText().trim().equals(""))
+                || (txtCilindradas.getText().trim().equals(""))
+                || (txtChassi.getText().trim().equals("")))) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    
+
     public boolean verificaLengthPlaca(String placa) {
         return placa.length() == 7;
     }
-
 
     public String getPlaca() {
         return txtPlaca.getText();
@@ -361,8 +362,8 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     public String getCombustivel() {
         return cbCombustivel.getSelectedItem().toString();
     }
-    
-     public void setPlaca(String placa) {
+
+    public void setPlaca(String placa) {
         txtPlaca.setText(placa);
     }
 
@@ -371,7 +372,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     }
 
     public void setCor(String cor) {
-       txtCor.setText(cor);
+        txtCor.setText(cor);
     }
 
     public void setCilindradas(String cilindradas) {
@@ -379,7 +380,7 @@ public final class CadastroMotoView extends TelaBaseCadastroView {
     }
 
     public void setMarca(String marca) {
-       txtMarca.setText(marca);
+        txtMarca.setText(marca);
     }
 
     public void setModelo(String modelo) {

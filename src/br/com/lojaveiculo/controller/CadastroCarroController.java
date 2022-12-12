@@ -1,4 +1,4 @@
-package br.com.lojaveiculo.controller;
+    package br.com.lojaveiculo.controller;
 
 import br.com.lojaveiculo.dao.VeiculoDAO;
 import br.com.lojaveiculo.model.Carro;
@@ -38,7 +38,7 @@ public class CadastroCarroController extends BaseCadastroController {
             acaoCadastrar();
         });
         
-        cadastroCarroView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
+        cadastroCarroView.adicionaAcaoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
         
@@ -109,26 +109,26 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
+                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     Carro carro = new Carro(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceria, iAno, dPreco, sTipoCombustivel, iPortas);
                     veiculoRepositorio.addVeiculo(carro);
 
-                    apresentarMensagem("Veículo Cadastrado com Sucesso", "Cadastro Realizado");
+                    apresentarMensagem("Veículo cadastrado com sucesso!", "Cadastro realizado");
                     fecharTela();
                 } catch (NumberFormatException ex) {
-                    apresentarMensagem("Preecha os campos com valores válidos", "Erro");
+                    apresentarMensagem("Preencha os campos com valores válidos!", "Erro");
                 }
             } else {
                 apresentarMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
-            apresentarMensagem("A placa digitada é invalida!", "Erro no cadastro");
+            apresentarMensagem("A placa digitada é inválida!", "Erro no cadastro");
         }
     }
 
-    private void acaoAlterar() {
+    public void acaoAlterar() {
         
         if (verificaPlaca(cadastroCarroView.getPlaca())) {
             if (verificaCamposNulos()) {
@@ -141,7 +141,7 @@ public class CadastroCarroController extends BaseCadastroController {
                     String sTipoCarroceria = cadastroCarroView.getTipoCarroceria();
                     String sTipoCombustivel = cadastroCarroView.getCombustivel();
                     int iAno = Integer.parseInt(cadastroCarroView.getAno());
-                    double dPreco = Double.valueOf(cadastroCarroView.getPreco());
+                    double dPreco = Double.parseDouble(cadastroCarroView.getPreco());
                     int iPortas = Integer.parseInt(cadastroCarroView.getPorta());
 
                     modeloCarro.setModelo(sModelo);
@@ -153,13 +153,14 @@ public class CadastroCarroController extends BaseCadastroController {
                     modeloCarro.setPreco(dPreco);
                     modeloCarro.setPortas(iPortas);
 
-                    apresentarMensagem("Veículo alterado com sucesso", "Alteração Realizada");
+                    apresentarMensagem("Veículo alterado com sucesso!", "Alteração realizada");
+                    consultaCarroController.popularTabela();
                     fecharTela();
                 } catch (NumberFormatException ex) {
-                    apresentarMensagem("Preencha todos os campos com valores válidos", "Erro");
+                    apresentarMensagem("Preencha os campos com valores válidos!", "Erro");
                 }
             } else {
-                apresentarMensagem("Preencha todos os campos", "Erro no cadastro");
+                apresentarMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
             apresentarMensagem("A placa digitada é inválida!", "Erro no cadastro");

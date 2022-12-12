@@ -34,15 +34,15 @@ public class CadastroMotoController extends BaseCadastroController {
 
     @Override
     public void inicializarBotoes() {
-        cadastroMotoView.adicionaAcaoAoBtnCadastrar((ActionEvent e) -> {
+        cadastroMotoView.adicionaAcaoBtnCadastrar((ActionEvent e) -> {
             acaoCadastrar();
         });
 
-        cadastroMotoView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
+        cadastroMotoView.adicionaAcaoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
 
-        cadastroMotoView.adicionaAcaoAoBtnCancelar((ActionEvent e) -> {
+        cadastroMotoView.adicionaAcaoBtnCancelar((ActionEvent e) -> {
             acaoCancelar();
         });
     }
@@ -94,7 +94,6 @@ public class CadastroMotoController extends BaseCadastroController {
         } catch (NumberFormatException ex) {
             apresentarMensagem("Prencha os campos com valores válidos", "Erro");
         }
-
     }
 
     public void acaoCadastrar() {
@@ -116,16 +115,16 @@ public class CadastroMotoController extends BaseCadastroController {
                     Moto novaMoto = new Moto(sPlaca, sModelo, Marca, sChassi, sCor, sTipoCarroceira, iAno, dPreco, sTipoCombustivel, iCilindradas);
                     veiculoRepositorio.addVeiculo(novaMoto);
 
-                    apresentarMensagem("Veículo cadastrado com sucesso.", "Cadastro realizado");
+                    apresentarMensagem("Veículo cadastrado com sucesso!", "Cadastro realizado");
                     fecharTela();
                 } catch (NumberFormatException ex) {
-                    apresentarMensagem("Prencha os campos com valores válidos", "Erro");
+                    apresentarMensagem("Preencha os campos com valores válidos!", "Erro");
                 }
             } else {
                 apresentarMensagem("Preencha todos os campos!", "Erro no cadastro");
             }
         } else {
-            apresentarMensagem("A placa digitada é invalida!", "Erro no cadastro");
+            apresentarMensagem("A placa digitada é inválida!", "Erro no cadastro");
         }
     }
 
@@ -154,11 +153,11 @@ public class CadastroMotoController extends BaseCadastroController {
                     modeloMoto.setTipoCombustivel(sTipoCombustivel);
                     modeloMoto.setCilindrada(iCilindradas);
 
-                    apresentarMensagem("Veículo alterado com sucesso.", "Alteração realizada");
+                    apresentarMensagem("Veículo alterado com sucesso!", "Alteração realizada");
                     consultaMotoController.popularTabela();
                     fecharTela();
                 } catch (NumberFormatException ex) {
-                    apresentarMensagem("Preencha os campos com valores válidos", "Erro");
+                    apresentarMensagem("Preencha os campos com valores válidos!", "Erro");
                 }
             } else {
                 apresentarMensagem("Preencha todos os campos!", "Erro no cadastro");

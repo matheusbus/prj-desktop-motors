@@ -7,7 +7,6 @@ import br.com.lojaveiculo.view.CadastroCarroView;
 import br.com.lojaveiculo.view.ConsultaCarroView;
 import java.awt.event.ActionEvent;
 
-
 /**
  *
  * @author Rafael
@@ -53,20 +52,20 @@ public class ConsultaCarroController extends BaseConsultaController {
         consultaCarroView.adicionaAcaoAoBtnAlterar((ActionEvent e) -> {
             acaoAlterar();
         });
-        
+
         consultaCarroView.adicionaAcaoAoBtnBuscar((ActionEvent e) -> {
             acaoBuscar();
         });
-        
+
         consultaCarroView.adicionaAcaoAoBtnRemover((ActionEvent e) -> {
             acaoRemover();
         });
-        
+
         consultaCarroView.adicionaAcaoAoBtnSelecionar((ActionEvent e) -> {
             acaoSelecionar();
         });
     }
-    
+
     @Override
     public void exibirTela() {
         consultaCarroView.exibirTela();
@@ -97,18 +96,25 @@ public class ConsultaCarroController extends BaseConsultaController {
             apresentarMensagem("Nenhum registro foi selecionado.", "Erro de alteração");
         }
     }
-    
+
     public void acaoRemover() {
-        veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
-        limparTabela();
-        popularTabela();
+        try {
+            if (0 == consultaCarroView.criaQuestaoPrgunta("Tem certeza que deseja remover o registro selecionado?", "Confirmação de exclusão")) {
+                veiculoRepositorio.removeVeiculo(consultaCarroView.getPlacaTabelaRegistro());
+                limparTabela();
+                popularTabela();
+                apresentarMensagem("Registro removido com sucesso!", "Êxito");
+            }
+        } catch (Exception e) {
+            apresentarMensagem("Nenhum registro foi selecionado!", "Erro");
+        }
     }
 
     public void acaoCadastrar() {
         CadastroCarroController cadastroCarroController = new CadastroCarroController();
         cadastroCarroController.exibirTela();
     }
-    
+
     public void acaoSelecionar() {
         String sPlaca = consultaCarroView.getSelecionaItem();
         cadastroVendaController.setVeiculo(veiculoRepositorio.buscarVeiculo(sPlaca));
@@ -121,9 +127,9 @@ public class ConsultaCarroController extends BaseConsultaController {
         String sPlaca = consultaCarroView.getFiltro();
         if (sPlaca.length() == 7) {
             if (consultaCarroView.BuscaTabela(sPlaca)) {
-                apresentarMensagem("Sucesso", "Sucesso");
+                apresentarMensagem("Sucesso!", "Sucesso");
             } else {
-                apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
+                apresentarMensagem("Não foi encontrado nenhum veículo com a placa!", "Veículo não Encontrado");
             }
         } else {
             apresentarMensagem("Digite uma placa válida!", "Placa inválida");
