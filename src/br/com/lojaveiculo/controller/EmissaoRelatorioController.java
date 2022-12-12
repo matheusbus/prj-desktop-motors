@@ -7,10 +7,16 @@ package br.com.lojaveiculo.controller;
 import br.com.lojaveiculo.comparator.ComparadorPrecoVenda;
 import br.com.lojaveiculo.dao.VendaDAO;
 import br.com.lojaveiculo.model.Venda;
+import br.com.lojaveiculo.report.RelatorioMachine;
+import br.com.lojaveiculo.report.ReportMachine;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import br.com.lojaveiculo.view.EmissaoRelatorioView;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
 
 /**
  *
@@ -35,15 +41,28 @@ public final class EmissaoRelatorioController extends BaseController{
         emissaoRelatorioView.adicionaAcaoAoBotaoLimpar((ActionEvent e) -> {
             limparRelatorioEmitido();
         });
+        emissaoRelatorioView.adicionaAcaoAoBotaoExportar((ActionEvent e) -> {
+            try {
+                exportaRelatorio();
+            } catch (JRException ex) {
+                apresentarMensagem("Erro ao gerar relatório: " + ex.getMessage(), "Erro");
+            }
+        });
     }
     
-    public void acaoEmitirRelatorio(){
+    public void acaoEmitirRelatorio() {
         limparRelatorioEmitido();
         chamaOrdenacaoEImprime();
     }
     
     public void limparRelatorioEmitido(){
         emissaoRelatorioView.limparDadosEmitidos();
+    }
+    
+    public void exportaRelatorio() throws JRException{
+        //RelatorioMachine machine = new RelatorioMachine();
+        //machine.gerarRelatorio(vendaRepositorio.getVenda());
+        ReportMachine reportMachine = new ReportMachine();
     }
     
     public void ordenaPorVendedor(){

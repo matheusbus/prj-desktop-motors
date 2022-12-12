@@ -38,6 +38,10 @@ public final class EmissaoRelatorioView extends TelaBaseView {
         btnLimpar.addActionListener(acao);
     }
     
+    public void adicionaAcaoAoBotaoExportar(ActionListener acao){
+        btnExportarRelatorio.addActionListener(acao);
+    }
+    
     public void imprimeDados(List<Venda> vendas){
         for (Venda v : vendas) {
             txtDados.append("ID Venda: " + v.getIdVenda() + "\n");
@@ -76,6 +80,7 @@ public final class EmissaoRelatorioView extends TelaBaseView {
         cbOrdenacao = new javax.swing.JComboBox<>();
         btnEmitirRelatorio = new javax.swing.JButton();
         btnLimpar = new javax.swing.JToggleButton();
+        btnExportarRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
@@ -99,6 +104,11 @@ public final class EmissaoRelatorioView extends TelaBaseView {
 
         btnLimpar.setText("Limpar");
 
+        btnExportarRelatorio.setBackground(new java.awt.Color(82, 148, 226));
+        btnExportarRelatorio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnExportarRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnExportarRelatorio.setText("Exportar");
+
         javax.swing.GroupLayout pblFundoLayout = new javax.swing.GroupLayout(pblFundo);
         pblFundo.setLayout(pblFundoLayout);
         pblFundoLayout.setHorizontalGroup(
@@ -115,6 +125,8 @@ public final class EmissaoRelatorioView extends TelaBaseView {
                         .addComponent(btnEmitirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExportarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -128,7 +140,8 @@ public final class EmissaoRelatorioView extends TelaBaseView {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnEmitirRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExportarRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -150,6 +163,7 @@ public final class EmissaoRelatorioView extends TelaBaseView {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmitirRelatorio;
+    private javax.swing.JButton btnExportarRelatorio;
     private javax.swing.JToggleButton btnLimpar;
     private javax.swing.JComboBox<String> cbOrdenacao;
     private javax.swing.JScrollPane jScrollPane1;

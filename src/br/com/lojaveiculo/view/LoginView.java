@@ -10,6 +10,7 @@ import br.com.lojaveiculo.controller.PrincipalController;
 import br.com.lojaveiculo.dao.UsuarioDAO;
 import br.com.lojaveiculo.instancia.FabricaObjetos;
 import br.com.lojaveiculo.model.Usuario;
+import br.com.lojaveiculo.report.ReportMachine;
 import br.com.lojaveiculo.repositorio.UsuarioRepositorio;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import javax.swing.ImageIcon;
@@ -36,7 +37,7 @@ public final class LoginView extends TelaBaseView {
         organizaLayout();
         repositorioDeUsuarios = new UsuarioDAO();
         FabricaObjetos fab = new FabricaObjetos();
-        fab.criaUsuarios();                
+        fab.criaUsuarios();
     }
 
     @Override

@@ -264,18 +264,18 @@ public final class ConsultaClienteView extends TelaBaseConsultaView {
         }
     }
 
-    public void buscaNaTabela(String cpf) {
+    public void buscaNaTabela() {
         int incidencia = -1;
-        if (cpf.length() == 11) {
+        if (getFiltroPesquisa().length() == 11) {
             for (int i = 0; i <= tblClientes.getRowCount() - 1; i++) {
-                if (grid.getValueAt(i, 1).equals(cpf)) {
+                if (grid.getValueAt(i, 1).equals(getFiltroPesquisa())) {
                     incidencia = i;
                 }
             }
             if (incidencia != -1) {
                 tblClientes.setRowSelectionInterval(incidencia, incidencia);
             } else {
-                apresentaMensagem("Não foi encontrado nenhum cliente com o CPF '" + cpf + "'.", "Cliente não encontrado");
+                apresentaMensagem("Não foi encontrado nenhum cliente com o CPF '" + getFiltroPesquisa() + "'.", "Cliente não encontrado");
             }
         } else {
             apresentaMensagem("Digite um CPF válido!", "CPF inválido");
