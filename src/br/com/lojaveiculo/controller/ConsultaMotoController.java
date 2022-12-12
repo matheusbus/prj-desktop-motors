@@ -99,10 +99,10 @@ public class ConsultaMotoController extends BaseConsultaController {
                 veiculoRepositorio.removeVeiculo(consultaMotoView.getPlacaTabelaRegistro());
                 limparTabela();
                 popularTabela();
-                apresentarMensagem("Registro removido com sucesso", "Êxito");
+                apresentarMensagem("Registro removido com sucesso!", "Êxito");
             }
         } catch (Exception e) {
-            apresentarMensagem("Nenhum registro foi selecionado.", "Erro");
+            apresentarMensagem("Nenhum registro foi selecionado!", "Erro");
         }
     }
 
@@ -123,9 +123,9 @@ public class ConsultaMotoController extends BaseConsultaController {
         String sPlaca = consultaMotoView.getFiltro();
         if (sPlaca.length() == 7) {
             if (consultaMotoView.BuscaTabela(sPlaca)) {
-                apresentarMensagem("Sucesso", "Sucesso");
+                apresentarMensagem("Sucesso!", "Sucesso");
             } else {
-                apresentarMensagem("Não foi encontrado nenhum veículo com a placa", "Veículo não Encontrado");
+                apresentarMensagem("Não foi encontrado nenhum veículo com a placa!", "Veículo não Encontrado");
             }
         } else {
             apresentarMensagem("Digite uma placa válida!", "Placa inválida");
