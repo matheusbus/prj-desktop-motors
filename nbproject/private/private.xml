@@ -2,15 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/EmissaoRelatorioView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/view/ConsultaVendaView.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/report/ReportMachine.java</file>
-            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/report/RelatorioMachine.java</file>
+            <file>file:/C:/Users/Matheus/Documents/NetBeansProjects/DestktopMotors-Prog2/src/br/com/lojaveiculo/controller/BaseController.java</file>
         </group>
->>>>>>> a1e9a971ef1177c60d43a308aa837f7d6cca4171
     </open-files>
 </project-private>
