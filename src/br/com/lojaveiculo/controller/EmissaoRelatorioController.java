@@ -11,7 +11,10 @@ import br.com.lojaveiculo.report.ReportMachine;
 import br.com.lojaveiculo.repositorio.VendaRepositorio;
 import br.com.lojaveiculo.view.EmissaoRelatorioView;
 import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
 
 /**
@@ -22,11 +25,13 @@ public final class EmissaoRelatorioController extends BaseController{
 
     private final EmissaoRelatorioView emissaoRelatorioView;
     private final VendaRepositorio vendaRepositorio;
+    private final ReportMachine geradorRelatorio;
 
     public EmissaoRelatorioController() {
         this.emissaoRelatorioView = new EmissaoRelatorioView();
         inicializarBotoes();
         vendaRepositorio = new VendaDAO();
+        geradorRelatorio = new ReportMachine();
     }
     
     @Override
@@ -42,6 +47,8 @@ public final class EmissaoRelatorioController extends BaseController{
                 exportaRelatorio();
             } catch (JRException ex) {
                 apresentarMensagem("Erro ao gerar relatório: " + ex.getMessage(), "Erro");
+            } catch (FileNotFoundException ex) {
+                apresentarMensagem("Arquivo do relatório não encontrado. Diretório que está tentando pegar: " + geradorRelatorio.getDiretorio(), "Erro");
             }
         });
     }
@@ -55,9 +62,9 @@ public final class EmissaoRelatorioController extends BaseController{
         emissaoRelatorioView.limparDadosEmitidos();
     }
     
-    public void exportaRelatorio() throws JRException{
-        ReportMachine reportMachine = new ReportMachine();
-        apresentarMensagem("A função de exportação de relatórios ainda não foi totalmente implementada. Será ajustada posteriormente.", "Função não implementada");
+    public void exportaRelatorio() throws JRException, FileNotFoundException{
+        geradorRelatorio.gerarRelatorioVendas(vendaRepositorio.getVenda());
+        //apresentarMensagem("A função de exportação de relatórios ainda não foi totalmente implementada. Será ajustada posteriormente.", "Função não implementada");
     }
     
     public void ordenaPorVendedor(){
@@ -113,6 +120,11 @@ public final class EmissaoRelatorioController extends BaseController{
     @Override
     public void fecharTela() {
         emissaoRelatorioView.fecharTela();
+    }
+
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        emissaoRelatorioView.apresentaMensagem(mensagem, titulo);
     }
     
 }

@@ -115,4 +115,9 @@ public class ConsultaVendaController extends BaseConsultaController {
             apresentarMensagem("ID inválido", "Erro");
         }
     }
+
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        consultaVendaView.apresentaMensagem(mensagem, titulo);
+    }
 }

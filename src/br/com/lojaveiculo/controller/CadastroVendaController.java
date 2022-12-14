@@ -137,8 +137,13 @@ public class CadastroVendaController extends BaseCadastroController {
     }
 
     public void acaoCancelarVenda() {
-        apresentarMensagem("Venda Cancelada", "");
+        apresentarMensagem("A venda não foi concluída.", "Venda Cancelada");
         fecharTela();
+    }
+
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        cadastroVendaView.apresentaMensagem(mensagem, titulo);
     }
 
  

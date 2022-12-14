@@ -4,23 +4,17 @@
  */
 package br.com.lojaveiculo.controller;
 
-import br.com.lojaveiculo.abstractview.TelaBaseView;
-
-
 /**
  *
  * @author Matheus
  */
 public abstract class BaseController {
 
-    private TelaBaseView telaBase;
     public abstract void inicializarBotoes();
     public abstract void exibirTela();
     
     
-    public void apresentarMensagem(String mensagem, String titulo){
-        telaBase.apresentaMensagem(mensagem, titulo);
-    }
+    public abstract void apresentarMensagem(String mensagem, String titulo);
     
     public abstract void fecharTela();
     

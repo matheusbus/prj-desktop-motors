@@ -1,7 +1,6 @@
 package br.com.lojaveiculo.instancia;
 
 import br.com.lojaveiculo.dao.VendaDAO;
-import br.com.lojaveiculo.model.Veiculo;
 import br.com.lojaveiculo.model.Venda;
 import java.util.Collections;
 import java.util.Comparator;

@@ -132,4 +132,9 @@ public final class PrincipalController extends BaseController {
     public void fecharTela() {
     }
 
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        principalView.apresentaMensagem(mensagem, titulo);
+    }
+
 }

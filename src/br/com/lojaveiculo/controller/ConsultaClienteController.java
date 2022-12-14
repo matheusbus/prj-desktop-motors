@@ -136,5 +136,10 @@ public final class ConsultaClienteController extends BaseConsultaController{
     public void setBotaoSelecionar(boolean bool){
         consultaClienteView.setBotaoSelecionar(bool);
     }
+
+    @Override
+    public void apresentarMensagem(String mensagem, String titulo) {
+        consultaClienteView.apresentaMensagem(mensagem, titulo);
+    }
     
 }
